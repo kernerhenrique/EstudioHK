@@ -589,6 +589,7 @@ footer p { max-width: 40em; }
               <div class="sum-now"><span id="sumLabel"></span><b id="sumNow"></b></div>
               <div class="save" id="sumSave"></div>
               <a class="btn" id="comboBtn" target="_blank" rel="noopener"></a>
+              <a class="combo-sug" id="comboAlt" href="#singles" hidden>Prefiro comprar as skills separadas</a>
             </div>
           </div>
         </div>
@@ -813,6 +814,7 @@ footer p { max-width: 40em; }
     builder.classList.toggle("all", ids.length === total);
     $("selAll").textContent = ids.length === total ? "Limpar seleção" : "Selecionar todas";
     var oldSave = save.textContent;
+    $("comboAlt").hidden = true;
 
     if (ids.length === 0) {
       $("builderHint").textContent = "Marque as skills que você quer levar.";
@@ -837,6 +839,7 @@ footer p { max-width: 40em; }
       var extraB = bump && all.filter(function (a) { return a.id === bump.leva; })[0];
       if (principal && extraB) {
         var totalB = principal.preco + bump.preco;
+        $("sumLabel").textContent = "2 skills";
         setNow(totalB, instant);
         save.textContent = "Você economiza " + money(soma - totalB);
         $("builderHint").textContent = "Compre " + principal.nome + " e, no pagamento, marque " + extraB.nome + " por + " + money(bump.preco) + ".";
@@ -849,12 +852,25 @@ footer p { max-width: 40em; }
       var best = null;
       Object.keys(L.combos).forEach(function (k) {
         var kIds = k.split("+");
-        if (ids.every(function (id) { return kIds.indexOf(id) > -1; }) && (!best || L.combos[k].preco < best.preco)) best = { ids: kIds, preco: L.combos[k].preco, url: L.combos[k].checkoutUrl };
+        if (ids.every(function (id) { return kIds.indexOf(id) > -1; }) && (!best || L.combos[k].preco < best.preco)) best = { ids: kIds, preco: L.combos[k].preco, url: L.combos[k].checkoutUrl, nome: L.combos[k].nome };
       });
+      var tol = typeof L.toleranciaKit === "number" ? L.toleranciaKit : 0;
+      if (best && best.preco > soma && best.preco - soma <= tol) {
+        // O kit custa um pouco mais que comprar separado, mas inclui outra skill e sai numa compra só.
+        var extraK = all.filter(function (a) { return best.ids.indexOf(a.id) > -1 && ids.indexOf(a.id) < 0; }).map(function (a) { return a.nome; });
+        var nomeK = best.nome || ("combo de " + best.ids.length + " skills");
+        $("sumLabel").textContent = nomeK;
+        $("sumWas").textContent = "";
+        setNow(best.preco, instant); save.textContent = "";
+        $("builderHint").textContent = "Separadas, sairiam " + money(soma) + " em duas compras. Por mais " + money(best.preco - soma) + ", o " + nomeK + " inclui também " + extraK.join(" e ") + ".";
+        btn.textContent = "Levar o " + nomeK; btn.href = best.url; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+        $("comboAlt").hidden = false;
+        return;
+      }
       if (best && best.preco <= soma) {
         var extra = all.filter(function (a) { return best.ids.indexOf(a.id) > -1 && ids.indexOf(a.id) < 0; }).map(function (a) { return a.nome; });
         var bestSoma = all.filter(function (a) { return best.ids.indexOf(a.id) > -1; }).reduce(function (t, a) { return t + a.preco; }, 0);
-        $("sumLabel").textContent = best.ids.length === total ? "Combo completo" : "Combo de " + best.ids.length + " skills";
+        $("sumLabel").textContent = best.nome || (best.ids.length === total ? "Combo completo" : "Combo de " + best.ids.length + " skills");
         $("sumWas").textContent = money(bestSoma);
         setNow(best.preco, instant);
         save.textContent = "Você economiza " + money(bestSoma - best.preco);
@@ -866,6 +882,7 @@ footer p { max-width: 40em; }
       $("builderHint").textContent = "Essa combinação não tem combo. Compre as skills separadas logo abaixo.";
       btn.textContent = "Ver avulsas"; btn.href = "#singles"; btn.removeAttribute("target"); btn.removeAttribute("aria-disabled"); return;
     }
+    if (c.nome) $("sumLabel").textContent = c.nome;
     setNow(c.preco, instant);
     save.textContent = "Você economiza " + money(soma - c.preco);
     if (!instant && save.textContent !== oldSave) { save.classList.remove("pop"); void save.offsetWidth; save.classList.add("pop"); }

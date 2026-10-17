@@ -149,10 +149,13 @@ window.PAGE_CONFIG = {
       { id: "adulto", nome: "Anamnese adulto", preco: 37, texto: "Roteiro da entrevista inicial, com avaliação de risco, e registro organizado.", checkoutUrl: "https://pay.kiwify.com.br/LINK-ANAMNESE-ADULTO" },
     ],
     combos: {
-      "documentos+evolucao+infantil":         { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-INFANTIL" },
-      "documentos+evolucao+adulto":           { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-ADULTO" },
-      "documentos+evolucao+infantil+adulto":  { preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMPLETO" },
+      "documentos+evolucao+infantil":         { nome: "Kit Infantil", preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-INFANTIL" },
+      "documentos+evolucao+adulto":           { nome: "Kit Adulto", preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-ADULTO" },
+      "documentos+evolucao+infantil+adulto":  { nome: "Completo", preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMPLETO" },
     },
+    // Se a combinação marcada não existir, a página sugere o kit que a contém
+    // mesmo que custe até este valor (R$) a mais que comprar separado.
+    toleranciaKit: 10,
     // Order bumps configurados na Kiwify: comprando "de", o checkout oferece "leva" por "preco".
     // Quando a pessoa marca exatamente essas duas skills, a página indica esse caminho.
     bumps: [
