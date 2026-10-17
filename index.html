@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EstudioHK | Skills para o Claude, automações n8n e landing pages</title>
+<meta name="description" content="Skills prontas para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez. Pagamento único pela Kiwify, acesso na hora. Projetos sob medida.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://estudiohk.com.br/">
+<meta property="og:url" content="https://estudiohk.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EstudioHK">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="EstudioHK: ferramentas digitais prontas para cada profissão">
+<meta property="og:description" content="Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.">
+<meta property="og:image" content="https://estudiohk.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="EstudioHK: skills de Claude, automações e landing pages">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EstudioHK: ferramentas digitais prontas para cada profissão">
+<meta name="twitter:description" content="Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.">
+<meta name="theme-color" content="#F3F5FE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161826" media="(prefers-color-scheme: dark)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://estudiohk.com.br/#org",
+      "name": "EstudioHK",
+      "url": "https://estudiohk.com.br/",
+      "logo": "https://estudiohk.com.br/apple-touch-icon.png",
+      "email": "contato@estudiohk.com.br",
+      "description": "Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.",
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "contato@estudiohk.com.br", "availableLanguage": "Portuguese" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://estudiohk.com.br/#site",
+      "name": "EstudioHK",
+      "url": "https://estudiohk.com.br/",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://estudiohk.com.br/#org" }
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Identidade EstudioHK: mesmos tokens das páginas de produto. */
+:root {
+  --accent: #796CBF; --aurora: #262A60; --accent-ink: #5D5294;
+  --cta: #262A60; --cta-hover: #1C1F4A; --on-cta: #FFFFFF;
+  --bg: #F3F5FE; --surface: #E4E7F5; --paper: #FFFFFF;
+  --ink: #161826; --muted: #595D6C; --line: #D6D9EA; --mark: #DCD6F7;
+  --shadow: 0 1px 2px rgba(22,24,38,.06), 0 18px 40px -20px rgba(22,24,38,.25);
+  --orb-opacity: .28; --r-btn: 10px; --r-lg: 16px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: #9184D9; --aurora: #9184D9; --accent-ink: #9184D9;
+    --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
+    --bg: #161826; --surface: #1D2032; --paper: #22253A;
+    --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F; --mark: rgba(145,132,217,.3);
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
+    --orb-opacity: .24; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --accent: #9184D9; --aurora: #9184D9; --accent-ink: #9184D9;
+  --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
+  --bg: #161826; --surface: #1D2032; --paper: #22253A;
+  --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F; --mark: rgba(145,132,217,.3);
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
+  --orb-opacity: .24; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.025em; font-weight: 500; }
+p { margin: 0; }
+a { color: inherit; }
+b, strong { font-weight: 500; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; font: 500 1rem/1 inherit; font-family: inherit; text-decoration: none; padding: 1.05rem 1.7rem; border-radius: var(--r-btn); border: 0; cursor: pointer; background: var(--cta); color: var(--on-cta); transition: transform .18s ease, background .18s ease; }
+.btn:hover { transform: translateY(-1px); background: var(--cta-hover); }
+.btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+
+/* topo */
+.nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+.brand { display: flex; align-items: center; gap: .55rem; font-size: 1.1rem; letter-spacing: -0.01em; text-decoration: none; }
+.brand svg { width: 1.5rem; height: 1.5rem; color: var(--ink); flex: none; }
+.brand b { font-weight: 600; }
+.nav-links { display: flex; gap: 1.6rem; font-size: .95rem; color: var(--muted); }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--ink); }
+
+/* hero */
+.hero { position: relative; overflow-x: clip; }
+.hero .wrap { position: relative; padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem); display: grid; justify-items: center; text-align: center; }
+.orb-wrap { position: absolute; z-index: 0; left: 50%; top: 42%; width: min(820px, 130%); aspect-ratio: 1.6; transform: translate(-50%, -50%); opacity: var(--orb-opacity); pointer-events: none; }
+.orb { position: absolute; inset: 0; border-radius: 50%; filter: blur(70px); background: conic-gradient(from 0deg, var(--accent), var(--aurora), transparent 55%, var(--accent) 75%, var(--aurora)); animation: spin 18s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.hero > .wrap > * { position: relative; z-index: 1; }
+
+/* símbolo animado: as quatro formas se encaixam */
+.mark { width: clamp(64px, 9vw, 92px); height: auto; color: var(--ink); margin-bottom: 1.8rem; overflow: visible; transform: perspective(420px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s cubic-bezier(.2,.7,.2,1); cursor: pointer; }
+/* as quatro formas se afastam um pouco ao passar o mouse ou tocar (usa "translate" para não brigar com a animação de entrada) */
+.mark .p { transition: translate .45s cubic-bezier(.2,.75,.2,1); }
+.mark:hover .p1, .mark.open .p1 { translate: -5px -5px; }
+.mark:hover .p2, .mark.open .p2 { translate: 5px -5px; }
+.mark:hover .p3, .mark.open .p3 { translate: -5px 5px; }
+.mark:hover .p4, .mark.open .p4 { translate: 5px 5px; }
+.orb-wrap { translate: var(--ox, 0px) var(--oy, 0px); will-change: translate; }
+/* filtro de nichos (aparece sozinho quando houver 2 ou mais nichos) */
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 0 auto clamp(1.5rem, 3vw, 2.2rem); }
+.filter { font: 500 .92rem/1 inherit; font-family: inherit; padding: .65rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); color: var(--muted); cursor: pointer; transition: border-color .2s, background .2s, color .2s, transform .15s; }
+.filter:hover { border-color: var(--accent); color: var(--ink); }
+.filter:active { transform: scale(.96); }
+.filter[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--paper)); color: var(--accent-ink); }
+.product.enter { animation: cardIn .45s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes cardIn { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+/* brilho que acompanha o cursor nos cartões */
+.glow { isolation: isolate; }
+.glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%); }
+.glow:hover::after { opacity: 1; }
+@media (hover: none) { .glow::after { display: none; } }
+.mark .p { animation: piece .9s cubic-bezier(.2,.75,.2,1) both; transform-box: fill-box; transform-origin: center; }
+.mark .p1 { animation-delay: .05s; --dx: -18px; --dy: -18px; }
+.mark .p2 { animation-delay: .18s; --dx: 18px; --dy: -18px; }
+.mark .p3 { animation-delay: .31s; --dx: -18px; --dy: 18px; }
+.mark .p4 { animation-delay: .44s; --dx: 18px; --dy: 18px; }
+@keyframes piece { from { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.6); } }
+.mark .dot { animation: piece .9s cubic-bezier(.2,.75,.2,1) .18s both, bob 4s ease-in-out 1.2s infinite; }
+@keyframes bob { 50% { transform: translateY(-4px); } }
+
+.eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 1.1rem; }
+.hero h1 { font-size: clamp(2.3rem, 5.6vw, 4.5rem); line-height: 1.04; letter-spacing: -0.03em; max-width: 16ch; }
+.hero-sub { margin-top: 1.4rem; font-size: 1.14rem; color: var(--muted); max-width: 36em; }
+.hero-actions { margin-top: 2.1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; }
+
+/* seções */
+section.block { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.head { text-align: center; max-width: 40em; margin: 0 auto clamp(2rem, 4vw, 3rem); }
+.head h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; }
+.head p { margin-top: .8rem; color: var(--muted); }
+
+/* produtos */
+.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 1.2rem; }
+.product { position: relative; display: grid; grid-template-rows: auto auto 1fr auto; gap: .9rem; padding: 1.7rem; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s; }
+a.product:hover { transform: translateY(-3px); border-color: var(--accent); }
+.product .niche { justify-self: start; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); background: var(--mark); padding: .3rem .6rem; border-radius: 999px; }
+.product h3 { font-size: 1.5rem; }
+.product p { color: var(--muted); font-size: .98rem; }
+.product .foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95rem; }
+.product .price { color: var(--muted); }
+.product .price b { color: var(--ink); }
+.product .go { display: inline-flex; align-items: center; gap: .35rem; font-weight: 500; color: var(--accent-ink); }
+.product .go svg { transition: transform .2s; }
+a.product:hover .go svg { transform: translateX(3px); }
+.product.soon { background: transparent; box-shadow: none; border-style: dashed; }
+.product.soon .niche { background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); }
+
+/* como funciona */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.2rem; counter-reset: s; }
+.steps li { counter-increment: s; padding: 1.5rem; border-radius: var(--r-lg); background: var(--surface); }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--paper); color: var(--accent-ink); font-weight: 600; font-size: .9rem; margin-bottom: 1rem; box-shadow: inset 0 0 0 1.5px var(--accent); }
+.steps h3 { font-size: 1.12rem; letter-spacing: -0.01em; }
+/* linha que liga os passos quando eles aparecem (só com 3 colunas) */
+@media (min-width: 860px) {
+  .steps li { position: relative; }
+  .steps li:not(:last-child)::after { content: ""; position: absolute; top: calc(1.5rem + 1rem - 1px); left: calc(1.5rem + 2.6rem); right: calc(-1.2rem + .6rem); height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 15%, transparent)); transform-origin: 0 50%; transform: scaleX(0); transition: transform .9s cubic-bezier(.2,.7,.2,1) .35s; }
+  .steps li.in:not(:last-child)::after { transform: scaleX(1); }
+}
+.steps p { margin-top: .4rem; color: var(--muted); font-size: .97rem; }
+
+/* sob medida */
+.custom { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(1.8rem, 4vw, 3rem); border-radius: 22px; background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+.custom::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; background: conic-gradient(from 210deg, var(--accent), var(--aurora), transparent 40%, transparent 70%, var(--accent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.custom h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.1; }
+.custom p { margin-top: .8rem; color: var(--muted); }
+.custom ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
+.custom li { display: flex; gap: .7rem; align-items: flex-start; }
+.custom li svg { flex: none; margin-top: .2rem; color: var(--accent); }
+.custom .btn { margin-top: 1.5rem; }
+.custom .btn svg { flex: none; }
+
+/* rodapé */
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 2.5rem 3rem; display: grid; gap: 1rem; justify-items: center; text-align: center; font-size: .88rem; color: var(--muted); }
+footer .brand { color: var(--ink); }
+
+/* entrada ao rolar */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 760px) {
+  .nav-links { display: none; }
+  .custom { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="EstudioHK, início">
+      <svg viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg>
+      <span>Estudio<b>HK</b></span>
+    </a>
+    <nav class="nav-links" aria-label="Seções">
+      <a href="#produtos">Produtos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#sob-medida" id="navCustom">Sob medida</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="orb-wrap" aria-hidden="true"><div class="orb"></div></div>
+    <div class="wrap">
+      <svg class="mark" id="mark" viewBox="0 0 90 90" aria-hidden="true">
+        <rect class="p p1" x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/>
+        <circle class="p p2 dot" cx="70" cy="20" r="20" fill="var(--accent)"/>
+        <rect class="p p3" x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/>
+        <rect class="p p4" x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/>
+      </svg>
+      <p class="eyebrow" id="eyebrow">EstudioHK</p>
+      <h1 id="h1">Ferramentas digitais prontas para a sua profissão</h1>
+      <p class="hero-sub" id="sub">Skills para o Claude, automações e páginas, feitas para uma profissão de cada vez. Você compra, recebe na hora e começa a usar no mesmo dia.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#produtos">Ver produtos</a>
+        <a class="btn btn-ghost" href="#sob-medida" id="heroCustom">Projetos sob medida</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="produtos">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>Produtos</h2>
+        <p>Cada produto é feito para uma profissão, com as regras e a rotina dela.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por profissão" hidden></div>
+      <div class="products" id="products">
+        <a class="product" href="psicologia/"><span class="niche">Psicologia</span><h3>Documento Certo</h3><p>Skills para o Claude que transformam suas anotações em documentos, evoluções de prontuário e anamneses no padrão do CFP.</p><div class="foot"><span class="price">A partir de <b>R$ 37</b></span><span class="go">Conhecer</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="como-funciona" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <h2>Como funciona</h2>
+        <p>Pagamento único, sem mensalidade.</p>
+      </div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="block" id="sob-medida" style="padding-top:0">
+    <div class="wrap">
+      <div class="custom reveal">
+        <div>
+          <h2 id="customTitle"></h2>
+          <p id="customText"></p>
+          <a class="btn" id="customBtn"></a>
+        </div>
+        <ul id="customList"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg>
+      <span>Estudio<b>HK</b></span>
+    </a>
+    <p id="seller"></p>
+    <p>© <span id="year"></span> EstudioHK. Pagamentos processados pela Kiwify.</p>
+  </div>
+</footer>
+
+<script>
+/* =========================================================
+   CONTEÚDO DA PÁGINA DA MARCA. Edite só este bloco.
+   Para lançar um nicho novo: copie a pasta /psicologia/ para
+   /nome-do-nicho/ e adicione um item em "produtos".
+   O campo "nicho" também vira botão do filtro; o filtro só aparece
+   quando houver 2 ou mais nichos diferentes.
+   ========================================================= */
+var HK = {
+  hero: {
+    eyebrow: "EstudioHK",
+    titulo: "Ferramentas digitais prontas para a sua profissão",
+    subtitulo: "Skills para o Claude, automações e páginas, feitas para uma profissão de cada vez. Você compra, recebe na hora e começa a usar no mesmo dia."
+  },
+  produtos: [
+    {
+      nicho: "Psicologia",
+      nome: "Documento Certo",
+      texto: "Skills para o Claude que transformam suas anotações em documentos, evoluções de prontuário e anamneses no padrão do CFP.",
+      detalhe: "A partir de <b>R$ 37</b>",
+      link: "psicologia/"
+    },
+    {
+      emBreve: true,
+      nicho: "Em breve",
+      nome: "Novos nichos",
+      texto: "Automações com n8n e páginas prontas para outras profissões estão em preparação."
+    }
+  ],
+  passos: [
+    { titulo: "Escolha o produto", texto: "Cada página mostra o que vem no produto, com exemplo de uso e preço." },
+    { titulo: "Pague pela Kiwify", texto: "Pix ou cartão. O acesso chega na hora, no seu e-mail." },
+    { titulo: "Instale e use", texto: "Siga o guia passo a passo. Garantia de 7 dias em todos os produtos." }
+  ],
+  // Para esconder a seção de serviços, troque para: sobMedida: null,
+  sobMedida: {
+    titulo: "Precisa de algo sob medida?",
+    texto: "Também fazemos projetos para o seu negócio. Tudo começa com uma conversa para entender o que você precisa.",
+    itens: [
+      "Automações com n8n integrando as ferramentas que você já usa",
+      "Sites e páginas de venda feitos com IA",
+      "Conversa de diagnóstico antes de qualquer orçamento"
+    ],
+    botao: "Conversar no WhatsApp",
+    assunto: "Projeto sob medida",
+    // Número com DDI 55 + DDD, só dígitos. Vazio: o botão abre o e-mail.
+    whatsapp: "5527996950409",
+    mensagemWhatsapp: "Olá! Vim pelo site da EstudioHK e quero conversar sobre um projeto sob medida."
+  },
+  vendedor: { nome: "Henrique Kerner", documento: "", endereco: "", email: "contato@estudiohk.com.br" }
+};
+</script>
+<script>
+(function () {
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var CHAT = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>';
+  var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+
+  $("eyebrow").textContent = HK.hero.eyebrow;
+  $("h1").textContent = HK.hero.titulo;
+  $("sub").textContent = HK.hero.subtitulo;
+
+  // detalhe aceita <b> para destacar o preço
+  function slug(s) { return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
+  $("products").innerHTML = HK.produtos.map(function (p) {
+    if (p.emBreve) {
+      return '<div class="product soon reveal" data-soon="1"><span class="niche">' + esc(p.nicho) + "</span><h3>" + esc(p.nome) + "</h3><p>" + esc(p.texto) + "</p></div>";
+    }
+    return '<a class="product glow reveal" data-nicho="' + slug(p.nicho) + '" href="' + esc(p.link) + '"><span class="niche">' + esc(p.nicho) + "</span><h3>" + esc(p.nome) + "</h3><p>" + esc(p.texto) +
+      '</p><div class="foot"><span class="price">' + String(p.detalhe || "").replace(/<(?!\/?b>)/g, "&lt;") + '</span><span class="go">Conhecer ' + ARROW + "</span></div></a>";
+  }).join("");
+
+  // Filtro de nichos: um botão por "nicho" dos produtos (sem contar os "em breve").
+  // Com um nicho só, o filtro fica escondido.
+  var nichos = [];
+  HK.produtos.forEach(function (p) { if (!p.emBreve && p.nicho && nichos.indexOf(p.nicho) < 0) nichos.push(p.nicho); });
+  if (nichos.length > 1) {
+    var fl = $("filters"), cards = $("products").children;
+    fl.hidden = false;
+    fl.innerHTML = '<button type="button" class="filter" data-f="" aria-pressed="true">Todos</button>' +
+      nichos.map(function (n) { return '<button type="button" class="filter" data-f="' + slug(n) + '" aria-pressed="false">' + esc(n) + "</button>"; }).join("");
+    var aplicar = function (f, push) {
+      if (f && !fl.querySelector('[data-f="' + f + '"]')) f = "";
+      fl.querySelectorAll(".filter").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f") === f)); });
+      Array.prototype.forEach.call(cards, function (c) {
+        var show = !f ? true : c.getAttribute("data-nicho") === f;
+        var was = !c.hidden;
+        c.hidden = !show;
+        if (show && !was) { c.classList.add("in"); c.classList.remove("enter"); void c.offsetWidth; c.classList.add("enter"); }
+      });
+      if (push) history.replaceState(null, "", f ? "#nicho-" + f : location.pathname + location.search);
+    };
+    fl.addEventListener("click", function (e) { var b = e.target.closest(".filter"); if (b) aplicar(b.getAttribute("data-f"), true); });
+    var h = location.hash.match(/^#nicho-(.+)$/);
+    if (h) aplicar(h[1], false);
+  }
+
+  $("steps").innerHTML = HK.passos.map(function (s) {
+    return '<li class="reveal"><h3>' + esc(s.titulo) + "</h3><p>" + esc(s.texto) + "</p></li>";
+  }).join("");
+
+  var c = HK.sobMedida, v = HK.vendedor || {};
+  if (c) {
+    $("customTitle").textContent = c.titulo;
+    $("customText").textContent = c.texto;
+    $("customList").innerHTML = c.itens.map(function (i) { return "<li>" + CHECK + "<span>" + esc(i) + "</span></li>"; }).join("");
+    var wa = String(c.whatsapp || "").replace(/\D/g, "");
+    if (wa) {
+      $("customBtn").innerHTML = CHAT + "<span>" + esc(c.botao) + "</span>";
+      $("customBtn").href = "https://wa.me/" + wa + "?text=" + encodeURIComponent(c.mensagemWhatsapp || "");
+      $("customBtn").target = "_blank"; $("customBtn").rel = "noopener";
+    } else {
+      $("customBtn").textContent = "Falar com a gente";
+      $("customBtn").href = "mailto:" + v.email + "?subject=" + encodeURIComponent(c.assunto || "");
+    }
+  } else {
+    $("sob-medida").hidden = true; $("navCustom").hidden = true; $("heroCustom").hidden = true;
+  }
+
+  $("seller").textContent = [v.nome, v.documento, v.endereco, v.email].filter(Boolean).join(" — ");
+  $("year").textContent = new Date().getFullYear();
+
+  // Aberto do computador, "psicologia/" abriria a pasta: aponta direto para o arquivo.
+  if (location.protocol === "file:") {
+    document.querySelectorAll('a[href$="/"]').forEach(function (a) {
+      var h = a.getAttribute("href"); if (!/^[a-z]+:/i.test(h) && h.charAt(0) !== "/") a.setAttribute("href", h + "index.html");
+    });
+  }
+
+  // Símbolo e orbe acompanham o cursor (só com mouse e sem "reduzir movimento").
+  var mark = $("mark"), orb = document.querySelector(".orb-wrap");
+  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!calm && matchMedia("(hover: hover)").matches) {
+    var hero = document.querySelector(".hero"), q = false, px = 0, py = 0;
+    // O brilho atrás do símbolo vai até o cursor com suavização e volta ao centro quando o mouse sai.
+    var tx = 0, ty = 0, ox = 0, oy = 0, loop = false;
+    function seguir() {
+      ox += (tx - ox) * 0.08; oy += (ty - oy) * 0.08;
+      orb.style.setProperty("--ox", ox.toFixed(1) + "px");
+      orb.style.setProperty("--oy", oy.toFixed(1) + "px");
+      if (Math.abs(tx - ox) > 0.5 || Math.abs(ty - oy) > 0.5) requestAnimationFrame(seguir); else loop = false;
+    }
+    function animar() { if (!loop) { loop = true; requestAnimationFrame(seguir); } }
+    hero.addEventListener("pointermove", function (e) {
+      var r = hero.getBoundingClientRect();
+      px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5;
+      // centro de repouso do brilho: 50% da largura e 42% da altura do topo (igual ao CSS)
+      tx = (e.clientX - r.left - r.width * .5) * .85;
+      ty = (e.clientY - r.top - r.height * .42) * .85;
+      animar();
+      if (q) return; q = true;
+      requestAnimationFrame(function () {
+        q = false;
+        mark.style.setProperty("--ry", (px * 28).toFixed(1) + "deg");
+        mark.style.setProperty("--rx", (-py * 28).toFixed(1) + "deg");
+      });
+    });
+    hero.addEventListener("pointerleave", function () {
+      mark.style.removeProperty("--rx"); mark.style.removeProperty("--ry");
+      tx = 0; ty = 0; animar();
+    });
+    document.addEventListener("pointermove", function (e) {
+      var el = e.target.closest && e.target.closest(".glow"); if (!el) return;
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      el.style.setProperty("--my", (e.clientY - r.top) + "px");
+    }, { passive: true });
+  }
+  // No celular, um toque no símbolo abre e fecha as formas.
+  mark.addEventListener("click", function () { mark.classList.toggle("open"); });
+
+  var nav = $("nav");
+  addEventListener("scroll", function () { nav.classList.toggle("scrolled", scrollY > 8); }, { passive: true });
+
+  var els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (en) {
+      en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach(function (el, i) { el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el); });
+  } else { els.forEach(function (el) { el.classList.add("in"); }); }
+})();
+</script>
+</body>
+</html>
