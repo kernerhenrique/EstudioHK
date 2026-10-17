@@ -132,7 +132,8 @@ window.PAGE_CONFIG = {
   ],
 
   // Loja: skills avulsas + "monte seu combo".
-  // Cada combinação precisa existir na Kiwify com o próprio link.
+  // Só as combinações abaixo existem na Kiwify (Kit Infantil, Kit Adulto, Completo).
+  // Se a pessoa marcar outra combinação, a página sugere o kit mais barato que contém a seleção.
   // A chave do combo são os ids das avulsas, na ordem da lista, unidos por "+".
   loja: {
     titulo: "Escolha suas skills",
@@ -148,18 +149,17 @@ window.PAGE_CONFIG = {
       { id: "adulto", nome: "Anamnese adulto", preco: 37, texto: "Roteiro da entrevista inicial, com avaliação de risco, e registro organizado.", checkoutUrl: "https://pay.kiwify.com.br/LINK-ANAMNESE-ADULTO" },
     ],
     combos: {
-      "documentos+evolucao":                  { preco: 67,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-EVO" },
-      "documentos+infantil":                  { preco: 67,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-INF" },
-      "documentos+adulto":                    { preco: 67,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-ADU" },
-      "evolucao+infantil":                    { preco: 57,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-EVO-INF" },
-      "evolucao+adulto":                      { preco: 57,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-EVO-ADU" },
-      "infantil+adulto":                      { preco: 57,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-INF-ADU" },
-      "documentos+evolucao+infantil":         { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-EVO-INF" },
-      "documentos+evolucao+adulto":           { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-EVO-ADU" },
-      "documentos+infantil+adulto":           { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-DOC-INF-ADU" },
-      "evolucao+infantil+adulto":             { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-EVO-INF-ADU" },
-      "documentos+evolucao+infantil+adulto":  { preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMBO-COMPLETO" },
+      "documentos+evolucao+infantil":         { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-INFANTIL" },
+      "documentos+evolucao+adulto":           { preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-ADULTO" },
+      "documentos+evolucao+infantil+adulto":  { preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMPLETO" },
     },
+    // Order bumps configurados na Kiwify: comprando "de", o checkout oferece "leva" por "preco".
+    // Quando a pessoa marca exatamente essas duas skills, a página indica esse caminho.
+    bumps: [
+      { de: "documentos", leva: "evolucao", preco: 20 },
+      { de: "infantil", leva: "adulto", preco: 20 },
+      { de: "adulto", leva: "infantil", preco: 20 },
+    ],
     // Skills que já aparecem marcadas no "monte seu combo" (apague para marcar todas)
     selecaoInicial: ["documentos", "evolucao", "infantil", "adulto"],
   },

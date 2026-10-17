@@ -48,7 +48,7 @@
         "priceCurrency": "BRL",
         "lowPrice": "37",
         "highPrice": "107",
-        "offerCount": "15",
+        "offerCount": "7",
         "availability": "https://schema.org/PreOrder",
         "url": "https://estudiohk.com.br/psicologia/#oferta"
       }
@@ -830,6 +830,20 @@ footer p { max-width: 40em; }
     var c = L.combos[ids.join("+")];
     $("sumLabel").textContent = ids.length === total ? "Combo completo" : "Combo de " + ids.length + " skills";
     $("sumWas").textContent = money(soma);
+    if (!c && ids.length === 2) {
+      // Par que existe como order bump: compra a primeira e adiciona a segunda no checkout.
+      var bump = (L.bumps || []).filter(function (x) { return ids.indexOf(x.de) > -1 && ids.indexOf(x.leva) > -1; })[0];
+      var principal = bump && all.filter(function (a) { return a.id === bump.de; })[0];
+      var extraB = bump && all.filter(function (a) { return a.id === bump.leva; })[0];
+      if (principal && extraB) {
+        var totalB = principal.preco + bump.preco;
+        setNow(totalB, instant);
+        save.textContent = "Você economiza " + money(soma - totalB);
+        $("builderHint").textContent = "Compre " + principal.nome + " e, no pagamento, marque " + extraB.nome + " por + " + money(bump.preco) + ".";
+        btn.textContent = (L.ctaAvulsa || "Comprar") + " " + principal.nome; btn.href = principal.checkoutUrl; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+        return;
+      }
+    }
     if (!c) {
       // Sem combo para essa combinação: oferece o combo mais barato que inclui tudo o que foi marcado.
       var best = null;
