@@ -161,6 +161,7 @@ a { color: inherit; }
 b, strong { font-weight: 500; }
 .wordmark b, .made-by b { font-weight: 600; }
 .made-line { text-wrap: balance; }
+.legal a { color: inherit; text-underline-offset: 3px; }
 .made-by { display: inline-flex; align-items: center; gap: .35rem; white-space: nowrap; vertical-align: bottom; }
 .made-by svg { width: 1rem; height: 1rem; color: var(--ink); }
 .nav .btn { padding: .7rem 1.15rem; font-size: .92rem; }
@@ -635,6 +636,7 @@ footer p { max-width: 40em; }
   <div class="wrap">
     <p data-bind="rodape"></p>
     <p id="seller"></p>
+    <p class="legal"><a href="../termos/">Termos de uso</a> · <a href="../privacidade/">Política de privacidade</a></p>
     <p class="made-line">&copy; <span id="year"></span> <span data-bind="marca"></span>, um produto <a class="made-by" id="hkLink" href="/" style="text-decoration:none"><svg  viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg><span>Estudio<b>HK</b></span></a></p>
   </div>
 </footer>
@@ -985,7 +987,10 @@ footer p { max-width: 40em; }
 
   $("year").textContent = new Date().getFullYear();
   // Link para a página da marca; aberto do computador, aponta para o arquivo.
-  if (location.protocol === "file:") $("hkLink").href = "../index.html";
+  if (location.protocol === "file:") {
+    $("hkLink").href = "../index.html";
+    document.querySelectorAll(".legal a").forEach(function (a) { a.setAttribute("href", a.getAttribute("href") + "index.html"); });
+  }
   render();
 
   /* ---------- prévia: links de compra ainda não configurados ---------- */

@@ -190,8 +190,8 @@ window.PAGE_CONFIG = {
   // Campos vazios não aparecem na página.
   vendedor: {
     nome: "Henrique Kerner",
-    documento: "",
-    endereco: "",
+    documento: "CPF 177.695.957-46",
+    endereco: "Vitória/ES",
     email: "contato@estudiohk.com.br",
   },
 };
