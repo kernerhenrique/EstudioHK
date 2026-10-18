@@ -132,8 +132,8 @@ window.PAGE_CONFIG = {
   ],
 
   // Loja: skills avulsas + "monte seu combo".
-  // Só as combinações abaixo existem na Kiwify (Kit Infantil, Kit Adulto, Completo).
-  // Se a pessoa marcar outra combinação, a página sugere o kit mais barato que contém a seleção.
+  // Todas as combinações existem na Kiwify, cada uma com o próprio link.
+  // Se algum dia apagar um combo daqui, a página sugere o kit mais barato que contém a seleção.
   // A chave do combo são os ids das avulsas, na ordem da lista, unidos por "+".
   loja: {
     titulo: "Escolha suas skills",
@@ -149,20 +149,21 @@ window.PAGE_CONFIG = {
       { id: "adulto", nome: "Anamnese adulto", preco: 37, texto: "Roteiro da entrevista inicial, com avaliação de risco, e registro organizado.", checkoutUrl: "https://pay.kiwify.com.br/LINK-ANAMNESE-ADULTO" },
     ],
     combos: {
-      "documentos+evolucao+infantil":         { nome: "Kit Infantil", preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-INFANTIL" },
-      "documentos+evolucao+adulto":           { nome: "Kit Adulto", preco: 77,  checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-ADULTO" },
-      "documentos+evolucao+infantil+adulto":  { nome: "Completo", preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMPLETO" },
+      "documentos+evolucao":                   { nome: "Documentos + Evolução", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-DOCUMENTOS-EVOLUCAO" },
+      "documentos+infantil":                   { nome: "Documentos + Anamnese infantil", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-DOCUMENTOS-INFANTIL" },
+      "documentos+adulto":                     { nome: "Documentos + Anamnese adulto", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-DOCUMENTOS-ADULTO" },
+      "evolucao+infantil":                     { nome: "Evolução + Anamnese infantil", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-EVOLUCAO-INFANTIL" },
+      "evolucao+adulto":                       { nome: "Evolução + Anamnese adulto", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-EVOLUCAO-ADULTO" },
+      "infantil+adulto":                       { nome: "Anamneses infantil + adulto", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-ANAMNESES-INFANTIL-ADULTO" },
+      "documentos+evolucao+infantil":          { nome: "Kit Infantil", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-INFANTIL" },
+      "documentos+evolucao+adulto":            { nome: "Kit Adulto", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-KIT-ADULTO" },
+      "documentos+infantil+adulto":            { nome: "Documentos + Anamneses", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-DOCUMENTOS-ANAMNESES" },
+      "evolucao+infantil+adulto":              { nome: "Evolução + Anamneses", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-EVOLUCAO-ANAMNESES" },
+      "documentos+evolucao+infantil+adulto":   { nome: "Completo", preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-COMPLETO" },
     },
     // Se a combinação marcada não existir, a página sugere o kit que a contém
     // mesmo que custe até este valor (R$) a mais que comprar separado.
     toleranciaKit: 10,
-    // Order bumps configurados na Kiwify: comprando "de", o checkout oferece "leva" por "preco".
-    // Quando a pessoa marca exatamente essas duas skills, a página indica esse caminho.
-    bumps: [
-      { de: "documentos", leva: "evolucao", preco: 20 },
-      { de: "infantil", leva: "adulto", preco: 20 },
-      { de: "adulto", leva: "infantil", preco: 20 },
-    ],
     // Skills que já aparecem marcadas no "monte seu combo" (apague para marcar todas)
     selecaoInicial: ["documentos", "evolucao", "infantil", "adulto"],
   },
