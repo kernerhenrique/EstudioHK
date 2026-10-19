@@ -30,14 +30,14 @@ window.PAGE_CONFIG = {
   demo: {
     rotuloEntrada: "Suas anotações",
     entrada:
-      "J.P.M., 7 anos, 2º ano. Mãe pediu, a escola quer entender como ajudar. Atendo desde abril, 22 sessões semanais de 50 min, mais 3 encontros com a mãe e 1 com o pai. TCC infantil, recursos lúdicos. Chegou por explosões de raiva, bateu num colega em março. Hoje perde jogo sem explodir na maioria das vezes. Mãe diz que caiu de quase todo dia para 1 a 2 vezes por semana. Validade 6 meses.",
+      "Criança A, 7 anos, 2º ano. Mãe pediu, a escola quer entender como ajudar. Atendo desde abril, 22 sessões semanais de 50 min, mais 3 encontros com a mãe e 1 com o pai. TCC infantil, recursos lúdicos. Chegou por explosões de raiva, bateu num colega em março. Hoje perde jogo sem explodir na maioria das vezes. Mãe diz que caiu de quase todo dia para 1 a 2 vezes por semana. Validade 6 meses.",
     botao: "Gerar documento",
     tituloDocumento: "Relatório Psicológico",
     secoes: [
       {
         titulo: "Identificação",
         texto:
-          "Atendido: J.P.M., 7 anos, 2º ano do Ensino Fundamental, [PREENCHER: nome da escola]. Solicitante: responsável legal (mãe), a pedido da coordenação escolar. Finalidade: informar a escola sobre o acompanhamento e oferecer orientações.",
+          "Atendido: [NOME COMPLETO], 7 anos, 2º ano do Ensino Fundamental, [ESCOLA]. Solicitante: responsável legal (mãe), a pedido da coordenação escolar. Finalidade: informar a escola sobre o acompanhamento e oferecer orientações.",
       },
       {
         titulo: "Descrição da demanda",
@@ -174,7 +174,7 @@ window.PAGE_CONFIG = {
     { p: "Posso comprar outra skill depois?", r: "Pode. As skills funcionam de forma independente, então dá para começar por uma e completar depois." },
     { p: "Em quais planos do Claude funciona?", r: "Em todos, inclusive no gratuito. Basta ativar \"Execução de código e criação de arquivos\" nas configurações do Claude, como mostra o vídeo de instalação. Em contas de empresa (Team ou Enterprise), o administrador precisa liberar o uso de skills." },
     { p: "A IA vai inventar dados do meu paciente?", r: "Não. A skill só usa o que você informa. Onde falta informação obrigatória, ela marca o campo para você completar." },
-    { p: "E o sigilo?", r: "A skill pede só o necessário para o documento e sugere usar iniciais no rascunho. Siga também as regras de dados do Claude e do seu CRP." },
+    { p: "E o sigilo?", r: "A skill trabalha sem o nome do paciente e deixa nome, documento e escola para você completar fora do chat. Ela também lembra o que o guia de IA do CFP orienta: anonimizar os dados, registrar o consentimento do paciente e desativar o uso das conversas para treinamento. Siga também as orientações do seu CRP." },
     { p: "Quem é responsável pelo documento?", r: "Você. A skill é um apoio de redação e conformidade. A autoria, a revisão e a assinatura continuam sendo da(o) psicóloga(o)." },
   ],
 

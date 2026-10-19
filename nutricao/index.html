@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IA para nutricionistas: anamnese, evolução e orientações | Documento Certo</title>
+<!-- Em prévia (links da Kiwify pendentes): noindex. No lançamento, troque por "index, follow, max-image-preview:large" e inclua a página no sitemap.xml. -->
+<meta name="robots" content="noindex, follow">
+<!-- Compartilhamento (WhatsApp, Instagram, Google). Ao duplicar para outro nicho,
+     troque o nome da pasta nos endereços abaixo. -->
+<link rel="canonical" href="https://estudiohk.com.br/nutricao/">
+<meta property="og:url" content="https://estudiohk.com.br/nutricao/">
+<meta name="description" content="Skills do Claude para nutricionistas: anamnese, evolução de prontuário, relatório nutricional e orientações ao paciente no padrão do CFN, sem inventar dado e sem montar dieta por você. A partir de R$ 37.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="EstudioHK">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Documento Certo: anamnese, evolução e documentos no padrão do CFN">
+<meta property="og:description" content="Suas anotações viram registros de prontuário, relatórios e orientações para o paciente em minutos. Sem inventar dado.">
+<meta property="og:image" content="https://estudiohk.com.br/nutricao/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Documento Certo: anotações da nutricionista viram a evolução de um retorno no padrão do CFN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Documento Certo: anamnese, evolução e documentos no padrão do CFN">
+<meta name="twitter:description" content="Suas anotações viram registros de prontuário, relatórios e orientações para o paciente em minutos. Sem inventar dado.">
+<meta name="theme-color" content="#F3F5FE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161826" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap">
+<!-- Dados estruturados para o Google. Se mudar preços ou o número de produtos no config.js,
+     atualize lowPrice/highPrice/offerCount aqui. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Documento Certo: skills do Claude para nutricionistas",
+      "description": "Skills para o Claude que transformam anotações de nutricionistas em anamnese e evolução de prontuário (Resolução CFN 594/2017), relatórios nutricionais e orientações ao paciente a partir do plano definido pela nutricionista, sem inventar dado.",
+      "image": "https://estudiohk.com.br/nutricao/og-image.png",
+      "url": "https://estudiohk.com.br/nutricao/",
+      "category": "Software para nutricionistas",
+      "brand": { "@type": "Brand", "name": "EstudioHK" },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "BRL",
+        "lowPrice": "37",
+        "highPrice": "107",
+        "offerCount": "15",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://estudiohk.com.br/nutricao/#oferta"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "EstudioHK", "item": "https://estudiohk.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": "Nutrição", "item": "https://estudiohk.com.br/nutricao/" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+/* Layout: coluna central. Texto centralizado no topo, demo (anotação vira documento)
+   sobre um orbe de IA, seções empilhadas em largura controlada.
+   Paleta "Aurora de Confiança": névoa + marinho para estrutura, cobalto para ação,
+   ciano aurora só para o que é IA, amarelo marca-texto só para pendências. */
+/* Identidade EstudioHK (guia de marca v1). Violeta só em linhas, botões contornados e detalhes. */
+:root {
+  --accent-l: #796CBF; --accent-d: #9184D9;      /* violeta HK: linhas e detalhes */
+  --aurora-l: #262A60; --aurora-d: #9184D9;      /* índigo: brilho e faixas */
+  --accent: var(--accent-l);
+  --aurora: var(--aurora-l);
+  --accent-ink: #5D5294;                          /* violeta para texto em fundo claro */
+  --cta: #262A60; --cta-hover: #1C1F4A; --on-cta: #FFFFFF;   /* botão principal: índigo */
+  --on-accent: #FFFFFF;
+  --bg: #F3F5FE;        /* névoa clara */
+  --surface: #E4E7F5;   /* bruma */
+  --paper: #FFFFFF;
+  --ink: #161826;       /* noite */
+  --muted: #595D6C;     /* grafite */
+  --line: #D6D9EA;
+  --mark: #DCD6F7;      /* marca-texto: violeta claro da escala */
+  --mark-ink: #161826;
+  --bad: #C4322A;
+  --good: #12804A;
+  --shadow: 0 1px 2px rgba(22,24,38,.06), 0 18px 40px -20px rgba(22,24,38,.25);
+  --orb-opacity: .32;
+  --f-display: "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-doc: "Literata", Georgia, "Times New Roman", serif;
+  --r-sm: 6px; --r-md: 12px; --r-lg: 16px; --r-btn: 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --accent: var(--accent-d); --aurora: var(--aurora-d); --accent-ink: #9184D9; --on-accent: #161826;
+    --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
+    --bg: #161826; --surface: #1D2032; --paper: #22253A;
+    --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F;
+    --mark: rgba(145,132,217,.35); --mark-ink: #F3F5FE;
+    --bad: #FF8A80; --good: #5BE39B;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
+    --orb-opacity: .3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --accent: var(--accent-d); --aurora: var(--aurora-d); --accent-ink: #9184D9; --on-accent: #161826;
+  --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
+  --bg: #161826; --surface: #1D2032; --paper: #22253A;
+  --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F;
+  --mark: rgba(145,132,217,.35); --mark-ink: #F3F5FE;
+  --bad: #FF8A80; --good: #5BE39B;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
+  --orb-opacity: .3;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-display); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.025em; }
+p { margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  width: 100%; max-width: 1120px; margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+.center { text-align: center; margin-inline: auto; }
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  font: 500 1rem/1 var(--f-display); text-decoration: none;
+  padding: 1.05rem 1.7rem; border-radius: var(--r-btn); border: 0; cursor: pointer;
+  background: var(--cta); color: var(--on-cta);
+  transition: transform .18s ease, background .18s ease;
+}
+.btn:hover { transform: translateY(-1px); background: var(--cta-hover); }
+.btn:active { transform: translateY(0); }
+
+/* ---------- topo ---------- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
+.brand { font-weight: 500; font-size: 1.1rem; letter-spacing: -0.03em; display: flex; align-items: center; gap: .55rem; }
+.brand-logo { width: 1.5rem; height: 1.5rem; flex: none; color: var(--ink); }
+.brand { font-weight: 400 !important; letter-spacing: -0.01em !important; }
+b, strong { font-weight: 500; }
+.wordmark b, .made-by b { font-weight: 600; }
+.made-line { text-wrap: balance; }
+.legal a { color: inherit; text-underline-offset: 3px; }
+.made-by { display: inline-flex; align-items: center; gap: .35rem; white-space: nowrap; vertical-align: bottom; }
+.made-by svg { width: 1rem; height: 1rem; color: var(--ink); }
+.nav .btn { padding: .7rem 1.15rem; font-size: .92rem; }
+
+/* ---------- hero ---------- */
+.hero { overflow-x: clip; }
+.hero .wrap { padding-block: clamp(2.8rem, 7vw, 5.5rem) clamp(3rem, 7vw, 5.5rem); display: grid; justify-items: center; text-align: center; }
+.hero h1 { font-size: clamp(2.3rem, 5.4vw, 4.4rem); font-weight: 500; line-height: 1.04; letter-spacing: -0.03em; max-width: 17ch; perspective: 800px; }
+/* Animação 1 (Savee: Perspective / Skew): palavras entram girando em 3D */
+.w { display: inline-block; transform-origin: 50% 100%; animation: wordIn .8s cubic-bezier(.2,.75,.2,1) both; animation-delay: calc(var(--i) * 55ms + 120ms); }
+@keyframes wordIn { from { opacity: 0; transform: translateY(.45em) rotateX(-85deg) skewX(-8deg); filter: blur(4px); } }
+.eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 1.1rem; }
+.hero-sub { margin-top: 1.4rem; font-size: 1.14rem; color: var(--muted); max-width: 38em; }
+.hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 1.4rem; align-items: center; }
+.price-hint { font-size: .95rem; color: var(--muted); }
+.price-hint s { opacity: .75; }
+.price-hint b { color: var(--ink); font-weight: 500; }
+.trust { margin: 1.6rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem 1.4rem; font-size: .9rem; color: var(--muted); }
+.trust li { display: flex; align-items: center; gap: .45rem; }
+.trust svg { color: var(--good); flex: none; }
+
+/* ---------- demo ---------- */
+.stage { position: relative; width: 100%; max-width: 980px; margin-top: clamp(2.8rem, 6vw, 4.2rem); text-align: left; }
+/* Animação 2 (Design Spells: orbe de voz do ChatGPT + gradiente do Horizon):
+   orbe de IA que respira em repouso e acelera enquanto gera o documento */
+.orb-wrap { position: absolute; z-index: 0; left: 50%; top: 50%; width: min(760px, 120%); aspect-ratio: 1.6; transform: translate(-50%, -50%) scale(.92); transition: transform 1s cubic-bezier(.2,.7,.2,1), opacity 1s; opacity: var(--orb-opacity); pointer-events: none; }
+.orb { position: absolute; inset: 0; border-radius: 50%; filter: blur(64px); background: conic-gradient(from 0deg, var(--accent), var(--aurora), transparent 55%, var(--accent) 75%, var(--aurora)); animation: spin 16s linear infinite; }
+.orb.b { inset: 18% 22%; filter: blur(40px); background: radial-gradient(circle at 35% 40%, var(--aurora), transparent 60%), radial-gradient(circle at 70% 65%, var(--accent), transparent 60%); animation: spin 11s linear infinite reverse, breathe 5s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes breathe { 50% { opacity: .55; } }
+.stage[data-state="thinking"] .orb-wrap { transform: translate(-50%, -50%) scale(1.12); opacity: calc(var(--orb-opacity) + .25); }
+.stage[data-state="thinking"] .orb { animation-duration: 3.5s; }
+.stage[data-state="thinking"] .orb.b { animation-duration: 2.5s, 1.2s; }
+
+.desk { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(1rem, 3vw, 2rem); align-items: center; }
+.note {
+  background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(6px);
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: 1.15rem 1.25rem 1.3rem; box-shadow: var(--shadow); transform: rotate(-2deg);
+}
+.note-label, .sheet-label { font-size: .78rem; font-weight: 500; color: var(--muted); margin-bottom: .6rem; display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.note-text { font-family: var(--f-doc); font-style: italic; font-size: .9rem; line-height: 1.6; min-height: 12.5em; white-space: pre-wrap; }
+.caret { display: inline-block; width: 2px; height: 1em; background: var(--accent); vertical-align: -2px; margin-left: 1px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.go { margin-top: 1rem; font-size: .9rem; padding: .75rem 1.15rem; }
+.go.pulse { animation: pulse 1.1s ease-in-out 2; }
+@keyframes pulse { 50% { transform: scale(1.06); } }
+.thinking-label { display: none; align-items: center; gap: .45rem; margin-top: .9rem; font-size: .82rem; color: var(--accent-ink); font-weight: 500; }
+.stage[data-state="thinking"] .thinking-label { display: inline-flex; }
+.dots span { display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: currentColor; margin-right: 3px; animation: dot 1s ease-in-out infinite; }
+.dots span:nth-child(2) { animation-delay: .15s; } .dots span:nth-child(3) { animation-delay: .3s; }
+@keyframes dot { 50% { transform: translateY(-4px); opacity: .4; } }
+
+.sheet {
+  position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-sm);
+  box-shadow: var(--shadow); padding: 1.6rem 1.7rem 1.4rem; transform: rotate(.8deg);
+}
+.sheet-title { font-family: var(--f-doc); font-weight: 500; text-align: center; font-size: 1.08rem; margin-bottom: 1rem; }
+.doc-sec { font-family: var(--f-doc); font-size: .82rem; line-height: 1.55; margin-bottom: .7rem; transition: clip-path .55s cubic-bezier(.2,.7,.2,1), opacity .55s; clip-path: inset(0 0 0 0); }
+.doc-sec h4 { margin: 0 0 .15rem; font-size: .82rem; font-weight: 500; font-family: var(--f-doc); }
+.doc-sec.wait { clip-path: inset(0 0 100% 0); opacity: 0; }
+.doc-sign { border-top: 1px solid var(--line); padding-top: .6rem; margin-top: .4rem; font-size: .76rem; color: var(--muted); }
+mark.pend { background: linear-gradient(transparent 12%, var(--mark) 12%, var(--mark) 88%, transparent 88%); color: var(--mark-ink); padding: 0 .15em; border-radius: 2px; }
+.replay { font: 500 .78rem var(--f-display); background: none; border: 0; color: var(--accent-ink); cursor: pointer; padding: .2rem 0; text-decoration: underline; text-underline-offset: 3px; }
+/* carimbo de conclusão */
+.stamp { margin-left: .6rem; display: inline-flex; vertical-align: middle; align-items: center; gap: .35rem; font-size: .72rem; font-weight: 500; color: var(--good); border: 2px solid var(--good); border-radius: var(--r-btn); padding: .15rem .5rem; background: var(--paper); opacity: 0; transform: scale(1.6) rotate(-8deg); pointer-events: none; }
+.stage[data-state="done"] .stamp { animation: stamp .5s cubic-bezier(.3,1.6,.5,1) forwards; }
+@keyframes stamp { to { opacity: 1; transform: scale(1) rotate(-8deg); } }
+
+.sheet-title, .doc-sec h4 { font-weight: 600; }
+
+/* ---------- seções ---------- */
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section-head { max-width: 40rem; margin: 0 auto 2.6rem; text-align: center; }
+.section-head h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); font-weight: 500; line-height: 1.1; }
+.section-head p { margin-top: .8rem; color: var(--muted); font-size: 1.05rem; }
+.band { background: var(--surface); border-block: 1px solid var(--line); }
+
+/* para quem */
+.fit { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; max-width: 900px; margin-inline: auto; }
+.fit > div { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 1.6rem 1.7rem; }
+.fit h3 { font-size: 1.1rem; margin-bottom: 1.1rem; text-align: center; }
+.fit ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .85rem; }
+.fit li { display: grid; grid-template-columns: 1.6rem 1fr; gap: .65rem; align-items: start; }
+.ic { width: 1.6rem; height: 1.6rem; border-radius: 50%; display: grid; place-items: center; }
+.ic-yes { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.ic-no { background: color-mix(in srgb, var(--bad) 14%, transparent); color: var(--bad); }
+.fit-no { color: var(--muted); }
+
+/* comparação */
+.cmp-wrap { display: grid; justify-items: center; }
+.seg { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-btn); padding: 4px; margin-bottom: 1.6rem; }
+.seg button { position: relative; z-index: 1; font: 500 .95rem var(--f-display); color: var(--muted); background: none; border: 0; padding: .7rem 1.4rem; border-radius: var(--r-btn); cursor: pointer; transition: color .25s; white-space: nowrap; }
+.seg button[aria-pressed="true"] { color: #FFFFFF; }
+.seg-pill { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 4px; width: calc(50% - 4px); border-radius: var(--r-btn); background: var(--accent); transition: transform .35s cubic-bezier(.3,.8,.3,1), background .35s; }
+.seg[data-side="comum"] .seg-pill { background: var(--bad); }
+.seg[data-side="kit"] .seg-pill { transform: translateX(100%); background: var(--good); }
+.cmp-sheet { width: 100%; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--shadow); padding: clamp(1.2rem, 3vw, 2rem); display: grid; gap: 1.1rem; max-width: 52rem; }
+.cmp-row { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 1.2rem; align-items: baseline; padding-bottom: 1.1rem; border-bottom: 1px dashed var(--line); animation: swap .4s ease both; }
+.cmp-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.cmp-row:nth-child(2) { animation-delay: .05s; } .cmp-row:nth-child(3) { animation-delay: .1s; } .cmp-row:nth-child(4) { animation-delay: .15s; }
+@keyframes swap { from { opacity: 0; transform: translateY(6px); } }
+.cmp-text { font-family: var(--f-doc); font-size: 1rem; }
+.is-comum .cmp-text { text-decoration: underline wavy var(--bad); text-decoration-thickness: 1.5px; text-underline-offset: 4px; }
+.cmp-note { font-size: .9rem; display: flex; gap: .5rem; align-items: baseline; }
+.is-comum .cmp-note { color: var(--bad); }
+.is-kit .cmp-note { color: var(--good); }
+
+/* kit */
+.kit { display: grid; border-top: 1px solid var(--line); max-width: 52rem; margin-inline: auto; }
+.kit-item { padding: 1.3rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: minmax(0, 16rem) minmax(0, 1fr); gap: .4rem 2rem; align-items: baseline; }
+.kit-item h3 { font-size: 1.08rem; display: flex; gap: .6rem; align-items: center; }
+.kit-item h3::before { content: ""; width: .55rem; height: .55rem; border-radius: 50%; background: var(--aurora); box-shadow: 0 0 0 3px color-mix(in srgb, var(--aurora) 25%, transparent); flex: none; }
+.kit-item p { color: var(--muted); font-size: .97rem; }
+
+/* calculadora */
+.calc { max-width: 40rem; margin-inline: auto; display: grid; gap: 2.2rem; text-align: center; }
+.calc label { font-weight: 500; display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .8rem; text-align: left; }
+.calc output { font-variant-numeric: tabular-nums; color: var(--accent-ink); font-weight: 500; }
+input[type=range] { width: 100%; accent-color: var(--accent); height: 2rem; cursor: pointer; }
+.calc-scale { display: flex; justify-content: space-between; font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.calc-big { font-size: clamp(3.6rem, 10vw, 6rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.calc-big small { display: block; font-size: 1.05rem; letter-spacing: 0; font-weight: 500; color: var(--muted); margin-top: .5rem; }
+.calc-detail { margin-top: .6rem; color: var(--muted); font-size: .95rem; }
+.calc-q { font-weight: 500; text-align: left; margin-bottom: .7rem; }
+.chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.4rem, 1fr)); gap: .5rem; }
+.chip { font: 500 .92rem var(--f-display, inherit); font-family: inherit; padding: .6rem 1rem; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; transition: border-color .2s, background .2s, transform .15s; font-variant-numeric: tabular-nums; }
+.chip:hover { border-color: var(--accent); }
+.chip:active { transform: scale(.96); }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--paper)); color: var(--accent-ink); }
+.calc-note { font-size: .82rem; color: var(--muted); max-width: 34rem; margin: 0 auto; }
+/* barra de leitura no topo */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 30; pointer-events: none; transform-origin: 0 50%; transform: scaleX(var(--p, 0)); background: linear-gradient(90deg, var(--accent), var(--aurora)); }
+/* brilho que acompanha o cursor nos cartões */
+.glow { position: relative; isolation: isolate; }
+.glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%); }
+.glow:hover::after { opacity: 1; }
+.combo-sug { display: block; margin-top: .5rem; font-size: .85rem; color: var(--muted); }
+
+/* depoimentos */
+.quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.2rem; max-width: 900px; margin-inline: auto; }
+.quote { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 1.6rem; display: grid; gap: 1.1rem; align-content: space-between; }
+.quote blockquote { margin: 0; font-family: var(--f-doc); font-size: 1.05rem; line-height: 1.6; }
+.quote figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; font-size: .9rem; }
+.avatar { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: color-mix(in srgb, var(--accent) 16%, var(--paper)); color: var(--accent-ink); display: grid; place-items: center; font-weight: 500; flex: none; }
+.quote figcaption span { color: var(--muted); display: block; }
+.tag-ex { margin-left: auto; font-size: .72rem; font-weight: 500; background: var(--mark); color: var(--mark-ink); padding: .2rem .5rem; border-radius: 4px; }
+
+/* passos */
+.steps { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; counter-reset: s; max-width: 960px; text-align: center; }
+.steps li { counter-increment: s; display: grid; gap: .5rem; justify-items: center; align-content: start; }
+.steps li::before { content: counter(s); font-weight: 500; font-size: 1rem; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 2px solid var(--accent); color: var(--accent-ink); display: grid; place-items: center; margin-bottom: .4rem; }
+.steps h3 { font-size: 1.1rem; }
+.steps p { color: var(--muted); font-size: .97rem; max-width: 22em; }
+
+/* oferta */
+.offer { max-width: 560px; margin-inline: auto; position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: clamp(1.8rem, 5vw, 2.8rem); text-align: center; display: grid; gap: 1rem; justify-items: center; }
+.offer::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; background: conic-gradient(from 210deg, var(--accent), var(--aurora), transparent 40%, transparent 70%, var(--accent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.offer h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 500; }
+.was { color: var(--muted); font-size: 1rem; margin-top: .4rem; }
+.was s { text-decoration-thickness: 1.5px; }
+.now { font-size: clamp(3.6rem, 9vw, 5rem); font-weight: 500; letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; }
+.now sup { font-size: .32em; vertical-align: 1.1em; margin-right: .12em; letter-spacing: 0; }
+.installments { color: var(--muted); font-size: .95rem; margin-top: -.3rem; }
+.offer ul { list-style: none; margin: .6rem 0 .4rem; padding: 0; display: grid; gap: .65rem; text-align: left; }
+.offer li { display: flex; gap: .65rem; align-items: flex-start; }
+.offer li svg { color: var(--good); flex: none; margin-top: .3rem; }
+.offer .btn { width: 100%; padding-block: 1.2rem; font-size: 1.05rem; }
+.guarantee { display: flex; gap: .6rem; align-items: flex-start; font-size: .88rem; color: var(--muted); text-align: left; }
+.guarantee svg { color: var(--good); flex: none; }
+
+/* loja: avulsas + monte seu combo */
+.store { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(1.2rem, 3vw, 2rem); align-items: start; max-width: 1060px; margin-inline: auto; }
+.store-h { font-size: 1.15rem; margin-bottom: 1rem; }
+.singles { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: .4rem clamp(1.1rem, 3vw, 1.6rem); }
+.single { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .3rem 1.2rem; align-items: center; padding: 1.15rem 0; border-bottom: 1px dashed var(--line); }
+.single:last-child { border-bottom: 0; }
+.single-info { min-width: 0; }
+.single h4 { margin: 0 0 .2rem; font-size: 1.02rem; letter-spacing: -0.01em; }
+.single p { font-size: .88rem; color: var(--muted); line-height: 1.45; }
+.single-buy { display: flex; align-items: center; gap: .9rem; }
+.single-price { font-size: 1.35rem; font-weight: 500; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.single-price sup { font-size: .5em; vertical-align: .7em; margin-right: .1em; letter-spacing: 0; }
+.single .btn { padding: .6rem 1rem; font-size: .88rem; box-shadow: none; background: transparent; color: var(--accent-ink); border: 1.5px solid var(--accent); }
+.single .btn:hover { background: var(--accent); color: var(--on-accent); box-shadow: none; }
+.builder { position: relative; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--shadow); padding: clamp(1.3rem, 3vw, 1.8rem); }
+.builder::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; background: conic-gradient(from 210deg, var(--accent), var(--aurora), transparent 40%, transparent 70%, var(--accent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.builder-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.builder-head .store-h { margin-bottom: .3rem; }
+.link-btn { font: 500 .85rem var(--f-display); background: none; border: 0; color: var(--accent-ink); cursor: pointer; padding: .2rem 0; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.builder-hint { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; min-height: 1.4em; }
+.picks { display: grid; gap: .55rem; }
+.pick { display: flex; align-items: center; gap: .8rem; padding: .8rem .95rem; border: 1.5px solid var(--line); border-radius: var(--r-md); cursor: pointer; transition: border-color .2s, background .2s; }
+.pick:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.pick input { position: absolute; opacity: 0; pointer-events: none; }
+.box { width: 1.3rem; height: 1.3rem; border-radius: 6px; border: 2px solid var(--line); display: grid; place-items: center; flex: none; color: transparent; transition: background .2s, border-color .2s, transform .2s; }
+.pick-name { flex: 1; font-weight: 500; font-size: .97rem; }
+.pick-price { font-size: .9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pick:has(input:checked) { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--paper)); }
+.pick input:checked + .box { background: var(--accent); border-color: var(--accent); color: var(--on-accent); transform: scale(1.05); }
+.pick input:focus-visible + .box { outline: 3px solid var(--accent); outline-offset: 2px; }
+.summary { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px dashed var(--line); display: grid; gap: .35rem; }
+.sum-row { display: flex; justify-content: space-between; color: var(--muted); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.sum-now { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.sum-now span { font-weight: 500; }
+.sum-now b { font-size: clamp(2.2rem, 5vw, 2.8rem); font-weight: 500; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.save { justify-self: end; font-size: .82rem; font-weight: 500; color: var(--good); background: color-mix(in srgb, var(--good) 13%, transparent); padding: .25rem .6rem; border-radius: var(--r-btn); min-height: 1.6em; }
+.save:empty { visibility: hidden; }
+.save.pop { animation: savePop .45s cubic-bezier(.3,1.6,.5,1); }
+@keyframes savePop { 0% { transform: scale(.7); } }
+.summary .btn { margin-top: .8rem; width: 100%; padding-block: 1.1rem; font-size: 1.02rem; }
+.btn[aria-disabled="true"] { opacity: .45; pointer-events: none; box-shadow: none; }
+.best { position: absolute; top: -.8rem; right: 1.2rem; font-size: .75rem; font-weight: 500; padding: .3rem .7rem; border-radius: var(--r-btn); background: var(--cta); color: var(--on-cta); opacity: 0; transform: translateY(4px); transition: opacity .25s, transform .25s; }
+.builder.all .best { opacity: 1; transform: none; }
+.store-guarantee { justify-content: center; margin: 1.6rem auto 0; max-width: 40rem; }
+
+/* faq */
+.faq { max-width: 44rem; margin-inline: auto; border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; padding: 1.25rem 0; display: flex; justify-content: space-between; gap: 1rem; font-weight: 500; font-size: 1.05rem; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .pm { flex: none; width: 1.5rem; height: 1.5rem; position: relative; }
+.faq summary .pm::before, .faq summary .pm::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; background: var(--accent); transform: translate(-50%, -50%); transition: transform .25s; }
+.faq summary .pm::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq details[open] .pm::after { transform: translate(-50%, -50%) rotate(0deg); }
+.faq .ans { padding: 0 2.5rem 1.4rem 0; color: var(--muted); animation: swap .3s ease; }
+
+/* final */
+.final .wrap { display: grid; justify-items: center; text-align: center; gap: 1.6rem; padding-block: clamp(3.5rem, 8vw, 6rem); }
+.final h2 { font-size: clamp(2rem, 4.4vw, 3.2rem); font-weight: 500; line-height: 1.05; max-width: 18ch; }
+.final p { color: var(--muted); margin-top: .7rem; }
+footer .wrap { padding-block: 2rem 6rem; font-size: .85rem; color: var(--muted); display: grid; gap: .5rem; text-align: center; justify-items: center; }
+footer p { max-width: 40em; }
+
+/* barra fixa no celular */
+.sticky-buy {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 25;
+  padding: .7rem max(16px, env(safe-area-inset-right, 0px)) calc(.7rem + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line); display: none; align-items: center; justify-content: space-between; gap: 1rem;
+  transform: translateY(110%); transition: transform .3s ease;
+}
+.sticky-buy.show { transform: translateY(0); }
+.sticky-buy b { font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.sticky-buy .btn { padding: .8rem 1.2rem; }
+
+/* prévia: some sozinha quando todos os links de compra estiverem preenchidos */
+.preview-bar { background: var(--mark); color: var(--ink); font-size: .85rem; text-align: center; padding: .55rem 16px; line-height: 1.4; }
+.preview-bar code { font-family: ui-monospace, monospace; font-size: .8rem; }
+.toast {
+  position: fixed; left: 50%; bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)); z-index: 40;
+  transform: translate(-50%, 1rem); opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+  background: var(--ink); color: var(--bg); padding: .75rem 1rem; border-radius: var(--r-btn);
+  font-size: .9rem; max-width: min(92vw, 30rem); text-align: center; box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+
+/* ---------- responsivo ---------- */
+@media (max-width: 860px) {
+  .desk { grid-template-columns: 1fr; }
+  .note, .sheet { transform: none; }
+  .note-text { min-height: 0; }
+  .fit { grid-template-columns: 1fr; }
+  .store { grid-template-columns: 1fr; }
+  .builder { order: -1; margin-top: .8rem; }
+}
+@media (max-width: 520px) {
+  .single { grid-template-columns: 1fr; }
+  .single-buy { justify-content: space-between; margin-top: .4rem; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .steps { grid-template-columns: 1fr; }
+  .cmp-row, .kit-item { grid-template-columns: 1fr; gap: .4rem; }
+  .sticky-buy { display: flex; }
+  .nav .btn { display: none; }
+  .seg button { padding: .65rem 1rem; font-size: .9rem; }
+  .sheet { padding: 1.3rem 1.2rem 1.1rem; }
+}
+@media (hover: none) { .glow::after { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .progress { display: none; }
+  .stage[data-state="done"] .stamp { opacity: 1; transform: rotate(-8deg); }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="brand"><svg class="brand-logo" viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg><span class="wordmark" id="wordmark"></span></div>
+    <a class="btn" href="#oferta" data-bind="hero.cta"></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <p class="eyebrow" data-bind="hero.eyebrow">Para nutricionistas</p>
+      <h1 id="h1">Anamnese, evolução e documentos no padrão do CFN, prontos em minutos.</h1>
+      <p class="hero-sub" data-bind="hero.subtitulo">Skills para o Claude que transformam as suas anotações em registros de prontuário, relatórios e orientações claras para o paciente. Leve só a que você precisa ou monte um combo com desconto. Sem inventar dado e sem montar dieta por você.</p>
+      <div class="hero-actions" id="heroActions">
+        <a class="btn" href="#oferta" data-bind="hero.cta"></a>
+        <span class="price-hint" id="priceHint"></span>
+      </div>
+      <ul class="trust" id="trust"></ul>
+
+      <div class="stage" id="stage" data-state="idle" aria-label="Demonstração">
+        <div class="orb-wrap" aria-hidden="true"><div class="orb"></div><div class="orb b"></div></div>
+        <div class="desk">
+          <div class="note">
+            <div class="note-label"><span data-bind="demo.rotuloEntrada"></span></div>
+            <p class="note-text" id="noteText"></p>
+            <button class="btn go" id="goBtn" type="button" data-bind="demo.botao"></button>
+            <div><span class="thinking-label"><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>A IA está escrevendo</span></div>
+          </div>
+          <article class="sheet" aria-live="polite">
+            <div class="sheet-label"><span>Resultado<span class="stamp" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>Pronto</span></span><button class="replay" id="replay" type="button">Ver de novo</button></div>
+            <h3 class="sheet-title" data-bind="demo.tituloDocumento"></h3>
+            <div id="docBody"></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="fitTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="fitTitle">É para você?</h2></div>
+      <div class="fit">
+        <div>
+          <h3>Feito para</h3>
+          <ul id="fitYes"></ul>
+        </div>
+        <div class="fit-no">
+          <h3>Não é para</h3>
+          <ul id="fitNo"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="cmpTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="cmpTitle" data-bind="comparacao.titulo"></h2>
+        <p data-bind="comparacao.subtitulo"></p>
+      </div>
+      <div class="cmp-wrap">
+        <div class="seg" id="seg" data-side="comum" role="group" aria-label="Comparação">
+          <span class="seg-pill" aria-hidden="true"></span>
+          <button type="button" data-side="comum" aria-pressed="true" data-bind="comparacao.rotuloComum"></button>
+          <button type="button" data-side="kit" aria-pressed="false" data-bind="comparacao.rotuloKit"></button>
+        </div>
+        <div class="cmp-sheet is-comum" id="cmp"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="kitTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="kitTitle" data-bind="kit.titulo"></h2></div>
+      <div class="kit" id="kit"></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="calcTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="calcTitle" data-bind="calculadora.titulo"></h2></div>
+      <div class="calc">
+        <div aria-live="polite">
+          <div class="calc-big"><span id="calcHours">0</span><small>horas por mês</small></div>
+          <p class="calc-detail" id="calcDetail"></p>
+        </div>
+        <div>
+          <label for="calcRange"><span data-bind="calculadora.rotulo"></span><output id="calcOut" for="calcRange"></output></label>
+          <input type="range" id="calcRange">
+          <div class="calc-scale"><span id="calcMin"></span><span id="calcMax"></span></div>
+        </div>
+        <div id="calcTimeWrap">
+          <p class="calc-q" id="calcTimeLabel" data-bind="calculadora.rotuloTempo"></p>
+          <div class="chips" id="calcChips" role="group" aria-labelledby="calcTimeLabel"></div>
+        </div>
+        <p class="calc-note" data-bind="calculadora.nota"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="quotesSection" aria-labelledby="qTitle" hidden>
+    <div class="wrap">
+      <div class="section-head"><h2 id="qTitle">Quem já usa</h2></div>
+      <div class="quotes" id="quotes"></div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="stepTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="stepTitle">Como funciona</h2></div>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </section>
+
+  <section class="section" id="oferta">
+    <div class="wrap">
+      <div id="store" hidden>
+        <div class="section-head">
+          <h2 id="storeTitle"></h2>
+          <p id="storeSub"></p>
+        </div>
+        <div class="store">
+          <div>
+            <h3 class="store-h">Avulsas</h3>
+            <div class="singles" id="singles"></div>
+          </div>
+          <div class="builder" id="builder">
+            <span class="best">Melhor valor</span>
+            <div class="builder-head"><h3 class="store-h">Monte seu combo</h3><button type="button" class="link-btn" id="selAll"></button></div>
+            <p class="builder-hint" id="builderHint"></p>
+            <div class="picks" id="picks" role="group" aria-label="Skills do combo"></div>
+            <div class="summary" aria-live="polite">
+              <div class="sum-row"><span>Comprando separado</span><s id="sumWas"></s></div>
+              <div class="sum-now"><span id="sumLabel"></span><b id="sumNow"></b></div>
+              <div class="save" id="sumSave"></div>
+              <a class="btn" id="comboBtn" target="_blank" rel="noopener"></a>
+              <a class="combo-sug" id="comboAlt" href="#singles" hidden>Prefiro comprar as skills separadas</a>
+            </div>
+          </div>
+        </div>
+        <p class="guarantee store-guarantee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span id="storeGuarantee"></span>
+        </p>
+      </div>
+      <div class="offer" id="singleOffer">
+        <h2 id="offerTitle" data-bind="oferta.titulo"></h2>
+        <div class="was" id="was"></div>
+        <div class="now" id="now"></div>
+        <div class="installments" data-bind="oferta.parcelamento"></div>
+        <ul id="offerList"></ul>
+        <a class="btn js-checkout" data-bind="oferta.cta" target="_blank" rel="noopener"></a>
+        <p class="guarantee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span data-bind="oferta.garantia"></span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faqTitle">Perguntas frequentes</h2></div>
+      <div class="faq" id="faq"></div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="finalTitle">
+    <div class="wrap">
+      <div>
+        <h2 id="finalTitle" data-bind="final.titulo"></h2>
+        <p data-bind="final.texto"></p>
+      </div>
+      <a class="btn js-main" data-bind="final.cta" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p data-bind="rodape"></p>
+    <p id="seller"></p>
+    <p class="legal"><a href="../termos/">Termos de uso</a> · <a href="../privacidade/">Política de privacidade</a></p>
+    <p class="made-line">&copy; <span id="year"></span> <span data-bind="marca"></span>, um produto <a class="made-by" id="hkLink" href="/" style="text-decoration:none"><svg  viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg><span>Estudio<b>HK</b></span></a></p>
+  </div>
+</footer>
+
+<div class="sticky-buy" id="stickyBuy">
+  <div><b id="stickyPrice"></b></div>
+  <a class="btn js-main" id="stickyBtn" target="_blank" rel="noopener"></a>
+</div>
+
+
+<script src="config.js"></script>
+<script>
+(function () {
+  "use strict";
+  var C = window.PAGE_CONFIG;
+  if (!C || !C.hero) { document.body.insertAdjacentHTML("afterbegin", "<p style='padding:20px'>Não encontrei o arquivo config.js.</p>"); return; }
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var CHECK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>';
+  var CROSS = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function rich(s) { return esc(s).replace(/\[PREENCHER:?([^\]]*)\]/g, function (m) { return '<mark class="pend">' + m + "</mark>"; }); }
+  function get(obj, path) { return path.split(".").reduce(function (o, k) { return o ? o[k] : undefined; }, obj); }
+  function $(id) { return document.getElementById(id); }
+  function money(v) { return "R$ " + v; }
+
+  var runId = 0, N;
+
+  function render() {
+    N = C;
+    var t = N.tema || {}, root = document.documentElement.style;
+    if (t.acento) root.setProperty("--accent-l", t.acento); else root.removeProperty("--accent-l");
+    if (t.acentoEscuro) root.setProperty("--accent-d", t.acentoEscuro); else root.removeProperty("--accent-d");
+    if (t.aurora) root.setProperty("--aurora-l", t.aurora); else root.removeProperty("--aurora-l");
+    if (t.auroraEscuro) root.setProperty("--aurora-d", t.auroraEscuro); else root.removeProperty("--aurora-d");
+
+    document.querySelectorAll("[data-bind]").forEach(function (el) {
+      el.innerHTML = rich(get(N, el.getAttribute("data-bind")));
+    });
+    // Título em palavras para a entrada em 3D
+    var mw = String(N.marca || "").split(" "), last = mw.pop();
+    $("wordmark").innerHTML = (mw.length ? esc(mw.join(" ")) + " " : "") + "<b>" + esc(last) + "</b>";
+    $("h1").innerHTML = N.hero.titulo.split(/\s+/).map(function (w, i) {
+      return '<span class="w" style="--i:' + i + '">' + esc(w) + "</span>";
+    }).join(" ");
+
+    if (N.loja) {
+      // Loja com avulsas + monte seu combo
+      $("store").hidden = false; $("singleOffer").hidden = true;
+      var L = N.loja, min = Math.min.apply(null, L.avulsas.map(function (a) { return a.preco; }));
+      $("priceHint").innerHTML = "Skills a partir de <b>" + money(min) + "</b>";
+      $("stickyPrice").textContent = "A partir de " + money(min);
+      document.querySelectorAll(".js-main").forEach(function (a) { a.href = "#oferta"; a.removeAttribute("target"); });
+      $("stickyBtn").textContent = L.ctaVerOpcoes || "Ver opções";
+      renderStore();
+    } else {
+      $("store").hidden = true; $("singleOffer").hidden = false;
+      var o = N.oferta;
+      document.querySelectorAll(".js-checkout, .js-main").forEach(function (a) { a.href = N.checkoutUrl; a.target = "_blank"; });
+      $("stickyBtn").textContent = o.cta;
+      $("priceHint").innerHTML = "de <s>" + money(o.precoDe) + "</s> por <b>" + money(o.precoPor) + "</b>";
+      $("was").innerHTML = "de <s>" + money(o.precoDe) + "</s> por";
+      $("now").innerHTML = "<sup>R$</sup>" + esc(o.precoPor);
+      $("stickyPrice").textContent = money(o.precoPor);
+      $("offerList").innerHTML = o.inclui.map(function (x) { return "<li>" + CHECK + "<span>" + esc(x) + "</span></li>"; }).join("");
+    }
+
+    $("trust").innerHTML = N.hero.confianca.map(function (x) { return "<li>" + CHECK + esc(x) + "</li>"; }).join("");
+    $("fitYes").innerHTML = N.paraQuem.sim.map(function (x) { return '<li><span class="ic ic-yes">' + CHECK + "</span><span>" + esc(x) + "</span></li>"; }).join("");
+    $("fitNo").innerHTML = N.paraQuem.nao.map(function (x) { return '<li><span class="ic ic-no">' + CROSS + "</span><span>" + esc(x) + "</span></li>"; }).join("");
+    $("kit").innerHTML = N.kit.itens.map(function (i) { return '<div class="kit-item"><h3>' + esc(i.nome) + "</h3><p>" + esc(i.texto) + "</p></div>"; }).join("");
+    $("quotesSection").hidden = !(N.mostrarDepoimentos && N.depoimentos && N.depoimentos.length);
+    var v = N.vendedor || {};
+    $("seller").textContent = [v.nome, v.documento, v.endereco, v.email].filter(Boolean).join(" — ");
+    $("quotes").innerHTML = (N.depoimentos || []).map(function (d) {
+      var ini = d.nome.split(" ").map(function (w) { return w[0]; }).slice(0, 2).join("").toUpperCase();
+      return '<figure class="quote"><blockquote>' + esc(d.texto) + '</blockquote><figcaption><span class="avatar" aria-hidden="true">' + esc(ini) + "</span><div><b>" + esc(d.nome) + "</b><span>" + esc(d.cargo) + "</span></div>" + (d.exemplo ? '<span class="tag-ex">Exemplo</span>' : "") + "</figcaption></figure>";
+    }).join("");
+    $("steps").innerHTML = N.passos.map(function (s) { return "<li><h3>" + esc(s.titulo) + "</h3><p>" + esc(s.texto) + "</p></li>"; }).join("");
+    $("faq").innerHTML = N.faq.map(function (f, i) {
+      return '<details id="faq' + i + '"><summary>' + esc(f.p) + '<span class="pm" aria-hidden="true"></span></summary><div class="ans">' + rich(f.r) + "</div></details>";
+    }).join("");
+
+    document.querySelectorAll(".fit > div, .builder, .quote").forEach(function (el) { el.classList.add("glow"); });
+    setCompare("comum");
+    setupCalc();
+    runDemo();
+  }
+
+  /* ---------- demonstração ---------- */
+  var stage = $("stage");
+  function setState(s) { stage.setAttribute("data-state", s); }
+
+  function docHTML(wait) {
+    return N.demo.secoes.map(function (s) {
+      return '<section class="doc-sec' + (wait ? " wait" : "") + '"><h4>' + esc(s.titulo) + "</h4><p>" + rich(s.texto) + "</p></section>";
+    }).join("") + '<p class="doc-sec doc-sign' + (wait ? " wait" : "") + '">' + rich(N.demo.assinatura) + "</p>";
+  }
+
+  function reveal(id, gap) {
+    setState("thinking");
+    var secs = $("docBody").querySelectorAll(".doc-sec.wait");
+    secs.forEach(function (s, k) {
+      setTimeout(function () { if (id === runId) s.classList.remove("wait"); }, 500 + k * gap);
+    });
+    setTimeout(function () { if (id === runId) setState("done"); }, 500 + secs.length * gap + 200);
+  }
+
+  function runDemo() {
+    var id = ++runId;
+    var note = $("noteText"), go = $("goBtn"), body = $("docBody");
+    var text = N.demo.entrada;
+    setState("idle");
+    if (reduce) { note.textContent = text; body.innerHTML = docHTML(false); setState("done"); return; }
+
+    body.innerHTML = docHTML(true);
+    note.innerHTML = "";
+    var i = 0, step = Math.max(2, Math.ceil(text.length / 70));
+    function type() {
+      if (id !== runId) return;
+      i = Math.min(text.length, i + step);
+      note.innerHTML = esc(text.slice(0, i)) + (i < text.length ? '<span class="caret"></span>' : "");
+      if (i < text.length) setTimeout(type, 22);
+      else { go.classList.remove("pulse"); void go.offsetWidth; go.classList.add("pulse"); setTimeout(function () { if (id === runId) reveal(id, 380); }, 900); }
+    }
+    setTimeout(type, 700);
+  }
+  $("replay").addEventListener("click", runDemo);
+  $("goBtn").addEventListener("click", function () {
+    var id = ++runId;
+    $("noteText").textContent = N.demo.entrada;
+    if (!$("docBody").querySelector(".doc-sec.wait")) $("docBody").innerHTML = docHTML(true);
+    if (reduce) { $("docBody").innerHTML = docHTML(false); setState("done"); return; }
+    reveal(id, 260);
+  });
+
+  /* ---------- loja ---------- */
+  var picked = [], nowShown = 0, nowRaf;
+  function renderStore() {
+    var L = N.loja;
+    $("storeTitle").textContent = L.titulo;
+    $("storeSub").textContent = L.subtitulo;
+    $("storeGuarantee").textContent = L.garantia;
+    $("singles").innerHTML = L.avulsas.map(function (a) {
+      return '<article class="single"><div class="single-info"><h4>' + esc(a.nome) + "</h4><p>" + esc(a.texto) + '</p></div><div class="single-buy"><span class="single-price"><sup>R$</sup>' + esc(a.preco) +
+        '</span><a class="btn" href="' + esc(a.checkoutUrl) + '" target="_blank" rel="noopener">' + esc(L.ctaAvulsa || "Comprar") + "</a></div></article>";
+    }).join("");
+    $("picks").innerHTML = L.avulsas.map(function (a) {
+      return '<label class="pick"><input type="checkbox" id="pick-' + esc(a.id) + '" value="' + esc(a.id) + '"><span class="box">' + CHECK +
+        '</span><span class="pick-name">' + esc(a.nome) + '</span><span class="pick-price">' + money(a.preco) + "</span></label>";
+    }).join("");
+    picked = (L.selecaoInicial || L.avulsas.map(function (a) { return a.id; })).slice();
+    syncPicks(); updateBuilder(true);
+  }
+  function syncPicks() {
+    $("picks").querySelectorAll("input").forEach(function (i) { i.checked = picked.indexOf(i.value) > -1; });
+  }
+  function setNow(v, instant) {
+    cancelAnimationFrame(nowRaf);
+    if (instant || reduce || typeof v !== "number") { nowShown = typeof v === "number" ? v : 0; $("sumNow").textContent = typeof v === "number" ? money(v) : v; return; }
+    var from = nowShown, t0 = performance.now();
+    (function tick(t) {
+      var p = Math.min(1, (t - t0) / 350), e = 1 - Math.pow(1 - p, 3);
+      nowShown = Math.round(from + (v - from) * e);
+      $("sumNow").textContent = money(nowShown);
+      if (p < 1) nowRaf = requestAnimationFrame(tick);
+    })(t0);
+  }
+  function updateBuilder(instant) {
+    var L = N.loja, all = L.avulsas, total = all.length;
+    var ids = all.map(function (a) { return a.id; }).filter(function (id) { return picked.indexOf(id) > -1; });
+    var sel = all.filter(function (a) { return ids.indexOf(a.id) > -1; });
+    var soma = sel.reduce(function (t, a) { return t + a.preco; }, 0);
+    var btn = $("comboBtn"), save = $("sumSave"), builder = $("builder");
+    var full = L.combos[all.map(function (a) { return a.id; }).join("+")];
+    builder.classList.toggle("all", ids.length === total);
+    $("selAll").textContent = ids.length === total ? "Limpar seleção" : "Selecionar todas";
+    var oldSave = save.textContent;
+    $("comboAlt").hidden = true;
+
+    if (ids.length === 0) {
+      $("builderHint").textContent = "Marque as skills que você quer levar.";
+      $("sumWas").textContent = ""; $("sumLabel").textContent = "Nenhuma skill"; setNow("—", true);
+      save.textContent = ""; btn.textContent = "Escolha pelo menos uma"; btn.setAttribute("aria-disabled", "true"); btn.removeAttribute("href");
+      return;
+    }
+    if (ids.length === 1) {
+      $("builderHint").textContent = "Marque mais uma e ganhe desconto no combo.";
+      $("sumWas").textContent = ""; $("sumLabel").textContent = "Avulsa"; setNow(sel[0].preco, instant);
+      save.textContent = ""; btn.textContent = (L.ctaAvulsa || "Comprar") + " " + sel[0].nome;
+      btn.href = sel[0].checkoutUrl; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+      return;
+    }
+    var c = L.combos[ids.join("+")];
+    $("sumLabel").textContent = ids.length === total ? "Combo completo" : "Combo de " + ids.length + " skills";
+    $("sumWas").textContent = money(soma);
+    if (!c && ids.length === 2) {
+      // Par que existe como order bump: compra a primeira e adiciona a segunda no checkout.
+      var bump = (L.bumps || []).filter(function (x) { return ids.indexOf(x.de) > -1 && ids.indexOf(x.leva) > -1; })[0];
+      var principal = bump && all.filter(function (a) { return a.id === bump.de; })[0];
+      var extraB = bump && all.filter(function (a) { return a.id === bump.leva; })[0];
+      if (principal && extraB) {
+        var totalB = principal.preco + bump.preco;
+        $("sumLabel").textContent = "2 skills";
+        setNow(totalB, instant);
+        save.textContent = "Você economiza " + money(soma - totalB);
+        $("builderHint").textContent = "Compre " + principal.nome + " e, no pagamento, marque " + extraB.nome + " por + " + money(bump.preco) + ".";
+        btn.textContent = (L.ctaAvulsa || "Comprar") + " " + principal.nome; btn.href = principal.checkoutUrl; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+        return;
+      }
+    }
+    if (!c) {
+      // Sem combo para essa combinação: oferece o combo mais barato que inclui tudo o que foi marcado.
+      var best = null;
+      Object.keys(L.combos).forEach(function (k) {
+        var kIds = k.split("+");
+        if (ids.every(function (id) { return kIds.indexOf(id) > -1; }) && (!best || L.combos[k].preco < best.preco)) best = { ids: kIds, preco: L.combos[k].preco, url: L.combos[k].checkoutUrl, nome: L.combos[k].nome };
+      });
+      var tol = typeof L.toleranciaKit === "number" ? L.toleranciaKit : 0;
+      if (best && best.preco > soma && best.preco - soma <= tol) {
+        // O kit custa um pouco mais que comprar separado, mas inclui outra skill e sai numa compra só.
+        var extraK = all.filter(function (a) { return best.ids.indexOf(a.id) > -1 && ids.indexOf(a.id) < 0; }).map(function (a) { return a.nome; });
+        var nomeK = best.nome || ("combo de " + best.ids.length + " skills");
+        $("sumLabel").textContent = nomeK;
+        $("sumWas").textContent = "";
+        setNow(best.preco, instant); save.textContent = "";
+        $("builderHint").textContent = "Separadas, sairiam " + money(soma) + " em duas compras. Por mais " + money(best.preco - soma) + ", o " + nomeK + " inclui também " + extraK.join(" e ") + ".";
+        btn.textContent = "Levar o " + nomeK; btn.href = best.url; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+        $("comboAlt").hidden = false;
+        return;
+      }
+      if (best && best.preco <= soma) {
+        var extra = all.filter(function (a) { return best.ids.indexOf(a.id) > -1 && ids.indexOf(a.id) < 0; }).map(function (a) { return a.nome; });
+        var bestSoma = all.filter(function (a) { return best.ids.indexOf(a.id) > -1; }).reduce(function (t, a) { return t + a.preco; }, 0);
+        $("sumLabel").textContent = best.nome || (best.ids.length === total ? "Combo completo" : "Combo de " + best.ids.length + " skills");
+        $("sumWas").textContent = money(bestSoma);
+        setNow(best.preco, instant);
+        save.textContent = "Você economiza " + money(bestSoma - best.preco);
+        $("builderHint").textContent = "Não há combo só com essas. Por " + money(best.preco) + " você leva também " + extra.join(" e ") + ".";
+        btn.textContent = "Levar com " + extra.join(" e "); btn.href = best.url; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+        return;
+      }
+      setNow(soma, instant); save.textContent = "";
+      $("builderHint").textContent = "Essa combinação não tem combo. Compre as skills separadas logo abaixo.";
+      btn.textContent = "Ver avulsas"; btn.href = "#singles"; btn.removeAttribute("target"); btn.removeAttribute("aria-disabled"); return;
+    }
+    if (c.nome) $("sumLabel").textContent = c.nome;
+    setNow(c.preco, instant);
+    save.textContent = "Você economiza " + money(soma - c.preco);
+    if (!instant && save.textContent !== oldSave) { save.classList.remove("pop"); void save.offsetWidth; save.classList.add("pop"); }
+    $("builderHint").textContent = ids.length === total ? "Todas as skills com o maior desconto."
+      : (full ? "Com todas as " + total + ": " + money(full.preco) + " (economia de " + money(all.reduce(function (t, a) { return t + a.preco; }, 0) - full.preco) + ")." : "");
+    btn.textContent = L.ctaCombo || "Comprar combo"; btn.href = c.checkoutUrl; btn.target = "_blank"; btn.removeAttribute("aria-disabled");
+  }
+  $("picks").addEventListener("change", function (e) {
+    var id = e.target.value; if (!id) return;
+    var i = picked.indexOf(id);
+    if (e.target.checked && i < 0) picked.push(id); else if (!e.target.checked && i > -1) picked.splice(i, 1);
+    updateBuilder(false);
+  });
+  $("selAll").addEventListener("click", function () {
+    var all = N.loja.avulsas.map(function (a) { return a.id; });
+    picked = picked.length === all.length ? [] : all.slice();
+    syncPicks(); updateBuilder(false);
+  });
+
+  /* ---------- comparação ---------- */
+  function setCompare(side) {
+    var seg = $("seg");
+    seg.setAttribute("data-side", side);
+    seg.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-side") === side)); });
+    var cmp = $("cmp");
+    cmp.className = "cmp-sheet is-" + side;
+    cmp.innerHTML = N.comparacao[side].map(function (r) {
+      return '<div class="cmp-row"><p class="cmp-text">' + rich(r.texto) + '</p><p class="cmp-note">' + (side === "kit" ? CHECK : CROSS) + "<span>" + esc(r.nota) + "</span></p></div>";
+    }).join("");
+  }
+  $("seg").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (b) setCompare(b.getAttribute("data-side"));
+  });
+
+  /* ---------- calculadora ---------- */
+  var shown = 0, raf, minAntes;
+  function setupCalc() {
+    var c = N.calculadora, r = $("calcRange");
+    r.min = c.min; r.max = c.max; r.value = c.padrao; r.step = 1;
+    $("calcMin").textContent = c.min; $("calcMax").textContent = c.max;
+    minAntes = c.minutosAntes;
+    var ops = c.opcoesMinutos || [];
+    $("calcTimeWrap").hidden = !ops.length;
+    $("calcChips").innerHTML = ops.map(function (m) {
+      return '<button type="button" class="chip" data-min="' + m + '" aria-pressed="' + (m === minAntes) + '">' + m + " min</button>";
+    }).join("");
+    updateCalc(true);
+  }
+  $("calcChips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    minAntes = +b.getAttribute("data-min");
+    $("calcChips").querySelectorAll(".chip").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    updateCalc(false);
+  });
+  function updateCalc(instant) {
+    var c = N.calculadora, n = +$("calcRange").value;
+    var hours = Math.max(0, Math.round(n * (minAntes - c.minutosDepois) * 4.33 / 60));
+    $("calcOut").textContent = n;
+    $("calcDetail").textContent = n + " " + c.unidade + " por semana, de " + minAntes + " para cerca de " + c.minutosDepois + " minutos cada.";
+    cancelAnimationFrame(raf);
+    if (instant || reduce) { shown = hours; $("calcHours").textContent = hours; return; }
+    var from = shown, t0 = performance.now();
+    (function tick(t) {
+      var p = Math.min(1, (t - t0) / 380), e = 1 - Math.pow(1 - p, 3);
+      shown = Math.round(from + (hours - from) * e);
+      $("calcHours").textContent = shown;
+      if (p < 1) raf = requestAnimationFrame(tick);
+    })(t0);
+  }
+  $("calcRange").addEventListener("input", function () { updateCalc(false); });
+
+  /* ---------- barra fixa e topo ---------- */
+  var nav = $("nav"), sticky = $("stickyBuy");
+  window.addEventListener("scroll", function () { nav.classList.toggle("scrolled", window.scrollY > 8); }, { passive: true });
+  if ("IntersectionObserver" in window) {
+    var offerSeen = false, heroGone = false;
+    var upd = function () { sticky.classList.toggle("show", heroGone && !offerSeen); };
+    new IntersectionObserver(function (en) { heroGone = !en[0].isIntersecting; upd(); }).observe($("heroActions"));
+    new IntersectionObserver(function (en) { offerSeen = en[0].isIntersecting; upd(); }, { threshold: 0.2 }).observe($("oferta"));
+  }
+
+
+  var prog = $("progress"), progQ = false;
+  function setProg() {
+    progQ = false;
+    var h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty("--p", h > 0 ? Math.min(1, scrollY / h) : 0);
+  }
+  window.addEventListener("scroll", function () { if (!progQ) { progQ = true; requestAnimationFrame(setProg); } }, { passive: true });
+  setProg();
+
+  if (!reduce && matchMedia("(hover: hover)").matches) {
+    document.addEventListener("pointermove", function (e) {
+      var el = e.target.closest && e.target.closest(".glow"); if (!el) return;
+      var r = el.getBoundingClientRect();
+      el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+      el.style.setProperty("--my", (e.clientY - r.top) + "px");
+    }, { passive: true });
+  }
+
+  $("year").textContent = new Date().getFullYear();
+  // Link para a página da marca; aberto do computador, aponta para o arquivo.
+  if (location.protocol === "file:") {
+    $("hkLink").href = "../index.html";
+    document.querySelectorAll(".legal a").forEach(function (a) { a.setAttribute("href", a.getAttribute("href") + "index.html"); });
+  }
+  render();
+
+  /* ---------- prévia: links de compra ainda não configurados ---------- */
+  // Um link só conta como pronto quando começa com https:// e não é o modelo
+  // "LINK-...". Enquanto houver algum pendente, aparece uma faixa no topo e os
+  // botões avisam em vez de abrir.
+  function pronto(u) { u = String(u || ""); return /^https:\/\//i.test(u) && !/LINK-/.test(u); }
+  var links = N.loja
+    ? N.loja.avulsas.map(function (a) { return a.checkoutUrl; })
+        .concat(Object.keys(N.loja.combos).map(function (k) { return N.loja.combos[k].checkoutUrl; }))
+    : [N.checkoutUrl];
+  var pend = links.filter(function (u) { return !pronto(u); }).length;
+  // A faixa e o aviso técnico só aparecem no seu computador (arquivo aberto
+  // direto) ou com ?previa no endereço. Online, o visitante vê só "em breve".
+  var local = location.protocol === "file:" || /[?&]previa\b/.test(location.search);
+  if (pend && local) {
+    var bar = document.createElement("div");
+    bar.className = "preview-bar";
+    bar.innerHTML = "<b>Prévia</b>: " + pend + " de " + links.length + " links de compra ainda pendentes. Cole os links da Kiwify no <code>config.js</code>.";
+    document.body.insertBefore(bar, document.body.firstChild);
+  }
+  var toast = document.createElement("div"), toastT;
+  toast.className = "toast"; toast.setAttribute("role", "status");
+  document.body.appendChild(toast);
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[href]"); if (!a) return;
+    var h = a.getAttribute("href");
+    // Só intercepta links de compra (absolutos e ainda pendentes); links internos passam.
+    if (!/^https?:\/\//i.test(h) || pronto(h)) return;
+    e.preventDefault();
+    toast.textContent = local
+      ? "Link de compra ainda não configurado: " + (h.split("/").pop() || h)
+      : "As vendas abrem em breve. Fale com a gente: " + ((N.vendedor || {}).email || "");
+    toast.classList.add("show"); clearTimeout(toastT);
+    toastT = setTimeout(function () { toast.classList.remove("show"); }, 2600);
+  }, true);
+})();
+</script>
+</body>
+</html>
