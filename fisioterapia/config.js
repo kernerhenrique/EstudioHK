@@ -122,7 +122,7 @@ window.PAGE_CONFIG = {
   passos: [
     { titulo: "Compre", texto: "O acesso chega no seu e-mail logo após o pagamento." },
     { titulo: "Instale no Claude", texto: "Siga o vídeo de 5 minutos. Não precisa saber programar." },
-    { titulo: "Peça o registro", texto: "Escreva as anotações do jeito que você já faz e diga o que precisa: avaliação, evolução, documento ou orientações." },
+    { titulo: "Peça o registro", texto: "Escreva as anotações do jeito que você já faz e diga o que precisa: avaliação, evolução ou documento." },
   ],
 
   // Loja: skills avulsas + "monte seu combo". A chave do combo são os ids das avulsas,
@@ -138,23 +138,15 @@ window.PAGE_CONFIG = {
       { id: "documentos", nome: "Documentos fisioterapêuticos", preco: 47, texto: "Atestado, relatório técnico e parecer de capacidade funcional (Res. COFFITO 464/2016) e declaração de comparecimento.", checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOCUMENTOS" },
       { id: "evolucao", nome: "Evolução fisioterapêutica", preco: 37, texto: "Evolução de cada atendimento, reavaliação e alta, de acordo com a Res. COFFITO 414/2012.", checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-EVOLUCAO" },
       { id: "avaliacao", nome: "Avaliação fisioterapêutica", preco: 37, texto: "Roteiro da avaliação e registro de abertura com os itens mínimos do prontuário.", checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-AVALIACAO" },
-      { id: "orientacoes", nome: "Orientações domiciliares", preco: 37, texto: "A sua prescrição vira uma folha de exercícios clara para o paciente fazer em casa.", checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-ORIENTACOES" },
     ],
     combos: {
-      "documentos+evolucao":                       { nome: "Documentos + Evolução", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-EVO" },
-      "documentos+avaliacao":                      { nome: "Documentos + Avaliação", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-AVA" },
-      "documentos+orientacoes":                    { nome: "Documentos + Orientações", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-ORI" },
-      "evolucao+avaliacao":                        { nome: "Avaliação + Evolução", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-EVO-AVA" },
-      "evolucao+orientacoes":                      { nome: "Evolução + Orientações", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-EVO-ORI" },
-      "avaliacao+orientacoes":                     { nome: "Avaliação + Orientações", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-AVA-ORI" },
-      "documentos+evolucao+avaliacao":             { nome: "Kit Prontuário", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-EVO-AVA" },
-      "documentos+evolucao+orientacoes":           { nome: "Documentos + Evolução + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-EVO-ORI" },
-      "documentos+avaliacao+orientacoes":          { nome: "Documentos + Avaliação + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-AVA-ORI" },
-      "evolucao+avaliacao+orientacoes":            { nome: "Avaliação + Evolução + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-EVO-AVA-ORI" },
-      "documentos+evolucao+avaliacao+orientacoes": { nome: "Completo", preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-COMPLETO" },
+      "documentos+evolucao":           { nome: "Documentos + Evolução", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-EVO" },
+      "documentos+avaliacao":          { nome: "Documentos + Avaliação", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-DOC-AVA" },
+      "evolucao+avaliacao":            { nome: "Avaliação + Evolução", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-EVO-AVA" },
+      "documentos+evolucao+avaliacao": { nome: "Completo", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-FISIO-COMPLETO" },
     },
     toleranciaKit: 10,
-    selecaoInicial: ["documentos", "evolucao", "avaliacao", "orientacoes"],
+    selecaoInicial: ["documentos", "evolucao", "avaliacao"],
   },
 
   faq: [

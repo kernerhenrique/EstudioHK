@@ -18,7 +18,7 @@ window.PAGE_CONFIG = {
     eyebrow: "Para nutricionistas",
     titulo: "Anamnese, evolução e documentos no padrão do CFN, prontos em minutos.",
     subtitulo:
-      "Skills para o Claude que transformam as suas anotações em registros de prontuário, relatórios e orientações claras para o paciente. Leve só a que você precisa ou monte um combo com desconto. Sem inventar dado e sem montar dieta por você.",
+      "Skills para o Claude que transformam as suas anotações em registros de prontuário, relatórios e encaminhamentos. Leve só a que você precisa ou monte um combo com desconto. Sem inventar dado e sem montar dieta por você.",
     cta: "Ver as skills",
     confianca: ["Garantia de 7 dias", "Acesso imediato", "Funciona no Claude"],
   },
@@ -62,7 +62,7 @@ window.PAGE_CONFIG = {
   paraQuem: {
     sim: [
       "Nutricionistas que deixam o prontuário dos retornos para o fim do dia",
-      "Quem passa o plano do software para uma orientação que o paciente entende",
+      "Quem escreve relatório para o médico ou encaminha o paciente a outro profissional",
       "Quem já usa o Claude ou quer começar a usar no consultório",
     ],
     nao: [
@@ -122,7 +122,7 @@ window.PAGE_CONFIG = {
   passos: [
     { titulo: "Compre", texto: "O acesso chega no seu e-mail logo após o pagamento." },
     { titulo: "Instale no Claude", texto: "Siga o vídeo de 5 minutos. Não precisa saber programar." },
-    { titulo: "Peça o registro", texto: "Escreva as anotações do jeito que você já faz e diga o que precisa: anamnese, evolução, documento ou orientações." },
+    { titulo: "Peça o registro", texto: "Escreva as anotações do jeito que você já faz e diga o que precisa: anamnese, evolução ou documento." },
   ],
 
   // Loja: skills avulsas + "monte seu combo". A chave do combo são os ids das avulsas,
@@ -138,23 +138,15 @@ window.PAGE_CONFIG = {
       { id: "documentos", nome: "Documentos da nutricionista", preco: 47, texto: "Relatório nutricional, encaminhamento e declaração de comparecimento.", checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOCUMENTOS" },
       { id: "evolucao", nome: "Evolução nutricional", preco: 37, texto: "Retornos, atendimentos fora do protocolo e encerramento, de acordo com a Res. CFN 594/2017.", checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-EVOLUCAO" },
       { id: "anamnese", nome: "Anamnese nutricional", preco: 37, texto: "Roteiro da primeira consulta e registro com os itens do art. 4º da Res. CFN 594/2017.", checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-ANAMNESE" },
-      { id: "orientacoes", nome: "Orientações ao paciente", preco: 37, texto: "O seu plano vira orientação clara, lista de compras e substituições que você definiu.", checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-ORIENTACOES" },
     ],
     combos: {
-      "documentos+evolucao":                     { nome: "Documentos + Evolução", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-EVO" },
-      "documentos+anamnese":                     { nome: "Documentos + Anamnese", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-ANA" },
-      "documentos+orientacoes":                  { nome: "Documentos + Orientações", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-ORI" },
-      "evolucao+anamnese":                       { nome: "Anamnese + Evolução", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-EVO-ANA" },
-      "evolucao+orientacoes":                    { nome: "Evolução + Orientações", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-EVO-ORI" },
-      "anamnese+orientacoes":                    { nome: "Anamnese + Orientações", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-ANA-ORI" },
-      "documentos+evolucao+anamnese":            { nome: "Kit Prontuário", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-EVO-ANA" },
-      "documentos+evolucao+orientacoes":         { nome: "Documentos + Evolução + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-EVO-ORI" },
-      "documentos+anamnese+orientacoes":         { nome: "Documentos + Anamnese + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-ANA-ORI" },
-      "evolucao+anamnese+orientacoes":           { nome: "Anamnese + Evolução + Orientações", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-EVO-ANA-ORI" },
-      "documentos+evolucao+anamnese+orientacoes": { nome: "Completo", preco: 107, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-COMPLETO" },
+      "documentos+evolucao":          { nome: "Documentos + Evolução", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-EVO" },
+      "documentos+anamnese":          { nome: "Documentos + Anamnese", preco: 67, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-DOC-ANA" },
+      "evolucao+anamnese":            { nome: "Anamnese + Evolução", preco: 57, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-EVO-ANA" },
+      "documentos+evolucao+anamnese": { nome: "Completo", preco: 77, checkoutUrl: "https://pay.kiwify.com.br/LINK-NUTRI-COMPLETO" },
     },
     toleranciaKit: 10,
-    selecaoInicial: ["documentos", "evolucao", "anamnese", "orientacoes"],
+    selecaoInicial: ["documentos", "evolucao", "anamnese"],
   },
 
   faq: [
@@ -162,7 +154,7 @@ window.PAGE_CONFIG = {
     { p: "Posso comprar só uma skill?", r: "Sim. Cada skill tem o próprio preço. O combo é só para quem quer mais de uma e pagar menos." },
     { p: "Posso comprar outra skill depois?", r: "Pode. As skills funcionam de forma independente, então dá para começar por uma e completar depois." },
     { p: "Em quais planos do Claude funciona?", r: "Em todos, inclusive no gratuito. Basta ativar \"Execução de código e criação de arquivos\" nas configurações do Claude, como mostra o vídeo de instalação. Em contas de empresa (Team ou Enterprise), o administrador precisa liberar o uso de skills." },
-    { p: "A IA vai montar a dieta?", r: "Não. A prescrição é sua. A skill organiza o que você avaliou e decidiu e transforma o plano que você montou em orientação para o paciente. O novo Código de Ética do CFN, que entra em vigor em janeiro de 2027, deixa claro que a IA é apoio e não substitui a análise técnica da nutricionista." },
+    { p: "A IA vai montar a dieta?", r: "Não. A prescrição é sua. A skill organiza o que você avaliou e decidiu, sem calcular nem montar dieta. O novo Código de Ética do CFN, que entra em vigor em janeiro de 2027, deixa claro que a IA é apoio e não substitui a análise técnica da nutricionista." },
     { p: "E o sigilo?", r: "A skill trabalha sem o nome do paciente e deixa nome, documento e endereço para você completar fora do chat. Também lembra de registrar o consentimento do paciente para o uso de IA e de desativar o uso das conversas para treinamento." },
     { p: "Quem é responsável pelo registro?", r: "Você. A skill é um apoio de redação. A avaliação, a prescrição, a revisão e a assinatura continuam sendo da(o) nutricionista." },
   ],
