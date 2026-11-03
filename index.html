@@ -6,7 +6,7 @@
 <title>EstudioHK · Sites, landing pages, sistemas e automações</title>
 <meta name="description" content="Sites, landing pages, sistemas sob medida e automações para o seu negócio vender mais e trabalhar menos no manual. Protótipo antes do código e proposta com valor fechado.">
 <link rel="canonical" href="https://estudiohk.com.br/">
-<meta name="robots" content="noindex, nofollow"><!-- LANÇAMENTO: trocar por "index, follow" quando WhatsApp e preços estiverem preenchidos -->
+<meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0B1222">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -36,6 +36,7 @@
   "url": "https://estudiohk.com.br/",
   "image": "https://estudiohk.com.br/og-image.png",
   "email": "contato@estudiohk.com.br",
+  "telephone": "+55 27 99695-0409",
   "description": "Sites, landing pages, sistemas sob medida e automações para negócios de qualquer segmento.",
   "founder": { "@type": "Person", "name": "Henrique Kerner" },
   "address": { "@type": "PostalAddress", "addressLocality": "Vitória", "addressRegion": "ES", "addressCountry": "BR" },
@@ -192,7 +193,7 @@
           <h2 id="svc-title">Quatro formas de colocar seu negócio para <span class="mark">trabalhar sozinho</span>.</h2>
           <p>Cada uma resolve um problema que todo dono de negócio conhece. Escolha uma ou combine.</p>
         </div>
-        <p class="svc-note">Os preços são o ponto de partida. O valor final vem fechado na proposta, depois de uma conversa sobre o seu caso.</p>
+        <p class="svc-note">O valor de cada projeto vem fechado na proposta, depois de uma conversa rápida sobre o seu caso.</p>
       </div>
 
       <div class="svc-grid">
@@ -216,7 +217,7 @@
               <li><svg class="icon"><use href="#i-check"/></svg>Painel para você editar textos e fotos</li>
             </ul>
             <div class="svc-foot">
-              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="site">[valor]</span></b></div>
+              <a class="price" href="#contato" data-want="w1"><small>Valor</small><b>Sob consulta <svg class="icon trail"><use href="#i-arrow"/></svg></b></a>
               <div class="tags"><span class="tag">Next.js</span><span class="tag">SEO</span><span class="tag">CMS</span></div>
             </div>
           </div>
@@ -243,7 +244,7 @@
               <li><svg class="icon"><use href="#i-check"/></svg>Pixel, Analytics e testes A/B configurados</li>
             </ul>
             <div class="svc-foot">
-              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="lp">[valor]</span></b></div>
+              <a class="price" href="#contato" data-want="w2"><small>Valor</small><b>Sob consulta <svg class="icon trail"><use href="#i-arrow"/></svg></b></a>
               <div class="tags"><span class="tag">Conversão</span><span class="tag">Pixel</span><span class="tag">A/B</span></div>
             </div>
           </div>
@@ -271,7 +272,7 @@
               <li><svg class="icon"><use href="#i-check"/></svg>Painéis com os números que importam</li>
             </ul>
             <div class="svc-foot">
-              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="sistema">[valor]</span></b></div>
+              <a class="price" href="#contato" data-want="w3"><small>Valor</small><b>Sob consulta <svg class="icon trail"><use href="#i-arrow"/></svg></b></a>
               <div class="tags"><span class="tag">Web app</span><span class="tag">Painéis</span><span class="tag">Supabase</span></div>
             </div>
           </div>
@@ -297,7 +298,7 @@
               <li><svg class="icon"><use href="#i-check"/></svg>Alertas quando algo falhar</li>
             </ul>
             <div class="svc-foot">
-              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="automacao">[valor]</span></b></div>
+              <a class="price" href="#contato" data-want="w4"><small>Valor</small><b>Sob consulta <svg class="icon trail"><use href="#i-arrow"/></svg></b></a>
               <div class="tags"><span class="tag">n8n</span><span class="tag">Make</span><span class="tag">IA</span></div>
             </div>
           </div>
@@ -342,17 +343,15 @@
         <h2 id="proj-title">Feito para rodar todo dia. <span class="soft">Não só para ficar bonito.</span></h2>
       </div>
       <article class="case rv" aria-labelledby="case-title">
-        <div class="case-media" aria-hidden="true">
-          <span class="ph">AGENDA · TERÇA</span>
-          <div class="shot">
-            <div class="agenda">
-              <div class="h"></div><div class="h">Ana</div><div class="h">Bruno</div><div class="h">Carla</div><div class="h">Davi</div>
-              <div class="h">09:00</div><div><div class="ev a">Corte</div></div><div></div><div><div class="ev b">Coloração</div></div><div></div>
-              <div class="h">10:00</div><div></div><div><div class="ev c">Barba</div></div><div></div><div><div class="ev a">Corte</div></div>
-              <div class="h">11:00</div><div><div class="ev c">Barba</div></div><div><div class="ev a">Corte</div></div><div></div><div></div>
-              <div class="h">12:00</div><div></div><div></div><div><div class="ev a">Corte</div></div><div><div class="ev c">Barba</div></div>
-            </div>
-          </div>
+        <div class="case-media">
+          <figure class="frame frame-back">
+            <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span>Agenda</span></div>
+            <img src="/assets/img/aprazzo-agenda-900.webp" srcset="/assets/img/aprazzo-agenda-900.webp 900w, /assets/img/aprazzo-agenda-1600.webp 1600w" sizes="(min-width: 960px) 560px, 80vw" width="1600" height="659" loading="lazy" decoding="async" alt="Agenda do dia na Aprazzo, com uma coluna por profissional e os atendimentos coloridos por situação.">
+          </figure>
+          <figure class="frame frame-front">
+            <div class="mock-bar" aria-hidden="true"><i></i><i></i><i></i><span>Painel do negócio</span></div>
+            <img src="/assets/img/aprazzo-painel-900.webp" srcset="/assets/img/aprazzo-painel-900.webp 900w, /assets/img/aprazzo-painel-1600.webp 1600w" sizes="(min-width: 960px) 620px, 88vw" width="1600" height="775" loading="lazy" decoding="async" alt="Painel inicial da Aprazzo: recebido no mês, valores a receber, atendimentos, ocupação da agenda, taxa de faltas e a lista de atendimentos do dia.">
+          </figure>
         </div>
         <div class="case-info">
           <div class="tags"><span class="tag">Sistema</span><span class="tag">SaaS</span></div>
@@ -363,6 +362,7 @@
             <li><svg class="icon"><use href="#i-check"/></svg>Lembretes automáticos para o cliente</li>
             <li><svg class="icon"><use href="#i-check"/></svg>Painel com os números do negócio</li>
           </ul>
+          <p class="case-note">Telas reais da Aprazzo, com dados de demonstração.</p>
         </div>
       </article>
     </div>
@@ -434,7 +434,7 @@
         <p>Não achou a sua? Pergunte no WhatsApp. Eu respondo pessoalmente.</p>
       </div>
       <div class="acc rv" id="acc">
-        <div class="acc-item open"><h3><button class="acc-q" type="button" aria-expanded="true" aria-controls="a1" id="q1">Quanto custa um site ou sistema?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a1" role="region" aria-labelledby="q1"><div><p>Cada serviço mostra o valor de partida. O preço final depende do tamanho do projeto (páginas, telas, integrações) e vem na proposta com valor fechado e tudo o que está incluído, sem custo escondido.</p></div></div></div>
+        <div class="acc-item open"><h3><button class="acc-q" type="button" aria-expanded="true" aria-controls="a1" id="q1">Quanto custa um site ou sistema?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a1" role="region" aria-labelledby="q1"><div><p>Depende do tamanho do projeto: quantas páginas, telas e integrações ele tem. Depois do diagnóstico você recebe uma proposta com valor fechado e tudo o que está incluído, sem custo escondido.</p></div></div></div>
         <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a2" id="q2">Em quanto tempo fica pronto?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a2" role="region" aria-labelledby="q2"><div><p>Landing pages e sites saem mais rápido; sistemas e automações dependem do tamanho do processo. O cronograma vem na proposta, com a data de cada entrega.</p></div></div></div>
         <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a3" id="q3">Preciso entender de tecnologia?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a3" role="region" aria-labelledby="q3"><div><p>Não. Eu explico tudo sem jargão, você aprova pelo protótipo, clicando nas telas, e no fim a sua equipe recebe treinamento para usar no dia a dia.</p></div></div></div>
         <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a4" id="q4">Você cuida de domínio e hospedagem?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a4" role="region" aria-labelledby="q4"><div><p>Sim. Posso configurar tudo do zero ou usar o que você já tem. Os acessos ficam sempre no seu nome.</p></div></div></div>
@@ -488,7 +488,7 @@ Prazo: nos próximos 1 a 3 meses.
 Podemos conversar?</div>
           </div>
           <div class="preview-actions">
-            <a class="btn btn-volt btn-lg" id="wa" href="mailto:contato@estudiohk.com.br" target="_blank" rel="noopener"><svg class="icon"><use href="#i-msg"/></svg><span id="wa-label">Enviar pelo WhatsApp</span></a>
+            <a class="btn btn-volt btn-lg" id="wa" href="https://wa.me/5527996950409" target="_blank" rel="noopener"><svg class="icon"><use href="#i-msg"/></svg><span id="wa-label">Enviar pelo WhatsApp</span></a>
             <button class="btn btn-ghost-dark btn-lg" type="button" id="copy"><svg class="icon"><use href="#i-copy"/></svg>Copiar</button>
           </div>
           <p class="alt-contact">Prefere e-mail? <a href="mailto:contato@estudiohk.com.br">contato@estudiohk.com.br</a></p>
@@ -510,7 +510,7 @@ Podemos conversar?</div>
       <div class="foot-cols">
         <nav aria-label="Serviços"><h2>Serviços</h2><ul><li><a href="#servicos">Sites institucionais</a></li><li><a href="#servicos">Landing pages</a></li><li><a href="#servicos">Sistemas sob medida</a></li><li><a href="#servicos">Automações</a></li></ul></nav>
         <nav aria-label="Estúdio"><h2>Estúdio</h2><ul><li><a href="#projetos">Projetos</a></li><li><a href="#processo">Como funciona</a></li><li><a href="#calculadora">Calculadora</a></li><li><a href="#faq">Dúvidas</a></li></ul></nav>
-        <nav aria-label="Contato"><h2>Contato</h2><ul><li><a href="#contato">WhatsApp</a></li><li><a href="mailto:contato@estudiohk.com.br">contato@estudiohk.com.br</a></li><li>Vitória, ES · todo o Brasil</li></ul></nav>
+        <nav aria-label="Contato"><h2>Contato</h2><ul><li><a href="https://wa.me/5527996950409" target="_blank" rel="noopener">WhatsApp (27) 99695-0409</a></li><li><a href="mailto:contato@estudiohk.com.br">contato@estudiohk.com.br</a></li><li>Vitória, ES · todo o Brasil</li></ul></nav>
       </div>
     </div>
     <span class="wordmark" id="wordmark" aria-hidden="true">EstudioHK</span>

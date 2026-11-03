@@ -5,7 +5,7 @@
   /* ===== Configuração (preencher antes do lançamento) ===== */
   // Número do WhatsApp com DDI e DDD, só dígitos. Ex.: '5527999999999'.
   // Vazio: o botão do briefing envia por e-mail.
-  var WHATSAPP_NUMBER = '';
+  var WHATSAPP_NUMBER = '5527996950409';
   var EMAIL = 'contato@estudiohk.com.br';
 
   var doc = document.documentElement;
@@ -217,6 +217,13 @@
   $('#calc').addEventListener('submit', function (e) { e.preventDefault(); });
   calc();
   $('#calc-cta').addEventListener('click', function () { $('#w4').checked = true; $('#w1').checked = false; updateBrief(); });
+  // "Sob consulta" em cada serviço leva ao briefing com aquele serviço já marcado
+  $$('[data-want]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      $$('input[name=what]').forEach(function (i) { i.checked = i.id === el.dataset.want; });
+      updateBrief();
+    });
+  });
 
   /* ---------- brilho que segue o cursor ---------- */
   if (finePointer && !reduce) {
