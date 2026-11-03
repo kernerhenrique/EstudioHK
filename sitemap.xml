@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Ao criar um nicho novo, acrescente um <url> com o endereço da pasta. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://estudiohk.com.br/</loc>
-    <lastmod>2026-10-17</lastmod>
-  </url>
-  <url>
-    <loc>https://estudiohk.com.br/psicologia/</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://estudiohk.com.br/termos/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
   <url>
     <loc>https://estudiohk.com.br/privacidade/</loc>
-    <lastmod>2026-10-18</lastmod>
+    <lastmod>2026-11-03</lastmod>
   </url>
 </urlset>

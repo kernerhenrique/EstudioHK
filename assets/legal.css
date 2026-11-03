@@ -1,0 +1,31 @@
+/* Páginas de texto (termos, privacidade) com a identidade Noite & Volt */
+/* Fontes Geist e Geist Mono (SIL Open Font License), hospedadas no próprio site: só o subconjunto latino, que cobre o português */
+@font-face { font-family: Geist; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/geist-latin.woff2) format("woff2"); }
+@font-face { font-family: "Geist Mono"; font-style: normal; font-weight: 400 500; font-display: swap; src: url(/assets/fonts/geist-mono-latin.woff2) format("woff2"); }
+:root { --noite: #0B1222; --on-noite: #EEF1F8; --on-noite-muted: #A3ADC2; --volt: #C6F24E; --bg: #F5F4EF; --surface: #FFFFFF; --line: #DAD8D0; --ink: #0B1222; --ink-muted: #4A5468; --brand-ink: #1F3A8A; --focus: #1F3A8A; color-scheme: light; }
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/26px Geist, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--brand-ink); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 768px; margin-inline: auto; padding-inline: max(20px, env(safe-area-inset-left, 0px)) max(20px, env(safe-area-inset-right, 0px)); }
+header { background: var(--noite); color: var(--on-noite); padding-top: env(safe-area-inset-top, 0px); }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+header :focus-visible { outline-color: var(--volt); }
+.logo { display: inline-flex; align-items: baseline; font-size: 21px; line-height: 1; letter-spacing: -.03em; color: var(--on-noite); text-decoration: none; }
+.logo b { font-weight: 700; } .logo i { display: inline-block; width: .32em; height: .32em; border-radius: 99px; background: var(--volt); margin-left: .12em; }
+header nav a { color: var(--on-noite-muted); font-size: 15px; text-decoration: none; margin-left: 18px; }
+header nav a:hover, header nav a[aria-current] { color: var(--on-noite); }
+main { padding-block: 48px 64px; }
+.eyebrow { font-family: "Geist Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--brand-ink); margin: 0 0 10px; }
+h1 { font-size: clamp(32px, 6vw, 44px); line-height: 1.1; letter-spacing: -.025em; font-weight: 600; margin: 0; text-wrap: balance; }
+.meta { color: var(--ink-muted); font-size: 15px; margin: 12px 0 0; }
+.resumo { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 24px; margin: 32px 0 8px; }
+.resumo p { margin: 0 0 6px; font-weight: 600; }
+.resumo ul { margin: 0; padding-left: 20px; color: var(--ink-muted); }
+h2 { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -.01em; margin: 36px 0 8px; padding-top: 24px; border-top: 1px solid var(--line); }
+h2 .n { font-family: "Geist Mono", ui-monospace, monospace; font-size: 14px; color: var(--brand-ink); margin-right: 10px; }
+p, li { text-wrap: pretty; }
+ul { padding-left: 20px; } li { margin: 6px 0; }
+footer { background: var(--noite); color: var(--on-noite-muted); font-size: 14px; line-height: 22px; }
+footer .wrap { padding-block: 28px calc(32px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 6px; }
+footer p { margin: 0; } footer a { color: var(--on-noite); }

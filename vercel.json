@@ -1,3 +1,20 @@
 {
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/psicologia/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fisioterapia/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nutricao/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }

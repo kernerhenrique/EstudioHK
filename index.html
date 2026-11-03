@@ -3,505 +3,533 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>EstudioHK | Skills para o Claude, automações n8n e landing pages</title>
-<meta name="description" content="Skills prontas para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez. Pagamento único pela Kiwify, acesso na hora. Projetos sob medida.">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<title>EstudioHK · Sites, landing pages, sistemas e automações</title>
+<meta name="description" content="Sites, landing pages, sistemas sob medida e automações para o seu negócio vender mais e trabalhar menos no manual. Protótipo antes do código e proposta com valor fechado.">
 <link rel="canonical" href="https://estudiohk.com.br/">
-<meta property="og:url" content="https://estudiohk.com.br/">
+<meta name="robots" content="noindex, nofollow"><!-- LANÇAMENTO: trocar por "index, follow" quando WhatsApp e preços estiverem preenchidos -->
+<meta name="theme-color" content="#0B1222">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="EstudioHK">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="EstudioHK: ferramentas digitais prontas para cada profissão">
-<meta property="og:description" content="Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.">
+<meta property="og:site_name" content="EstudioHK">
+<meta property="og:url" content="https://estudiohk.com.br/">
+<meta property="og:title" content="EstudioHK · Sites, sistemas e automações que trabalham por você">
+<meta property="og:description" content="Do site que traz o cliente ao sistema que organiza a operação. Protótipo antes do código e proposta com valor fechado.">
 <meta property="og:image" content="https://estudiohk.com.br/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="EstudioHK: skills de Claude, automações e landing pages">
+<meta property="og:image:alt" content="EstudioHK: sites, sistemas e automações que trabalham por você.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EstudioHK: ferramentas digitais prontas para cada profissão">
-<meta name="twitter:description" content="Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.">
-<meta name="theme-color" content="#F3F5FE" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#161826" media="(prefers-color-scheme: dark)">
+<meta name="twitter:title" content="EstudioHK · Sites, sistemas e automações que trabalham por você">
+<meta name="twitter:description" content="Do site que traz o cliente ao sistema que organiza a operação. Protótipo antes do código e proposta com valor fechado.">
+<meta name="twitter:image" content="https://estudiohk.com.br/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="/assets/site.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://estudiohk.com.br/#org",
-      "name": "EstudioHK",
-      "url": "https://estudiohk.com.br/",
-      "logo": "https://estudiohk.com.br/apple-touch-icon.png",
-      "email": "contato@estudiohk.com.br",
-      "description": "Skills para o Claude, automações n8n e landing pages, feitas para uma profissão de cada vez.",
-      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "contato@estudiohk.com.br", "availableLanguage": "Portuguese" }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://estudiohk.com.br/#site",
-      "name": "EstudioHK",
-      "url": "https://estudiohk.com.br/",
-      "inLanguage": "pt-BR",
-      "publisher": { "@id": "https://estudiohk.com.br/#org" }
-    }
-  ]
+  "@type": "ProfessionalService",
+  "name": "EstudioHK",
+  "url": "https://estudiohk.com.br/",
+  "image": "https://estudiohk.com.br/og-image.png",
+  "email": "contato@estudiohk.com.br",
+  "description": "Sites, landing pages, sistemas sob medida e automações para negócios de qualquer segmento.",
+  "founder": { "@type": "Person", "name": "Henrique Kerner" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Vitória", "addressRegion": "ES", "addressCountry": "BR" },
+  "areaServed": { "@type": "Country", "name": "Brasil" },
+  "knowsAbout": ["Desenvolvimento de sites", "Landing pages", "Sistemas web sob medida", "Automação de processos"]
 }
 </script>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-<style>
-/* Identidade EstudioHK: mesmos tokens das páginas de produto. */
-:root {
-  --accent: #796CBF; --aurora: #262A60; --accent-ink: #5D5294;
-  --cta: #262A60; --cta-hover: #1C1F4A; --on-cta: #FFFFFF;
-  --bg: #F3F5FE; --surface: #E4E7F5; --paper: #FFFFFF;
-  --ink: #161826; --muted: #595D6C; --line: #D6D9EA; --mark: #DCD6F7;
-  --shadow: 0 1px 2px rgba(22,24,38,.06), 0 18px 40px -20px rgba(22,24,38,.25);
-  --orb-opacity: .28; --r-btn: 10px; --r-lg: 16px;
-  color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --accent: #9184D9; --aurora: #9184D9; --accent-ink: #9184D9;
-    --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
-    --bg: #161826; --surface: #1D2032; --paper: #22253A;
-    --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F; --mark: rgba(145,132,217,.3);
-    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
-    --orb-opacity: .24; color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --accent: #9184D9; --aurora: #9184D9; --accent-ink: #9184D9;
-  --cta: #F3F5FE; --cta-hover: #FFFFFF; --on-cta: #161826;
-  --bg: #161826; --surface: #1D2032; --paper: #22253A;
-  --ink: #F3F5FE; --muted: #A6AABD; --line: #33374F; --mark: rgba(145,132,217,.3);
-  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 20px 44px -18px rgba(0,0,0,.75);
-  --orb-opacity: .24; color-scheme: dark;
-}
-* { box-sizing: border-box; }
-[hidden] { display: none !important; }
-html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Inter", "Segoe UI", system-ui, sans-serif; font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -0.025em; font-weight: 500; }
-p { margin: 0; }
-a { color: inherit; }
-b, strong { font-weight: 500; }
-:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-.wrap { width: 100%; max-width: 1120px; margin-inline: auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
-
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5em; font: 500 1rem/1 inherit; font-family: inherit; text-decoration: none; padding: 1.05rem 1.7rem; border-radius: var(--r-btn); border: 0; cursor: pointer; background: var(--cta); color: var(--on-cta); transition: transform .18s ease, background .18s ease; }
-.btn:hover { transform: translateY(-1px); background: var(--cta-hover); }
-.btn-ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--accent); }
-.btn-ghost:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
-
-/* topo */
-.nav { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
-.nav.scrolled { border-bottom-color: var(--line); }
-.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .85rem; }
-.brand { display: flex; align-items: center; gap: .55rem; font-size: 1.1rem; letter-spacing: -0.01em; text-decoration: none; }
-.brand svg { width: 1.5rem; height: 1.5rem; color: var(--ink); flex: none; }
-.brand b { font-weight: 600; }
-.nav-links { display: flex; gap: 1.6rem; font-size: .95rem; color: var(--muted); }
-.nav-links a { text-decoration: none; }
-.nav-links a:hover { color: var(--ink); }
-
-/* hero */
-.hero { position: relative; overflow-x: clip; }
-.hero .wrap { position: relative; padding-block: clamp(3.5rem, 9vw, 7rem) clamp(3rem, 7vw, 5.5rem); display: grid; justify-items: center; text-align: center; }
-.orb-wrap { position: absolute; z-index: 0; left: 50%; top: 42%; width: min(820px, 130%); aspect-ratio: 1.6; transform: translate(-50%, -50%); opacity: var(--orb-opacity); pointer-events: none; }
-.orb { position: absolute; inset: 0; border-radius: 50%; filter: blur(70px); background: conic-gradient(from 0deg, var(--accent), var(--aurora), transparent 55%, var(--accent) 75%, var(--aurora)); animation: spin 18s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.hero > .wrap > * { position: relative; z-index: 1; }
-
-/* símbolo animado: as quatro formas se encaixam */
-.mark { width: clamp(64px, 9vw, 92px); height: auto; color: var(--ink); margin-bottom: 1.8rem; overflow: visible; transform: perspective(420px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transition: transform .5s cubic-bezier(.2,.7,.2,1); cursor: pointer; }
-/* as quatro formas se afastam um pouco ao passar o mouse ou tocar (usa "translate" para não brigar com a animação de entrada) */
-.mark .p { transition: translate .45s cubic-bezier(.2,.75,.2,1); }
-.mark:hover .p1, .mark.open .p1 { translate: -5px -5px; }
-.mark:hover .p2, .mark.open .p2 { translate: 5px -5px; }
-.mark:hover .p3, .mark.open .p3 { translate: -5px 5px; }
-.mark:hover .p4, .mark.open .p4 { translate: 5px 5px; }
-.orb-wrap { translate: var(--ox, 0px) var(--oy, 0px); will-change: translate; }
-/* filtro de nichos (aparece sozinho quando houver 2 ou mais nichos) */
-.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin: 0 auto clamp(1.5rem, 3vw, 2.2rem); }
-.filter { font: 500 .92rem/1 inherit; font-family: inherit; padding: .65rem 1.1rem; border-radius: 999px; border: 1.5px solid var(--line); background: var(--paper); color: var(--muted); cursor: pointer; transition: border-color .2s, background .2s, color .2s, transform .15s; }
-.filter:hover { border-color: var(--accent); color: var(--ink); }
-.filter:active { transform: scale(.96); }
-.filter[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--paper)); color: var(--accent-ink); }
-.product.enter { animation: cardIn .45s cubic-bezier(.2,.7,.2,1) both; }
-@keyframes cardIn { from { opacity: 0; transform: translateY(12px) scale(.98); } }
-/* brilho que acompanha o cursor nos cartões */
-.glow { isolation: isolate; }
-.glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: -1; opacity: 0; transition: opacity .3s; background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent 60%); }
-.glow:hover::after { opacity: 1; }
-@media (hover: none) { .glow::after { display: none; } }
-.mark .p { animation: piece .9s cubic-bezier(.2,.75,.2,1) both; transform-box: fill-box; transform-origin: center; }
-.mark .p1 { animation-delay: .05s; --dx: -18px; --dy: -18px; }
-.mark .p2 { animation-delay: .18s; --dx: 18px; --dy: -18px; }
-.mark .p3 { animation-delay: .31s; --dx: -18px; --dy: 18px; }
-.mark .p4 { animation-delay: .44s; --dx: 18px; --dy: 18px; }
-@keyframes piece { from { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.6); } }
-.mark .dot { animation: piece .9s cubic-bezier(.2,.75,.2,1) .18s both, bob 4s ease-in-out 1.2s infinite; }
-@keyframes bob { 50% { transform: translateY(-4px); } }
-
-.eyebrow { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); margin-bottom: 1.1rem; }
-.hero h1 { font-size: clamp(2.3rem, 5.6vw, 4.5rem); line-height: 1.04; letter-spacing: -0.03em; max-width: 16ch; }
-.hero-sub { margin-top: 1.4rem; font-size: 1.14rem; color: var(--muted); max-width: 36em; }
-.hero-actions { margin-top: 2.1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; }
-
-/* seções */
-section.block { padding-block: clamp(3.5rem, 8vw, 6rem); }
-.head { text-align: center; max-width: 40em; margin: 0 auto clamp(2rem, 4vw, 3rem); }
-.head h2 { font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; }
-.head p { margin-top: .8rem; color: var(--muted); }
-
-/* produtos */
-.products { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 1.2rem; }
-.product { position: relative; display: grid; grid-template-rows: auto auto 1fr auto; gap: .9rem; padding: 1.7rem; border-radius: var(--r-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); text-decoration: none; transition: transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s; }
-a.product:hover { transform: translateY(-3px); border-color: var(--accent); }
-.product .niche { justify-self: start; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink); background: var(--mark); padding: .3rem .6rem; border-radius: 999px; }
-.product h3 { font-size: 1.5rem; }
-.product p { color: var(--muted); font-size: .98rem; }
-.product .foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95rem; }
-.product .price { color: var(--muted); }
-.product .price b { color: var(--ink); }
-.product .go { display: inline-flex; align-items: center; gap: .35rem; font-weight: 500; color: var(--accent-ink); }
-.product .go svg { transition: transform .2s; }
-a.product:hover .go svg { transform: translateX(3px); }
-.product.soon { background: transparent; box-shadow: none; border-style: dashed; }
-.product.soon .niche { background: transparent; box-shadow: inset 0 0 0 1px var(--line); color: var(--muted); }
-
-/* como funciona */
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.2rem; counter-reset: s; }
-.steps li { counter-increment: s; padding: 1.5rem; border-radius: var(--r-lg); background: var(--surface); }
-.steps li::before { content: counter(s); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--paper); color: var(--accent-ink); font-weight: 600; font-size: .9rem; margin-bottom: 1rem; box-shadow: inset 0 0 0 1.5px var(--accent); }
-.steps h3 { font-size: 1.12rem; letter-spacing: -0.01em; }
-/* linha que liga os passos quando eles aparecem (só com 3 colunas) */
-@media (min-width: 860px) {
-  .steps li { position: relative; }
-  .steps li:not(:last-child)::after { content: ""; position: absolute; top: calc(1.5rem + 1rem - 1px); left: calc(1.5rem + 2.6rem); right: calc(-1.2rem + .6rem); height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 15%, transparent)); transform-origin: 0 50%; transform: scaleX(0); transition: transform .9s cubic-bezier(.2,.7,.2,1) .35s; }
-  .steps li.in:not(:last-child)::after { transform: scaleX(1); }
-}
-.steps p { margin-top: .4rem; color: var(--muted); font-size: .97rem; }
-
-/* sob medida */
-.custom { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); align-items: center; padding: clamp(1.8rem, 4vw, 3rem); border-radius: 22px; background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); position: relative; overflow: hidden; }
-.custom::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1.5px; background: conic-gradient(from 210deg, var(--accent), var(--aurora), transparent 40%, transparent 70%, var(--accent)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-.custom h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.1; }
-.custom p { margin-top: .8rem; color: var(--muted); }
-.custom ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
-.custom li { display: flex; gap: .7rem; align-items: flex-start; }
-.custom li svg { flex: none; margin-top: .2rem; color: var(--accent); }
-.custom .btn { margin-top: 1.5rem; }
-.custom .btn svg { flex: none; }
-
-/* rodapé */
-footer { border-top: 1px solid var(--line); }
-footer .wrap { padding-block: 2.5rem 3rem; display: grid; gap: 1rem; justify-items: center; text-align: center; font-size: .88rem; color: var(--muted); }
-footer .brand { color: var(--ink); }
-
-/* entrada ao rolar */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
-.reveal.in { opacity: 1; transform: none; }
-
-@media (max-width: 760px) {
-  .nav-links { display: none; }
-  .custom { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; }
-  .reveal { opacity: 1; transform: none; }
-}
-</style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 1 0 0-14zM20 20l-4-4"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 9h16M9 9v11"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 5h16v16H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21v-1a6 6 0 0 1 12 0v1M16 3.5a4 4 0 0 1 0 7M22 21v-1a6 6 0 0 0-4-5.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h10v18H7zM11 18h2"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0V8zM12 17v4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l11-7z"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3z"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M4 18h5v-5h5V8h6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/></symbol>
+  </defs>
+</svg>
+
+<div class="scroll-prog" id="prog" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <div class="wrap">
-    <a class="brand" href="./" aria-label="EstudioHK, início">
-      <svg viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg>
-      <span>Estudio<b>HK</b></span>
-    </a>
-    <nav class="nav-links" aria-label="Seções">
-      <a href="#produtos">Produtos</a>
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#sob-medida" id="navCustom">Sob medida</a>
+  <div class="wrap nav-in">
+    <a class="logo" href="#topo" aria-label="EstudioHK, início"><span>Estudio</span><b>HK</b><i aria-hidden="true"></i></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+      </ul>
     </nav>
+    <div class="nav-right">
+      <a class="btn btn-volt btn-sm" href="#contato">Pedir orçamento <svg class="icon trail" style="width:16px;height:16px"><use href="#i-arrow"/></svg></a>
+      <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="sheet" aria-label="Abrir menu"><svg class="icon" style="width:22px;height:22px"><use href="#i-menu"/></svg></button>
+    </div>
   </div>
+  <nav class="wrap sheet" id="sheet" aria-label="Menu">
+    <a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#processo">Como funciona</a><a href="#faq">Dúvidas</a>
+    <a class="btn btn-volt btn-lg" href="#contato">Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+  </nav>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="orb-wrap" aria-hidden="true"><div class="orb"></div></div>
-    <div class="wrap">
-      <svg class="mark" id="mark" viewBox="0 0 90 90" aria-hidden="true">
-        <rect class="p p1" x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/>
-        <circle class="p p2 dot" cx="70" cy="20" r="20" fill="var(--accent)"/>
-        <rect class="p p3" x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/>
-        <rect class="p p4" x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/>
-      </svg>
-      <p class="eyebrow" id="eyebrow">EstudioHK</p>
-      <h1 id="h1">Ferramentas digitais prontas para a sua profissão</h1>
-      <p class="hero-sub" id="sub">Skills para o Claude, automações e páginas, feitas para uma profissão de cada vez. Você compra, recebe na hora e começa a usar no mesmo dia.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#produtos">Ver produtos</a>
-        <a class="btn btn-ghost" href="#sob-medida" id="heroCustom">Projetos sob medida</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="produtos">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>Produtos</h2>
-        <p>Cada produto é feito para uma profissão, com as regras e a rotina dela.</p>
-      </div>
-      <div class="filters" id="filters" role="group" aria-label="Filtrar por profissão" hidden></div>
-      <div class="products" id="products">
-        <a class="product" href="psicologia/"><span class="niche">Psicologia</span><h3>Documento Certo</h3><p>Skills para o Claude que transformam suas anotações em documentos, evoluções de prontuário e anamneses no padrão do CFP.</p><div class="foot"><span class="price">A partir de <b>R$ 37</b></span><span class="go">Conhecer</span></div></a>
-        <a class="product" href="fisioterapia/"><span class="niche">Fisioterapia</span><h3>Documento Certo</h3><p>Skills para o Claude que transformam suas anotações em avaliações, evoluções e documentos no padrão do COFFITO.</p><div class="foot"><span class="price">Lançamento em breve</span><span class="go">Conhecer</span></div></a>
-        <a class="product" href="nutricao/"><span class="niche">Nutrição</span><h3>Documento Certo</h3><p>Skills para o Claude que transformam suas anotações em anamnese, evolução, relatórios e encaminhamentos no padrão do CFN.</p><div class="foot"><span class="price">Lançamento em breve</span><span class="go">Conhecer</span></div></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="block" id="como-funciona" style="padding-top:0">
-    <div class="wrap">
-      <div class="head reveal">
-        <h2>Como funciona</h2>
-        <p>Pagamento único, sem mensalidade.</p>
-      </div>
-      <ol class="steps" id="steps"></ol>
-    </div>
-  </section>
-
-  <section class="block" id="sob-medida" style="padding-top:0">
-    <div class="wrap">
-      <div class="custom reveal">
-        <div>
-          <h2 id="customTitle"></h2>
-          <p id="customText"></p>
-          <a class="btn" id="customBtn"></a>
+<main id="conteudo">
+  <!-- HERO -->
+  <section class="hero dark" id="topo" aria-labelledby="hero-title">
+    <canvas id="dots" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="eyebrow">Estúdio digital · Vitória, ES</span>
+        <h1 id="hero-title"><span class="word" style="--i:0">Sites,</span> <span class="word" style="--i:1">sistemas</span> <span class="word" style="--i:2">e</span> <span class="word" style="--i:3">automações</span> <span class="word" style="--i:4">que</span> <span class="rot" aria-hidden="true"><span class="mark">trabalham</span><span class="mark wait">vendem</span><span class="mark wait">atendem</span></span><span class="sr">trabalham</span> <span class="word" style="--i:7">por</span> <span class="word" style="--i:8">você.</span></h1>
+        <p class="lead">Do site que traz o cliente ao sistema que organiza a operação. Eu desenho, desenvolvo e conecto tudo para o seu negócio rodar com menos trabalho manual.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-volt btn-lg" href="#contato">Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost-dark btn-lg" href="#servicos">Ver serviços</a>
         </div>
-        <ul id="customList"></ul>
+        <div class="hero-meta">
+          <span><svg class="icon"><use href="#i-check"/></svg>Protótipo aprovado antes do código</span>
+          <span><svg class="icon"><use href="#i-check"/></svg>Proposta fechada, sem surpresa</span>
+        </div>
+      </div>
+
+      <div class="demo" id="demo" role="group" aria-labelledby="demo-title">
+        <div class="demo-bar">
+          <i></i><i></i><i></i>
+          <span class="mono" id="demo-title">fluxo / novo-pedido</span>
+          <span class="pill"><b></b><span id="demo-state">Pronto</span></span>
+        </div>
+        <svg class="flow" viewBox="0 0 440 292" role="img" aria-label="Fluxo: o formulário do site envia o pedido para a automação, que avisa no WhatsApp, cria o contato no CRM e registra na planilha.">
+          <path class="edge" d="M220 68 V118"/>
+          <path class="edge" d="M220 174 C220 206 74 198 74 232"/>
+          <path class="edge" d="M220 174 V232"/>
+          <path class="edge" d="M220 174 C220 206 366 198 366 232"/>
+          <path class="edge-on" id="e0" d="M220 68 V118"/>
+          <path class="edge-on" id="e1" d="M220 174 C220 206 74 198 74 232"/>
+          <path class="edge-on" id="e2" d="M220 174 V232"/>
+          <path class="edge-on" id="e3" d="M220 174 C220 206 366 198 366 232"/>
+          <g class="node" id="n0" transform="translate(120 14)">
+            <rect width="200" height="54" rx="12"/>
+            <g transform="translate(14 15)"><path class="ico" d="M2 3h20v16H2zM2 8h20"/></g>
+            <text x="48" y="24">Formulário do site</text><text class="sub" x="48" y="40">Gatilho · novo pedido</text>
+          </g>
+          <g class="node engine" id="n1" transform="translate(120 118)">
+            <rect width="200" height="56" rx="12"/>
+            <g transform="translate(14 16)"><path class="ico" d="M13 1 4 13h7l-1 8 9-12h-7l1-8z"/></g>
+            <text x="48" y="25">Automação</text><text class="sub" x="48" y="41">Qualifica e distribui</text>
+          </g>
+          <g class="node" id="n2" transform="translate(10 232)">
+            <rect width="128" height="48" rx="12"/>
+            <g transform="translate(12 13)"><path class="ico" d="M19 10a8 8 0 0 1-11.8 7L2 19l1.5-5A8 8 0 1 1 19 10z"/></g>
+            <text x="42" y="29">WhatsApp</text>
+          </g>
+          <g class="node" id="n3" transform="translate(156 232)">
+            <rect width="128" height="48" rx="12"/>
+            <g transform="translate(12 13)"><path class="ico" d="M7 9a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM0 21v-1a6 6 0 0 1 12 0v1M14 2a4 4 0 0 1 0 7"/></g>
+            <text x="42" y="29">CRM</text>
+          </g>
+          <g class="node" id="n4" transform="translate(302 232)">
+            <rect width="128" height="48" rx="12"/>
+            <g transform="translate(12 13)"><path class="ico" d="M1 1h18v18H1zM1 7h18M1 13h18M7 1v18"/></g>
+            <text x="42" y="29">Planilha</text>
+          </g>
+          <circle class="pulse" id="pulse" r="5" cx="-20" cy="-20"/>
+        </svg>
+        <ol class="log" id="log" aria-live="off"><li>Aguardando pedidos…</li></ol>
+        <div class="demo-foot">
+          <span>Simulação de um fluxo que eu entrego</span>
+          <button type="button" id="demo-run"><svg class="icon" style="width:14px;height:14px"><use href="#i-play"/></svg>Simular um pedido</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <div class="dark stack">
+    <div class="wrap stack-in">
+      <span class="stack-label" id="stack-label">Ferramentas que uso</span>
+      <div class="marquee">
+        <ul aria-labelledby="stack-label">
+          <li>Next.js</li><li>React</li><li>TypeScript</li><li>Node.js</li><li>n8n</li><li>Make</li><li>Supabase</li><li>PostgreSQL</li><li>Tailwind CSS</li><li>WhatsApp API</li><li>Google Sheets</li><li>APIs de IA</li>
+          <li aria-hidden="true">Next.js</li><li aria-hidden="true">React</li><li aria-hidden="true">TypeScript</li><li aria-hidden="true">Node.js</li><li aria-hidden="true">n8n</li><li aria-hidden="true">Make</li><li aria-hidden="true">Supabase</li><li aria-hidden="true">PostgreSQL</li><li aria-hidden="true">Tailwind CSS</li><li aria-hidden="true">WhatsApp API</li><li aria-hidden="true">Google Sheets</li><li aria-hidden="true">APIs de IA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVIÇOS -->
+  <section class="section" id="servicos" aria-labelledby="svc-title">
+    <div class="wrap">
+      <div class="svc-head rv">
+        <div class="sh">
+          <span class="eyebrow">O que eu construo</span>
+          <h2 id="svc-title">Quatro formas de colocar seu negócio para <span class="mark">trabalhar sozinho</span>.</h2>
+          <p>Cada uma resolve um problema que todo dono de negócio conhece. Escolha uma ou combine.</p>
+        </div>
+        <p class="svc-note">Os preços são o ponto de partida. O valor final vem fechado na proposta, depois de uma conversa sobre o seu caso.</p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc rv">
+          <div class="svc-media" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-bar"><i></i><i></i><i></i><span>suaempresa.com.br</span></div>
+              <div class="m-site">
+                <div class="hero-b"><span class="sk t"></span><span class="sk" style="height:7px;width:52%"></span><span class="sk" style="height:7px;width:40%"></span><span class="sk v"></span></div>
+                <div class="cards"><div><b></b><span class="sk" style="height:6px;width:80%"></span><span class="sk" style="height:6px;width:55%"></span></div><div><b></b><span class="sk" style="height:6px;width:70%"></span><span class="sk" style="height:6px;width:60%"></span></div><div><b></b><span class="sk" style="height:6px;width:75%"></span><span class="sk" style="height:6px;width:45%"></span></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <p class="svc-pain">Meu negócio não aparece quando procuram.</p>
+            <h3><span class="ic"><svg class="icon"><use href="#i-globe"/></svg></span>Sites institucionais</h3>
+            <p>Presença profissional que passa confiança no primeiro segundo: rápido no celular, fácil de achar no Google e simples de atualizar.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg>Design sob medida, sem tema pronto</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>SEO técnico e carregamento rápido</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Painel para você editar textos e fotos</li>
+            </ul>
+            <div class="svc-foot">
+              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="site">[valor]</span></b></div>
+              <div class="tags"><span class="tag">Next.js</span><span class="tag">SEO</span><span class="tag">CMS</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc rv" style="--d:60ms">
+          <div class="svc-media" aria-hidden="true">
+            <div class="mock">
+              <div class="mock-bar"><i></i><i></i><i></i><span>oferta.suaempresa.com.br</span></div>
+              <div class="m-lp">
+                <div style="display:grid;gap:8px"><span class="sk" style="height:13px;width:90%;background:var(--ink)"></span><span class="sk" style="height:13px;width:64%;background:var(--ink)"></span><span class="sk" style="height:7px;width:80%"></span><span class="sk" style="height:7px;width:70%"></span></div>
+                <div class="form"><span class="f"></span><span class="f"></span><span class="s"></span></div>
+                <div class="funnel"><div>Visitas<em style="width:100%"></em></div><div>Cliques<em style="width:62%"></em></div><div>Contatos<em style="width:34%;background:var(--volt)"></em></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <p class="svc-pain">Faço anúncio, mas o contato não chega.</p>
+            <h3><span class="ic"><svg class="icon"><use href="#i-layout"/></svg></span>Landing pages</h3>
+            <p>Uma página por oferta, feita para uma coisa só: converter. Mensagem clara, formulário curto e cada clique medido.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg>Texto e estrutura pensados para conversão</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Formulário que cai direto no seu WhatsApp</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Pixel, Analytics e testes A/B configurados</li>
+            </ul>
+            <div class="svc-foot">
+              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="lp">[valor]</span></b></div>
+              <div class="tags"><span class="tag">Conversão</span><span class="tag">Pixel</span><span class="tag">A/B</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc rv">
+          <div class="svc-media" aria-hidden="true">
+            <div class="mock">
+              <div class="m-sys">
+                <aside><i></i><i></i><i></i><i></i></aside>
+                <div class="main">
+                  <div class="chart"><b style="height:38%"></b><b style="height:52%"></b><b style="height:45%"></b><b style="height:64%"></b><b style="height:58%"></b><b style="height:76%"></b><b style="height:70%"></b><b style="height:92%"></b></div>
+                  <div class="rows"><div><span class="sk"></span><span class="st">Pago</span></div><div><span class="sk" style="width:38%"></span><span class="st w">Pendente</span></div><div><span class="sk" style="width:52%"></span><span class="st">Pago</span></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <p class="svc-pain">A planilha não dá mais conta.</p>
+            <h3><span class="ic"><svg class="icon"><use href="#i-grid"/></svg></span>Sistemas sob medida</h3>
+            <p>Agendamento, financeiro, pedidos, equipe. Eu transformo o jeito que a sua empresa já trabalha em software.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg>Protótipo navegável antes do desenvolvimento</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Acesso por perfil e dados protegidos</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Painéis com os números que importam</li>
+            </ul>
+            <div class="svc-foot">
+              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="sistema">[valor]</span></b></div>
+              <div class="tags"><span class="tag">Web app</span><span class="tag">Painéis</span><span class="tag">Supabase</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc rv" style="--d:60ms">
+          <div class="svc-media" aria-hidden="true">
+            <div class="mock">
+              <div class="m-auto">
+                <div class="rule"><span class="chip"><svg class="icon"><use href="#i-layout"/></svg></span><span><span class="k">Quando</span><br>chega um pedido no site</span><span class="arr"></span><span><span class="k">Então</span><br>aviso no WhatsApp</span></div>
+                <div class="rule"><span class="chip"><svg class="icon"><use href="#i-cal"/></svg></span><span><span class="k">Quando</span><br>falta 1 dia para o horário</span><span class="arr"></span><span><span class="k">Então</span><br>lembrete ao cliente</span></div>
+                <div class="rule"><span class="chip v"><svg class="icon"><use href="#i-sheet"/></svg></span><span><span class="k">Toda segunda</span><br>às 8h</span><span class="arr"></span><span><span class="k">Então</span><br>relatório por e-mail</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="svc-body">
+            <p class="svc-pain">Respondo, copio e colo tudo na mão.</p>
+            <h3><span class="ic"><svg class="icon"><use href="#i-zap"/></svg></span>Automações</h3>
+            <p>Conecto site, WhatsApp, planilhas, CRM e e-mail para a informação andar sozinha, sem ninguém copiando e colando.</p>
+            <ul class="checks">
+              <li><svg class="icon"><use href="#i-check"/></svg>Mapeamento do processo antes de automatizar</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Fluxos com n8n e Make, com IA quando faz sentido</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Alertas quando algo falhar</li>
+            </ul>
+            <div class="svc-foot">
+              <div class="price"><small>A partir de</small><b>R$ <span class="todo" data-preco="automacao">[valor]</span></b></div>
+              <div class="tags"><span class="tag">n8n</span><span class="tag">Make</span><span class="tag">IA</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section class="section alt" id="calculadora" aria-labelledby="calc-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Calculadora</span>
+        <h2 id="calc-title">Quanto tempo a sua equipe perde com tarefa repetitiva? <span class="soft">Faça a conta.</span></h2>
+        <p>Mexa nos controles com os números do seu negócio e veja quanto uma automação pode devolver por mês.</p>
+      </div>
+      <div class="calc rv">
+        <form class="calc-in" id="calc" aria-label="Dados para o cálculo">
+          <div class="rng"><div class="rng-top"><label for="c-people">Pessoas fazendo tarefas manuais</label><output for="c-people" id="o-people">3 pessoas</output></div><input type="range" id="c-people" min="1" max="30" value="3"></div>
+          <div class="rng"><div class="rng-top"><label for="c-hours">Horas por semana, por pessoa</label><output for="c-hours" id="o-hours">6 h/semana</output></div><input type="range" id="c-hours" min="1" max="30" value="6"></div>
+          <div class="rng"><div class="rng-top"><label for="c-cost">Custo da hora de trabalho</label><output for="c-cost" id="o-cost">R$ 40/h</output></div><input type="range" id="c-cost" min="15" max="250" step="5" value="40"></div>
+          <div class="rng"><div class="rng-top"><label for="c-pct">Quanto disso dá para automatizar</label><output for="c-pct" id="o-pct">60%</output></div><input type="range" id="c-pct" min="10" max="90" step="5" value="60"></div>
+        </form>
+        <div class="calc-out" aria-live="polite" aria-atomic="true">
+          <div class="big"><span>Horas devolvidas à equipe por mês</span><strong><span id="r-hours">46</span><small>h</small></strong></div>
+          <div class="mini">
+            <div><span>Economia por mês</span><b id="r-month">R$ 1.858</b></div>
+            <div><span>Em 12 meses</span><b id="r-year">R$ 22.291</b></div>
+          </div>
+          <p class="calc-note">Estimativa simples: pessoas × horas por semana × 4,3 semanas × percentual automatizável. O número real sai do diagnóstico do seu processo.</p>
+          <a class="btn btn-volt" href="#contato" id="calc-cta">Quero automatizar isso <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETO -->
+  <section class="section" id="projetos" aria-labelledby="proj-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Projetos</span>
+        <h2 id="proj-title">Feito para rodar todo dia. <span class="soft">Não só para ficar bonito.</span></h2>
+      </div>
+      <article class="case rv" aria-labelledby="case-title">
+        <div class="case-media" aria-hidden="true">
+          <span class="ph">AGENDA · TERÇA</span>
+          <div class="shot">
+            <div class="agenda">
+              <div class="h"></div><div class="h">Ana</div><div class="h">Bruno</div><div class="h">Carla</div><div class="h">Davi</div>
+              <div class="h">09:00</div><div><div class="ev a">Corte</div></div><div></div><div><div class="ev b">Coloração</div></div><div></div>
+              <div class="h">10:00</div><div></div><div><div class="ev c">Barba</div></div><div></div><div><div class="ev a">Corte</div></div>
+              <div class="h">11:00</div><div><div class="ev c">Barba</div></div><div><div class="ev a">Corte</div></div><div></div><div></div>
+              <div class="h">12:00</div><div></div><div></div><div><div class="ev a">Corte</div></div><div><div class="ev c">Barba</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-info">
+          <div class="tags"><span class="tag">Sistema</span><span class="tag">SaaS</span></div>
+          <h3 id="case-title">Aprazzo</h3>
+          <p>Sistema de agendamento para barbearias, clínicas e estúdios. Cada profissional tem a sua agenda, o cliente recebe lembrete automático e o dono acompanha o negócio num painel.</p>
+          <ul class="checks">
+            <li><svg class="icon"><use href="#i-check"/></svg>Agenda por profissional</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Lembretes automáticos para o cliente</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Painel com os números do negócio</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section alt" id="processo" aria-labelledby="proc-title">
+    <div class="wrap proc">
+      <div class="sh rv">
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="proc-title">Quatro etapas. <span class="soft">Zero surpresa.</span></h2>
+        <p>Você sabe o que vai receber, quando e quanto custa antes de começar. E aprova cada etapa antes da próxima.</p>
+        <a class="btn btn-primary" href="#contato" style="align-self:flex-start;margin-top:8px">Começar pelo diagnóstico <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="step"><span class="n">01</span><h3>Diagnóstico</h3><p>Uma conversa para entender o negócio, o público e o que precisa sair do manual.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: escopo e proposta com valor fechado</span></li>
+        <li class="step"><span class="n">02</span><h3>Protótipo</h3><p>Eu desenho as telas e você navega por elas antes de uma linha de código ser escrita.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: protótipo navegável para aprovar</span></li>
+        <li class="step"><span class="n">03</span><h3>Desenvolvimento</h3><p>Construção com entregas parciais, para você acompanhar e testar de perto.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: versões de teste a cada etapa</span></li>
+        <li class="step"><span class="n">04</span><h3>No ar e com suporte</h3><p>Publicação, treinamento da equipe e ajustes depois da entrega.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: projeto no ar e equipe treinada</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section" aria-labelledby="dif-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Por que a EstudioHK</span>
+        <h2 id="dif-title">Tecnologia de verdade. <span class="soft">Explicada sem jargão.</span></h2>
+      </div>
+      <div class="bento">
+        <div class="cell dk b1 spot rv">
+          <span class="ic"><svg class="icon"><use href="#i-layout"/></svg></span>
+          <div class="proto" aria-hidden="true"><div><i></i><i></i><i></i></div><div><i></i><i></i></div><div><i></i><i></i><i></i></div></div>
+          <h3>Você vê antes de pagar pelo código</h3>
+          <p>Todo projeto passa por um protótipo navegável. Você clica, testa e pede ajustes enquanto mudar ainda é barato.</p>
+        </div>
+        <div class="cell b2 spot rv" style="--d:60ms">
+          <span class="phone" aria-hidden="true"><i></i><i style="width:70%"></i><i class="v"></i></span>
+          <span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <h3>Pensado para o celular</h3>
+          <p>A maioria dos seus clientes chega pelo celular. O projeto começa por lá.</p>
+        </div>
+        <div class="cell b3 spot rv">
+          <span class="ic"><svg class="icon"><use href="#i-plug"/></svg></span>
+          <h3>Conecta com o que você já usa</h3>
+          <p>WhatsApp, planilhas, Google, Instagram, CRM e meios de pagamento.</p>
+        </div>
+        <div class="cell b4 spot rv" style="--d:60ms">
+          <span class="ic"><svg class="icon"><use href="#i-users"/></svg></span>
+          <h3>Fala direto com quem faz</h3>
+          <p>Sem intermediário: quem conversa com você é quem desenha e programa.</p>
+        </div>
+        <div class="cell b5 spot rv" style="--d:120ms">
+          <span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span>
+          <h3>O projeto é seu</h3>
+          <p>Código, domínio e acessos ficam no seu nome, sem amarras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section alt" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="sh rv">
+        <span class="eyebrow">Dúvidas</span>
+        <h2 id="faq-title">Perguntas que todo cliente faz. <span class="soft">Respostas curtas.</span></h2>
+        <p>Não achou a sua? Pergunte no WhatsApp. Eu respondo pessoalmente.</p>
+      </div>
+      <div class="acc rv" id="acc">
+        <div class="acc-item open"><h3><button class="acc-q" type="button" aria-expanded="true" aria-controls="a1" id="q1">Quanto custa um site ou sistema?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a1" role="region" aria-labelledby="q1"><div><p>Cada serviço mostra o valor de partida. O preço final depende do tamanho do projeto (páginas, telas, integrações) e vem na proposta com valor fechado e tudo o que está incluído, sem custo escondido.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a2" id="q2">Em quanto tempo fica pronto?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a2" role="region" aria-labelledby="q2"><div><p>Landing pages e sites saem mais rápido; sistemas e automações dependem do tamanho do processo. O cronograma vem na proposta, com a data de cada entrega.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a3" id="q3">Preciso entender de tecnologia?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a3" role="region" aria-labelledby="q3"><div><p>Não. Eu explico tudo sem jargão, você aprova pelo protótipo, clicando nas telas, e no fim a sua equipe recebe treinamento para usar no dia a dia.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a4" id="q4">Você cuida de domínio e hospedagem?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a4" role="region" aria-labelledby="q4"><div><p>Sim. Posso configurar tudo do zero ou usar o que você já tem. Os acessos ficam sempre no seu nome.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a5" id="q5">Quem cuida do projeto depois da entrega?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a5" role="region" aria-labelledby="q5"><div><p>Todo projeto tem um período de ajustes depois de publicado. Textos e fotos você mesmo altera pelo painel; mudanças maiores são combinadas à parte.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="a6" id="q6">Atende só em Vitória?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="a6" role="region" aria-labelledby="q6"><div><p>Não. O trabalho é todo remoto, com reuniões por vídeo, então atendo empresas de qualquer lugar do Brasil.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRIEFING -->
+  <section class="section" id="contato" aria-labelledby="brief-title">
+    <div class="wrap">
+      <div class="brief rv">
+        <form id="brief" novalidate>
+          <div style="display:grid;gap:14px">
+            <span class="eyebrow">Pedir orçamento</span>
+            <h2 id="brief-title">Monte seu pedido em 30 segundos.</h2>
+            <p class="lead">Escolha as opções e a mensagem fica pronta ao lado. É só enviar: eu respondo pessoalmente.</p>
+          </div>
+          <fieldset>
+            <legend>O que você precisa?</legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="what" value="Site institucional" id="w1" checked><span>Site institucional</span></label>
+              <label class="chip"><input type="checkbox" name="what" value="Landing page" id="w2"><span>Landing page</span></label>
+              <label class="chip"><input type="checkbox" name="what" value="Sistema sob medida" id="w3"><span>Sistema sob medida</span></label>
+              <label class="chip"><input type="checkbox" name="what" value="Automação" id="w4"><span>Automação</span></label>
+              <label class="chip"><input type="checkbox" name="what" value="Ainda não sei" id="w5"><span>Ainda não sei</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Para quando?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="when" value="o quanto antes" id="d1"><span>O quanto antes</span></label>
+              <label class="chip"><input type="radio" name="when" value="nos próximos 1 a 3 meses" id="d2" checked><span>Em 1 a 3 meses</span></label>
+              <label class="chip"><input type="radio" name="when" value="sem pressa" id="d3"><span>Sem pressa</span></label>
+            </div>
+          </fieldset>
+          <div class="fields">
+            <div class="fld"><label for="f-name">Seu nome</label><input id="f-name" name="name" autocomplete="name" placeholder="Como prefere ser chamado"></div>
+            <div class="fld"><label for="f-biz">Empresa ou segmento</label><input id="f-biz" name="biz" autocomplete="organization" placeholder="Ex.: clínica de estética"></div>
+            <div class="fld full"><label for="f-msg">Conte um pouco (opcional)</label><textarea id="f-msg" name="msg" placeholder="O que você quer resolver, se já tem site ou sistema hoje…"></textarea></div>
+          </div>
+        </form>
+        <div class="preview">
+          <span class="label" id="preview-label">Sua mensagem</span>
+          <div class="chat" aria-labelledby="preview-label">
+            <div class="chat-head"><span class="av" aria-hidden="true">HK</span><span><b>EstudioHK</b><small>Respondo em até 1 dia útil</small></span></div>
+            <div class="bubble" id="bubble">Olá! Vim pelo site da EstudioHK.
+Tenho interesse em: site institucional.
+Prazo: nos próximos 1 a 3 meses.
+Podemos conversar?</div>
+          </div>
+          <div class="preview-actions">
+            <a class="btn btn-volt btn-lg" id="wa" href="mailto:contato@estudiohk.com.br" target="_blank" rel="noopener"><svg class="icon"><use href="#i-msg"/></svg><span id="wa-label">Enviar pelo WhatsApp</span></a>
+            <button class="btn btn-ghost-dark btn-lg" type="button" id="copy"><svg class="icon"><use href="#i-copy"/></svg>Copiar</button>
+          </div>
+          <p class="alt-contact">Prefere e-mail? <a href="mailto:contato@estudiohk.com.br">contato@estudiohk.com.br</a></p>
+          <p class="toast" id="toast" role="status"></p>
+        </div>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
+<footer class="dark foot" id="foot">
   <div class="wrap">
-    <a class="brand" href="./">
-      <svg viewBox="0 0 90 90" aria-hidden="true"><rect x="0" y="0" width="40" height="40" rx="10" fill="currentColor"/><circle cx="70" cy="20" r="20" fill="var(--accent)"/><rect x="0" y="50" width="40" height="40" rx="10" fill="currentColor"/><rect x="53.5" y="53.5" width="33" height="33" rx="6.5" fill="none" stroke="currentColor" stroke-width="7"/></svg>
-      <span>Estudio<b>HK</b></span>
-    </a>
-    <p id="seller"></p>
-    <p><a href="termos/">Termos de uso</a> · <a href="privacidade/">Política de privacidade</a></p>
-    <p>© <span id="year"></span> EstudioHK. Pagamentos processados pela Kiwify.</p>
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#topo" style="font-size:26px" aria-label="EstudioHK, voltar ao início"><span>Estudio</span><b>HK</b><i aria-hidden="true"></i></a>
+        <p>Sites, sistemas e automações que trabalham por você.</p>
+        <a class="btn btn-volt" href="#contato" style="align-self:flex-start">Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="foot-cols">
+        <nav aria-label="Serviços"><h2>Serviços</h2><ul><li><a href="#servicos">Sites institucionais</a></li><li><a href="#servicos">Landing pages</a></li><li><a href="#servicos">Sistemas sob medida</a></li><li><a href="#servicos">Automações</a></li></ul></nav>
+        <nav aria-label="Estúdio"><h2>Estúdio</h2><ul><li><a href="#projetos">Projetos</a></li><li><a href="#processo">Como funciona</a></li><li><a href="#calculadora">Calculadora</a></li><li><a href="#faq">Dúvidas</a></li></ul></nav>
+        <nav aria-label="Contato"><h2>Contato</h2><ul><li><a href="#contato">WhatsApp</a></li><li><a href="mailto:contato@estudiohk.com.br">contato@estudiohk.com.br</a></li><li>Vitória, ES · todo o Brasil</li></ul></nav>
+      </div>
+    </div>
+    <span class="wordmark" id="wordmark" aria-hidden="true">EstudioHK</span>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© <span id="year">2026</span> EstudioHK · Henrique Kerner · CPF 177.695.957-46 · Vitória, ES</span>
+      <span><a href="/termos/">Termos de uso</a> · <a href="/privacidade/">Privacidade</a></span>
+    </div>
   </div>
 </footer>
 
-<script>
-/* =========================================================
-   CONTEÚDO DA PÁGINA DA MARCA. Edite só este bloco.
-   Para lançar um nicho novo: copie a pasta /psicologia/ para
-   /nome-do-nicho/ e adicione um item em "produtos".
-   O campo "nicho" também vira botão do filtro; o filtro só aparece
-   quando houver 2 ou mais nichos diferentes.
-   ========================================================= */
-var HK = {
-  hero: {
-    eyebrow: "EstudioHK",
-    titulo: "Ferramentas digitais prontas para a sua profissão",
-    subtitulo: "Skills para o Claude, automações e páginas, feitas para uma profissão de cada vez. Você compra, recebe na hora e começa a usar no mesmo dia."
-  },
-  produtos: [
-    {
-      nicho: "Psicologia",
-      nome: "Documento Certo",
-      texto: "Skills para o Claude que transformam suas anotações em documentos, evoluções de prontuário e anamneses no padrão do CFP.",
-      detalhe: "A partir de <b>R$ 37</b>",
-      link: "psicologia/"
-    },
-    {
-      nicho: "Fisioterapia",
-      nome: "Documento Certo",
-      texto: "Skills para o Claude que transformam suas anotações em avaliações, evoluções e documentos no padrão do COFFITO.",
-      detalhe: "Lançamento em breve",
-      link: "fisioterapia/"
-    },
-    {
-      nicho: "Nutrição",
-      nome: "Documento Certo",
-      texto: "Skills para o Claude que transformam suas anotações em anamnese, evolução, relatórios e encaminhamentos no padrão do CFN.",
-      detalhe: "Lançamento em breve",
-      link: "nutricao/"
-    },
-    {
-      emBreve: true,
-      nicho: "Em breve",
-      nome: "Novos nichos",
-      texto: "Automações com n8n e páginas prontas para outras profissões estão em preparação."
-    }
-  ],
-  passos: [
-    { titulo: "Escolha o produto", texto: "Cada página mostra o que vem no produto, com exemplo de uso e preço." },
-    { titulo: "Pague pela Kiwify", texto: "Pix ou cartão. O acesso chega na hora, no seu e-mail." },
-    { titulo: "Instale e use", texto: "Siga o guia passo a passo. Garantia de 7 dias em todos os produtos." }
-  ],
-  // Para esconder a seção de serviços, troque para: sobMedida: null,
-  sobMedida: {
-    titulo: "Precisa de algo sob medida?",
-    texto: "Também fazemos projetos para o seu negócio. Tudo começa com uma conversa para entender o que você precisa.",
-    itens: [
-      "Automações com n8n integrando as ferramentas que você já usa",
-      "Sites e páginas de venda feitos com IA",
-      "Conversa de diagnóstico antes de qualquer orçamento"
-    ],
-    botao: "Conversar no WhatsApp",
-    assunto: "Projeto sob medida",
-    // Número com DDI 55 + DDD, só dígitos. Vazio: o botão abre o e-mail.
-    whatsapp: "5527996950409",
-    mensagemWhatsapp: "Olá! Vim pelo site da EstudioHK e quero conversar sobre um projeto sob medida."
-  },
-  vendedor: { nome: "Henrique Kerner", documento: "CPF 177.695.957-46", endereco: "Vitória/ES", email: "contato@estudiohk.com.br" }
-};
-</script>
-<script>
-(function () {
-  function $(id) { return document.getElementById(id); }
-  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
-  var ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  var CHAT = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>';
-  var CHECK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+<div class="fab" id="fab"><a class="btn btn-volt btn-lg" href="#contato" tabindex="-1">Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a></div>
 
-  $("eyebrow").textContent = HK.hero.eyebrow;
-  $("h1").textContent = HK.hero.titulo;
-  $("sub").textContent = HK.hero.subtitulo;
-
-  // detalhe aceita <b> para destacar o preço
-  function slug(s) { return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""); }
-  $("products").innerHTML = HK.produtos.map(function (p) {
-    if (p.emBreve) {
-      return '<div class="product soon reveal" data-soon="1"><span class="niche">' + esc(p.nicho) + "</span><h3>" + esc(p.nome) + "</h3><p>" + esc(p.texto) + "</p></div>";
-    }
-    return '<a class="product glow reveal" data-nicho="' + slug(p.nicho) + '" href="' + esc(p.link) + '"><span class="niche">' + esc(p.nicho) + "</span><h3>" + esc(p.nome) + "</h3><p>" + esc(p.texto) +
-      '</p><div class="foot"><span class="price">' + String(p.detalhe || "").replace(/<(?!\/?b>)/g, "&lt;") + '</span><span class="go">Conhecer ' + ARROW + "</span></div></a>";
-  }).join("");
-
-  // Filtro de nichos: um botão por "nicho" dos produtos (sem contar os "em breve").
-  // Com um nicho só, o filtro fica escondido.
-  var nichos = [];
-  HK.produtos.forEach(function (p) { if (!p.emBreve && p.nicho && nichos.indexOf(p.nicho) < 0) nichos.push(p.nicho); });
-  if (nichos.length > 1) {
-    var fl = $("filters"), cards = $("products").children;
-    fl.hidden = false;
-    fl.innerHTML = '<button type="button" class="filter" data-f="" aria-pressed="true">Todos</button>' +
-      nichos.map(function (n) { return '<button type="button" class="filter" data-f="' + slug(n) + '" aria-pressed="false">' + esc(n) + "</button>"; }).join("");
-    var aplicar = function (f, push) {
-      if (f && !fl.querySelector('[data-f="' + f + '"]')) f = "";
-      fl.querySelectorAll(".filter").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f") === f)); });
-      Array.prototype.forEach.call(cards, function (c) {
-        var show = !f ? true : c.getAttribute("data-nicho") === f;
-        var was = !c.hidden;
-        c.hidden = !show;
-        if (show && !was) { c.classList.add("in"); c.classList.remove("enter"); void c.offsetWidth; c.classList.add("enter"); }
-      });
-      if (push) history.replaceState(null, "", f ? "#nicho-" + f : location.pathname + location.search);
-    };
-    fl.addEventListener("click", function (e) { var b = e.target.closest(".filter"); if (b) aplicar(b.getAttribute("data-f"), true); });
-    var h = location.hash.match(/^#nicho-(.+)$/);
-    if (h) aplicar(h[1], false);
-  }
-
-  $("steps").innerHTML = HK.passos.map(function (s) {
-    return '<li class="reveal"><h3>' + esc(s.titulo) + "</h3><p>" + esc(s.texto) + "</p></li>";
-  }).join("");
-
-  var c = HK.sobMedida, v = HK.vendedor || {};
-  if (c) {
-    $("customTitle").textContent = c.titulo;
-    $("customText").textContent = c.texto;
-    $("customList").innerHTML = c.itens.map(function (i) { return "<li>" + CHECK + "<span>" + esc(i) + "</span></li>"; }).join("");
-    var wa = String(c.whatsapp || "").replace(/\D/g, "");
-    if (wa) {
-      $("customBtn").innerHTML = CHAT + "<span>" + esc(c.botao) + "</span>";
-      $("customBtn").href = "https://wa.me/" + wa + "?text=" + encodeURIComponent(c.mensagemWhatsapp || "");
-      $("customBtn").target = "_blank"; $("customBtn").rel = "noopener";
-    } else {
-      $("customBtn").textContent = "Falar com a gente";
-      $("customBtn").href = "mailto:" + v.email + "?subject=" + encodeURIComponent(c.assunto || "");
-    }
-  } else {
-    $("sob-medida").hidden = true; $("navCustom").hidden = true; $("heroCustom").hidden = true;
-  }
-
-  $("seller").textContent = [v.nome, v.documento, v.endereco, v.email].filter(Boolean).join(" — ");
-  $("year").textContent = new Date().getFullYear();
-
-  // Aberto do computador, "psicologia/" abriria a pasta: aponta direto para o arquivo.
-  if (location.protocol === "file:") {
-    document.querySelectorAll('a[href$="/"]').forEach(function (a) {
-      var h = a.getAttribute("href"); if (!/^[a-z]+:/i.test(h) && h.charAt(0) !== "/") a.setAttribute("href", h + "index.html");
-    });
-  }
-
-  // Símbolo e orbe acompanham o cursor (só com mouse e sem "reduzir movimento").
-  var mark = $("mark"), orb = document.querySelector(".orb-wrap");
-  var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!calm && matchMedia("(hover: hover)").matches) {
-    var hero = document.querySelector(".hero"), q = false, px = 0, py = 0;
-    // O brilho atrás do símbolo vai até o cursor com suavização e volta ao centro quando o mouse sai.
-    var tx = 0, ty = 0, ox = 0, oy = 0, loop = false;
-    function seguir() {
-      ox += (tx - ox) * 0.08; oy += (ty - oy) * 0.08;
-      orb.style.setProperty("--ox", ox.toFixed(1) + "px");
-      orb.style.setProperty("--oy", oy.toFixed(1) + "px");
-      if (Math.abs(tx - ox) > 0.5 || Math.abs(ty - oy) > 0.5) requestAnimationFrame(seguir); else loop = false;
-    }
-    function animar() { if (!loop) { loop = true; requestAnimationFrame(seguir); } }
-    hero.addEventListener("pointermove", function (e) {
-      var r = hero.getBoundingClientRect();
-      px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5;
-      // centro de repouso do brilho: 50% da largura e 42% da altura do topo (igual ao CSS)
-      tx = (e.clientX - r.left - r.width * .5) * .85;
-      ty = (e.clientY - r.top - r.height * .42) * .85;
-      animar();
-      if (q) return; q = true;
-      requestAnimationFrame(function () {
-        q = false;
-        mark.style.setProperty("--ry", (px * 28).toFixed(1) + "deg");
-        mark.style.setProperty("--rx", (-py * 28).toFixed(1) + "deg");
-      });
-    });
-    hero.addEventListener("pointerleave", function () {
-      mark.style.removeProperty("--rx"); mark.style.removeProperty("--ry");
-      tx = 0; ty = 0; animar();
-    });
-    document.addEventListener("pointermove", function (e) {
-      var el = e.target.closest && e.target.closest(".glow"); if (!el) return;
-      var r = el.getBoundingClientRect();
-      el.style.setProperty("--mx", (e.clientX - r.left) + "px");
-      el.style.setProperty("--my", (e.clientY - r.top) + "px");
-    }, { passive: true });
-  }
-  // No celular, um toque no símbolo abre e fecha as formas.
-  mark.addEventListener("click", function () { mark.classList.toggle("open"); });
-
-  var nav = $("nav");
-  addEventListener("scroll", function () { nav.classList.toggle("scrolled", scrollY > 8); }, { passive: true });
-
-  var els = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (en) {
-      en.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.15 });
-    els.forEach(function (el, i) { el.style.transitionDelay = (i % 3) * 80 + "ms"; io.observe(el); });
-  } else { els.forEach(function (el) { el.classList.add("in"); }); }
-})();
-</script>
+<div class="cmdk" id="cmdk" hidden>
+  <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Ir para">
+    <div class="cmdk-in"><svg class="icon"><use href="#i-search"/></svg><input id="cmdk-q" placeholder="Para onde você quer ir?" aria-label="Buscar seções" role="combobox" aria-expanded="true" aria-controls="cmdk-list" autocomplete="off"><kbd>Esc</kbd></div>
+    <ul id="cmdk-list" role="listbox"></ul>
+  </div>
+</div>
 </body>
 </html>
