@@ -2,12 +2,42 @@
   "trailingSlash": true,
   "redirects": [
     {
+      "source": "/psicologia",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/psicologia/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/psicologia/:path*",
       "destination": "/",
       "permanent": true
     },
     {
+      "source": "/fisioterapia",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fisioterapia/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/fisioterapia/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nutricao",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/nutricao/",
       "destination": "/",
       "permanent": true
     },
