@@ -304,12 +304,17 @@ input[type=range]:active::-webkit-slider-thumb { transform: scale(1.15); }
 .dark .sh p { color: var(--on-noite-muted); }
 .dark .sh h2 .soft { color: var(--on-noite-muted); }
 .demo-grid { display: grid; gap: 20px; margin-top: 40px; }
-@media (min-width: 860px) { .demo-grid { grid-template-columns: repeat(2, 1fr); } }
+/* "Seu ramo não está aqui?" ocupa o espaço que sobra na última linha */
+@media (min-width: 860px) and (max-width: 1099px) {
+  .demo-grid { grid-template-columns: repeat(2, 1fr); }
+  .demo-grid > .demo-outro:nth-child(odd) { grid-column: 1 / -1; }
+}
 @media (min-width: 1100px) {
   .demo-grid { grid-template-columns: repeat(3, 1fr); }
   .demo-grid > .demo-outro:nth-child(3n+1) { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px 32px; padding: 28px 32px; }
   .demo-grid > .demo-outro:nth-child(3n+1) p { flex: 1; max-width: 62ch; }
   .demo-grid > .demo-outro:nth-child(3n+1) .btn { align-self: center; margin-left: auto; }
+  .demo-grid > .demo-outro:nth-child(3n+2) { grid-column: span 2; padding: 32px 40px; }
 }
 .demo-card { display: flex; flex-direction: column; border-radius: var(--r-xl); overflow: hidden; background: var(--surface); color: var(--ink); text-decoration: none; box-shadow: 0 20px 50px rgba(0,0,0,.35); transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
 .demo-card:hover { transform: translateY(-4px); box-shadow: 0 28px 60px rgba(0,0,0,.45); }
