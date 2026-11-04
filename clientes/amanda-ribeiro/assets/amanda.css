@@ -225,6 +225,7 @@ button, input { font: inherit; color: inherit; }
 .pilulas input:checked + span { background: var(--azul); border-color: var(--azul); color: var(--creme); }
 .pilulas input:focus-visible + span { outline: 3px solid var(--terra-txt); outline-offset: 2px; }
 .pilulas input:disabled + span { opacity: .4; cursor: not-allowed; text-decoration: line-through; }
+.opc { font-weight: 400; color: var(--apoio); }
 .nota { font-size: 14px; line-height: 21px; color: var(--apoio); }
 .nota[hidden] { display: none; }
 .form .btn { width: 100%; }

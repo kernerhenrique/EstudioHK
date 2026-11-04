@@ -5,7 +5,7 @@
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var temIO = 'IntersectionObserver' in window;
-  var ZAP = '5527998142609';
+  var ZAP = '5527997622510';
 
   /* ---------- menu ---------- */
   var btnMenu = $('.abre-menu'), gaveta = $('#gaveta');
@@ -97,7 +97,8 @@
   form.addEventListener('input', atualizar); form.addEventListener('change', atualizar);
   form.addEventListener('submit', function (e) {
     e.preventDefault(); atualizar(); if (btn.disabled) return;
-    var t = 'Olá, Amanda! Meu nome é ' + nome.value.trim() + ' e vim pelo site. Gostaria de agendar ' + marcado('serv') + ' para ' + marcado('quem') + '.';
+    var pac = $('#ag-paciente').value.trim();
+    var t = 'Olá! Meu nome é ' + nome.value.trim() + ' e vim pelo site. Gostaria de agendar ' + marcado('serv') + ' para ' + marcado('quem') + (pac ? ', o(a) ' + pac : '') + '.';
     window.open('https://wa.me/' + ZAP + '?text=' + encodeURIComponent(t), '_blank', 'noopener');
   });
   atualizar();
