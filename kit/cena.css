@@ -1,0 +1,62 @@
+/* Kit de animações EstudioHK · cena.css
+ * Só a mecânica das animações. Cores, fontes e layout ficam no CSS de cada cliente.
+ * Variáveis que o site do cliente pode definir: --topo (altura do cabeçalho fixo), --kit-traco, --kit-destaque.
+ * Manual: kit/LEIAME.md */
+
+:root { --topo: 0px; --kit-traco: #1A1B19; --kit-destaque: #C8432B; }
+
+/* traço técnico padrão para SVGs desenhados à mão */
+.kit-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.kit-svg .t { fill: none; stroke: var(--kit-traco); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* estado inicial: só existe com a classe .anima (JS ligado e sem "reduzir movimento") */
+.anima [data-a] { opacity: 0; }
+.anima [data-a="traco"] { opacity: 1; stroke-dasharray: 1 1; stroke-dashoffset: 1; }
+.anima [data-a="conta"], .anima [data-a="revela"], .anima [data-a="cortina"] { opacity: 1; }
+.anima [data-a="croqui"] { opacity: .55; }
+.anima [data-a="revela"] { clip-path: inset(0 50% 0 50%); }
+.anima [data-a="cortina"] { clip-path: inset(0 100% 0 0); }
+html:not(.anima) [data-a="croqui"] { display: none; }
+[data-a="cresce"], [data-a="escala"], [data-a="larga"], [data-a="gira"] { transform-box: fill-box; }
+[data-a="cresce"] { transform-origin: 50% 100%; }
+[data-a="escala"], [data-a="larga"] { transform-origin: 50% 50%; }
+[data-a="gira"] { transform-origin: 50% 0%; }
+
+/* cena presa: --h é a altura em telas (300 = 3 telas de rolagem) */
+.anima [data-cena] { height: calc(var(--h, 300) * 1svh); }
+.anima [data-cena] > .palco { position: sticky; top: var(--topo); height: calc(100svh - var(--topo)); display: flex; align-items: center; overflow: hidden; }
+[data-cena] > .palco > * { width: 100%; }
+
+/* lista de etapas que acompanha o scroll */
+[data-etapa] { transition: color .3s, background-color .3s, border-color .3s, opacity .3s; }
+
+/* galeria horizontal presa */
+.anima [data-galeria] { height: var(--gh, 300svh); }
+.anima [data-galeria] > .palco-g { position: sticky; top: var(--topo); height: calc(100svh - var(--topo)); overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+[data-trilho] { display: flex; gap: 22px; will-change: transform; }
+html:not(.anima) [data-trilho] { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+[data-card] { flex: none; scroll-snap-align: center; }
+[data-card] .foto { overflow: hidden; }
+[data-card] .foto img { width: 100%; height: 100%; object-fit: cover; transform: scale(var(--z, 1)); }
+.anima [data-card] .foto { clip-path: inset(0 calc(var(--c, 0) * 50%) 0 calc(var(--c, 0) * 50%)); }
+
+/* antes e depois */
+[data-comparador] { position: relative; overflow: hidden; touch-action: pan-y; --x: 50%; }
+[data-comparador] .lado { position: absolute; inset: 0; }
+[data-comparador] .lado img, [data-comparador] .lado svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+[data-comparador] .depois { clip-path: inset(0 0 0 var(--x)); }
+[data-comparador] .divisor { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; background: var(--kit-destaque); transform: translateX(-1px); pointer-events: none; }
+[data-comparador] .divisor span { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 42px; height: 42px; border-radius: 50%; background: var(--kit-destaque); color: #fff; display: grid; place-items: center; font-size: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+[data-comparador] input[type=range] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+[data-comparador]:has(input:focus-visible) .divisor span { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* do esboço à foto: a foto (cortina) corre por cima do desenho */
+.esboco { position: relative; overflow: hidden; --cortina: 100%; }
+.esboco img { display: block; width: 100%; height: auto; }
+.esboco .foto-real { position: absolute; inset: 0; height: 100%; object-fit: cover; }
+.esboco .linha-cortina { position: absolute; top: 0; bottom: 0; left: var(--cortina); width: 2px; background: var(--kit-destaque); transform: translateX(-1px); pointer-events: none; }
+html:not(.anima) .esboco .linha-cortina { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit de animações · EstudioHK (exemplo interno)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="cena.css">
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anima');</script>
+<script src="cena.js" defer></script>
+<style>
+  :root { --topo: 56px; color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 400 17px/1.6 system-ui, "Segoe UI", Arial, sans-serif; color: #1A1B19; background: #ECEAE5; overflow-x: clip; }
+  header { position: sticky; top: 0; z-index: 10; height: var(--topo); display: flex; align-items: center; padding: 0 20px; background: #1A1B19; color: #F7F6F2; font-weight: 700; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 64px 0; }
+  .anima section[data-cena], .anima section[data-galeria] { padding: 0; }
+  h1 { font-size: clamp(30px, 4vw, 46px); line-height: 1.05; margin: 0 0 10px; }
+  h2 { font-size: clamp(24px, 3vw, 34px); line-height: 1.1; margin: 0 0 8px; }
+  p { margin: 0 0 10px; max-width: 62ch; color: #56574F; }
+  pre { background: #1A1B19; color: #E8E6DF; padding: 14px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 14px 0 0; }
+  code { font-family: ui-monospace, Menlo, monospace; }
+  .lado-a-lado { display: grid; gap: 24px; align-items: center; }
+  @media (min-width: 900px) { .lado-a-lado { grid-template-columns: .9fr 1.1fr; gap: 48px; } }
+  .etapas { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; }
+  .etapas li { border: 1px solid #CFCCC4; padding: 6px 9px; font: 500 12px/1 ui-monospace, monospace; text-transform: uppercase; color: #56574F; }
+  .etapas li.feita { color: #1A1B19; border-color: #1A1B19; }
+  .etapas li.ativa { background: #1A1B19; color: #F7F6F2; }
+  .card { width: min(320px, 72vw); background: #F7F6F2; border: 1px solid #1A1B19; }
+  .card .foto { height: min(42svh, 400px); }
+  .card p { padding: 10px 12px; margin: 0; color: #1A1B19; font-weight: 600; }
+  .palco-g { gap: 22px; }
+  [data-trilho] { padding-inline: max(20px, calc((100vw - 1100px) / 2)); }
+  .comparador { aspect-ratio: 4 / 3; max-width: 760px; border: 1px solid #1A1B19; background: #fff; }
+  .etq { position: absolute; top: 10px; font: 500 12px/1 ui-monospace, monospace; text-transform: uppercase; background: #1A1B19; color: #fff; padding: 6px 8px; z-index: 1; }
+  .antes .etq { left: 10px; } .depois .etq { right: 10px; background: #B13A24; }
+  .esboco { max-width: 760px; border: 1px solid #1A1B19; }
+  .itens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 520px; }
+  .itens svg { width: 100%; height: auto; }
+  .contador { font: 500 14px ui-monospace, monospace; text-transform: uppercase; margin-top: 12px; }
+  .contador b { color: #B13A24; font-size: 22px; }
+</style>
+</head>
+<body>
+<header>Kit de animações · exemplo interno (não publicado)</header>
+
+<main>
+  <!-- 1. CENA PRESA: algo que se constrói -->
+  <section data-cena style="--h:280" aria-labelledby="t1">
+    <div class="palco">
+      <div class="wrap lado-a-lado">
+        <div>
+          <h1 id="t1">1 · Algo que se constrói</h1>
+          <p>Cena presa: enquanto a pessoa rola, a seção fica parada e o desenho evolui. Croqui → estrutura → materiais → jardim → noite. Altura <code>--h:280</code> = 2,8 telas.</p>
+          <ol class="etapas" aria-label="Etapas">
+            <li data-etapa="0,.3">Estrutura</li><li data-etapa=".3,.55">Fechamento</li><li data-etapa=".55,.8">Materiais</li><li data-etapa=".8,1.01">Noite</li>
+          </ol>
+          <p style="margin-top:12px">Altura: <b><span data-a="conta" data-de="0" data-ate=".5" data-valor="6.6" data-casas="2">6,60</span> m</b></p>
+        </div>
+        <svg class="kit-svg" viewBox="0 0 600 380" role="img" aria-label="Casa sendo construída, do croqui à noite com as janelas acesas.">
+          <rect x="0" y="0" width="600" height="310" fill="#22303D" data-a="acende" data-de=".82" data-ate=".95" data-max=".9"/>
+          <path d="M100 310 V200 H500 V310 M180 200 V110 H460 V200" fill="none" stroke="#8A8A82" stroke-dasharray="5 5" data-a="croqui" data-de="0" data-ate=".3"/>
+          <rect x="100" y="200" width="300" height="110" fill="#D9D6CE" data-a="surge" data-de=".55" data-ate=".65"/>
+          <rect x="180" y="110" width="280" height="90" fill="#9A6A45" data-a="surge" data-de=".58" data-ate=".68"/>
+          <rect x="130" y="230" width="170" height="80" fill="#9DB7C8" data-a="surge" data-de=".6" data-ate=".7" data-max=".7"/>
+          <rect x="130" y="230" width="170" height="80" fill="#F2C76B" data-a="acende" data-de=".88" data-ate="1" data-max=".9"/>
+          <line class="t" pathLength="1" x1="20" y1="310" x2="580" y2="310" data-a="traco" data-de="0" data-ate=".1"/>
+          <path class="t" pathLength="1" d="M100 310 V200 M400 310 V200 M500 310 V200 M180 200 V110 M460 200 V110" stroke-width="2" data-a="traco" data-de=".08" data-ate=".3"/>
+          <path class="t" pathLength="1" d="M90 200 H510 M170 110 H470" stroke-width="3" data-a="traco" data-de=".25" data-ate=".38"/>
+          <path class="t" pathLength="1" d="M100 310 H400 M130 230 H300 V310 M130 230 V310 M215 230 V310" data-a="traco" data-de=".32" data-ate=".55"/>
+          <path class="t" pathLength="1" d="M60 310 V250" stroke="#4A3F33" stroke-width="4" data-a="traco" data-de=".66" data-ate=".72"/>
+          <circle cx="60" cy="230" r="30" fill="#5B6B4A" data-a="escala" data-de=".7" data-ate=".8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><pre><code>&lt;section data-cena style="--h:280"&gt;&lt;div class="palco"&gt; … &lt;/div&gt;&lt;/section&gt;
+&lt;path class="t" pathLength="1" d="…" data-a="traco" data-de=".08" data-ate=".3"/&gt;   ← linha que se desenha
+&lt;rect … data-a="surge" data-de=".55" data-ate=".65"/&gt;                             ← aparece subindo
+&lt;rect … data-a="acende" data-de=".88" data-ate="1" data-max=".9"/&gt;                ← luz / noite
+&lt;li data-etapa=".3,.55"&gt;Fechamento&lt;/li&gt;                                            ← legenda que acompanha
+&lt;span data-a="conta" data-valor="6.6" data-casas="2" data-de="0" data-ate=".5"&gt;6,60&lt;/span&gt;</code></pre></div>
+
+  <!-- 2. PASSAGEM: do esboço à foto -->
+  <section aria-labelledby="t2">
+    <div class="wrap lado-a-lado">
+      <div>
+        <h2 id="t2">2 · Do esboço à foto</h2>
+        <p>Bloco normal (não prende o scroll). A foto real corre por cima do desenho em linhas conforme ele sobe na tela. O desenho sai da própria foto do cliente com <code>ferramentas/esboco.py</code>.</p>
+      </div>
+      <figure class="esboco" data-passagem style="margin:0">
+        <img src="exemplo-img/casa-esboco-600.webp" srcset="exemplo-img/casa-esboco-600.webp 600w, exemplo-img/casa-esboco-1000.webp 1000w" sizes="(min-width: 900px) 600px, 100vw" width="600" height="450" alt="">
+        <img class="foto-real" src="exemplo-img/casa-600.webp" srcset="exemplo-img/casa-600.webp 600w, exemplo-img/casa-1000.webp 1000w" sizes="(min-width: 900px) 600px, 100vw" width="600" height="450" alt="Casa moderna de dois pavimentos iluminada ao entardecer." data-a="cortina" data-de=".15" data-ate=".85">
+        <span class="linha-cortina" aria-hidden="true"></span>
+      </figure>
+    </div>
+    <div class="wrap"><pre><code>python3 kit/ferramentas/esboco.py foto.jpg assets/img casa --proporcao 4:3
+&lt;figure class="esboco" data-passagem&gt;
+  &lt;img src="casa-esboco-600.webp" alt=""&gt;
+  &lt;img class="foto-real" src="casa-600.webp" alt="…" data-a="cortina" data-de=".15" data-ate=".85"&gt;
+  &lt;span class="linha-cortina" aria-hidden="true"&gt;&lt;/span&gt;
+&lt;/figure&gt;</code></pre></div>
+  </section>
+
+  <!-- 3. GALERIA HORIZONTAL PRESA -->
+  <section data-galeria aria-labelledby="t3">
+    <div class="palco-g">
+      <div class="wrap"><h2 id="t3">3 · Galeria que anda para o lado</h2><p>O scroll vertical vira movimento horizontal; cada foto abre como um corte.</p></div>
+      <div data-trilho>
+        <article class="card" data-card><div class="foto"><img src="exemplo-img/jardim-480.webp" width="480" height="600" loading="lazy" alt="Casa térrea com piscina e jardim."></div><p>Casa Jardim</p></article>
+        <article class="card" data-card><div class="foto"><img src="exemplo-img/praia-480.webp" width="480" height="600" loading="lazy" alt="Casa de pedra e madeira com palmeiras."></div><p>Casa de praia</p></article>
+        <article class="card" data-card><div class="foto"><img src="exemplo-img/reforma-480.webp" width="480" height="600" loading="lazy" alt="Sala integrada com cozinha em madeira."></div><p>Reforma</p></article>
+        <article class="card" data-card><div class="foto"><img src="exemplo-img/sala-600.webp" width="600" height="450" loading="lazy" alt="Sala com janelões e sofá claro."></div><p>Interiores</p></article>
+      </div>
+    </div>
+  </section>
+  <div class="wrap"><pre><code>&lt;section data-galeria&gt;&lt;div class="palco-g"&gt;
+  &lt;div data-trilho&gt; &lt;article class="card" data-card&gt;&lt;div class="foto"&gt;&lt;img …&gt;&lt;/div&gt;…&lt;/article&gt; … &lt;/div&gt;
+&lt;/div&gt;&lt;/section&gt;</code></pre></div>
+
+  <!-- 4. ANTES E DEPOIS -->
+  <section aria-labelledby="t4">
+    <div class="wrap">
+      <h2 id="t4">4 · Antes e depois</h2>
+      <p>Arrastar com mouse, toque ou setas do teclado. Funciona com duas fotos (reforma, estética, limpeza, paisagismo) ou com projeto × obra pronta, usando o esboço.</p>
+      <div class="comparador" data-comparador data-rotulo="mostrando a obra pronta">
+        <div class="lado antes"><img src="exemplo-img/sala-esboco-600.webp" alt=""><span class="etq">Projeto</span></div>
+        <div class="lado depois"><img src="exemplo-img/sala-600.webp" alt=""><span class="etq">Pronto</span></div>
+        <div class="divisor" aria-hidden="true"><span>⟷</span></div>
+        <input type="range" min="0" max="100" value="50" aria-label="Comparar o projeto com a obra pronta">
+      </div>
+      <pre><code>&lt;div class="comparador" data-comparador data-rotulo="mostrando o depois"&gt;
+  &lt;div class="lado antes"&gt;&lt;img …&gt;&lt;/div&gt;&lt;div class="lado depois"&gt;&lt;img …&gt;&lt;/div&gt;
+  &lt;div class="divisor" aria-hidden="true"&gt;&lt;span&gt;⟷&lt;/span&gt;&lt;/div&gt;
+  &lt;input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois"&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- 5. CENA PRESA: itens que entram, com contador -->
+  <section data-cena style="--h:200" aria-labelledby="t5">
+    <div class="palco">
+      <div class="wrap lado-a-lado">
+        <div>
+          <h2 id="t5">5 · Peças que entram no lugar</h2>
+          <p>Cada peça cai e assenta (<code>cai</code>), gira para o lugar (<code>gira</code>) ou nasce do chão (<code>cresce</code>). O contador soma as etapas já começadas.</p>
+          <ol class="etapas"><li data-etapa=".1,9">Sofá</li><li data-etapa=".4,9">Quadro</li><li data-etapa=".7,9">Planta</li></ol>
+          <p class="contador"><b data-contador>3</b> de 3 peças</p>
+        </div>
+        <div class="itens" aria-hidden="true">
+          <svg viewBox="0 0 120 90"><g data-a="cai" data-de=".1" data-ate=".3"><rect x="10" y="40" width="100" height="30" rx="8" fill="#6E7E83"/><rect x="18" y="28" width="84" height="20" rx="6" fill="#5C6B70"/></g></svg>
+          <svg viewBox="0 0 120 90"><g data-a="gira" data-de=".4" data-ate=".6"><rect x="30" y="10" width="60" height="70" fill="#F7F6F2" stroke="#1A1B19" stroke-width="3"/><path d="M38 70 L58 40 L70 56 L82 34 V74 H38Z" fill="#5B6B4A"/></g></svg>
+          <svg viewBox="0 0 120 90"><path d="M48 88 L52 66 H68 L72 88Z" fill="#B9775A"/><g data-a="cresce" data-de=".7" data-ate=".9"><path d="M60 66 C40 40 36 30 34 18 M60 66 C66 44 76 32 86 22 M60 66 C56 46 58 30 62 12" fill="none" stroke="#5B6B4A" stroke-width="4"/></g></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap" style="padding-bottom:80px"><pre><code>&lt;g data-a="cai" data-de=".1" data-ate=".3"&gt; … &lt;/g&gt;
+&lt;b data-contador&gt;3&lt;/b&gt; de 3 peças</code></pre></div>
+</main>
+</body>
+</html>
