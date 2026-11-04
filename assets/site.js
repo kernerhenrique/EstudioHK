@@ -1,4 +1,5 @@
-/* EstudioHK · comportamento da home. Sem dependências. */
+/* EstudioHK · comportamento da home, de /sites/ e de /automacoes/. Sem dependências.
+   Cada bloco só roda se os elementos dele existirem na página. */
 (function () {
   'use strict';
 
@@ -14,7 +15,8 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var hasIO = 'IntersectionObserver' in window;
-  $('#year').textContent = new Date().getFullYear();
+  var pagina = document.body.dataset.pagina || 'inicio';
+  if ($('#year')) $('#year').textContent = new Date().getFullYear();
 
   /* ---------- menu do celular ---------- */
   var nav = $('#nav'), prog = $('#prog'), menuBtn = $('#menu-btn'), sheet = $('#sheet');
@@ -46,6 +48,7 @@
       a.classList.toggle('is-active', on);
       if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
     });
+    if (!stepsEl) return;
     var r = stepsEl.getBoundingClientRect();
     var k = reduce ? 1 : Math.max(0, Math.min(1, (vh * .6 - r.top) / r.height));
     stepsEl.style.setProperty('--prog', k.toFixed(3));
@@ -80,7 +83,7 @@
   /* ---------- grade de pontos do hero ----------
      Celular/toque e movimento reduzido: um quadro estático.
      Desktop: anima só enquanto o cursor está no hero e para logo depois que ele sai. */
-  var hero = $('.hero'), cv = $('#dots'), ctx = cv.getContext && cv.getContext('2d');
+  var hero = $('.hero'), cv = $('#dots'), ctx = hero && cv && cv.getContext && cv.getContext('2d');
   if (ctx) {
     var W = 0, H = 0, mx = -9999, my = -9999, tmx = -9999, tmy = -9999, raf = 0, idleUntil = 0, t0 = performance.now();
     var size = function () {
@@ -130,8 +133,9 @@
 
   /* ---------- demo de automação ---------- */
   var demo = $('#demo'), log = $('#log'), pulse = $('#pulse'), state = $('#demo-state'), runBtn = $('#demo-run');
+  var running = false, loopTimer = null, heroVisible = true, run = function () {};
+  if (demo) (function () {
   var edges = [0, 1, 2, 3].map(function (i) { var p = $('#e' + i); var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; return { p: p, L: L }; });
-  var running = false, loopTimer = null, heroVisible = true;
   var leads = [
     { seg: 'Clínica odontológica', want: 'Sistema de agendamento' },
     { seg: 'Loja de móveis', want: 'Landing page de campanha' },
@@ -162,7 +166,7 @@
   }
   function wait(ms) { return new Promise(function (r) { setTimeout(r, reduce ? 60 : ms); }); }
   // O log só é anunciado ao leitor de tela quando a própria pessoa pede a simulação.
-  function run(byUser) {
+  run = function (byUser) {
     if (running) return; running = true;
     log.setAttribute('aria-live', byUser ? 'polite' : 'off');
     var start = performance.now(), L = leads[li++ % leads.length];
@@ -182,17 +186,19 @@
         running = false; runBtn.disabled = false;
         setTimeout(function () { edges.forEach(function (e) { e.p.style.transition = 'stroke-dashoffset .8s'; e.p.style.strokeDashoffset = e.L; }); }, 1600);
       });
-  }
+  };
   runBtn.addEventListener('click', function () { clearInterval(loopTimer); loopTimer = null; run(true); });
   if (hasIO) new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; }).observe(hero);
   setTimeout(function () { run(false); }, reduce ? 300 : 1400);
   if (!reduce) loopTimer = setInterval(function () { if (heroVisible && !document.hidden) run(false); }, 9000);
+  })();
 
   /* ---------- calculadora ---------- */
   var fmtN = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
   var fmtR = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
   var cIn = { people: $('#c-people'), hours: $('#c-hours'), cost: $('#c-cost'), pct: $('#c-pct') };
   var shown = { h: 0, m: 0, y: 0 }, target, anim = null, first = true;
+  if (cIn.people) (function () {
   function paint(el) { el.style.setProperty('--p', (el.value - el.min) / (el.max - el.min) * 100 + '%'); }
   function render() { $('#r-hours').textContent = fmtN.format(shown.h); $('#r-month').textContent = fmtR.format(shown.m); $('#r-year').textContent = fmtR.format(shown.y); }
   function calc() {
@@ -216,7 +222,8 @@
   Object.keys(cIn).forEach(function (k) { cIn[k].addEventListener('input', calc); });
   $('#calc').addEventListener('submit', function (e) { e.preventDefault(); });
   calc();
-  $('#calc-cta').addEventListener('click', function () { $('#w4').checked = true; $('#w1').checked = false; updateBrief(); });
+  $('#calc-cta').addEventListener('click', function () { $$('input[name=what]').forEach(function (i) { i.checked = i.id === 'w4'; }); updateBrief(); });
+  })();
   // "Sob consulta" em cada serviço leva ao briefing com aquele serviço já marcado
   $$('[data-want]').forEach(function (el) {
     el.addEventListener('click', function () {
@@ -231,8 +238,8 @@
       el.addEventListener('pointermove', function (e) { var r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
     });
     var foot = $('#foot'), wm = $('#wordmark');
-    foot.addEventListener('pointermove', function (e) { var r = wm.getBoundingClientRect(); wm.style.setProperty('--mx', (e.clientX - r.left) + 'px'); wm.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
-    foot.addEventListener('pointerleave', function () { wm.style.setProperty('--mx', '-999px'); });
+    if (foot && wm) foot.addEventListener('pointermove', function (e) { var r = wm.getBoundingClientRect(); wm.style.setProperty('--mx', (e.clientX - r.left) + 'px'); wm.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+    if (foot && wm) foot.addEventListener('pointerleave', function () { wm.style.setProperty('--mx', '-999px'); });
   }
 
   /* ---------- FAQ (uma aberta por vez) ---------- */
@@ -246,6 +253,10 @@
 
   /* ---------- briefing → WhatsApp (ou e-mail) ---------- */
   var form = $('#brief'), bubble = $('#bubble'), wa = $('#wa'), toast = $('#toast');
+  var updateBrief = function () {};
+  if (form) (function () {
+  var ORIGEM = { sites: 'a página de sites', automacoes: 'a página de automações' }[pagina];
+  if (pagina === 'automacoes') $$('input[name=what]', form).forEach(function (i) { i.checked = i.id === 'w4'; });
   if (!WHATSAPP_NUMBER) {
     $('#wa-label').textContent = 'Enviar por e-mail';
     wa.querySelector('use').setAttribute('href', '#i-mail');
@@ -255,6 +266,7 @@
     var when = ($('input[name=when]:checked', form) || {}).value;
     var name = $('#f-name').value.trim(), biz = $('#f-biz').value.trim(), msg = $('#f-msg').value.trim();
     var lines = ['Olá! ' + (name ? 'Sou ' + name + (biz ? ', de ' + biz : '') + '.' : (biz ? 'Falo de ' + biz + '.' : 'Vim pelo site da EstudioHK.'))];
+    if (ORIGEM) lines.push('Vim pel' + ORIGEM + ' da EstudioHK.');
     if (what.length) {
       var list = what.length > 1 ? what.slice(0, -1).join(', ') + ' e ' + what[what.length - 1] : what[0];
       lines.push(what.indexOf('Ainda não sei') > -1 && what.length === 1 ? 'Ainda não sei exatamente o que preciso e queria uma orientação.' : 'Tenho interesse em: ' + list.toLowerCase() + '.');
@@ -264,12 +276,12 @@
     lines.push('Podemos conversar?');
     return lines.join('\n');
   }
-  function updateBrief() {
+  updateBrief = function () {
     var m = message(); bubble.textContent = m;
     wa.href = WHATSAPP_NUMBER
       ? 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(m)
       : 'mailto:' + EMAIL + '?subject=' + encodeURIComponent('Pedido de orçamento') + '&body=' + encodeURIComponent(m);
-  }
+  };
   form.addEventListener('input', updateBrief); form.addEventListener('change', updateBrief);
   form.addEventListener('submit', function (e) { e.preventDefault(); });
   updateBrief();
@@ -280,10 +292,11 @@
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(m).then(function () { done(true); }, function () { selectBubble(); done(false); });
     else { selectBubble(); done(false); }
   });
+  })();
 
   /* ---------- botão fixo no celular: aparece depois do hero, some no contato e no rodapé ---------- */
   var fab = $('#fab');
-  if (hasIO && fab) {
+  if (hasIO && fab && hero && $('#contato') && $('#foot')) {
     var vis = { hero: true, contato: false, foot: false };
     var setFab = function () {
       var show = !vis.hero && !vis.contato && !vis.foot;
@@ -302,15 +315,24 @@
   /* ---------- atalho Ctrl/⌘ K: ir para uma seção ---------- */
   var cmdk = $('#cmdk'), q = $('#cmdk-q'), list = $('#cmdk-list'), opener = null, sel = 0, shownOpts = [];
   function go(h) { var el = $(h); if (el) el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }
+  // endereço de outra página: navega; da página atual: só rola até a seção
+  function abre(u) {
+    var a = document.createElement('a'); a.href = u;
+    if (a.pathname === location.pathname) go(a.hash || '#topo'); else location.href = u;
+  }
   var OPTS = [
-    { t: 'Serviços', i: 'i-grid', a: function () { go('#servicos'); } },
-    { t: 'Calculadora de economia', i: 'i-calc', a: function () { go('#calculadora'); } },
-    { t: 'Demonstrações', i: 'i-layout', a: function () { go('#demos'); } },
+    { t: 'Início', i: 'i-globe', u: '/' },
+    { t: 'Sites e landing pages', i: 'i-layout', u: '/sites/' },
+    { t: 'Demonstrações de sites', i: 'i-layout', u: '/sites/#demos' },
+    { t: 'Automações', i: 'i-zap', u: '/automacoes/' },
+    { t: 'Demonstrações de automação', i: 'i-zap', u: '/automacoes/#demos' },
+    { t: 'Calculadora de economia', i: 'i-calc', u: '/automacoes/#calculadora' },
+    { t: 'Ferramentas e custos', i: 'i-plug', u: '/automacoes/#custos' },
     { t: 'Como funciona', i: 'i-steps', a: function () { go('#processo'); } },
     { t: 'Dúvidas', i: 'i-help', a: function () { go('#faq'); } },
-    { t: 'Pedir orçamento', i: 'i-msg', a: function () { go('#contato'); setTimeout(function () { $('#f-name').focus({ preventScroll: true }); }, 500); } },
-    { t: 'Simular uma automação', i: 'i-zap', a: function () { go('#topo'); setTimeout(function () { clearInterval(loopTimer); run(true); }, 400); } }
-  ];
+    { t: 'Pedir orçamento', i: 'i-msg', a: function () { go('#contato'); setTimeout(function () { var n = $('#f-name'); if (n) n.focus({ preventScroll: true }); }, 500); } }
+  ].filter(function (o) { return !(o.u === '/' && pagina === 'inicio'); });
+  if (demo) OPTS.push({ t: 'Simular uma automação', i: 'i-zap', a: function () { go('#topo'); setTimeout(function () { clearInterval(loopTimer); run(true); }, 400); } });
   function norm(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
   function renderList() {
     var term = norm(q.value.trim());
@@ -330,7 +352,7 @@
   }
   function openK() { opener = document.activeElement; cmdk.hidden = false; q.value = ''; sel = 0; renderList(); q.focus(); document.body.style.overflow = 'hidden'; }
   function closeK() { cmdk.hidden = true; document.body.style.overflow = ''; if (opener && opener.focus) opener.focus({ preventScroll: true }); }
-  function exec(i) { var o = shownOpts[i]; if (!o) return; closeK(); o.a(); }
+  function exec(i) { var o = shownOpts[i]; if (!o) return; closeK(); if (o.u) abre(o.u); else o.a(); }
   q.addEventListener('input', function () { sel = 0; renderList(); });
   list.addEventListener('click', function (e) { var o = e.target.closest('.opt'); if (o) exec(+o.dataset.i); });
   cmdk.addEventListener('click', function (e) { if (e.target === cmdk) closeK(); });
