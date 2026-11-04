@@ -305,7 +305,6 @@
   var OPTS = [
     { t: 'Serviços', i: 'i-grid', a: function () { go('#servicos'); } },
     { t: 'Calculadora de economia', i: 'i-calc', a: function () { go('#calculadora'); } },
-    { t: 'Projetos', i: 'i-folder', a: function () { go('#projetos'); } },
     { t: 'Demonstrações', i: 'i-layout', a: function () { go('#demos'); } },
     { t: 'Como funciona', i: 'i-steps', a: function () { go('#processo'); } },
     { t: 'Dúvidas', i: 'i-help', a: function () { go('#faq'); } },
