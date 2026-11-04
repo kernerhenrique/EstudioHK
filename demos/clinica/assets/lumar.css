@@ -200,6 +200,11 @@ button, input, select { font: inherit; color: inherit; }
 .doc b { font-size: 17px; line-height: 23px; }
 .doc span { color: var(--ardosia); font-size: 14px; line-height: 21px; }
 .doc .reg { font-variant-numeric: tabular-nums; font-size: 13px; }
+@media (min-width: 600px) {
+  .equipe, .dt { max-width: 1040px; }
+  .doc .foto { aspect-ratio: 4 / 3; }
+  .doc img { object-position: 50% 6%; }
+}
 @media (max-width: 599px) {
   .doc { display: grid; grid-template-columns: 112px 1fr; align-items: center; }
   .doc .foto { height: 100%; aspect-ratio: auto; min-height: 112px; }
