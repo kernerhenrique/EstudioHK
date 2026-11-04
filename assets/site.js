@@ -193,6 +193,85 @@
   if (!reduce) loopTimer = setInterval(function () { if (heroVisible && !document.hidden) run(false); }, 9000);
   })();
 
+  /* ---------- carrossel de serviços (início): infinito, com profundidade ----------
+     Os 4 cards são clonados uma vez para ter 2 de cada lado. O card do centro é o único
+     acessível (os outros ficam aria-hidden e fora do Tab); clicar num card lateral traz ele para o centro.
+     Gira sozinho a cada 5 s; para com mouse, foco, toque, fora da tela ou "reduzir movimento". */
+  var car = $('#carrossel');
+  if (car) (function () {
+    var palco = $('#car-palco', car), reais = $$('.svc-c', palco), N = reais.length;
+    var todos = reais.slice();
+    reais.forEach(function (r) { var c = r.cloneNode(true); c.classList.add('clone'); c.removeAttribute('aria-label'); c.removeAttribute('role'); c.removeAttribute('aria-roledescription'); palco.appendChild(c); todos.push(c); });
+    var M = todos.length, pos = 0, pontos = $$('.car-pontos button', car), anuncio = $('#car-anuncio'), pausa = $('#car-pausa');
+    var nomes = reais.map(function (r) { return r.getAttribute('aria-label').replace(/^\d+ de \d+: /, ''); });
+    // só o centro e um card de cada lado (com 4 serviços, as pontas repetiriam o mesmo card)
+    var ESC = [1, .86], VEU = [0, .55], ROT = [0, 14];
+    function mede() {
+      palco.style.removeProperty('--car-h');
+      var h = 0; todos.forEach(function (c) { c.style.height = 'auto'; h = Math.max(h, c.offsetHeight); c.style.height = ''; });
+      palco.style.setProperty('--car-h', h + 'px');
+    }
+    function poe() {
+      var w = reais[0].offsetWidth, passo = w * (window.innerWidth < 640 ? .62 : .78);
+      todos.forEach(function (c, k) {
+        var o = ((k - pos) % M + M) % M; if (o >= M / 2) o -= M;
+        var a = Math.abs(o), visivel = a <= 1, centro = o === 0;
+        c.classList.toggle('centro', centro); c.classList.toggle('longe', !visivel);
+        c.style.zIndex = 10 - a;
+        c.style.opacity = visivel ? 1 : 0;
+        c.style.setProperty('--veu', visivel ? VEU[a] : .8);
+        c.style.transform = 'translateX(' + (o * passo) + 'px) scale(' + (visivel ? ESC[a] : .72) + ') rotateY(' + (o === 0 ? 0 : (o < 0 ? 1 : -1) * ROT[Math.min(a, 1)]) + 'deg)';
+        c.setAttribute('aria-hidden', centro ? 'false' : 'true');
+        $$('a, button', c).forEach(function (x) { if (centro) x.removeAttribute('tabindex'); else x.tabIndex = -1; });
+      });
+      var atual = ((pos % N) + N) % N;
+      pontos.forEach(function (b, i) { if (i === atual) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+      return atual;
+    }
+    function vai(d, avisa) {
+      pos += d; var atual = poe();
+      if (avisa && anuncio) anuncio.textContent = 'Serviço ' + (atual + 1) + ' de ' + N + ': ' + nomes[atual];
+    }
+    $('#car-ant').addEventListener('click', function () { para(); vai(-1, true); });
+    $('#car-prox').addEventListener('click', function () { para(); vai(1, true); });
+    pontos.forEach(function (b, i) { b.addEventListener('click', function () { para(); var d = ((i - pos) % N + N) % N; if (d > N / 2) d -= N; vai(d, true); }); });
+    // card lateral: o clique traz para o centro em vez de seguir o link
+    todos.forEach(function (c, k) {
+      c.addEventListener('click', function (e) {
+        if (c.classList.contains('centro')) return;
+        e.preventDefault(); e.stopPropagation(); para();
+        var o = ((k - pos) % M + M) % M; if (o >= M / 2) o -= M;
+        vai(o, true);
+      }, true);
+    });
+    car.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      e.preventDefault(); para(); vai(e.key === 'ArrowRight' ? 1 : -1, true);
+    });
+    // arrastar / deslizar
+    var x0 = null, arrastou = false;
+    palco.addEventListener('pointerdown', function (e) { x0 = e.clientX; arrastou = false; });
+    palco.addEventListener('pointerup', function (e) {
+      if (x0 === null) return; var dx = e.clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { arrastou = true; para(); vai(dx < 0 ? 1 : -1, true); }
+    });
+    palco.addEventListener('click', function (e) { if (arrastou) { e.preventDefault(); e.stopPropagation(); arrastou = false; } }, true);
+    // troca automática
+    var parado = reduce, emCima = false, focado = false, naTela = true;
+    function poePausa() { pausa.setAttribute('aria-pressed', parado ? 'true' : 'false'); pausa.setAttribute('aria-label', parado ? 'Retomar a troca automática' : 'Pausar a troca automática'); }
+    function para() { parado = true; poePausa(); }
+    pausa.addEventListener('click', function () { parado = !parado; poePausa(); });
+    car.addEventListener('pointerenter', function () { emCima = true; });
+    car.addEventListener('pointerleave', function () { emCima = false; });
+    car.addEventListener('focusin', function () { focado = true; });
+    car.addEventListener('focusout', function () { focado = false; });
+    if (hasIO) new IntersectionObserver(function (es) { naTela = es[0].isIntersecting; }).observe(car);
+    setInterval(function () { if (!parado && !emCima && !focado && naTela && !document.hidden) vai(1, false); }, 5000);
+    poePausa(); mede(); poe();
+    var rzc; window.addEventListener('resize', function () { clearTimeout(rzc); rzc = setTimeout(function () { mede(); poe(); }, 150); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { mede(); poe(); });
+  })();
+
   /* ---------- calculadora ---------- */
   var fmtN = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
   var fmtR = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
