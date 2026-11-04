@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taipa Arquitetura · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de landing page para arquiteto criada pela EstudioHK: a casa se constrói com o scroll, a planta se desenha fase a fase e a sala se mobília. Escritório e registro fictícios.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/arquitetura/">
+<meta name="theme-color" content="#ECEAE5">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Taipa Arquitetura · demonstração de landing page pela EstudioHK">
+<meta property="og:description" content="Veja como pode ficar a página de um escritório de arquitetura: a casa se constrói enquanto você rola.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/arquitetura/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/arquitetura/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-400-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/taipa.css">
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anima');</script>
+<script src="assets/taipa.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="concreto" width="10" height="10" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="#D9D6CE"/><circle cx="2" cy="3" r=".7" fill="#A9A69C"/><circle cx="7" cy="8" r=".6" fill="#A9A69C"/><circle cx="8" cy="2" r=".4" fill="#A9A69C"/></pattern>
+    <pattern id="terra" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#E3DFD6"/><line x1="0" y1="0" x2="0" y2="8" stroke="#A9A69C" stroke-width="1"/></pattern>
+    <pattern id="ripado" width="9" height="10" patternUnits="userSpaceOnUse"><rect width="9" height="10" fill="#9A6A45"/><rect width="2.4" height="10" fill="#6E4A30"/></pattern>
+    <pattern id="madeira" width="300" height="14" patternUnits="userSpaceOnUse"><rect width="300" height="14" fill="#EFE6D8"/><line x1="0" y1="13.5" x2="300" y2="13.5" stroke="#D8C8B0" stroke-width="1"/></pattern>
+    <pattern id="deck" width="12" height="150" patternUnits="userSpaceOnUse"><rect width="12" height="150" fill="#E7DCCB"/><line x1="11.5" y1="0" x2="11.5" y2="150" stroke="#CDB99C" stroke-width="1"/></pattern>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração: </span>escritório fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/#demos">Ver outras demos</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20arquitetura%20(Taipa)%20e%20quero%20uma%20landing%20page%20assim." target="_blank" rel="noopener">Quero uma página assim →</a>
+    </nav>
+  </div>
+</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#conteudo"><span class="logo-marca" aria-hidden="true"></span>Taipa<span class="logo-sub">arquitetura</span></a>
+    <nav aria-label="Seções"><ul class="menu">
+      <li><a href="#processo">Processo</a></li><li><a href="#interiores">Interiores</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#contato">Contato</a></li>
+    </ul></nav>
+    <div class="acoes">
+      <a class="btn btn-p" href="#contato">Fale com a arquiteta</a>
+      <button class="abre-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
+    </div>
+  </div>
+  <div class="gaveta" id="gaveta"><div class="wrap">
+    <a href="#processo">Processo</a><a href="#interiores">Interiores</a><a href="#projetos">Projetos</a><a href="#servicos">Serviços</a><a href="#reforma">Antes e depois</a><a href="#contato">Contato</a>
+  </div></div>
+</header>
+
+<main id="conteudo">
+  <section class="cena" id="capa" data-cena style="--h:330" aria-labelledby="t-capa">
+    <div class="palco">
+      <div class="wrap capa-grid">
+        <div class="capa-txt">
+          <p class="carimbo">Prancha 01/05 · Fachada</p>
+          <p class="ident">Laís Andrade · Arquiteta e urbanista · CAU A000000-0 <span class="fict">(fictício)</span></p>
+          <h1 id="t-capa">Projetos que começam no traço e terminam em casa.</h1>
+          <p class="sub">Arquitetura residencial e de interiores em Vitória (ES). Do primeiro desenho à obra pronta, com você acompanhando cada etapa.</p>
+          <div class="botoes"><a class="btn btn-p" href="#contato">Começar um projeto</a><a class="btn btn-s" href="#projetos">Ver projetos</a></div>
+          <ol class="etapas" aria-label="Etapas da obra">
+            <li data-etapa="0,.18"><span>01</span>Terreno</li>
+            <li data-etapa=".18,.42"><span>02</span>Estrutura</li>
+            <li data-etapa=".42,.6"><span>03</span>Fechamentos</li>
+            <li data-etapa=".6,.72"><span>04</span>Acabamentos</li>
+            <li data-etapa=".72,.84"><span>05</span>Paisagismo</li>
+            <li data-etapa=".84,1.01"><span>06</span>Vida</li>
+          </ol>
+        </div>
+        <div class="capa-des">
+          <svg class="desenho fachada" viewBox="0 0 800 520" role="img" aria-labelledby="fachada-t">
+<title id="fachada-t">Fachada de uma casa de dois pavimentos sendo construída: terreno, fundação, estrutura, paredes, materiais, jardim e, por fim, as luzes acesas à noite.</title>
+<defs><radialGradient id="ceu-fade" cx="50%" cy="60%" r="62%"><stop offset="55%" stop-color="#fff"/><stop offset="100%" stop-color="#000"/></radialGradient><mask id="ceu-mask"><rect x="0" y="0" width="800" height="430" fill="url(#ceu-fade)"/></mask></defs>
+<rect x="0" y="0" width="800" height="430" fill="#22303D" mask="url(#ceu-mask)" data-a="acende" data-de="0.84" data-ate="0.96" data-max="0.95"/>
+<path class="croqui" d="M170 430 V320 H700 V330 M270 320 V210 H710 V320 M200 430 V345 H450 V430 M300 242 H450 V298 H300Z M490 430 V362 H534 V430 M95 430 V352" data-a="croqui" data-de="0" data-ate="0.3"/>
+<text class="nota croqui-txt" x="400" y="190" text-anchor="middle" data-a="croqui" data-de="0" data-ate="0.22">croqui · estudo de volumes</text>
+<circle cx="90" cy="60" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.9" data-ate="0.97"/>
+<circle cx="160" cy="110" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.906" data-ate="0.972"/>
+<circle cx="240" cy="50" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.912" data-ate="0.974"/>
+<circle cx="330" cy="95" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.918" data-ate="0.976"/>
+<circle cx="420" cy="40" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.924" data-ate="0.978"/>
+<circle cx="520" cy="80" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.93" data-ate="0.98"/>
+<circle cx="600" cy="45" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.936" data-ate="0.982"/>
+<circle cx="700" cy="120" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.9420000000000001" data-ate="0.984"/>
+<circle cx="760" cy="60" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.9480000000000001" data-ate="0.986"/>
+<circle cx="60" cy="160" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.9540000000000001" data-ate="0.988"/>
+<circle cx="380" cy="150" r="1.6" fill="#F7F6F2" data-a="acende" data-de="0.96" data-ate="0.99"/>
+<g id="lua" data-a="acende" data-de="0.88" data-ate="0.98"><circle cx="660" cy="80" r="15" fill="#F2EBD3"/><circle cx="668" cy="74" r="13" fill="#22303D"/></g>
+<g id="sol"><circle cx="0" cy="0" r="16" fill="#E2A33B"/><circle cx="0" cy="0" r="26" fill="#E2A33B" opacity=".18"/></g>
+<rect x="40" y="430" width="720" height="44" fill="url(#terra)" data-a="surge" data-de="0.02" data-ate="0.1"/>
+<line class="t" pathLength="1" x1="40" y1="430" x2="760" y2="430" stroke-width="1.6" data-a="traco" data-de="0" data-ate="0.08"/>
+<g class="cota" data-a="surge" data-de="0.05" data-ate="0.12"><line x1="150" y1="488" x2="650" y2="488"/><line x1="150" y1="481" x2="150" y2="495"/><line x1="650" y1="481" x2="650" y2="495"/><text x="400" y="504" text-anchor="middle"><tspan data-a="conta" data-de="0.05" data-ate="0.12" data-valor="15.00" data-casas="2">15,00</tspan> m</text></g>
+<rect x="150" y="430" width="500" height="22" fill="url(#concreto)" data-a="surge" data-de="0.14" data-ate="0.2"/>
+<rect class="t" pathLength="1" x="150" y="430" width="500" height="22" data-a="traco" data-de="0.08" data-ate="0.18"/>
+<rect x="170" y="330" width="390" height="100" fill="url(#concreto)" data-a="surge" data-de="0.58" data-ate="0.66"/>
+<rect x="280" y="220" width="410" height="100" fill="#E3E0D9" data-a="surge" data-de="0.58" data-ate="0.66"/>
+<rect x="470" y="220" width="220" height="100" fill="url(#ripado)" data-a="surge" data-de="0.62" data-ate="0.7"/>
+<rect x="170" y="320" width="530" height="10" fill="#1A1B19" data-a="surge" data-de="0.58" data-ate="0.64"/>
+<rect x="270" y="210" width="440" height="10" fill="#1A1B19" data-a="surge" data-de="0.58" data-ate="0.64"/>
+<rect x="200" y="345" width="250" height="85" fill="#9DB7C8" data-a="surge" data-de="0.64" data-ate="0.72" data-max="0.6"/>
+<rect x="200" y="345" width="250" height="85" fill="#F2C76B" data-a="acende" data-de="0.9" data-ate="1" data-max="0.88"/>
+<rect x="300" y="242" width="150" height="56" fill="#9DB7C8" data-a="surge" data-de="0.64" data-ate="0.72" data-max="0.6"/>
+<rect x="300" y="242" width="150" height="56" fill="#F2C76B" data-a="acende" data-de="0.9" data-ate="1" data-max="0.88"/>
+<rect x="490" y="362" width="44" height="68" fill="#5A4636" data-a="surge" data-de="0.62" data-ate="0.7"/>
+<line class="t" pathLength="1" x1="180" y1="430" x2="180" y2="330" stroke-width="2.2" data-a="traco" data-de="0.18" data-ate="0.27"/>
+<line class="t" pathLength="1" x1="300" y1="430" x2="300" y2="330" stroke-width="2.2" data-a="traco" data-de="0.19999999999999998" data-ate="0.29000000000000004"/>
+<line class="t" pathLength="1" x1="420" y1="430" x2="420" y2="330" stroke-width="2.2" data-a="traco" data-de="0.22" data-ate="0.31"/>
+<line class="t" pathLength="1" x1="540" y1="430" x2="540" y2="330" stroke-width="2.2" data-a="traco" data-de="0.24" data-ate="0.33"/>
+<line class="t" pathLength="1" x1="670" y1="430" x2="670" y2="330" stroke-width="2.2" data-a="traco" data-de="0.26" data-ate="0.35000000000000003"/>
+<rect class="t" pathLength="1" x="170" y="320" width="530" height="10" data-a="traco" data-de="0.27" data-ate="0.36"/>
+<rect class="t" pathLength="1" x="270" y="210" width="440" height="10" data-a="traco" data-de="0.33" data-ate="0.42"/>
+<path class="t" pathLength="1" d="M170 330 V430 M560 330 V430" data-a="traco" data-de="0.4" data-ate="0.48"/>
+<rect class="t" pathLength="1" x="280" y="220" width="410" height="100" data-a="traco" data-de="0.42" data-ate="0.52"/>
+<rect class="t" pathLength="1" x="200" y="345" width="250" height="85" data-a="traco" data-de="0.48" data-ate="0.57"/>
+<rect class="t" pathLength="1" x="300" y="242" width="150" height="56" data-a="traco" data-de="0.5" data-ate="0.59"/>
+<path class="t" pathLength="1" d="M262.5 345 V430 M325 345 V430 M387.5 345 V430 M375 242 V298" data-a="traco" data-de="0.52" data-ate="0.6"/>
+<rect class="t" pathLength="1" x="490" y="362" width="44" height="68" data-a="traco" data-de="0.53" data-ate="0.6"/>
+<circle cx="526" cy="398" r="2" fill="#1A1B19" data-a="surge" data-de="0.58" data-ate="0.6"/>
+<circle cx="512" cy="352" r="9" fill="#F2C76B" data-a="acende" data-de="0.92" data-ate="1" data-max="0.9"/>
+<path class="t" pathLength="1" d="M95 430 V352" stroke="#4A3F33" stroke-width="4" data-a="traco" data-de="0.7" data-ate="0.76"/>
+<circle cx="95" cy="322" r="44" fill="#5B6B4A" opacity=".9" data-a="escala" data-de="0.74" data-ate="0.8"/>
+<circle cx="70" cy="348" r="30" fill="#5B6B4A" opacity=".9" data-a="escala" data-de="0.76" data-ate="0.8200000000000001"/>
+<circle cx="122" cy="344" r="32" fill="#5B6B4A" opacity=".9" data-a="escala" data-de="0.78" data-ate="0.8400000000000001"/>
+<circle cx="580" cy="430" r="13" fill="#6E7F5B" data-a="escala" data-de="0.78" data-ate="0.84"/>
+<circle cx="604" cy="430" r="13" fill="#6E7F5B" data-a="escala" data-de="0.792" data-ate="0.852"/>
+<circle cx="628" cy="430" r="13" fill="#6E7F5B" data-a="escala" data-de="0.804" data-ate="0.864"/>
+<circle cx="652" cy="430" r="13" fill="#6E7F5B" data-a="escala" data-de="0.8160000000000001" data-ate="0.876"/>
+<path class="t" pathLength="1" d="M220 430 l-3 -9 M220 430 l0 -11 M220 430 l3 -8" stroke="#5B6B4A" data-a="traco" data-de="0.76" data-ate="0.82"/>
+<path class="t" pathLength="1" d="M250 430 l-3 -9 M250 430 l0 -11 M250 430 l3 -8" stroke="#5B6B4A" data-a="traco" data-de="0.77" data-ate="0.83"/>
+<path class="t" pathLength="1" d="M450 430 l-3 -9 M450 430 l0 -11 M450 430 l3 -8" stroke="#5B6B4A" data-a="traco" data-de="0.78" data-ate="0.84"/>
+<path class="t" pathLength="1" d="M470 430 l-3 -9 M470 430 l0 -11 M470 430 l3 -8" stroke="#5B6B4A" data-a="traco" data-de="0.79" data-ate="0.85"/>
+<path class="t" pathLength="1" d="M720 430 l-3 -9 M720 430 l0 -11 M720 430 l3 -8" stroke="#5B6B4A" data-a="traco" data-de="0.8" data-ate="0.86"/>
+<g class="cota"><line class="t" pathLength="1" x1="742" y1="430" x2="742" y2="210" data-a="traco" data-de="0.18" data-ate="0.42"/><line x1="735" y1="430" x2="749" y2="430" data-a="surge" data-de="0.18" data-ate="0.2"/><text x="750" y="426" data-a="surge" data-de="0.18" data-ate="0.22">±0,00</text><line x1="735" y1="330" x2="749" y2="330" data-a="surge" data-de="0.3" data-ate="0.33"/><text x="750" y="326" data-a="surge" data-de="0.3" data-ate="0.34">+3,00</text><line x1="735" y1="210" x2="749" y2="210" data-a="surge" data-de="0.4" data-ate="0.42"/><text x="750" y="206" data-a="surge" data-de="0.4" data-ate="0.44">+6,60</text></g>
+</svg>
+          <p class="dica" aria-hidden="true">Role para construir <span>↓</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cena" id="processo" data-cena style="--h:380" aria-labelledby="t-proc">
+    <div class="palco">
+      <div class="wrap proc-grid">
+        <div class="proc-txt">
+          <p class="carimbo">Prancha 02/05 · Planta baixa</p>
+          <h2 class="titulo" id="t-proc">A planta que se desenha.</h2>
+          <p class="apoio">Todo projeto passa pelas mesmas quatro fases. Em cada uma, a casa ganha uma camada a mais de decisão.</p>
+          <ol class="fases">
+            <li data-n="01" data-etapa="0,.26"><b>Estudo preliminar</b><span>Entendo a rotina da família, o terreno e o sol, e organizo os espaços em zonas.</span></li>
+            <li data-n="02" data-etapa=".26,.52"><b>Anteprojeto</b><span>As paredes e as aberturas tomam forma. É a fase de ajustar até ficar do seu jeito.</span></li>
+            <li data-n="03" data-etapa=".52,.74"><b>Projeto executivo</b><span>Cotas, áreas e detalhes: tudo o que a obra precisa para ser construída sem improviso.</span></li>
+            <li data-n="04" data-etapa=".74,1.01"><b>Acompanhamento</b><span>Visitas à obra, escolha de materiais e mobiliário até a entrega das chaves.</span></li>
+          </ol>
+        </div>
+        <div class="proc-des">
+          <svg class="desenho planta" viewBox="0 0 720 470" role="img" aria-labelledby="planta-t">
+<title id="planta-t">Planta baixa de uma casa térrea de 167 m² sendo desenhada em quatro fases: zoneamento, paredes e portas, cotas e áreas, e por fim mobiliário e piso.</title>
+<ellipse class="zona" cx="210" cy="240" rx="165" ry="175" fill="rgba(200,67,43,.13)" data-a="zona" data-de="0.02" data-ate="0.14"/>
+<text class="rot-zona" x="210" y="240" text-anchor="middle" data-a="zonatxt" data-de="0.04" data-ate="0.14">SOCIAL</text>
+<ellipse class="zona" cx="510" cy="117" rx="175" ry="64" fill="rgba(26,27,25,.09)" data-a="zona" data-de="0.06" data-ate="0.18000000000000002"/>
+<text class="rot-zona" x="510" y="117" text-anchor="middle" data-a="zonatxt" data-de="0.08" data-ate="0.18000000000000002">SERVIÇO</text>
+<ellipse class="zona" cx="510" cy="323" rx="170" ry="104" fill="rgba(91,107,74,.2)" data-a="zona" data-de="0.1" data-ate="0.22000000000000003"/>
+<text class="rot-zona" x="510" y="323" text-anchor="middle" data-a="zonatxt" data-de="0.12" data-ate="0.22000000000000003">ÍNTIMO</text>
+<g class="norte" data-a="surge" data-de="0.08" data-ate="0.16"><circle cx="684" cy="36" r="16" fill="none" stroke="#1A1B19"/><path d="M684 24 L690 44 L684 40 L678 44Z" fill="#1A1B19"/><text x="684" y="68" text-anchor="middle">N</text></g>
+<path class="t sol-seta" pathLength="1" d="M34 412 Q -6 236 46 54" stroke="#B13A24" stroke-dasharray="1 1" data-a="traco" data-de="0.1" data-ate="0.22"/>
+<text class="nota" x="8" y="440" data-a="surge" data-de="0.16" data-ate="0.24">sol da manhã</text>
+<rect x="60" y="55" width="300" height="210" fill="url(#madeira)" data-a="surge" data-de="0.76" data-ate="0.84"/>
+<rect x="60" y="265" width="300" height="150" fill="url(#deck)" data-a="surge" data-de="0.78" data-ate="0.86"/>
+<g class="movel" data-a="cai" data-de="0.8" data-ate="0.8700000000000001"><rect x="90" y="175" width="120" height="40" rx="6"/><rect x="90" y="175" width="120" height="12" rx="4"/></g>
+<g class="movel" data-a="cai" data-de="0.81" data-ate="0.8800000000000001"><rect x="120" y="135" width="60" height="26" rx="3"/></g>
+<g class="movel" data-a="cai" data-de="0.82" data-ate="0.8899999999999999"><rect x="245" y="110" width="80" height="44" rx="3"/><circle cx="260" cy="100" r="8"/><circle cx="285" cy="100" r="8"/><circle cx="310" cy="100" r="8"/><circle cx="260" cy="165" r="8"/><circle cx="285" cy="165" r="8"/><circle cx="310" cy="165" r="8"/></g>
+<g class="movel" data-a="cai" data-de="0.83" data-ate="0.8999999999999999"><path d="M370 65 H650 V89 H370 Z"/><rect x="420" y="143" width="110" height="28" rx="3"/><rect x="600" y="135" width="22" height="22"/><rect x="626" y="135" width="22" height="22"/></g>
+<g class="movel" data-a="cai" data-de="0.84" data-ate="0.9099999999999999"><rect x="385" y="345" width="60" height="62" rx="4"/><rect x="389" y="349" width="52" height="14" rx="3"/></g>
+<g class="movel" data-a="cai" data-de="0.85" data-ate="0.9199999999999999"><rect x="560" y="343" width="90" height="66" rx="4"/><rect x="566" y="347" width="36" height="14" rx="3"/><rect x="608" y="347" width="36" height="14" rx="3"/></g>
+<g class="movel" data-a="cai" data-de="0.86" data-ate="0.9299999999999999"><rect x="476" y="231" width="30" height="16" rx="4"/><rect x="522" y="287" width="22" height="24" rx="9"/></g>
+<g class="movel" data-a="cai" data-de="0.87" data-ate="0.94"><path d="M478 325 V405 M540 325 V405"/></g>
+<g class="movel" data-a="cai" data-de="0.88" data-ate="0.95"><rect x="260" y="305" width="30" height="56" rx="8"/><rect x="300" y="305" width="30" height="56" rx="8"/></g>
+<circle cx="332" cy="391" r="15" fill="#5B6B4A" opacity=".85" data-a="escala" data-de="0.86" data-ate="0.92"/>
+<circle cx="84" cy="385" r="12" fill="#5B6B4A" opacity=".85" data-a="escala" data-de="0.88" data-ate="0.9400000000000001"/>
+<circle cx="345" cy="73" r="9" fill="#5B6B4A" opacity=".85" data-a="escala" data-de="0.9" data-ate="0.9600000000000001"/>
+<circle cx="80" cy="245" r="12" fill="#5B6B4A" opacity=".85" data-a="escala" data-de="0.9199999999999999" data-ate="0.98"/>
+<rect class="t parede ext" pathLength="1" x="60" y="55" width="600" height="360" data-a="traco" data-de="0.26" data-ate="0.38"/>
+<path class="t parede" pathLength="1" d="M360 55 V415 M360 185 H660 M360 225 H660 M470 225 V415 M550 225 V415 M470 315 H550" data-a="traco" data-de="0.32" data-ate="0.44"/>
+<path class="t parede fina" pathLength="1" d="M60 265 H360" stroke-dasharray="1 1" data-a="traco" data-de="0.34" data-ate="0.42"/>
+<rect class="vao" x="55" y="95" width="10" height="40" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="355" y="75" width="10" height="90" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="355" y="187" width="10" height="36" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="90" y="260" width="240" height="10" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="380" y="220" width="40" height="10" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="485" y="220" width="40" height="10" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="570" y="220" width="40" height="10" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<rect class="vao" x="545" y="340" width="10" height="40" data-a="surge" data-de="0.4" data-ate="0.44"/>
+<path class="t porta" pathLength="1" d="M60 95 L96 95" data-a="traco" data-de="0.42" data-ate="0.47"/>
+<path class="t arco" pathLength="1" d="M96 95 A36 36 0 0 1 60 131" data-a="traco" data-de="0.44" data-ate="0.5"/>
+<path class="t porta" pathLength="1" d="M380 225 L380 261" data-a="traco" data-de="0.432" data-ate="0.482"/>
+<path class="t arco" pathLength="1" d="M380 261 A36 36 0 0 0 416 225" data-a="traco" data-de="0.452" data-ate="0.512"/>
+<path class="t porta" pathLength="1" d="M485 225 L485 261" data-a="traco" data-de="0.444" data-ate="0.494"/>
+<path class="t arco" pathLength="1" d="M485 261 A36 36 0 0 0 521 225" data-a="traco" data-de="0.464" data-ate="0.524"/>
+<path class="t porta" pathLength="1" d="M570 225 L570 261" data-a="traco" data-de="0.45599999999999996" data-ate="0.506"/>
+<path class="t arco" pathLength="1" d="M570 261 A36 36 0 0 0 606 225" data-a="traco" data-de="0.476" data-ate="0.536"/>
+<path class="t porta" pathLength="1" d="M550 340 L514 340" data-a="traco" data-de="0.46799999999999997" data-ate="0.518"/>
+<path class="t arco" pathLength="1" d="M514 340 A36 36 0 0 0 550 376" data-a="traco" data-de="0.488" data-ate="0.548"/>
+<path class="t" pathLength="1" d="M90 262 H210 M210 268 H330" stroke-width="1.4" data-a="traco" data-de="0.44" data-ate="0.5"/>
+<g class="cota" data-a="surge" data-de="0.52" data-ate="0.5700000000000001"><line x1="60" y1="32" x2="660" y2="32"/><line x1="60" y1="26" x2="60" y2="38"/><line x1="660" y1="26" x2="660" y2="38"/><text x="360.0" y="27" text-anchor="middle"><tspan data-a="conta" data-de="0.52" data-ate="0.6" data-valor="16.67" data-casas="2">16,67</tspan></text></g>
+<g class="cota" data-a="surge" data-de="0.55" data-ate="0.6000000000000001"><line x1="60" y1="444" x2="360" y2="444"/><line x1="60" y1="438" x2="60" y2="450"/><line x1="360" y1="438" x2="360" y2="450"/><text x="210.0" y="439" text-anchor="middle"><tspan data-a="conta" data-de="0.55" data-ate="0.63" data-valor="8.33" data-casas="2">8,33</tspan></text></g>
+<g class="cota" data-a="surge" data-de="0.56" data-ate="0.6100000000000001"><line x1="360" y1="444" x2="470" y2="444"/><line x1="360" y1="438" x2="360" y2="450"/><line x1="470" y1="438" x2="470" y2="450"/><text x="415.0" y="439" text-anchor="middle"><tspan data-a="conta" data-de="0.56" data-ate="0.64" data-valor="3.06" data-casas="2">3,06</tspan></text></g>
+<g class="cota" data-a="surge" data-de="0.57" data-ate="0.62"><line x1="470" y1="444" x2="550" y2="444"/><line x1="470" y1="438" x2="470" y2="450"/><line x1="550" y1="438" x2="550" y2="450"/><text x="510.0" y="439" text-anchor="middle"><tspan data-a="conta" data-de="0.57" data-ate="0.6499999999999999" data-valor="2.22" data-casas="2">2,22</tspan></text></g>
+<g class="cota" data-a="surge" data-de="0.58" data-ate="0.63"><line x1="550" y1="444" x2="660" y2="444"/><line x1="550" y1="438" x2="550" y2="450"/><line x1="660" y1="438" x2="660" y2="450"/><text x="605.0" y="439" text-anchor="middle"><tspan data-a="conta" data-de="0.58" data-ate="0.6599999999999999" data-valor="3.06" data-casas="2">3,06</tspan></text></g>
+<g class="cota" data-a="surge" data-de="0.54" data-ate="0.5900000000000001"><line x1="34" y1="55" x2="34" y2="415"/><line x1="28" y1="55" x2="40" y2="55"/><line x1="28" y1="415" x2="40" y2="415"/><text x="28" y="235.0" text-anchor="middle" transform="rotate(-90 28 235.0)"><tspan data-a="conta" data-de="0.54" data-ate="0.62" data-valor="10.00" data-casas="2">10,00</tspan></text></g>
+<path class="eixo" d="M360 40 V439" data-a="surge" data-de="0.6" data-ate="0.66"/><text class="nota" x="365" y="467" data-a="surge" data-de="0.6" data-ate="0.66">eixo A</text>
+<g class="rotulo" data-a="surge" data-de="0.58" data-ate="0.64"><text x="210.0" y="241" text-anchor="middle" class="r-nome">ESTAR E JANTAR</text><text x="210.0" y="255" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.58" data-ate="0.68" data-valor="48.6" data-casas="1">48,6</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.595" data-ate="0.655"><text x="210.0" y="338.0" text-anchor="middle" class="r-nome">VARANDA</text><text x="210.0" y="352.0" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.595" data-ate="0.6950000000000001" data-valor="34.7" data-casas="1">34,7</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.61" data-ate="0.67"><text x="510.0" y="118.0" text-anchor="middle" class="r-nome">COZINHA E SERVIÇO</text><text x="510.0" y="132.0" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.61" data-ate="0.7100000000000001" data-valor="30.1" data-casas="1">30,1</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.625" data-ate="0.685"><text x="510.0" y="207.0" text-anchor="middle" class="r-nome">CIRCULAÇÃO</text><text x="510.0" y="221.0" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.625" data-ate="0.7250000000000001" data-valor="9.3" data-casas="1">9,3</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.6399999999999999" data-ate="0.7"><text x="415.0" y="308" text-anchor="middle" class="r-nome">QUARTO</text><text x="415.0" y="322" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.6399999999999999" data-ate="0.74" data-valor="16.1" data-casas="1">16,1</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.6549999999999999" data-ate="0.715"><text x="510.0" y="268.0" text-anchor="middle" class="r-nome">BANHO</text><text x="510.0" y="282.0" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.6549999999999999" data-ate="0.755" data-valor="5.6" data-casas="1">5,6</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.6699999999999999" data-ate="0.73"><text x="510.0" y="363.0" text-anchor="middle" class="r-nome">CLOSET</text><text x="510.0" y="377.0" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.6699999999999999" data-ate="0.77" data-valor="6.2" data-casas="1">6,2</tspan> m²</text></g>
+<g class="rotulo" data-a="surge" data-de="0.6849999999999999" data-ate="0.745"><text x="605.0" y="308" text-anchor="middle" class="r-nome">SUÍTE</text><text x="605.0" y="322" text-anchor="middle" class="r-area"><tspan data-a="conta" data-de="0.6849999999999999" data-ate="0.785" data-valor="16.1" data-casas="1">16,1</tspan> m²</text></g>
+<rect class="comodo" x="60" y="55" width="300" height="210" data-nome="Estar e jantar" data-area="48,6"/>
+<rect class="comodo" x="60" y="265" width="300" height="150" data-nome="Varanda" data-area="34,7"/>
+<rect class="comodo" x="360" y="55" width="300" height="130" data-nome="Cozinha e serviço" data-area="30,1"/>
+<rect class="comodo" x="360" y="185" width="300" height="40" data-nome="Circulação" data-area="9,3"/>
+<rect class="comodo" x="360" y="225" width="110" height="190" data-nome="Quarto" data-area="16,1"/>
+<rect class="comodo" x="470" y="225" width="80" height="90" data-nome="Banho" data-area="5,6"/>
+<rect class="comodo" x="470" y="315" width="80" height="100" data-nome="Closet" data-area="6,2"/>
+<rect class="comodo" x="550" y="225" width="110" height="190" data-nome="Suíte" data-area="16,1"/>
+</svg>
+          <div class="dica-comodo" id="dica-comodo" role="status" aria-live="polite"></div>
+          <p class="legenda">Casa térrea · 166,7 m² · escala 1:100 · passe o mouse ou toque nos cômodos</p>
+          <ul class="sr"><li>Estar e jantar: 48,6 m²</li><li>Varanda: 34,7 m²</li><li>Cozinha e serviço: 30,1 m²</li><li>Circulação: 9,3 m²</li><li>Quarto: 16,1 m²</li><li>Banho: 5,6 m²</li><li>Closet: 6,2 m²</li><li>Suíte: 16,1 m²</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cena" id="interiores" data-cena style="--h:300" aria-labelledby="t-int">
+    <div class="palco">
+      <div class="wrap int-grid">
+        <div class="int-txt">
+          <p class="carimbo">Prancha 03/05 · Interiores</p>
+          <h2 class="titulo" id="t-int">A decoração que se completa.</h2>
+          <p class="apoio">O projeto de interiores define cada peça antes da compra: medida, cor, luz e o lugar certo na parede.</p>
+          <ol class="checklist">
+            <li data-etapa=".16,9"><span class="caixa" aria-hidden="true"></span>Tapete</li>
+            <li data-etapa=".34,9"><span class="caixa" aria-hidden="true"></span>Sofá</li>
+            <li data-etapa=".48,9"><span class="caixa" aria-hidden="true"></span>Luminária</li>
+            <li data-etapa=".62,9"><span class="caixa" aria-hidden="true"></span>Quadros</li>
+            <li data-etapa=".74,9"><span class="caixa" aria-hidden="true"></span>Estante e livros</li>
+            <li data-etapa=".9,9"><span class="caixa" aria-hidden="true"></span>Planta</li>
+          </ol>
+          <p class="contador" id="contador-sala"><b>6</b> de 6 · ambiente pronto</p>
+        </div>
+        <div class="int-des"><svg class="desenho sala" viewBox="0 0 640 400" role="img" aria-labelledby="sala-t">
+<title id="sala-t">Vista de uma sala que começa vazia e recebe, um por um, tapete, sofá, luminária, quadros, estante com livros e uma planta.</title>
+<path class="t" pathLength="1" d="M20 330 H620 M40 40 V330 M600 40 V330 M40 40 H600" data-a="traco" data-de="0" data-ate="0.1"/>
+<path class="t" pathLength="1" d="M40 318 H600" stroke-width=".8" data-a="traco" data-de="0.04" data-ate="0.12"/>
+<rect class="t" pathLength="1" x="430" y="80" width="130" height="170" data-a="traco" data-de="0.06" data-ate="0.14"/>
+<path class="t" pathLength="1" d="M495 80 V250 M430 165 H560" stroke-width=".8" data-a="traco" data-de="0.1" data-ate="0.16"/>
+<rect x="431" y="81" width="128" height="168" fill="#C9DAE4" data-a="surge" data-de="0.1" data-ate="0.16" data-max="0.7"/>
+<g data-a="larga" data-de="0.16" data-ate="0.28" class="item" data-item="1"><rect x="130" y="326" width="330" height="10" rx="2" fill="#C8432B" opacity=".85"/><path d="M140 331 H450" stroke="#F7F6F2" stroke-dasharray="6 6" stroke-width="1.2"/></g>
+<g data-a="cai" data-de="0.28" data-ate="0.42" class="item" data-item="2"><rect x="160" y="262" width="270" height="36" rx="8" fill="#5C6B70"/><rect x="150" y="285" width="290" height="36" rx="8" fill="#6E7E83"/><rect x="150" y="275" width="26" height="50" rx="8" fill="#5C6B70"/><rect x="414" y="275" width="26" height="50" rx="8" fill="#5C6B70"/><path d="M168 321 v8 M422 321 v8" stroke="#1A1B19" stroke-width="3"/><rect x="200" y="268" width="44" height="26" rx="6" fill="#E2A33B"/></g>
+<g data-a="cai" data-de="0.42" data-ate="0.54" class="item" data-item="3"><path d="M480 330 H500 M490 330 V170" stroke="#1A1B19" stroke-width="3"/><path d="M466 170 H514 L504 140 H476 Z" fill="#1A1B19"/></g>
+<path d="M470 172 L430 330 H550 L510 172 Z" fill="#F2C76B" data-a="acende" data-de="0.5" data-ate="0.6" data-max="0.35"/>
+<g data-a="gira" data-de="0.54" data-ate="0.66" class="item" data-item="4"><rect x="190" y="120" width="80" height="100" fill="#F7F6F2" stroke="#1A1B19" stroke-width="2"/><path d="M200 200 L225 160 L242 182 L260 150 V210 H200Z" fill="#5B6B4A"/><circle cx="252" cy="140" r="8" fill="#E2A33B"/></g>
+<g data-a="gira" data-de="0.58" data-ate="0.7" class="item" data-item="4b"><rect x="290" y="140" width="110" height="70" fill="#F7F6F2" stroke="#1A1B19" stroke-width="2"/><path d="M300 200 H390 M300 185 H360 M300 170 H380" stroke="#C8432B" stroke-width="3"/></g>
+<g data-a="cai" data-de="0.66" data-ate="0.76" class="item" data-item="5"><path d="M60 330 V120 H130 V330 M60 190 H130 M60 260 H130" fill="none" stroke="#1A1B19" stroke-width="3"/></g>
+<rect x="66" y="160" width="8" height="30" fill="#C8432B" data-a="cresce" data-de="0.72" data-ate="0.76"/>
+<rect x="76" y="156" width="7" height="34" fill="#5C6B70" data-a="cresce" data-de="0.732" data-ate="0.772"/>
+<rect x="85" y="162" width="9" height="28" fill="#E2A33B" data-a="cresce" data-de="0.744" data-ate="0.784"/>
+<rect x="97" y="158" width="6" height="32" fill="#1A1B19" data-a="cresce" data-de="0.756" data-ate="0.796"/>
+<rect x="110" y="230" width="9" height="30" fill="#5B6B4A" data-a="cresce" data-de="0.768" data-ate="0.808"/>
+<rect x="121" y="226" width="6" height="34" fill="#C8432B" data-a="cresce" data-de="0.78" data-ate="0.8200000000000001"/>
+<rect x="66" y="230" width="8" height="30" fill="#E2A33B" data-a="cresce" data-de="0.792" data-ate="0.8320000000000001"/>
+<rect x="78" y="300" width="22" height="30" fill="#5C6B70" data-a="cresce" data-de="0.8039999999999999" data-ate="0.844"/>
+<g class="item" data-item="6"><path d="M560 330 L566 296 H594 L600 330Z" fill="#B9775A" data-a="cai" data-de="0.8" data-ate="0.86"/><path d="M580 296 C560 260 548 250 540 236 M580 296 C584 262 596 246 606 230 M580 296 C574 270 572 250 578 222" fill="none" stroke="#5B6B4A" stroke-width="3" class="t" pathLength="1" data-a="traco" data-de="0.84" data-ate="0.94"/><ellipse cx="542" cy="236" rx="12" ry="6" fill="#5B6B4A" data-a="escala" data-de="0.88" data-ate="0.94"/><ellipse cx="604" cy="232" rx="12" ry="6" fill="#5B6B4A" data-a="escala" data-de="0.89" data-ate="0.95"/><ellipse cx="578" cy="222" rx="7" ry="12" fill="#5B6B4A" data-a="escala" data-de="0.9" data-ate="0.96"/></g>
+</svg></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria" id="projetos" data-galeria aria-labelledby="t-proj">
+    <div class="palco-g">
+      <div class="g-cab wrap">
+        <p class="carimbo">Prancha 04/05 · Projetos</p>
+        <h2 class="titulo" id="t-proj">Casas e apartamentos <em>com o nosso traço.</em></h2>
+        <p class="g-aviso">Projetos fictícios, com fotos ilustrativas do Unsplash.</p>
+      </div>
+      <div class="trilho" id="trilho">
+        <article class="proj" style="--i:0">
+          <figure class="proj-foto"><img src="assets/img/jardim-480.webp" srcset="assets/img/jardim-480.webp 480w, assets/img/jardim-800.webp 800w" sizes="(min-width: 900px) 380px, 74vw" width="480" height="600" loading="lazy" decoding="async" alt="Casa Jardim: Casa térrea com piscina e jardim, beirais em madeira e vidro do piso ao teto."></figure>
+          <div class="proj-info">
+            <span class="prancha">P-01</span>
+            <h3>Casa Jardim</h3>
+            <p>Casa térrea com piscina e jardim, beirais em madeira e vidro do piso ao teto.</p>
+            <dl class="ficha"><div><dt>Tipo</dt><dd>Residência unifamiliar</dd></div><div><dt>Área</dt><dd>312 m²</dd></div><div><dt>Local</dt><dd>Vitória · ES</dd></div><div><dt>Ano</dt><dd>2025</dd></div></dl>
+          </div>
+        </article>
+        <article class="proj" style="--i:1">
+          <figure class="proj-foto"><img src="assets/img/mata-480.webp" srcset="assets/img/mata-480.webp 480w, assets/img/mata-800.webp 800w" sizes="(min-width: 900px) 380px, 74vw" width="480" height="600" loading="lazy" decoding="async" alt="Casa Mata da Praia: Volume superior em balanço, ripado de madeira e iluminação pensada para a noite."></figure>
+          <div class="proj-info">
+            <span class="prancha">P-02</span>
+            <h3>Casa Mata da Praia</h3>
+            <p>Volume superior em balanço, ripado de madeira e iluminação pensada para a noite.</p>
+            <dl class="ficha"><div><dt>Tipo</dt><dd>Residência unifamiliar</dd></div><div><dt>Área</dt><dd>268 m²</dd></div><div><dt>Local</dt><dd>Vitória · ES</dd></div><div><dt>Ano</dt><dd>2024</dd></div></dl>
+          </div>
+        </article>
+        <article class="proj" style="--i:2">
+          <figure class="proj-foto"><img src="assets/img/praia-480.webp" srcset="assets/img/praia-480.webp 480w, assets/img/praia-800.webp 800w" sizes="(min-width: 900px) 380px, 74vw" width="480" height="600" loading="lazy" decoding="async" alt="Casa Setiba: Pedra, madeira e pergolado para a sombra das tardes de verão."></figure>
+          <div class="proj-info">
+            <span class="prancha">P-03</span>
+            <h3>Casa Setiba</h3>
+            <p>Pedra, madeira e pergolado para a sombra das tardes de verão.</p>
+            <dl class="ficha"><div><dt>Tipo</dt><dd>Casa de praia</dd></div><div><dt>Área</dt><dd>240 m²</dd></div><div><dt>Local</dt><dd>Guarapari · ES</dd></div><div><dt>Ano</dt><dd>2024</dd></div></dl>
+          </div>
+        </article>
+        <article class="proj" style="--i:3">
+          <figure class="proj-foto"><img src="assets/img/apto-480.webp" srcset="assets/img/apto-480.webp 480w, assets/img/apto-800.webp 800w" sizes="(min-width: 900px) 380px, 74vw" width="480" height="600" loading="lazy" decoding="async" alt="Apartamento Praia do Canto: Sala voltada para a vista, com concreto aparente e marcenaria clara."></figure>
+          <div class="proj-info">
+            <span class="prancha">P-04</span>
+            <h3>Apartamento Praia do Canto</h3>
+            <p>Sala voltada para a vista, com concreto aparente e marcenaria clara.</p>
+            <dl class="ficha"><div><dt>Tipo</dt><dd>Interiores</dd></div><div><dt>Área</dt><dd>138 m²</dd></div><div><dt>Local</dt><dd>Vitória · ES</dd></div><div><dt>Ano</dt><dd>2025</dd></div></dl>
+          </div>
+        </article>
+        <article class="proj" style="--i:4">
+          <figure class="proj-foto"><img src="assets/img/reforma-480.webp" srcset="assets/img/reforma-480.webp 480w, assets/img/reforma-800.webp 800w" sizes="(min-width: 900px) 380px, 74vw" width="480" height="600" loading="lazy" decoding="async" alt="Apartamento Jardim da Penha: Cozinha aberta para a sala e madeira natural para aquecer o ambiente."></figure>
+          <div class="proj-info">
+            <span class="prancha">P-05</span>
+            <h3>Apartamento Jardim da Penha</h3>
+            <p>Cozinha aberta para a sala e madeira natural para aquecer o ambiente.</p>
+            <dl class="ficha"><div><dt>Tipo</dt><dd>Reforma</dd></div><div><dt>Área</dt><dd>96 m²</dd></div><div><dt>Local</dt><dd>Vitória · ES</dd></div><div><dt>Ano</dt><dd>2023</dd></div></dl>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="servicos" aria-labelledby="t-serv">
+    <div class="wrap serv-grid">
+      <div>
+        <p class="carimbo">Prancha 05/05 · Serviços</p>
+        <h2 class="titulo" id="t-serv">O que eu faço.</h2>
+        <p class="apoio">Cada serviço é contratado por etapas, com entregas claras em cada uma.</p>
+      </div>
+      <div class="servicos">
+        <details class="serv" open><summary><span class="cod">A</span>Arquitetura residencial<span class="mais" aria-hidden="true"></span></summary><div class="serv-corpo"><p>Casas novas, do estudo do terreno ao projeto executivo aprovado na prefeitura.</p><ul><li>Levantamento e estudo preliminar</li><li>Anteprojeto com imagens 3D</li><li>Projeto legal e executivo</li></ul></div></details>
+        <details class="serv"><summary><span class="cod">B</span>Interiores<span class="mais" aria-hidden="true"></span></summary><div class="serv-corpo"><p>Ambientes pensados peça por peça, com marcenaria, iluminação e lista de compras.</p><ul><li>Layout e mobiliário</li><li>Detalhamento de marcenaria</li><li>Projeto de iluminação</li></ul></div></details>
+        <details class="serv"><summary><span class="cod">C</span>Reforma<span class="mais" aria-hidden="true"></span></summary><div class="serv-corpo"><p>Apartamentos e casas que precisam funcionar melhor para a família de hoje.</p><ul><li>Levantamento do existente</li><li>Novo layout e demolições</li><li>Compatibilização com instalações</li></ul></div></details>
+        <details class="serv"><summary><span class="cod">D</span>Acompanhamento de obra<span class="mais" aria-hidden="true"></span></summary><div class="serv-corpo"><p>Visitas periódicas para garantir que o que foi desenhado é o que está sendo construído.</p><ul><li>Visitas com relatório</li><li>Apoio na escolha de materiais</li><li>Conferência antes da entrega</li></ul></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao escura" id="reforma" aria-labelledby="t-ref">
+    <div class="wrap">
+      <div class="cab-ref">
+        <p class="carimbo">Antes e depois</p>
+        <h2 class="titulo" id="t-ref">Mesmo apartamento, <em>outra vida.</em></h2>
+        <p class="apoio">Arraste para comparar a planta original com a planta reformada: menos paredes, cozinha aberta e um escritório no lugar do quarto que sobrava.</p>
+      </div>
+      <div class="comparador" id="comparador" style="--x:50%">
+        <div class="lado antes"><svg viewBox="0 0 600 340" class="plano-ref" aria-hidden="true">
+<rect x="30" y="30" width="540" height="280" fill="#F7F6F2" stroke="#1A1B19" stroke-width="6"/>
+<path d="M230 30 V310 M230 150 H570 M400 150 V310 M30 200 H230 M130 200 V310 M400 30 V150" stroke="#1A1B19" stroke-width="4" fill="none"/>
+<path d="M160 196 V214 M230 60 H246 M240 150 V166 M400 220 H416" stroke="#F7F6F2" stroke-width="7"/>
+<text x="130" y="115" text-anchor="middle" class="r-nome">SALA</text>
+<text x="315" y="95" text-anchor="middle" class="r-nome">COZINHA</text>
+<text x="485" y="95" text-anchor="middle" class="r-nome">ÁREA</text>
+<text x="315" y="235" text-anchor="middle" class="r-nome">QUARTO</text>
+<text x="485" y="235" text-anchor="middle" class="r-nome">QUARTO</text>
+<text x="80" y="260" text-anchor="middle" class="r-nome">BANHO</text>
+<text x="180" y="260" text-anchor="middle" class="r-nome">DEPÓSITO</text>
+</svg><span class="etq">Antes</span></div>
+        <div class="lado depois"><svg viewBox="0 0 600 340" class="plano-ref" aria-hidden="true">
+<rect x="30" y="30" width="540" height="280" fill="#F7F6F2" stroke="#1A1B19" stroke-width="6"/>
+<path d="M400 150 V310 M230 150 H570" stroke="#1A1B19" stroke-width="4" fill="none"/>
+<path d="M230 150 H300" stroke="#F7F6F2" stroke-width="7"/>
+<rect x="250" y="80" width="120" height="34" rx="4" fill="#E3E0D9" stroke="#1A1B19"/><path d="M405 40 H560 V64 H405Z" fill="#E3E0D9" stroke="#1A1B19"/>
+<rect x="60" y="210" width="130" height="44" rx="8" fill="#6E7E83"/><rect x="60" y="80" width="90" height="56" rx="4" fill="none" stroke="#1A1B19"/>
+<path d="M236 160 H394" stroke="#9DB7C8" stroke-width="5"/>
+<circle cx="540" cy="285" r="10" fill="#5B6B4A"/><circle cx="210" cy="285" r="12" fill="#5B6B4A"/>
+<text x="130" y="175" text-anchor="middle" class="r-nome">ESTAR E JANTAR</text>
+<text x="470" y="110" text-anchor="middle" class="r-nome">COZINHA ABERTA</text>
+<text x="315" y="240" text-anchor="middle" class="r-nome">ESCRITÓRIO</text>
+<text x="485" y="240" text-anchor="middle" class="r-nome">SUÍTE</text>
+</svg><span class="etq">Depois</span></div>
+        <div class="divisor" aria-hidden="true"><span>⟷</span></div>
+        <input type="range" min="0" max="100" value="50" id="comp-range" aria-label="Comparar antes e depois da reforma">
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="contato" aria-labelledby="t-cont">
+    <div class="wrap cont-grid">
+      <div>
+        <p class="carimbo">Contato</p>
+        <h2 class="titulo" id="t-cont">Vamos começar pelo seu terreno <em>(ou pelo seu apartamento).</em></h2>
+        <p class="apoio">Conte o básico e a mensagem fica pronta para o WhatsApp. A primeira conversa serve para entender o que você precisa.</p>
+        <div class="quem">
+          <p class="quem-nome">Laís Andrade</p>
+          <p>Arquiteta e urbanista · CAU A000000-0 (fictício)<br>Projetos de arquitetura residencial e de interiores</p>
+          <p>Rua Exemplo, 400, sala 702 · Enseada do Suá · Vitória/ES (fictício)</p>
+        </div>
+      </div>
+      <form class="form" id="form-arq" novalidate>
+        <fieldset class="campo"><legend>O que você quer fazer?</legend><div class="pilulas">
+          <label><input type="radio" name="tipo" value="uma casa nova"><span>Casa nova</span></label>
+          <label><input type="radio" name="tipo" value="uma reforma"><span>Reforma</span></label>
+          <label><input type="radio" name="tipo" value="um projeto de interiores"><span>Interiores</span></label>
+        </div></fieldset>
+        <fieldset class="campo"><legend>Já tem o terreno ou o imóvel?</legend><div class="pilulas">
+          <label><input type="radio" name="terreno" value="sim"><span>Sim</span></label>
+          <label><input type="radio" name="terreno" value="ainda não"><span>Ainda não</span></label>
+          <label><input type="radio" name="terreno" value="estou procurando"><span>Procurando</span></label>
+        </div></fieldset>
+        <div class="campo"><label for="f-cidade">Cidade</label><input id="f-cidade" name="cidade" autocomplete="address-level2" placeholder="Ex.: Vila Velha"></div>
+        <div class="campo"><label for="f-nome">Seu nome</label><input id="f-nome" name="nome" autocomplete="name" placeholder="Como posso te chamar?"></div>
+        <button class="btn btn-p" type="submit" id="f-enviar" disabled>Montar mensagem</button>
+        <div class="saida" id="f-saida" hidden>
+          <p class="saida-t" id="f-saida-t" tabindex="-1">Sua mensagem ficou assim:</p>
+          <div class="zap"><p class="de"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Para: Taipa Arquitetura · WhatsApp</p><p class="msg" id="f-msg"></p></div>
+          <p class="aviso-demo">Isto é uma demonstração: nada foi enviado. Na página real, o botão abre o WhatsApp com a mensagem pronta.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rod-grid">
+      <div><p class="logo rod-logo"><span class="logo-marca" aria-hidden="true"></span>Taipa<span class="logo-sub">arquitetura</span></p><p>Laís Andrade · Arquiteta e urbanista · CAU A000000-0 (fictício)<br>Arquitetura residencial, interiores, reforma e acompanhamento de obra.</p></div>
+      <div><p>Rua Exemplo, 400, sala 702 · Enseada do Suá · Vitória/ES</p><p>Segunda a sexta, das 9h às 18h</p></div>
+      <div class="rod-links"><a href="#" data-demo="Aqui o botão abriria o WhatsApp do escritório.">WhatsApp</a><a href="#" data-demo="Aqui o link abriria o Instagram do escritório, com os projetos publicados.">Instagram</a></div>
+    </div>
+    <p class="regulatorio">Escritório, nome, registro no CAU, endereço e projetos fictícios. Fotos: Unsplash. Página de demonstração criada pela <a href="https://estudiohk.com.br/">EstudioHK</a>.</p>
+  </div>
+</footer>
+
+<div class="barra-m" id="barra-m" aria-hidden="true"><a class="btn btn-p" href="#contato" tabindex="-1">Fale com a arquiteta</a></div>
+
+<div class="janela" id="janela" hidden>
+  <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="j-titulo">
+    <h2 id="j-titulo" tabindex="-1">Isto é uma demonstração</h2>
+    <p id="j-texto"></p>
+    <div class="botoes">
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20arquitetura%20(Taipa)%20e%20quero%20uma%20landing%20page%20assim." target="_blank" rel="noopener">Quero uma página assim</a>
+      <button class="btn btn-s" type="button" id="j-fechar">Fechar</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
