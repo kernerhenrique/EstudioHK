@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atendente com IA no WhatsApp · Demonstração de automação EstudioHK</title>
+<meta name="description" content="Demonstração de automação criada pela EstudioHK: atendente com IA no WhatsApp que responde preços, horários e serviços pela ficha da barbearia, marca horário e passa para uma pessoa quando precisa. Com ferramentas, custos e regras da Meta.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/">
+<meta name="theme-color" content="#0B1222">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Atendente com IA no WhatsApp · demonstração de automação pela EstudioHK">
+<meta property="og:description" content="Pergunte como cliente da barbearia e veja a IA responder pela ficha, marcar horário e chamar uma pessoa. Com ferramentas e custos.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="../assets/auto.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/auto.js" defer></script>
+<script src="assets/atendente.js" defer></script>
+</head>
+<body class="auto-pg">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-6 16-3-7-7-1z"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 5h16v16H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/></symbol>
+    <symbol id="i-off" viewBox="0 0 24 24"><path d="M12 3v9M6.3 6.3a8 8 0 1 0 11.4 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+  </defs>
+</svg>
+
+<div class="aviso-demo" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><a class="marca" href="/" aria-label="EstudioHK, início">Estudio<b>HK</b><i aria-hidden="true"></i></a><span class="texto-longo">Demonstração de automação. </span>Respostas simuladas: nada é enviado.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="/automacoes/#demos">Ver outras automações</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Atendente%20com%20IA%20no%20WhatsApp%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação →</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+  <!-- TOPO + SIMULAÇÃO -->
+  <section class="sim-sec dark" aria-labelledby="titulo">
+    <div class="wrap">
+      <header class="sim-topo">
+        <div class="sim-intro">
+          <span class="eyebrow">Automação · Ofício Barbearia, barbearia fictícia</span>
+          <h1 id="titulo">Atendente com IA no WhatsApp.</h1>
+          <p class="lead">Responde preço, horário e serviço pela ficha da barbearia, marca horário na agenda e chama uma pessoa quando precisa. Mesmo às 21h, com a barbearia fechada.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Começa quando</dt><dd>um cliente manda mensagem no WhatsApp da barbearia</dd></div>
+          <div><dt>Usa</dt><dd>WhatsApp oficial, n8n, IA (Claude), ficha no Google Planilhas e agenda</dd></div>
+          <div><dt>Como testar</dt><dd>toque nas perguntas prontas ou escreva como um cliente</dd></div>
+        </dl>
+      </header>
+
+      <div class="sim" id="sim">
+        <div class="abas" role="tablist" aria-label="Lados da simulação">
+          <button type="button" role="tab" id="aba-cli" aria-controls="lado-cli" aria-selected="true">O que o cliente vê<span class="ponto" hidden></span></button>
+          <button type="button" role="tab" id="aba-bas" aria-controls="lado-bas" aria-selected="false" tabindex="-1">Bastidores<span class="ponto" hidden></span></button>
+        </div>
+
+        <!-- LADO DO CLIENTE -->
+        <div class="lado lado-cli" id="lado-cli" role="tabpanel" aria-labelledby="aba-cli">
+          <p class="lado-t">O que o cliente vê <span>no WhatsApp da barbearia</span></p>
+          <div class="cel">
+            <div class="cel-tela cel-zap cel-chat">
+              <div class="z-topo"><span class="z-av z-av-of" aria-hidden="true">Of</span><span><b>Ofício Barbearia</b><small>conta comercial · atendimento automático</small></span></div>
+              <div class="conversa z-conversa" id="conv-cli" role="log" aria-label="Conversa do cliente com a Ofício Barbearia">
+                <p class="z-dia">hoje</p>
+                <div class="bolha"><span class="de">Ofício Barbearia</span>Olá! Aqui é o atendimento da Ofício Barbearia. Posso ajudar com serviços, preços, horários e agendamento. Para falar com a equipe, é só pedir.<span class="hora">21:10</span></div>
+              </div>
+              <div class="z-compor">
+                <div class="z-chips" id="chips" aria-label="Perguntas prontas">
+                  <button type="button" data-msg="Quanto custa corte e barba?">Quanto custa corte e barba?</button>
+                  <button type="button" data-msg="Abre sábado?">Abre sábado?</button>
+                  <button type="button" data-msg="Tem horário amanhã à tarde?">Tem horário amanhã à tarde?</button>
+                  <button type="button" data-msg="Aceita Pix?">Aceita Pix?</button>
+                  <button type="button" data-msg="Quero falar com o barbeiro">Quero falar com o barbeiro</button>
+                </div>
+                <form class="z-form" id="z-form" autocomplete="off">
+                  <label class="sr" for="z-texto">Escreva como um cliente</label>
+                  <input id="z-texto" maxlength="160" placeholder="Escreva como um cliente…">
+                  <button type="submit" aria-label="Enviar"><svg class="icon"><use href="#i-send"/></svg></button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <p class="z-nota">Simulação: as respostas são prontas, sem IA de verdade nesta página. No cliente, quem responde é a IA, sempre pela ficha.</p>
+        </div>
+
+        <!-- BASTIDORES -->
+        <div class="lado lado-bas" id="lado-bas" role="tabpanel" aria-labelledby="aba-bas">
+          <div class="bas-topo">
+            <p class="lado-t">Bastidores <span>o que acontece a cada mensagem</span></p>
+            <span class="relogio" role="img" aria-label="Horário da simulação"><svg class="icon"><use href="#i-clock"/></svg><span id="relogio">ter, 21:10</span></span>
+          </div>
+          <p class="gasto-l" id="custo-l">Nesta conversa: <b id="custo">0 respostas · Meta: grátis · IA: US$ 0,0000</b></p>
+          <ol class="etapas" id="etapas">
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Recebe a mensagem</b><p class="det">O WhatsApp oficial entrega a mensagem ao n8n.</p><p class="meta"><span class="ferr">WhatsApp → n8n</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Junta a ficha e a conversa</b><p class="det">A ficha da barbearia e as últimas mensagens deste cliente.</p><p class="meta"><span class="ferr">Google Planilhas</span><time></time></p></div></li>
+            <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>A IA decide e responde</b><p class="det">Só com o que está na ficha. Fora disso, passa para uma pessoa.</p><p class="meta"><span class="ferr">IA · Claude Haiku 5.5</span><time></time></p></div></li>
+            <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Consulta e marca na agenda</b><p class="det">Quando o cliente quer horário.</p><p class="meta"><span class="ferr">Agenda</span><time></time></p></div></li>
+            <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Chama uma pessoa quando precisa</b><p class="det">Pedido do cliente, reclamação ou dúvida fora da ficha. A IA para de responder.</p><p class="meta"><span class="ferr">WhatsApp do dono</span><time></time></p></div></li>
+          </ol>
+
+          <div class="artefatos art-agenda">
+            <figure class="planilha ficha-of" id="ficha">
+              <figcaption><svg class="icon"><use href="#i-sheet"/></svg>Ficha da barbearia <span>Google Planilhas · o dono edita</span></figcaption>
+              <div class="pl-rolar" tabindex="0" role="region" aria-label="Ficha da barbearia">
+                <table>
+                  <thead><tr><th scope="col">Item</th><th scope="col">O que a IA pode dizer</th></tr></thead>
+                  <tbody id="ficha-linhas"></tbody>
+                </table>
+              </div>
+            </figure>
+            <div class="art-col">
+              <figure class="planilha" id="agenda">
+                <figcaption><svg class="icon"><use href="#i-cal"/></svg>Agenda de amanhã <span>quarta</span></figcaption>
+                <div class="pl-rolar" tabindex="0" role="region" aria-label="Agenda de amanhã">
+                  <table>
+                    <thead><tr><th scope="col">Hora</th><th scope="col">Barbeiro</th><th scope="col">Situação</th></tr></thead>
+                    <tbody id="ag-linhas"></tbody>
+                  </table>
+                </div>
+              </figure>
+              <figure class="zap-lais" id="zap-dono">
+                <figcaption><svg class="icon"><use href="#i-msg"/></svg>WhatsApp do dono <span>avisos</span></figcaption>
+                <div class="conversa" id="conv-dono"><p class="vazio">Nenhum aviso ainda.</p></div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="alerta-hk" id="alerta-hk" hidden>
+            <svg class="icon"><use href="#i-alert"/></svg>
+            <div><b>Alerta para a EstudioHK</b><p id="alerta-txt"></p></div>
+          </div>
+
+          <div class="controles" id="controles">
+            <button type="button" class="ctl" id="c-fora"><svg class="icon"><use href="#i-spark"/></svg>Perguntar algo fora do assunto</button>
+            <button type="button" class="ctl" id="c-preco" aria-pressed="false"><svg class="icon"><use href="#i-pen"/></svg>Editar preço na ficha</button>
+            <button type="button" class="ctl" id="c-recomecar"><svg class="icon"><use href="#i-redo"/></svg>Recomeçar</button>
+            <label class="ctl chave"><input type="checkbox" id="c-falha"><span>Simular IA fora do ar</span></label>
+          </div>
+          <p class="sr" id="anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sem-js">A simulação precisa de JavaScript ligado. Abaixo estão as etapas, as ferramentas e os custos.</p></noscript>
+    </div>
+  </section>
+
+  <!-- O QUE DEIXA DE SER FEITO NA MÃO -->
+  <section class="section" aria-labelledby="mao-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">O que deixa de ser feito na mão</span>
+        <h2 id="mao-title">O barbeiro corta. <span class="soft">O WhatsApp se responde.</span></h2>
+      </div>
+      <ul class="mao">
+        <li><b>Parar o corte para responder preço</b><p>Preço, duração e serviço saem da ficha, na hora, a qualquer hora.</p></li>
+        <li><b>Ver a agenda e combinar horário</b><p>A IA mostra os horários livres e marca. O barbeiro recebe o aviso.</p></li>
+        <li><b>Responder a mesma pergunta 20 vezes</b><p>Horário de sábado, endereço, Pix, atraso: tudo na ficha.</p></li>
+        <li><b>Deixar cliente sem resposta à noite</b><p>Quem escreve com a barbearia fechada é atendido na hora, e o que precisar de uma pessoa fica avisado.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="section alt" id="ferramentas" aria-labelledby="ferr-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Ferramentas que essa automação usa</span>
+        <h2 id="ferr-title">O que você precisa ter <span class="soft">e em nome de quem fica.</span></h2>
+        <p>Todas as contas ficam no nome do negócio. O que ainda não existir, eu ajudo a criar.</p>
+      </div>
+      <div class="ferramentas">
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-sheet"/></svg></span>
+          <h3>Ficha do negócio</h3>
+          <p>Serviços, preços, duração, horários, endereço, pagamento e regras. A IA só responde com o que está aqui. Mudou o preço? Edita a planilha e pronto.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu monto com você</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta Google. Você edita quando quiser.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-spark"/></svg></span>
+          <h3>IA (Claude)</h3>
+          <p>Lê a ficha e a conversa e escreve a resposta, ou pede para ver ou marcar horário. Só fala do seu negócio.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Precisa criar, eu ajudo</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta na Anthropic, com o seu cartão. Pago por uso.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <h3>n8n</h3>
+          <p>O motor: recebe a mensagem, chama a IA, consulta a agenda, responde e avisa o dono.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
+          <h3>WhatsApp oficial</h3>
+          <p>A plataforma oficial da Meta (WhatsApp Business Platform), no número que os clientes já usam.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Precisa criar, eu ajudo</span></dd></div><div><dt>Em nome de quem</dt><dd>Seu número, na sua conta da Meta. Para o dono continuar respondendo pelo aplicativo WhatsApp Business no mesmo número, a ligação é feita por um parceiro oficial da Meta (custo à parte). É o caminho que eu recomendo para o atendente.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-cal"/></svg></span>
+          <h3>Agenda</h3>
+          <p>De onde saem os horários livres e onde a IA marca. Google Agenda ou o sistema que você já usa, se ele permitir integração.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta.</dd></div></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOS DE TERCEIROS -->
+  <section class="section" id="custos" aria-labelledby="custos-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Custos de terceiros</span>
+        <h2 id="custos-title">Quanto você paga <span class="soft">a cada um, por mês.</span></h2>
+        <p>Esses valores você paga direto a quem cobra, não à EstudioHK. A criação da automação e a manutenção mensal vêm na proposta.</p>
+      </div>
+      <div class="custo-grid">
+        <table class="custos">
+          <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Respostas ao cliente que escreveu (atendimento)</td><td data-r="Quanto"><span class="selo-c gr">1.000 grátis/mês</span><br>Depois, <b class="preco">R$ 0,035</b> cada, por número</td></tr>
+            <tr><th scope="row">Anthropic<small>IA Claude</small></th><td data-r="Pelo quê">A IA lê a ficha e escreve cada resposta</td><td data-r="Quanto"><span class="selo-c ter">Por uso, em dólar</span><br>Claude Haiku 5.5: <b class="preco">US$ 0,10</b> por milhão de tokens de entrada e <b class="preco">US$ 0,50</b> de saída. Cerca de <b class="preco">US$ 0,0005</b> por resposta</td></tr>
+            <tr><th scope="row">Parceiro oficial da Meta<small>recomendado aqui</small></th><td data-r="Pelo quê">Manter o número no aplicativo WhatsApp Business junto com a IA</td><td data-r="Quanto"><span class="selo-c ter">Pago ao parceiro</span><br>Mensalidade do parceiro escolhido</td></tr>
+            <tr><th scope="row">Google<small>Planilhas e Agenda</small></th><td data-r="Pelo quê">Ficha e agenda</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Na conta Google gratuita</td></tr>
+            <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="conta" id="conta">
+          <p class="conta-t">Faça a conta do seu negócio</p>
+          <div class="rng"><div class="rng-top"><label for="k-conversas">Conversas por mês</label><output for="k-conversas" id="k-o-conversas">300</output></div><input type="range" id="k-conversas" min="50" max="3000" step="50" value="300"></div>
+          <div class="rng"><div class="rng-top"><label for="k-resp">Respostas por conversa</label><output for="k-resp" id="k-o-resp">6</output></div><input type="range" id="k-resp" min="1" max="15" step="1" value="6"></div>
+          <fieldset class="k-modelo"><legend>Modelo de IA</legend>
+            <label><input type="radio" name="modelo" value="haiku" checked><span>Claude Haiku 5.5 <small>rápido e econômico</small></span></label>
+            <label><input type="radio" name="modelo" value="sonnet"><span>Claude Sonnet 5.5 <small>respostas mais caprichadas</small></span></label>
+          </fieldset>
+          <div class="conta-res" aria-live="polite" aria-atomic="true">
+            <span>Custo estimado por mês</span>
+            <strong id="k-total">R$ 28,00 + US$ 0,90</strong>
+            <small id="k-detalhe">Meta: 1.800 respostas, 800 acima das 1.000 grátis × R$ 0,035 · IA: 1.800 × US$ 0,0005</small>
+          </div>
+          <p class="conta-nota">Fora daqui: a mensalidade do parceiro oficial, se você quiser manter o número no aplicativo. A IA é cobrada em dólar no seu cartão; a Meta, em reais.</p>
+        </div>
+      </div>
+      <p class="fonte">Fontes, consultadas em 4 e 5/nov/2026: Meta, <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página oficial de preços</a> (tabela em reais para o Brasil, vigente desde 1º/10/2026); Anthropic, <a href="https://platform.claude.com/docs/en/about-claude/pricing" target="_blank" rel="noopener">página oficial de preços</a>. A estimativa por resposta considera cerca de 4 mil tokens de entrada (ficha + conversa) e 150 de saída; com o Claude Sonnet 5.5 (US$ 2 / US$ 10 por milhão), fica perto de US$ 0,01 por resposta.</p>
+    </div>
+  </section>
+
+  <!-- REGRAS DA META -->
+  <section class="section alt" id="regras" aria-labelledby="regras-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Pode usar IA no WhatsApp?</span>
+        <h2 id="regras-title">Pode, dentro das regras <span class="soft">da própria Meta.</span></h2>
+      </div>
+      <div class="garantias gar-auto">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><h3>IA para atender os seus clientes</h3><p>Desde 15/jan/2026, os termos da Meta proíbem empresas de IA de oferecer pelo WhatsApp um assistente de uso geral, quando a IA é o produto principal. Usar IA para atender os clientes do seu negócio é outra coisa: a IA é parte do atendimento, e isso continua permitido. Por isso o atendente só fala do seu negócio.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-msg"/></svg></span><h3>Sempre com saída para uma pessoa</h3><p>A política da Meta permite automação nas respostas, desde que haja um caminho rápido, claro e direto para falar com uma pessoa, como transferir no chat, telefone ou e-mail. Aqui, é só pedir: a IA para e o dono é avisado.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Posso perder o número?</h3><p>Não por usar IA no WhatsApp oficial. A Meta limita ou suspende números com muitas denúncias e bloqueios, mensagens que a pessoa não pediu ou quebra de regras. O atendente só responde quem escreveu primeiro e não manda propaganda. O risco de verdade está nas ferramentas não oficiais, que eu não uso.</p></div>
+      </div>
+      <p class="fonte" style="margin-top:16px">Fontes: <a href="https://www.whatsapp.com/legal/business-solution-terms" target="_blank" rel="noopener">termos da Meta para a WhatsApp Business Platform</a>, cláusula 4.7 "AI Providers"; <a href="https://business.whatsapp.com/policy" target="_blank" rel="noopener">política de mensagens do WhatsApp Business</a>, sobre automação, escalonamento e penalidades. Consultadas em 5/nov/2026.</p>
+    </div>
+  </section>
+
+  <!-- GARANTIAS -->
+  <section class="section" aria-labelledby="gar-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">E se…</span>
+        <h2 id="gar-title">As perguntas que importam <span class="soft">antes de ligar uma IA.</span></h2>
+      </div>
+      <div class="garantias gar-auto">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-spark"/></svg></span><h3>E se a IA inventar?</h3><p>Ela só pode responder com o que está na ficha. Se a pergunta não está lá, ela diz que vai confirmar e chama uma pessoa. Antes de ligar, eu testo com 50 perguntas reais do seu WhatsApp, e reviso as conversas toda semana.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-off"/></svg></span><h3>E se a IA sair do ar?</h3><p>O cliente recebe "recebemos sua mensagem, já te respondemos", e o dono e a EstudioHK são avisados na hora. Teste lá em cima: "Simular IA fora do ar".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>As contas já são suas: WhatsApp, IA, ficha e agenda. Você recebe o fluxo exportado e eu ajudo a colocá-lo para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIM -->
+  <section class="section fim dark" aria-labelledby="fim-title">
+    <div class="wrap fim-in">
+      <div class="sh">
+        <span class="eyebrow">Para o seu negócio</span>
+        <h2 id="fim-title">Quer o WhatsApp respondendo <span class="soft">enquanto você trabalha?</span></h2>
+        <p>Funciona para barbearia, salão, estúdio, clínica de estética, loja, restaurante: qualquer negócio que responde as mesmas perguntas todo dia. A gente começa montando a ficha juntos.</p>
+      </div>
+      <div class="fim-acoes">
+        <a class="btn btn-volt btn-lg" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Atendente%20com%20IA%20no%20WhatsApp%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-dark btn-lg" href="/demos/barbearia/" target="_blank" rel="noopener">Ver o site da Ofício Barbearia</a>
+        <a class="fim-link" href="/automacoes/#demos">Ver outras automações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape-auto">
+  <div class="wrap">
+    <p>Ofício Barbearia, barbeiros, clientes, horários e números são fictícios. As respostas desta página são simuladas e nada é enviado. Demonstração criada pela <a href="/">EstudioHK</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

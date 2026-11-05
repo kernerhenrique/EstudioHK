@@ -552,7 +552,7 @@ kbd { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-r
 .garantia .ic .icon { width: 18px; height: 18px; }
 .garantia h3 { font-size: 18px; line-height: 24px; letter-spacing: -.01em; }
 .garantia p { color: var(--ink-muted); font-size: 15px; line-height: 23px; }
-.fonte { font-size: 13px; line-height: 20px; color: var(--ink-subtle); }
+.fonte { font-size: 13px; line-height: 20px; color: var(--ink-muted); }
 .fonte a { color: inherit; }
 .demo-card .demo-thumb.auto { background: var(--noite); }
 
