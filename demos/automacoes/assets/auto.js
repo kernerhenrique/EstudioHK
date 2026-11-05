@@ -51,27 +51,30 @@
   function abaAtual() { var a = abas.filter(function (x) { return x.getAttribute('aria-selected') === 'true'; })[0]; return a ? a.id : null; }
 
   /* ---------- relógio simulado (minutos desde 0h) ---------- */
-  var elRel = $('#relogio'), base = 0, agora = 0;
+  var elRel = $('#relogio'), base = 0, agora = 0, anim = 0;
   function hhmm(m) { m = ((m % 1440) + 1440) % 1440; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); }
   function poeHora() { if (elRel) elRel.textContent = DIA + ', ' + hhmm(agora); }
   var relogio = {
     inicia: function (m, dia) { base = agora = m; if (dia) DIA = dia; poeHora(); },
     agora: function () { return agora; },
     hora: function (m) { return hhmm(m == null ? agora : m); },
-    avanca: function (min) {
-      var de = agora, ate = agora + min, box = elRel && elRel.parentNode;
+    // avança o relógio; "dia" troca o dia mostrado ao final (ex.: virar de "seg" para "ter")
+    avanca: function (min, dia) {
+      var de = agora, ate = agora + min, box = elRel && elRel.parentNode, tok = ++anim;
+      var fim = function () { if (dia) { DIA = dia; agora = ate % 1440; } poeHora(); };
       if (box) { box.classList.remove('pulo'); void box.offsetWidth; box.classList.add('pulo'); }
-      if (reduce) { agora = ate; poeHora(); return Promise.resolve(); }
+      if (reduce) { agora = ate; fim(); return Promise.resolve(); }
       return new Promise(function (res) {
         var t0 = performance.now(), dur = 900;
         (function f(t) {
+          if (tok !== anim) return res(); // recomeçou no meio da animação
           var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
           agora = Math.round(de + (ate - de) * e); poeHora();
-          if (k < 1) requestAnimationFrame(f); else res();
+          if (k < 1) requestAnimationFrame(f); else { fim(); res(); }
         })(t0);
       });
     },
-    zera: function () { agora = base; poeHora(); }
+    zera: function (dia) { anim++; agora = base; if (dia) DIA = dia; poeHora(); }
   };
 
   /* ---------- etapas ---------- */

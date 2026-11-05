@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agenda sem faltas · Demonstração de automação EstudioHK</title>
+<meta name="description" content="Demonstração de automação criada pela EstudioHK: lembrete na véspera pelo WhatsApp, confirmação ou remarcação com um toque, agenda atualizada e vaga oferecida para a lista de espera. Com ferramentas e custos.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/automacoes/agenda-sem-faltas/">
+<meta name="theme-color" content="#0B1222">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Agenda sem faltas · demonstração de automação pela EstudioHK">
+<meta property="og:description" content="Seja a paciente: confirme ou remarque pelo WhatsApp e veja a agenda da clínica se atualizar sozinha. Com ferramentas e custos.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/automacoes/agenda-sem-faltas/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/automacoes/agenda-sem-faltas/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="../assets/auto.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/auto.js" defer></script>
+<script src="assets/agenda.js" defer></script>
+</head>
+<body class="auto-pg">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l11-7z"/></symbol>
+    <symbol id="i-ff" viewBox="0 0 24 24"><path d="M4 6v12l8-6zM12 6v12l8-6z"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 5h16v16H4zM4 10h16M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h10v18H7zM11 18h2"/></symbol>
+  </defs>
+</svg>
+
+<div class="aviso-demo" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><a class="marca" href="/" aria-label="EstudioHK, início">Estudio<b>HK</b><i aria-hidden="true"></i></a><span class="texto-longo">Demonstração de automação. </span>Tudo simulado: nada é enviado.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="/automacoes/#demos">Ver outras automações</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Agenda%20sem%20faltas%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação →</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+  <!-- TOPO + SIMULAÇÃO -->
+  <section class="sim-sec dark" aria-labelledby="titulo">
+    <div class="wrap">
+      <header class="sim-topo">
+        <div class="sim-intro">
+          <span class="eyebrow">Automação · Clínica Lumar, clínica fictícia</span>
+          <h1 id="titulo">Agenda sem faltas.</h1>
+          <p class="lead">Na véspera, cada paciente recebe um lembrete no WhatsApp e responde com um toque. A agenda se atualiza sozinha, a vaga de quem remarca vai para a lista de espera e a recepção sabe de manhã para quem ligar.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Começa quando</dt><dd>todo dia às 18h, com a agenda do dia seguinte</dd></div>
+          <div><dt>Usa</dt><dd>agenda da clínica, n8n, WhatsApp oficial e Google Planilhas</dd></div>
+          <div><dt>Como testar</dt><dd>rode às 18h e responda como a Ana, paciente das 9h</dd></div>
+        </dl>
+      </header>
+
+      <div class="sim" id="sim">
+        <div class="abas" role="tablist" aria-label="Lados da simulação">
+          <button type="button" role="tab" id="aba-cli" aria-controls="lado-cli" aria-selected="true">O que a paciente vê<span class="ponto" hidden></span></button>
+          <button type="button" role="tab" id="aba-bas" aria-controls="lado-bas" aria-selected="false" tabindex="-1">Bastidores<span class="ponto" hidden></span></button>
+        </div>
+
+        <!-- LADO DA PACIENTE -->
+        <div class="lado lado-cli" id="lado-cli" role="tabpanel" aria-labelledby="aba-cli">
+          <p class="lado-t">O que a paciente vê <span>você é a Ana, consulta amanhã às 9h</span></p>
+          <div class="cel">
+            <div class="cel-tela cel-zap">
+              <div class="z-topo"><span class="z-av" aria-hidden="true"><svg viewBox="0 0 32 32"><rect width="32" height="32" rx="10" fill="#DCE8F3"/><path d="M16 8v16M8 16h16" stroke="#2C5A85" stroke-width="3.2" stroke-linecap="round"/></svg></span><span><b>Clínica Lumar</b><small>conta comercial</small></span></div>
+              <div class="conversa z-conversa" id="conv-pac" role="log" aria-label="Conversa da Ana com a Clínica Lumar">
+                <p class="z-dia">sexta</p>
+                <div class="bolha"><span class="de">Clínica Lumar</span>Olá, Ana! Sua consulta ficou marcada para terça, às 9h. Na véspera, mandamos um lembrete por aqui.<span class="hora">15:20</span></div>
+                <p class="z-dia" id="z-hoje" hidden>hoje</p>
+                <div class="z-espera" id="z-espera"><p>O lembrete chega quando a automação rodar, às 18h.</p><button type="button" class="z-rodar" id="z-rodar">Chegou 18h: rodar</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASTIDORES -->
+        <div class="lado lado-bas" id="lado-bas" role="tabpanel" aria-labelledby="aba-bas">
+          <div class="bas-topo">
+            <p class="lado-t">Bastidores <span>o que a automação faz sozinha</span></p>
+            <span class="relogio" role="img" aria-label="Horário da simulação"><svg class="icon"><use href="#i-clock"/></svg><span id="relogio">seg, 17:59</span></span>
+          </div>
+          <p class="gasto-l">Custo na Meta nesta simulação: <b id="gasto">0 mensagens pagas · R$ 0,000</b></p>
+          <ol class="etapas" id="etapas">
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Lê a agenda de amanhã</b><p class="det">Às 18h, busca todas as consultas do dia seguinte.</p><p class="meta"><span class="ferr">Agenda da clínica → n8n</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Manda o lembrete para cada paciente</b><p class="det">Só nome, dia, hora e endereço. Nada de especialidade, médico ou motivo.</p><p class="meta"><span class="ferr">WhatsApp oficial · R$ 0,035 cada</span><time></time></p></div></li>
+            <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Atualiza a agenda com cada resposta</b><p class="det">"Confirmo" ou "Preciso remarcar", com os horários livres para escolher.</p><p class="meta"><span class="ferr">Agenda · respostas grátis</span><time></time></p></div></li>
+            <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Oferece a vaga para a lista de espera</b><p class="det">Quando alguém remarca, o primeiro da lista recebe a vaga.</p><p class="meta"><span class="ferr">Google Planilhas + WhatsApp · R$ 0,035</span><time></time></p></div></li>
+            <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Avisa a recepção de quem não respondeu</b><p class="det">Às 8h, a lista de quem precisa de uma ligação.</p><p class="meta"><span class="ferr">WhatsApp oficial · R$ 0,035</span><time></time></p></div></li>
+          </ol>
+
+          <div class="artefatos art-agenda">
+            <figure class="planilha agenda" id="agenda">
+              <figcaption><svg class="icon"><use href="#i-cal"/></svg>Agenda de amanhã <span>terça · agenda da clínica</span></figcaption>
+              <div class="pl-rolar" tabindex="0" role="region" aria-label="Agenda de amanhã">
+                <table>
+                  <thead><tr><th scope="col">Hora</th><th scope="col">Paciente</th><th scope="col">Situação</th></tr></thead>
+                  <tbody id="ag-linhas"></tbody>
+                </table>
+              </div>
+            </figure>
+            <div class="art-col">
+              <figure class="planilha espera" id="lista">
+                <figcaption><svg class="icon"><use href="#i-sheet"/></svg>Lista de espera <span>Google Planilhas</span></figcaption>
+                <div class="pl-rolar" tabindex="0" role="region" aria-label="Lista de espera">
+                  <table>
+                    <thead><tr><th scope="col">Paciente</th><th scope="col">Pode quando</th><th scope="col">Situação</th></tr></thead>
+                    <tbody id="le-linhas"></tbody>
+                  </table>
+                </div>
+              </figure>
+              <figure class="zap-lais" id="zap-rec">
+                <figcaption><svg class="icon"><use href="#i-msg"/></svg>WhatsApp da recepção <span>quem liga</span></figcaption>
+                <div class="conversa" id="conv-rec">
+                  <p class="vazio">Nenhum aviso ainda.</p>
+                </div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="controles" id="controles">
+            <button type="button" class="ctl ctl-p" id="c-rodar"><svg class="icon"><use href="#i-play"/></svg>Chegou 18h: rodar</button>
+            <button type="button" class="ctl" id="c-pular" disabled><svg class="icon"><use href="#i-ff"/></svg>Pular para amanhã, 8h</button>
+            <button type="button" class="ctl" id="c-recomecar"><svg class="icon"><use href="#i-redo"/></svg>Recomeçar</button>
+            <label class="ctl chave"><input type="checkbox" id="c-falha"><span>Simular paciente sem WhatsApp</span></label>
+          </div>
+          <p class="sr" id="anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sem-js">A simulação precisa de JavaScript ligado. Abaixo estão as etapas, as ferramentas e os custos.</p></noscript>
+    </div>
+  </section>
+
+  <!-- O QUE DEIXA DE SER FEITO NA MÃO -->
+  <section class="section" aria-labelledby="mao-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">O que deixa de ser feito na mão</span>
+        <h2 id="mao-title">A recepção para de correr atrás <span class="soft">de confirmação.</span></h2>
+      </div>
+      <ul class="mao">
+        <li><b>Mandar lembrete um por um</b><p>Todos os pacientes do dia seguinte recebem o lembrete às 18h, sozinhos.</p></li>
+        <li><b>Anotar quem confirmou</b><p>Cada resposta muda a situação na agenda na mesma hora.</p></li>
+        <li><b>Achar alguém para a vaga</b><p>Quem remarca libera o horário, e a lista de espera é avisada em seguida.</p></li>
+        <li><b>Descobrir quem não respondeu</b><p>De manhã, a recepção recebe só a lista de quem precisa de uma ligação.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="section alt" id="ferramentas" aria-labelledby="ferr-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Ferramentas que essa automação usa</span>
+        <h2 id="ferr-title">O que você precisa ter <span class="soft">e em nome de quem fica.</span></h2>
+        <p>Todas as contas ficam no nome da clínica. O que ainda não existir, eu ajudo a criar.</p>
+      </div>
+      <div class="ferramentas">
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-cal"/></svg></span>
+          <h3>Agenda da clínica</h3>
+          <p>De onde saem as consultas de amanhã e para onde voltam as respostas. Pode ser o Google Agenda ou o sistema que a clínica já usa.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta. Se o seu sistema não permitir integração, a gente avalia junto no mapeamento, antes de fechar.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <h3>n8n</h3>
+          <p>O motor: roda às 18h, manda os lembretes, recebe as respostas e cuida da lista de espera.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
+          <h3>WhatsApp oficial</h3>
+          <p>Lembretes, respostas com botões, aviso de vaga e a lista da recepção. É a plataforma oficial da Meta (WhatsApp Business Platform).</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Precisa criar, eu ajudo</span></dd></div><div><dt>Em nome de quem</dt><dd>O número da clínica, na conta da clínica na Meta. Dá para continuar usando o aplicativo WhatsApp Business no mesmo número.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-sheet"/></svg></span>
+          <h3>Google Planilhas</h3>
+          <p>A lista de espera: quem quer ser encaixado e em qual período pode vir.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem, se usa Gmail</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta Google.</dd></div></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOS DE TERCEIROS -->
+  <section class="section" id="custos" aria-labelledby="custos-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Custos de terceiros</span>
+        <h2 id="custos-title">Quanto você paga <span class="soft">a cada um, por mês.</span></h2>
+        <p>Esses valores você paga direto a quem cobra, não à EstudioHK. A criação da automação e a manutenção mensal vêm na proposta.</p>
+      </div>
+      <div class="custo-grid">
+        <table class="custos">
+          <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Mensagens que a clínica inicia: lembretes, aviso de vaga e a lista da recepção (utilidade)</td><td data-r="Quanto"><span class="selo-c ter">Por mensagem</span><br><b class="preco">R$ 0,035</b> cada</td></tr>
+            <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Respostas dentro da conversa: "Confirmado!", horários livres, remarcação (atendimento)</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>As primeiras 1.000 do mês, por número. Depois, <b class="preco">R$ 0,035</b> cada</td></tr>
+            <tr><th scope="row">Google<small>Planilhas e Agenda</small></th><td data-r="Pelo quê">Lista de espera e, se a clínica usar, a agenda</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Na conta Google gratuita</td></tr>
+            <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="conta" id="conta">
+          <p class="conta-t">Faça a conta da sua clínica</p>
+          <div class="rng"><div class="rng-top"><label for="k-consultas">Consultas por mês</label><output for="k-consultas" id="k-o-consultas">400</output></div><input type="range" id="k-consultas" min="50" max="3000" step="50" value="400"></div>
+          <div class="rng"><div class="rng-top"><label for="k-remarcam">Remarcam ou cancelam</label><output for="k-remarcam" id="k-o-remarcam">10%</output></div><input type="range" id="k-remarcam" min="0" max="40" step="5" value="10"></div>
+          <div class="rng"><div class="rng-top"><label for="k-dias">Dias de atendimento no mês</label><output for="k-dias" id="k-o-dias">22</output></div><input type="range" id="k-dias" min="4" max="30" step="1" value="22"></div>
+          <div class="conta-res" aria-live="polite" aria-atomic="true">
+            <span>Custo estimado na Meta</span>
+            <strong id="k-total">R$ 16,17</strong>
+            <small id="k-detalhe">462 mensagens × R$ 0,035 por mês</small>
+            <small id="k-resp">Cerca de 480 respostas: dentro das 1.000 grátis</small>
+          </div>
+          <p class="conta-nota">Conta: 1 lembrete por consulta + 1 aviso de vaga por remarcação + 1 lista para a recepção por dia. Respostas: cerca de 1 por consulta e 2 a mais por remarcação.</p>
+        </div>
+      </div>
+      <p class="fonte">Valores da Meta: tabela oficial em reais para o Brasil, vigente desde 1º/10/2026, consultada em 4/11/2026 (<a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página oficial de preços</a>). Mensagens que a clínica inicia precisam de modelo aprovado pela Meta, que confirma a categoria na aprovação; respostas dentro de 24 horas da mensagem do paciente são de atendimento. A Meta exige a permissão do paciente antes de mandar mensagem: ela é pedida quando a consulta é marcada.</p>
+    </div>
+  </section>
+
+  <!-- GARANTIAS -->
+  <section class="section alt" aria-labelledby="gar-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">E se…</span>
+        <h2 id="gar-title">As perguntas que importam <span class="soft">antes de ligar uma automação.</span></h2>
+      </div>
+      <div class="garantias gar-auto">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span><h3>E se o paciente não tiver WhatsApp?</h3><p>O lembrete não é entregue, e a recepção recebe o nome na hora para ligar. Se o servidor cair, o n8n tenta de novo e a EstudioHK é avisada. Teste lá em cima: "Simular paciente sem WhatsApp".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>E os dados de saúde?</h3><p>A LGPD trata dado de saúde como sensível (art. 5º, II). Por isso o lembrete leva só nome, dia, hora e endereço: nada de especialidade, médico ou motivo da consulta. A agenda continua no sistema da clínica.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>As contas já são suas. Você recebe o fluxo exportado e eu ajudo a colocá-lo para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIM -->
+  <section class="section fim dark" aria-labelledby="fim-title">
+    <div class="wrap fim-in">
+      <div class="sh">
+        <span class="eyebrow">Para o seu negócio</span>
+        <h2 id="fim-title">Quer uma agenda que se confirma <span class="soft">sozinha?</span></h2>
+        <p>Funciona para clínica, consultório, salão, barbearia, estúdio, escola: qualquer negócio com horário marcado. A gente começa olhando como a sua agenda funciona hoje.</p>
+      </div>
+      <div class="fim-acoes">
+        <a class="btn btn-volt btn-lg" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Agenda%20sem%20faltas%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-dark btn-lg" href="/demos/clinica/" target="_blank" rel="noopener">Ver o site da Clínica Lumar</a>
+        <a class="fim-link" href="/automacoes/#demos">Ver outras automações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape-auto">
+  <div class="wrap">
+    <p>Clínica Lumar, pacientes, nomes, horários e números são fictícios. Nada é enviado nesta página. Demonstração criada pela <a href="/">EstudioHK</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

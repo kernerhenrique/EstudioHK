@@ -244,3 +244,35 @@
 .artefatos { align-items: start; }
 .conversa { max-height: 360px; overflow-y: auto; }
 .feita .st::after { display: block; flex: none; min-width: 12px; }
+
+/* ---------- celular com conversa (WhatsApp do cliente) · usado a partir da demo 2 ---------- */
+.cel-zap { display: flex; flex-direction: column; background: #EDE9E1; min-height: 600px; }
+.z-topo { display: flex; align-items: center; gap: 10px; padding: 12px 14px; background: #F7F6F2; border-bottom: 1px solid #DAD6CC; }
+.z-av svg { width: 36px; height: 36px; display: block; }
+.z-topo span { display: grid; line-height: 18px; }
+.z-topo b { font-size: 15px; color: #14304A; }
+.z-topo small { font-size: 12px; color: #4A5468; }
+.z-conversa { flex: 1; background: transparent; min-height: 0; max-height: none; padding: 12px; overflow-y: auto; }
+.cel .z-conversa { max-height: 560px; }
+.z-dia { align-self: center; font-size: 11.5px; line-height: 16px; padding: 3px 10px; border-radius: 8px; background: rgba(255,255,255,.75); color: #4A5468; }
+.z-dia[hidden] { display: none; }
+.z-espera { margin: auto 8px 8px; text-align: center; font-size: 13px; line-height: 19px; color: #4A5468; }
+.z-espera[hidden] { display: none; }
+.bolha .bt.escolhida { background: #1A73C9; color: #fff; }
+
+/* agenda + coluna com lista de espera e recepção */
+@media (min-width: 760px) { .artefatos.art-agenda { grid-template-columns: 1.2fr 1fr; } }
+.art-col { display: grid; gap: 16px; min-width: 0; align-content: start; }
+.planilha.agenda table { min-width: 360px; }
+.planilha.espera table { min-width: 300px; }
+.planilha td.vem { color: var(--ink-muted); font-size: 11.5px; }
+.stt.env { background: var(--surface-2); color: var(--ink-muted); }
+.stt.err { background: #FBE4E1; color: #9E2A16; }
+.planilha tr.voce td:nth-child(2) { font-weight: 700; }
+.ctl.ctl-p:not(:disabled) { background: var(--volt); color: var(--on-volt); border-color: var(--volt); }
+#c-pular:disabled { background: var(--noite-3); color: var(--on-noite); border-color: var(--noite-line); }
+.z-espera { display: grid; gap: 10px; justify-items: center; }
+.z-rodar { height: 40px; padding: 0 16px; border: 0; border-radius: 99px; background: #2C5A85; color: #fff; font-weight: 700; font-size: 14px; cursor: pointer; }
+.z-rodar:hover { background: #234A6E; }
+.z-rodar:focus-visible { outline: 2px solid #2C5A85; outline-offset: 2px; }
+.ferr { height: auto; min-height: 22px; padding: 3px 8px; line-height: 16px; }
