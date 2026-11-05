@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit de animações · referências de nov/2026 (exemplo interno)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="cena.css">
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anima');</script>
+<script src="cena.js" defer></script>
+<style>
+  /* Torra Clara: cafeteria fictícia, só para testar as receitas. Paleta: creme, café, caramelo, laranja. */
+  :root { --topo: 56px; --creme: #F3ECE2; --creme-2: #E9DFD1; --cafe: #3B2318; --cafe-2: #5A3725; --caramelo: #B86B3C; --laranja: #C9531F; --tinta: #1E1410; color-scheme: light; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 400 17px/1.6 system-ui, "Segoe UI", Arial, sans-serif; color: var(--tinta); background: var(--creme); overflow-x: clip; }
+  header { position: sticky; top: 0; z-index: 20; height: var(--topo); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; background: var(--tinta); color: var(--creme); font-weight: 700; }
+  header small { font-weight: 400; opacity: .7; }
+  @media (max-width: 600px) { header small { display: none; } }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { margin: 0; line-height: 1.02; letter-spacing: -.02em; }
+  h1 { font-size: clamp(44px, 7vw, 96px); font-weight: 800; }
+  h2 { font-size: clamp(30px, 4vw, 52px); font-weight: 800; }
+  h3 { font-size: 22px; }
+  p { margin: 10px 0 0; max-width: 56ch; color: #5B4A40; }
+  em { font-style: normal; color: var(--laranja); }
+  .ref { display: inline-block; font: 600 12px/1 ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; background: var(--tinta); color: var(--creme); padding: 7px 9px; margin-bottom: 14px; }
+  pre { background: var(--tinta); color: #EADFD3; padding: 14px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 0; }
+  code { font-family: ui-monospace, Menlo, monospace; }
+  .codigo { padding: 28px 0 56px; }
+  svg { display: block; }
+
+  /* ---------- 0. capa com entrada desfocada (referência 3) ---------- */
+  .capa { padding: 64px 0 72px; background: radial-gradient(120% 90% at 80% 20%, #4A2C1E 0%, var(--tinta) 60%); color: var(--creme); }
+  .capa p { color: #CDBBAA; }
+  .capa-grid { display: grid; gap: 32px; align-items: center; }
+  @media (min-width: 860px) { .capa-grid { grid-template-columns: 1.1fr .9fr; } }
+  .capa svg { width: min(420px, 80vw); height: auto; margin: 0 auto; }
+
+  /* ---------- 1. fio que atravessa as seções (referência 1) ---------- */
+  .fio .palco { background: var(--creme); }
+  .fio-grid { display: grid; gap: 12px; align-items: center; }
+  @media (min-width: 860px) { .fio-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
+  .paineis { position: relative; height: min(46svh, 360px); overflow: hidden; }
+  .painel { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; }
+  .painel .n { font: 700 64px/1 system-ui, sans-serif; color: var(--caramelo); }
+  .etapas { list-style: none; padding: 0; display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 0; }
+  .etapas li { border: 1px solid #CDBFAF; padding: 6px 10px; font: 600 12px/1 ui-monospace, monospace; text-transform: uppercase; color: #6E5B4E; }
+  .etapas li.feita { border-color: var(--cafe); color: var(--cafe); }
+  .etapas li.ativa { background: var(--cafe); border-color: var(--cafe); color: var(--creme); }
+  .copo-svg { width: min(400px, 76vw); max-height: 62svh; height: auto; margin: 0 auto; overflow: visible; }
+  @media (max-width: 859px) { .fio .painel p { display: none; } .paineis { height: 120px; } .painel .n { font-size: 40px; } .fio h2 { font-size: 28px; } .copo-svg { max-height: 50svh; } }
+
+  /* ---------- 2. palavra gigante atrás do objeto (referência 2) ---------- */
+  .camadas .palco { background: var(--creme-2); }
+  .cena-camadas { position: relative; height: calc(100svh - var(--topo)); display: grid; place-items: center; overflow: hidden; }
+  .cena-camadas > * { grid-area: 1 / 1; }
+  .gigante { font: 900 clamp(90px, 22vw, 300px)/.85 system-ui, "Arial Black", sans-serif; letter-spacing: -.04em; color: var(--cafe); z-index: 1; white-space: nowrap; }
+  .gigante.contorno { color: transparent; -webkit-text-stroke: 2px var(--cafe); }
+  .objeto { z-index: 2; width: min(300px, 56vw); height: auto; }
+  .bolha { position: absolute; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #E4A276, var(--caramelo) 65%); z-index: 0; }
+  .bolha.b1 { width: 120px; height: 120px; left: 8%; top: 18%; }
+  .bolha.b2 { width: 70px; height: 70px; right: 12%; top: 26%; z-index: 3; }
+  .bolha.b3 { width: 180px; height: 180px; right: 6%; bottom: 8%; }
+  .legenda { position: absolute; left: 20px; bottom: 22px; z-index: 4; max-width: 340px; }
+  .legenda p { font-size: 15px; }
+  @media (max-width: 700px) { .legenda p { display: none; } .bolha.b3 { width: 110px; height: 110px; } }
+
+  /* ---------- 3. seções empilhadas (referência 3) ---------- */
+  .pilha > section { padding: 64px 0; display: flex; align-items: center; }
+  .pilha > section:nth-child(1) { background: #FAF7F2; }
+  .pilha > section:nth-child(2) { background: var(--creme-2); }
+  .pilha > section:nth-child(3) { background: var(--tinta); color: var(--creme); }
+  .pilha > section:nth-child(3) p { color: #CDBBAA; }
+  .cardapio { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+  @media (min-width: 760px) { .cardapio { grid-template-columns: repeat(4, 1fr); } }
+  .item { background: #fff; border: 1px solid #E2D7C8; padding: 14px; }
+  .item svg { width: 100%; height: auto; }
+  .item b { display: block; margin-top: 8px; } .item span { font-size: 14px; color: #6E5B4E; }
+  .dois { display: grid; gap: 28px; align-items: center; width: 100%; }
+  @media (min-width: 860px) { .dois { grid-template-columns: 1fr 1fr; } }
+  .relogio { width: min(340px, 70vw); height: auto; margin: 0 auto; overflow: visible; }
+  .ponteiro-h { transform-origin: 50% 100%; } .ponteiro-m { transform-origin: 50% 100%; }
+  .recibo { background: #FBF8F3; color: var(--tinta); width: min(320px, 80vw); margin: 0 auto; padding: 22px 20px; font: 500 14px/1.7 ui-monospace, monospace; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+  .recibo b { font-size: 18px; } .recibo hr { border: 0; border-top: 1px dashed #B9A898; margin: 10px 0; }
+  .recibo .barras { height: 40px; margin-top: 12px; background: repeating-linear-gradient(90deg, var(--tinta) 0 2px, transparent 2px 5px, var(--tinta) 5px 6px, transparent 6px 9px); }
+
+  /* ---------- 4. texto palavra por palavra (referência 4) ---------- */
+  .falas .palco { background: #140D0A; color: #F4EDE6; }
+  .falas h2 { font-size: clamp(34px, 5.6vw, 76px); text-transform: uppercase; letter-spacing: -.01em; max-width: 15ch; }
+  .falas h2 strong { color: transparent; -webkit-text-stroke: 2px var(--laranja); }
+  .falas p { color: #BFAEA2; font-size: 19px; }
+  .janelas { margin-top: 40px; perspective: 900px; overflow: visible; }
+  .janelas-trilho { display: flex; gap: 22px; transform-style: preserve-3d; }
+  .janelas-giro { transform: rotateY(-16deg) rotateX(8deg); transform-style: preserve-3d; }
+  .janela { flex: none; width: min(320px, 70vw); aspect-ratio: 16 / 10; background: #F6F1EA; border-radius: 10px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+  .janela .barra { height: 22px; background: #2A1E18; display: flex; gap: 5px; align-items: center; padding: 0 9px; }
+  .janela .barra i { width: 7px; height: 7px; border-radius: 50%; background: #6B5A50; }
+  .janela .conteudo { padding: 14px; display: grid; gap: 8px; }
+  .janela .l { height: 10px; background: #D9CCBD; border-radius: 3px; } .janela .l.g { height: 22px; width: 70%; background: var(--cafe); } .janela .l.c { width: 40%; background: var(--laranja); }
+  .janela .foto { height: 70px; background: linear-gradient(120deg, var(--caramelo), var(--cafe)); border-radius: 4px; }
+  @media (max-width: 700px) { .falas p { display: none; } }
+</style>
+</head>
+<body>
+<header>Torra Clara <small>exemplo interno do kit · cafeteria fictícia</small></header>
+
+<main>
+  <!-- 0. CAPA: entrada com desfoque (referência 3) -->
+  <section class="capa" aria-labelledby="t0">
+    <div class="wrap capa-grid">
+      <div>
+        <span class="ref" data-entrada>Referência 3 · entrada com desfoque</span>
+        <h1 id="t0" data-entrada="lado" style="--d:120ms">Café coado <em>devagar.</em></h1>
+        <p data-entrada style="--d:260ms">Ao abrir a página, título e produto entram de lado, saindo de um borrão de movimento. Só CSS: <code>data-entrada</code> ou <code>data-entrada="lado"</code>, com atraso em <code>--d</code>.</p>
+      </div>
+      <svg data-entrada="lado" style="--d:200ms" viewBox="0 0 420 380" role="img" aria-labelledby="s0"><title id="s0">Copo de café para viagem ao lado de um pacote de café em grãos.</title>
+        <path d="M250 70 h120 l10 290 h-140 Z" fill="#EFE6DA"/><path d="M250 70 l15 -30 h90 l15 30" fill="#E2D6C6"/>
+        <text x="310" y="200" text-anchor="middle" font-size="30" font-weight="800" fill="#3B2318" font-family="system-ui, sans-serif">torra</text>
+        <text x="310" y="232" text-anchor="middle" font-size="18" fill="#B86B3C" font-family="system-ui, sans-serif">clara</text>
+        <path d="M90 140 h150 l-16 220 h-118 Z" fill="#F7F2EA"/><rect x="82" y="118" width="166" height="26" rx="6" fill="#2A1A12"/><rect x="96" y="104" width="138" height="18" rx="5" fill="#3B2318"/>
+        <rect x="104" y="210" width="122" height="62" fill="#B86B3C"/><text x="165" y="248" text-anchor="middle" font-size="20" font-weight="800" fill="#F7F2EA" font-family="system-ui, sans-serif">coado</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 1. FIO QUE ATRAVESSA AS SEÇÕES (referência 1): o produto fica parado e o conteúdo passa -->
+  <section class="fio" data-cena style="--h:340" aria-labelledby="t1">
+    <div class="palco">
+      <div class="wrap fio-grid">
+        <div>
+          <span class="ref">Referência 1 · o líquido atravessa as seções</span>
+          <div class="paineis">
+            <div class="painel" data-a="move" data-de=".26" data-ate=".36" data-y2="-110%" data-o2="0">
+              <span class="n">01</span><h2 id="t1">Extração a frio, 18 horas.</h2>
+              <p>O copo fica parado e o texto passa por ele, como se fossem seções diferentes. O café escorre da garrafa e enche o copo enquanto a pessoa rola.</p>
+            </div>
+            <div class="painel" data-a="move" data-de=".3" data-ate=".42" data-y="110%" data-o="0">
+              <div data-a="move" data-de=".62" data-ate=".72" data-y2="-110%" data-o2="0">
+                <span class="n">02</span><h2>Gelo e leite, nessa ordem.</h2>
+                <p>Os cubos caem, o leite desce e se mistura. Peças: <code>escorre</code>, <code>enche</code>, <code>cai</code>.</p>
+              </div>
+            </div>
+            <div class="painel" data-a="move" data-de=".66" data-ate=".78" data-y="110%" data-o="0">
+              <span class="n">03</span><h2>Pronto para levar.</h2>
+              <p>No fim, o copo pronto fecha a sequência.</p>
+            </div>
+          </div>
+          <ol class="etapas" aria-label="Etapas"><li data-etapa="0,.36">Extração</li><li data-etapa=".36,.7">Gelo e leite</li><li data-etapa=".7,1.01">Pronto</li></ol>
+        </div>
+        <svg class="copo-svg" viewBox="0 0 400 520" role="img" aria-labelledby="s1"><title id="s1">Garrafa de café gelado servindo um copo com gelo; depois o leite desce e se mistura.</title>
+          <!-- garrafa entra girando e para inclinada -->
+          <g data-a="move" data-de="0" data-ate=".1" data-x="60" data-y="-90" data-r="50" data-o="0">
+            <g transform="translate(262 92) rotate(-150)">
+              <rect x="-34" y="-62" width="68" height="124" rx="16" fill="#2A1A12"/>
+              <path d="M-34 -48 Q-34 -80 -12 -86 V-104 H12 V-86 Q34 -80 34 -48 Z" fill="#2A1A12"/>
+              <rect x="-26" y="-30" width="52" height="64" rx="4" fill="#E9DFD1"/>
+              <text transform="rotate(90)" x="2" y="7" text-anchor="middle" font-size="15" font-weight="800" fill="#3B2318" font-family="system-ui, sans-serif">COLD</text>
+            </g>
+          </g>
+          <!-- fio de café: escorre e depois some -->
+          <g data-a="move" data-de=".44" data-ate=".5" data-o2="0">
+            <rect data-a="escorre" data-de=".08" data-ate=".18" x="205" y="178" width="9" height="300" rx="4.5" fill="#4A2A1A"/>
+          </g>
+          <!-- fio de leite vindo de cima -->
+          <g data-a="move" data-de=".72" data-ate=".78" data-o2="0">
+            <rect data-a="escorre" data-de=".5" data-ate=".6" x="176" y="-40" width="8" height="520" rx="4" fill="#FBF6EE" stroke="#E2D3C0"/>
+          </g>
+          <!-- copo -->
+          <defs><clipPath id="dentro"><path d="M138 300 H282 L268 488 H152 Z"/></clipPath></defs>
+          <g clip-path="url(#dentro)">
+            <rect data-a="enche" data-de=".12" data-ate=".46" x="130" y="340" width="160" height="150" fill="#5A3121"/>
+            <path data-a="enche" data-de=".56" data-ate=".8" d="M130 344 Q170 330 200 352 T290 346 V420 Q250 440 210 418 T130 426 Z" fill="#E8D3BC" opacity=".92"/>
+            <g fill="#F4FAFB" fill-opacity=".55" stroke="#FFFFFF" stroke-opacity=".8">
+              <rect data-a="cai" data-de=".4" data-ate=".5" x="160" y="330" width="40" height="40" rx="8"/>
+              <rect data-a="cai" data-de=".44" data-ate=".54" x="214" y="318" width="44" height="44" rx="8"/>
+              <rect data-a="cai" data-de=".48" data-ate=".58" x="186" y="372" width="38" height="38" rx="8"/>
+            </g>
+          </g>
+          <path d="M138 300 H282 L268 488 H152 Z" fill="#FFFFFF" fill-opacity=".14" stroke="#3B2318" stroke-opacity=".35" stroke-width="2"/>
+          <ellipse cx="210" cy="496" rx="96" ry="9" fill="#3B2318" opacity=".12"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <div class="wrap codigo"><pre><code>&lt;rect data-a="escorre" data-de=".08" data-ate=".18" …/&gt;   fio que desce (origem no alto)
+&lt;rect data-a="enche"   data-de=".12" data-ate=".46" …/&gt;   líquido que sobe no copo (dentro de um clipPath)
+&lt;div  data-a="move" data-de=".3" data-ate=".42" data-y="110%" data-o="0"&gt;   painel que sobe e entra
+&lt;div  data-a="move" data-de=".62" data-ate=".72" data-y2="-110%" data-o2="0"&gt; painel que sai por cima</code></pre></div>
+
+  <!-- 2. PALAVRA GIGANTE ATRÁS DO OBJETO (referência 2) -->
+  <section class="camadas" data-cena style="--h:380" aria-labelledby="t2">
+    <div class="palco">
+      <div class="cena-camadas">
+        <span class="bolha b1" data-a="move" data-linear data-y="140" data-y2="-160" aria-hidden="true"></span>
+        <span class="bolha b2" data-a="move" data-linear data-y="220" data-y2="-260" data-x="-20" data-x2="30" aria-hidden="true"></span>
+        <span class="bolha b3" data-a="move" data-linear data-y="80" data-y2="-90" aria-hidden="true"></span>
+
+        <!-- palavras gigantes: entram de lado e saem crescendo -->
+        <span class="gigante" data-a="move" data-de="0" data-ate=".1" data-x="35%" data-o="0" aria-hidden="true"><span style="display:inline-block" data-a="move" data-de=".28" data-ate=".36" data-s2="1.2" data-o2="0">MOER</span></span>
+        <span class="gigante contorno" data-a="move" data-de=".36" data-ate=".46" data-x="35%" data-o="0" aria-hidden="true"><span style="display:inline-block" data-a="move" data-de=".62" data-ate=".7" data-s2="1.2" data-o2="0">COAR</span></span>
+        <span class="gigante" data-a="move" data-de=".7" data-ate=".8" data-x="35%" data-o="0" aria-hidden="true">SERVIR</span>
+
+        <!-- objeto na frente da palavra: moedor, coador, xícara -->
+        <svg class="objeto" viewBox="0 0 300 380" data-a="move" data-de="0" data-ate=".1" data-y="60" data-o="0" role="img" aria-labelledby="s2a"><title id="s2a">Moedor de café com grãos caindo.</title>
+          <g data-a="move" data-de=".28" data-ate=".34" data-y2="-40" data-o2="0">
+            <path d="M95 40 H205 L190 150 H110 Z" fill="#FFFFFF" fill-opacity=".55" stroke="#3B2318" stroke-width="3"/>
+            <g fill="#4A2A1A"><ellipse cx="130" cy="120" rx="11" ry="7"/><ellipse cx="160" cy="130" rx="11" ry="7"/><ellipse cx="178" cy="112" rx="11" ry="7"/><ellipse cx="146" cy="104" rx="11" ry="7"/></g>
+            <g fill="#4A2A1A"><ellipse data-a="cai" data-de=".02" data-ate=".12" cx="140" cy="20" rx="10" ry="6"/><ellipse data-a="cai" data-de=".06" data-ate=".16" cx="165" cy="10" rx="10" ry="6"/><ellipse data-a="cai" data-de=".1" data-ate=".2" cx="152" cy="-6" rx="10" ry="6"/></g>
+            <rect x="100" y="150" width="100" height="150" rx="10" fill="#2A1A12"/><rect x="118" y="180" width="64" height="70" rx="6" fill="#B86B3C"/>
+            <rect x="80" y="300" width="140" height="22" rx="6" fill="#2A1A12"/>
+            <rect data-a="escorre" data-de=".14" data-ate=".26" x="144" y="250" width="12" height="120" fill="#6B4430" opacity=".8"/>
+          </g>
+        </svg>
+        <svg class="objeto" viewBox="0 0 300 380" data-a="move" data-de=".34" data-ate=".44" data-y="60" data-o="0" role="img" aria-labelledby="s2b"><title id="s2b">Chaleira despejando água no coador sobre a jarra.</title>
+          <g data-a="move" data-de=".62" data-ate=".68" data-y2="-40" data-o2="0">
+            <path d="M190 40 h70 a10 10 0 0 1 10 10 v50 h-90 v-50 a10 10 0 0 1 10 -10z" fill="#1E1410"/><path d="M180 70 Q140 60 120 110" stroke="#1E1410" stroke-width="8" fill="none"/>
+            <rect data-a="escorre" data-de=".44" data-ate=".52" x="117" y="110" width="5" height="70" fill="#CFE3EA"/>
+            <path d="M80 180 H170 L140 240 H110 Z" fill="#FFFFFF" fill-opacity=".6" stroke="#3B2318" stroke-width="3"/>
+            <path d="M90 250 H160 L170 360 H80 Z" fill="#FFFFFF" fill-opacity=".45" stroke="#3B2318" stroke-width="3"/>
+            <clipPath id="jarra"><path d="M90 250 H160 L170 360 H80 Z"/></clipPath>
+            <g clip-path="url(#jarra)"><rect data-a="enche" data-de=".48" data-ate=".62" x="78" y="290" width="95" height="72" fill="#4A2A1A"/></g>
+          </g>
+        </svg>
+        <svg class="objeto" viewBox="0 0 300 380" data-a="move" data-de=".68" data-ate=".78" data-y="60" data-o="0" role="img" aria-labelledby="s2c"><title id="s2c">Xícara de café com vapor.</title>
+          <path d="M60 200 H220 V250 A80 80 0 0 1 60 250 Z" fill="#EFE6DA" stroke="#3B2318" stroke-width="3"/>
+          <path d="M220 215 A30 30 0 0 1 220 275" stroke="#3B2318" stroke-width="10" fill="none"/>
+          <ellipse cx="140" cy="200" rx="80" ry="14" fill="#5A3121"/>
+          <ellipse cx="140" cy="335" rx="110" ry="14" fill="#E9DFD1" stroke="#3B2318" stroke-width="3"/>
+          <g stroke="#3B2318" stroke-width="3" fill="none" stroke-linecap="round"><path class="t" pathLength="1" data-a="traco" data-de=".8" data-ate=".9" d="M115 180 q-12 -25 0 -45 t0 -45"/><path class="t" pathLength="1" data-a="traco" data-de=".84" data-ate=".94" d="M150 180 q-12 -25 0 -45 t0 -45"/></g>
+        </svg>
+
+        <div class="legenda">
+          <span class="ref">Referência 2 · palavra gigante atrás do objeto</span>
+          <h2 id="t2" style="font-size:26px">Moer, coar, servir.</h2>
+          <p>A palavra fica atrás do produto (camadas), entra de lado e sai crescendo. As bolhas sobem em velocidades diferentes (<code>data-linear</code>).</p>
+          <ol class="etapas" aria-label="Etapas"><li data-etapa="0,.34">Moer</li><li data-etapa=".34,.68">Coar</li><li data-etapa=".68,1.01">Servir</li></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap codigo"><pre><code>&lt;div class="cena-camadas"&gt;  (display:grid; todos os filhos em grid-area 1/1; palavra z-index 1, objeto z-index 2)
+  &lt;span class="gigante" data-a="move" data-x="35%" data-o="0" data-de="0" data-ate=".1"&gt;
+    &lt;span data-a="move" data-s2="1.2" data-o2="0" data-de=".28" data-ate=".36"&gt;MOER&lt;/span&gt;&lt;/span&gt;
+  &lt;svg class="objeto" …&gt;   bolhas: data-a="move" data-linear data-y="140" data-y2="-160"</code></pre></div>
+
+  <!-- 3. SEÇÕES EMPILHADAS (referência 3) -->
+  <div class="pilha" data-empilha>
+    <section aria-labelledby="t3">
+      <div class="wrap">
+        <span class="ref">Referência 3 · seções que sobem por cima</span>
+        <h2 id="t3">Favoritos do dia.</h2>
+        <p>Cada seção prende no alto e a próxima sobe por cima; a de baixo escurece e encolhe um pouco. Basta <code>data-empilha</code> no bloco que contém as seções.</p>
+        <div class="cardapio">
+          <div class="item"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 30 H90 L84 110 H36 Z" fill="#EFE6DA"/><rect x="26" y="22" width="68" height="10" rx="3" fill="#3B2318"/></svg><b>Coado</b><span>Etiópia, notas florais</span></div>
+          <div class="item"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 30 H90 L84 110 H36 Z" fill="#E8D3BC"/><rect x="26" y="22" width="68" height="10" rx="3" fill="#3B2318"/></svg><b>Latte</b><span>Leite vaporizado</span></div>
+          <div class="item"><svg viewBox="0 0 120 120" aria-hidden="true"><path d="M30 30 H90 L84 110 H36 Z" fill="#B8C98A"/><rect x="26" y="22" width="68" height="10" rx="3" fill="#3B2318"/></svg><b>Matcha</b><span>Com leite de aveia</span></div>
+          <div class="item"><svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="66" r="40" fill="#D9A06A"/><path d="M60 66 m-26 0 a26 26 0 1 0 52 0 a18 18 0 1 0 -36 0 a10 10 0 1 0 20 0" stroke="#8B4A22" stroke-width="5" fill="none"/></svg><b>Rolinho de canela</b><span>Assado de manhã</span></div>
+        </div>
+      </div>
+    </section>
+    <section aria-labelledby="t3b">
+      <div class="wrap dois">
+        <div><h2 id="t3b">Abertos das 7h às 19h.</h2><p>O ponteiro do relógio gira enquanto a seção chega (<code>data-passagem</code> + <code>move</code> com <code>data-r2</code>).</p></div>
+        <div data-passagem>
+          <svg class="relogio" viewBox="0 0 300 300" role="img" aria-labelledby="s3"><title id="s3">Relógio marcando 7 horas.</title>
+            <circle cx="150" cy="150" r="140" fill="#FFFFFF" stroke="#3B2318" stroke-width="3"/>
+            <g stroke="#3B2318" stroke-width="3"><path d="M150 18 v16 M150 266 v16 M18 150 h16 M266 150 h16"/></g>
+            <g font-family="system-ui, sans-serif" font-size="20" font-weight="700" fill="#3B2318" text-anchor="middle"><text x="150" y="58">12</text><text x="248" y="157">3</text><text x="150" y="257">6</text><text x="54" y="157">9</text></g>
+            <rect class="ponteiro-h" data-a="move" data-de="0" data-ate=".9" data-r2="210" x="146" y="85" width="8" height="65" rx="4" fill="#3B2318"/>
+            <rect class="ponteiro-m" data-a="move" data-de="0" data-ate=".9" data-r2="720" x="148" y="45" width="4" height="105" rx="2" fill="#C9531F"/>
+            <circle cx="150" cy="150" r="8" fill="#3B2318"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section aria-labelledby="t3c">
+      <div class="wrap dois">
+        <div><h2 id="t3c">Peça antes de chegar.</h2><p>Na última seção, o comprovante sobe de baixo. O pedido é só ilustrativo.</p></div>
+        <div data-passagem>
+          <div class="recibo" data-a="move" data-de="0" data-ate=".8" data-y="160" data-r="-6" data-o="0">
+            <b>Torra Clara</b><br>Pedido 0427 · retirar 8h15<hr>1 coado, Etiópia<br>1 rolinho de canela<hr>Pago pelo app<div class="barras" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="wrap codigo"><pre><code>&lt;div data-empilha&gt;  &lt;section&gt;…&lt;/section&gt;  &lt;section&gt;…&lt;/section&gt;  &lt;section&gt;…&lt;/section&gt;  &lt;/div&gt;
+ponteiro: &lt;rect data-a="move" data-r2="720" style="transform-origin:50% 100%"&gt; dentro de um [data-passagem]</code></pre></div>
+
+  <!-- 4. TEXTO PALAVRA POR PALAVRA (referência 4) -->
+  <section class="falas" data-cena style="--h:300" aria-labelledby="t4">
+    <div class="palco">
+      <div class="wrap">
+        <span class="ref" style="background:#C9531F">Referência 4 · texto palavra por palavra</span>
+        <h2 id="t4" data-palavras data-de=".04" data-ate=".5">Repara no que acontece quando você <strong>rola</strong> <em>esta página.</em></h2>
+        <p data-palavras data-de=".5" data-ate=".75">Cada palavra sobe do desfoque, na hora certa da rolagem. Palavras-chave em outra cor ou só no contorno.</p>
+        <div class="janelas" aria-hidden="true">
+          <div class="janelas-giro">
+            <div class="janelas-trilho" data-a="move" data-linear data-de="0" data-ate="1" data-x="30%" data-x2="-35%">
+              <div class="janela"><div class="barra"><i></i><i></i><i></i></div><div class="conteudo"><div class="l g"></div><div class="l"></div><div class="l c"></div></div></div>
+              <div class="janela"><div class="barra"><i></i><i></i><i></i></div><div class="conteudo"><div class="foto"></div><div class="l"></div><div class="l c"></div></div></div>
+              <div class="janela"><div class="barra"><i></i><i></i><i></i></div><div class="conteudo"><div class="l g"></div><div class="foto"></div></div></div>
+              <div class="janela"><div class="barra"><i></i><i></i><i></i></div><div class="conteudo"><div class="l"></div><div class="l g"></div><div class="l c"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="wrap codigo"><pre><code>&lt;h2 data-palavras data-de=".04" data-ate=".5"&gt;Repara no que acontece quando você &lt;strong&gt;rola&lt;/strong&gt; &lt;em&gt;esta página.&lt;/em&gt;&lt;/h2&gt;
+janelas em perspectiva: container com rotateY/rotateX fixos + trilho data-a="move" data-linear data-x="30%" data-x2="-35%"</code></pre></div>
+</main>
+</body>
+</html>

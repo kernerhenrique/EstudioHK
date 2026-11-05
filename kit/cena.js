@@ -13,6 +13,9 @@
  *   [data-contador]   recebe quantas etapas da cena já começaram
  *   [data-galeria]    galeria horizontal presa; filhos em [data-trilho]; cada [data-card] abre com máscara
  *   [data-comparador] antes e depois; precisa de um <input type="range"> dentro
+ *   [data-palavras]   título que entra palavra por palavra entre data-de e data-ate (dentro de uma cena ou passagem)
+ *   [data-empilha]    seções filhas que sobem por cima da anterior (a de baixo escurece e encolhe um pouco)
+ *   [data-entrada]    entra ao abrir a página, com desfoque de movimento (só CSS; atraso em style="--d:200ms")
  * Para efeitos sob medida: escute o evento "cena:progresso" no bloco (detail.p de 0 a 1).
  */
 (function () {
@@ -40,10 +43,55 @@
     croqui: function (s, q, e, it) { s.opacity = it.max * (1 - q); },               // esboço que some enquanto o real aparece
     revela: function (s, q, e) { s.clipPath = 'inset(0 ' + ((1 - e) * 50) + '% 0 ' + ((1 - e) * 50) + '%)'; },
     cortina:function (s, q, e, it) { s.clipPath = 'inset(0 ' + ((1 - e) * 100) + '% 0 0)'; it.n.parentNode.style.setProperty('--cortina', (e * 100) + '%'); },
-    conta:  function (s, q, e, it) { it.n.textContent = fmt(it.valor * e, it.casas); }
+    conta:  function (s, q, e, it) { it.n.textContent = fmt(it.valor * e, it.casas); },
+    escorre:function (s, q, e) { s.opacity = q > 0 ? 1 : 0; s.transform = 'scaleY(' + e + ')'; },   // de cima para baixo (líquido, fio)
+    enche:  function (s, q, e) { s.clipPath = 'inset(' + ((1 - e) * 100) + '% 0 0 0)'; },            // enche de baixo para cima (copo, barra)
+    foco:   function (s, q, e) { s.opacity = e; s.transform = 'translateY(' + ((1 - e) * .4) + 'em) rotateX(' + ((1 - e) * -70) + 'deg)'; s.filter = e < 1 ? 'blur(' + ((1 - e) * 6).toFixed(2) + 'px)' : ''; },
+    // movimento livre: vai de (data-x, data-y, data-r, data-s, data-o) até (data-x2, data-y2, data-r2, data-s2, data-o2)
+    move:   function (s, q, e, it) {
+      var t = it.m.linear ? q : e, v = function (k) { return it.m[k][0] + (it.m[k + '2'][0] - it.m[k][0]) * t; };
+      s.transform = 'translate(' + v('x').toFixed(2) + it.m.x[1] + ',' + v('y').toFixed(2) + it.m.y[1] + ') rotate(' + v('r').toFixed(2) + 'deg) scale(' + v('s').toFixed(4) + ')';
+      s.opacity = v('o').toFixed(3);
+    }
   };
   // "zona": aparece e depois esmaece (ex.: manchas de zoneamento antes das paredes). data-some="0.4"
   TIPOS.zona = function (s, q, e, it, p) { s.opacity = e * it.max * (1 - .8 * cl((p - it.some) / .12)); };
+
+  // lê "12" ou "-40%" → [12, 'px'] ou [-40, '%']
+  function num(n, nome, padrao) { var v = n.getAttribute(nome); if (v === null) return null; return [parseFloat(v) || 0, /%$/.test(v.trim()) ? '%' : 'px']; }
+  function leMove(n) {
+    var m = { linear: n.hasAttribute('data-linear') }, padrao = { x: 0, y: 0, r: 0, s: 1, o: 1 };
+    Object.keys(padrao).forEach(function (k) {
+      var a = num(n, 'data-' + k), b = num(n, 'data-' + k + '2');
+      var u = (a && a[1] === '%') || (b && b[1] === '%') ? '%' : 'px';
+      m[k] = [a ? a[0] : padrao[k], u]; m[k + '2'] = [b ? b[0] : padrao[k], u];
+    });
+    return m;
+  }
+
+  // [data-palavras]: quebra o texto em palavras (mantém <em>, <strong>…) e distribui a entrada entre data-de e data-ate
+  function quebraPalavras(el) {
+    var de = +el.getAttribute('data-de') || 0, ate = el.hasAttribute('data-ate') ? +el.getAttribute('data-ate') : 1, spans = [];
+    (function anda(no) {
+      Array.prototype.slice.call(no.childNodes).forEach(function (c) {
+        if (c.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(function (pd) {
+            if (!pd) return;
+            if (/^\s+$/.test(pd)) { frag.appendChild(document.createTextNode(pd)); return; }
+            var sp = document.createElement('span'); sp.className = 'kit-palavra'; sp.textContent = pd; frag.appendChild(sp); spans.push(sp);
+          });
+          c.parentNode.replaceChild(frag, c);
+        } else if (c.nodeType === 1) anda(c);
+      });
+    })(el);
+    var n = spans.length, passo = (ate - de) / Math.max(n, 1), dur = Math.min(passo * 2.5, ate - de);
+    spans.forEach(function (sp, i) {
+      var d0 = de + passo * i;
+      sp.setAttribute('data-a', 'foco'); sp.setAttribute('data-de', d0.toFixed(4)); sp.setAttribute('data-ate', Math.min(ate, d0 + dur).toFixed(4));
+    });
+  }
+  if (anima) $$('[data-palavras]').forEach(quebraPalavras);
 
   function prepara(bloco) {
     return {
@@ -51,7 +99,8 @@
       itens: $$('[data-a]', bloco).map(function (n) {
         return { n: n, tipo: n.getAttribute('data-a'), de: +n.getAttribute('data-de') || 0, ate: n.hasAttribute('data-ate') ? +n.getAttribute('data-ate') : 1,
                  max: n.hasAttribute('data-max') ? +n.getAttribute('data-max') : 1, valor: +n.getAttribute('data-valor') || 0,
-                 casas: +n.getAttribute('data-casas') || 0, some: n.hasAttribute('data-some') ? +n.getAttribute('data-some') : 2, ult: -1 };
+                 casas: +n.getAttribute('data-casas') || 0, some: n.hasAttribute('data-some') ? +n.getAttribute('data-some') : 2, ult: -1,
+                 m: n.getAttribute('data-a') === 'move' ? leMove(n) : null };
       }),
       etapas: $$('[data-etapa]', bloco).map(function (n) { var f = n.getAttribute('data-etapa').split(','); return { n: n, de: +f[0], ate: +f[1] }; }),
       contador: $('[data-contador]', bloco),
@@ -103,6 +152,18 @@
     });
   }
 
+  /* ---------- seções empilhadas: a próxima sobe por cima ---------- */
+  var pilhas = $$('[data-empilha]').map(function (pl) { return Array.prototype.slice.call(pl.children); });
+  function empilha() {
+    var t = topo(), alt = innerHeight - t;
+    pilhas.forEach(function (filhos) {
+      for (var i = 0; i < filhos.length - 1; i++) {
+        var r = filhos[i + 1].getBoundingClientRect(), c = cl(1 - (r.top - t) / alt);
+        filhos[i].style.setProperty('--cobre', c.toFixed(3));
+      }
+    });
+  }
+
   /* ---------- laço ---------- */
   var pedido = false;
   function quadro() {
@@ -113,6 +174,7 @@
       desenha(c, progresso(c));
     });
     moveGalerias();
+    empilha();
   }
   function agenda() { if (!pedido) { pedido = true; requestAnimationFrame(quadro); } }
   if (anima) {

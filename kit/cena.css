@@ -57,6 +57,25 @@ html:not(.anima) [data-trilho] { overflow-x: auto; scroll-snap-type: x mandatory
 .esboco .linha-cortina { position: absolute; top: 0; bottom: 0; left: var(--cortina); width: 2px; background: var(--kit-destaque); transform: translateX(-1px); pointer-events: none; }
 html:not(.anima) .esboco .linha-cortina { display: none; }
 
+/* peças novas (nov/2026): move, escorre, enche, palavras */
+.anima [data-a="move"], .anima [data-a="enche"] { opacity: 1; }
+.anima [data-a="enche"] { clip-path: inset(100% 0 0 0); }
+[data-a="move"], [data-a="escorre"] { transform-box: fill-box; }
+[data-a="move"] { transform-origin: 50% 50%; }
+[data-a="escorre"] { transform-origin: 50% 0%; }
+[data-palavras] { perspective: 600px; }
+.kit-palavra { display: inline-block; transform-origin: 50% 100%; }
+
+/* seções empilhadas: cada filha prende no topo e a próxima sobe por cima; a de baixo escurece (--cobre de 0 a 1) */
+.anima [data-empilha] > * { position: sticky; top: var(--topo); min-height: calc(100svh - var(--topo)); transform: scale(calc(1 - var(--cobre, 0) * .05)); transform-origin: 50% 0; }
+.anima [data-empilha] > *::after { content: ""; position: absolute; inset: 0; background: #000; opacity: calc(var(--cobre, 0) * .45); pointer-events: none; }
+
+/* entrada ao abrir a página, com desfoque de movimento */
+.anima [data-entrada] { animation: kit-entrada 1s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0ms); }
+.anima [data-entrada="lado"] { animation-name: kit-entrada-lado; }
+@keyframes kit-entrada { from { opacity: 0; transform: translateY(28px) scale(1.04); filter: blur(14px); } to { opacity: 1; transform: none; filter: blur(0); } }
+@keyframes kit-entrada-lado { from { opacity: 0; transform: translateX(-60px) scale(1.06); filter: blur(16px); } to { opacity: 1; transform: none; filter: blur(0); } }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation: none !important; }
 }

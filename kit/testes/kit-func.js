@@ -62,5 +62,58 @@ const op = (p, sel) => p.$eval(sel, e => +getComputedStyle(e).opacity);
     ok(!r.anima && r.altura < 1200 && r.visiveis && r.foto === 'none', nome + ': tudo visível e pronto, cenas sem prender o scroll');
     await ctx.close();
   }
+
+  // ===== exemplo-referencias.html (move, escorre, enche, palavras, empilha, entrada) =====
+  const R = B.replace(/exemplo(\.html)?$/, 'exemplo-referencias.html');
+  ctx = await b.newContext({ viewport: { width: 1280, height: 800 } }); p = await ctx.newPage();
+  const errs2 = []; p.on('pageerror', e => errs2.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs2.push(m.text()); });
+  await p.goto(R, { waitUntil: 'networkidle' }); await p.waitForTimeout(1300);
+  ok(await p.evaluate(() => [...document.querySelectorAll('[data-entrada]')].every(e => +getComputedStyle(e).opacity > .99 && getComputedStyle(e).filter.replace('blur(0px)', 'none') === 'none')), 'ref: entrada com desfoque termina nítida');
+  // referência 1: escorre e enche
+  await vai(p, 'section.fio', 0); await p.waitForTimeout(150);
+  ok(await p.$eval('.fio [data-a=enche]', e => getComputedStyle(e).clipPath.includes('100%')), 'ref 1 no início: copo vazio');
+  await vai(p, 'section.fio', .14); await p.waitForTimeout(150);
+  const meio = await p.$eval('.fio [data-a=escorre]', e => e.style.transform);
+  ok(/scaleY\(0\.[1-9]/.test(meio), 'ref 1: o fio de café está descendo (' + meio + ')');
+  await vai(p, 'section.fio', 1); await p.waitForTimeout(200);
+  ok(await p.$$eval('.fio [data-a=enche]', es => es.every(e => /inset\(0(%|px)/.test(getComputedStyle(e).clipPath) || getComputedStyle(e).clipPath === 'inset(0px)')), 'ref 1 no fim: copo cheio e leite misturado');
+  ok(await p.evaluate(() => { const ps = [...document.querySelectorAll('.fio .painel')]; return +getComputedStyle(ps[0]).opacity < .05 && +getComputedStyle(ps[2]).opacity > .95 && document.querySelector('.fio li.ativa').textContent === 'Pronto'; }), 'ref 1: painéis passaram (01 saiu, 03 ficou) e etapa Pronto');
+  // referência 2: palavra gigante
+  const gig = () => p.$$eval('.gigante', es => es.map(e => +getComputedStyle(e).opacity * +getComputedStyle(e.firstElementChild || e).opacity > .9));
+  await vai(p, 'section.camadas', .2); await p.waitForTimeout(150);
+  ok(JSON.stringify(await gig()) === '[true,false,false]', 'ref 2: no começo só MOER aparece');
+  await vai(p, 'section.camadas', .55); await p.waitForTimeout(150);
+  ok(JSON.stringify(await gig()) === '[false,true,false]', 'ref 2: no meio só COAR');
+  await vai(p, 'section.camadas', 1); await p.waitForTimeout(200);
+  ok(JSON.stringify(await gig()) === '[false,false,true]' && await p.evaluate(() => +getComputedStyle(document.querySelector('.objeto')).zIndex > +getComputedStyle(document.querySelector('.gigante')).zIndex), 'ref 2: no fim SERVIR, com o objeto na frente da palavra');
+  // referência 3: empilhadas e relógio
+  await p.evaluate(() => { const pl = document.querySelector('[data-empilha]'); scrollTo(0, pl.getBoundingClientRect().top + scrollY - 56 + (innerHeight - 56) * 1.5); }); await p.waitForTimeout(250);
+  ok(await p.evaluate(() => { const s = document.querySelectorAll('[data-empilha] > section'); return getComputedStyle(s[0]).position === 'sticky' && +s[0].style.getPropertyValue('--cobre') > .99 && +s[1].style.getPropertyValue('--cobre') > .2; }), 'ref 3: seção de cima coberta e escurecida pela seguinte');
+  await p.evaluate(() => { const c = document.querySelector('.relogio'); scrollTo(0, c.closest('section').offsetTop); }); await p.locator('.relogio').scrollIntoViewIfNeeded(); await p.waitForTimeout(250);
+  ok(await p.$eval('.ponteiro-h', e => /rotate\((1\d\d|2[01]\d)/.test(e.style.transform)), 'ref 3: ponteiro das horas girou até perto das 7h');
+  // referência 4: palavra por palavra
+  const pal = await p.$$eval('.falas h2 .kit-palavra', es => es.length);
+  ok(pal === 9 && await p.$eval('.falas h2', e => e.textContent.replace(/\s+/g, ' ').trim() === 'Repara no que acontece quando você rola esta página.'), 'ref 4: título quebrado em 9 palavras, texto intacto');
+  await vai(p, 'section.falas', .02); await p.waitForTimeout(150);
+  ok(await p.$eval('.falas h2 .kit-palavra:last-child', e => +getComputedStyle(e).opacity < .05), 'ref 4 no início: última palavra escondida');
+  await vai(p, 'section.falas', 1); await p.waitForTimeout(200);
+  ok(await p.$$eval('.falas .kit-palavra', es => es.every(e => +getComputedStyle(e).opacity > .99 && getComputedStyle(e).filter === 'none')), 'ref 4 no fim: todas as palavras nítidas');
+  ok(errs2.length === 0, 'ref: console limpo ' + JSON.stringify(errs2));
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }); p = await ctx.newPage();
+  await p.goto(R, { waitUntil: 'networkidle' });
+  let larg2 = 0; for (const s of ['section.fio', 'section.camadas', '[data-empilha]', 'section.falas']) { await p.evaluate(s => document.querySelector(s).scrollIntoView(), s); await p.waitForTimeout(80); larg2 = Math.max(larg2, await p.evaluate(() => document.documentElement.scrollWidth)); }
+  ok(larg2 === 390, 'ref celular: sem rolagem lateral');
+  await ctx.close();
+  for (const [nome, opts] of [['sem JS', { javaScriptEnabled: false }], ['movimento reduzido', { reducedMotion: 'reduce' }]]) {
+    ctx = await b.newContext({ viewport: { width: 1280, height: 800 }, ...opts }); p = await ctx.newPage();
+    await p.goto(R, { waitUntil: 'networkidle' });
+    const r = await p.evaluate(() => ({ anima: document.documentElement.classList.contains('anima'),
+      presas: [...document.querySelectorAll('[data-cena]')].every(s => s.offsetHeight < 1400),
+      visiveis: [...document.querySelectorAll('[data-a], [data-entrada], .gigante')].every(e => +getComputedStyle(e).opacity > .5 && getComputedStyle(e).clipPath === 'none'),
+      pilha: getComputedStyle(document.querySelector('[data-empilha] > section')).position }));
+    ok(!r.anima && r.presas && r.visiveis && r.pilha !== 'sticky', 'ref ' + nome + ': tudo visível, nada preso nem empilhado');
+    await ctx.close();
+  }
   await b.close(); console.log('falhas:', f);
 })();
