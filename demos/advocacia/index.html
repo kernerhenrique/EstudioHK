@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prates &amp; Arruda Advogados · Demonstração EstudioHK</title>
-<meta name="description" content="Demonstração de site institucional para escritório de advocacia criada pela EstudioHK: áreas de atuação, equipe, artigos e contato. Escritório e registros fictícios.">
+<meta name="description" content="Demonstração de site institucional para escritório de advocacia criada pela EstudioHK: por onde começar, áreas com etapas e prazos, equipe com currículo, artigos, versão em inglês e contato. Escritório e registros fictícios.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://estudiohk.com.br/demos/advocacia/">
-<meta name="theme-color" content="#F5F2EC">
+<meta name="theme-color" content="#0E1A2B">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Prates &amp; Arruda Advogados · demonstração de site pela EstudioHK">
-<meta property="og:description" content="Demonstração de site institucional para escritório de advocacia criada pela EstudioHK: áreas de atuação, equipe, artigos e contato. Escritório e registros fictícios.">
+<meta property="og:description" content="Demonstração de site institucional para escritório de advocacia criada pela EstudioHK: por onde começar, áreas com etapas e prazos, equipe com currículo, artigos, versão em inglês e contato. Escritório e registros fictícios.">
 <meta property="og:url" content="https://estudiohk.com.br/demos/advocacia/">
 <meta property="og:image" content="https://estudiohk.com.br/demos/advocacia/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,8 +20,6 @@
 <link rel="icon" type="image/svg+xml" href="/demos/advocacia/assets/favicon.svg">
 <link rel="preload" href="/demos/advocacia/assets/fonts/source-serif-4-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/demos/advocacia/assets/fonts/public-sans-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="/demos/advocacia/assets/img/capa-l-800.webp" imagesrcset="/demos/advocacia/assets/img/capa-l-800.webp 800w, /demos/advocacia/assets/img/capa-l-1200.webp 1200w" imagesizes="100vw" media="(max-width: 999px)">
-<link rel="preload" as="image" href="/demos/advocacia/assets/img/capa-600.webp" imagesrcset="/demos/advocacia/assets/img/capa-600.webp 600w, /demos/advocacia/assets/img/capa-1000.webp 1000w" imagesizes="520px" media="(min-width: 1000px)">
 <link rel="stylesheet" href="/demos/advocacia/assets/pa.css">
 <script>document.documentElement.classList.add('js');</script>
 <script src="/demos/advocacia/assets/pa.js" defer></script>
@@ -31,6 +29,10 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-imprimir" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4V9h16v8h-3M7 14h10v7H7z"/></symbol>
+<symbol id="i-cadeado" viewBox="0 0 24 24"><path d="M6 11h12v10H6zM8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+<symbol id="i-video" viewBox="0 0 24 24"><path d="M3 7h12v10H3zM15 10l6-3v10l-6-3"/></symbol>
+<symbol id="i-predio" viewBox="0 0 24 24"><path d="M4 21V5l8-2v18M12 21h8V9l-8-2M8 8h.01M8 12h.01M8 16h.01M16 12h.01M16 16h.01"/></symbol>
 </defs></svg>
 <div class="demo-bar" role="region" aria-label="Aviso de demonstração">
   <div class="wrap">
@@ -44,86 +46,111 @@
 <header class="topo">
   <div class="wrap">
     <a class="logo" href="/demos/advocacia/">Prates <span>&amp;</span> Arruda</a>
-    <nav aria-label="Seções"><ul class="menu"><li><a href="#escritorio">O escritório</a></li><li><a href="#areas">Áreas de atuação</a></li><li><a href="#equipe">Equipe</a></li><li><a href="#artigos">Artigos</a></li><li><a href="#contato">Contato</a></li></ul></nav>
+    <nav aria-label="Seções"><ul class="menu"><li><a href="#situacoes">Por onde começar</a></li><li><a href="#areas">Áreas</a></li><li><a href="#escritorio">O escritório</a></li><li><a href="#equipe">Equipe</a></li><li><a href="#conteudo-juridico">Conteúdo</a></li><li><a href="#contato">Contato</a></li></ul></nav>
     <div class="acoes">
-      <a class="btn btn-p" href="#contato">Fale com o escritório</a>
+      <a class="idioma" href="/demos/advocacia/en/" hreflang="en" lang="en">EN</a>
+      <a class="btn btn-p" href="#contato">Agendar reunião</a>
       <button class="abre-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
     </div>
   </div>
-  <div class="gaveta" id="gaveta"><div class="wrap"><a href="#escritorio">O escritório</a><a href="#areas">Áreas de atuação</a><a href="#equipe">Equipe</a><a href="#artigos">Artigos</a><a href="#contato">Contato</a></div></div>
+  <div class="gaveta" id="gaveta"><div class="wrap"><a href="#situacoes">Por onde começar</a><a href="#areas">Áreas</a><a href="#escritorio">O escritório</a><a href="#equipe">Equipe</a><a href="#conteudo-juridico">Conteúdo</a><a href="#contato">Contato</a><a href="/demos/advocacia/en/" lang="en">English</a></div></div>
 </header>
 <main id="conteudo">
   <section class="capa" aria-labelledby="t-capa">
-    <div class="wrap">
-      <div class="capa-grid">
-        <div class="capa-txt">
-          <p class="rotulo revela">Advocacia em Vitória (ES) · desde 2009</p>
-          <h1 id="t-capa" class="revela" style="--d:60ms">Direito empresarial, trabalhista e de família, explicado com clareza.</h1>
-          <p class="sub revela" style="--d:120ms">Atendimento presencial e online, em português e inglês.</p>
-          <div class="botoes revela" style="--d:180ms">
-            <a class="btn btn-p" href="#areas">Ver áreas de atuação</a>
-            <a class="btn btn-s" href="#contato">Fale com o escritório</a>
-          </div>
+    <div class="wrap capa-grid">
+      <div class="capa-txt">
+        <p class="rotulo revela">Advocacia em Vitória (ES) · desde 2009</p>
+        <h1 id="t-capa" class="revela" style="--d:60ms">Direito empresarial, trabalhista e de família, <span>explicado com clareza.</span></h1>
+        <p class="sub revela" style="--d:120ms">Atendimento presencial ou por vídeo, em português, inglês e espanhol. Cada cliente sabe, desde o primeiro dia, quem é o advogado responsável pelo seu caso.</p>
+        <div class="botoes revela" style="--d:180ms">
+          <a class="btn btn-claro" href="#situacoes">Por onde começar</a>
+          <a class="btn btn-contorno" href="#contato">Agendar reunião</a>
         </div>
-        <figure class="capa-foto revela" style="--d:80ms">
-          <picture>
-            <source media="(max-width: 999px)" srcset="/demos/advocacia/assets/img/capa-l-800.webp 800w, /demos/advocacia/assets/img/capa-l-1200.webp 1200w" sizes="100vw" width="800" height="500">
-            <img src="/demos/advocacia/assets/img/capa-600.webp" srcset="/demos/advocacia/assets/img/capa-600.webp 600w, /demos/advocacia/assets/img/capa-1000.webp 1000w" sizes="520px" width="600" height="750" fetchpriority="high" alt="Fachada de concreto de um edifício, com janelas em grade, em tons de cinza.">
-          </picture>
-        </figure>
       </div>
+      <div class="capa-lado revela" style="--d:120ms">
+        <svg class="selo" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+<circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1"/><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1"/>
+<text font-size="12.5" fill="currentColor" font-family="Public Sans, Arial, sans-serif" font-weight="600"><textPath href="#circ" textLength="484" lengthAdjust="spacing">ADVOGADOS · VITÓRIA · ESPÍRITO SANTO · DESDE 2009 ·</textPath></text>
+<text x="100" y="113" text-anchor="middle" font-size="40" font-family="Source Serif 4, Georgia, serif" font-weight="600" fill="currentColor">P<tspan fill="#C9A77F">&amp;</tspan>A</text></svg>
+        <nav aria-label="Áreas de atuação"><p class="indice-t">Áreas de atuação</p><ol class="indice"><li><a href="/demos/advocacia/areas/empresarial/"><span class="n">01</span><span class="t">Direito Empresarial</span><svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a></li><li><a href="/demos/advocacia/areas/trabalhista/"><span class="n">02</span><span class="t">Direito do Trabalho</span><svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a></li><li><a href="/demos/advocacia/areas/familia/"><span class="n">03</span><span class="t">Família e Sucessões</span><svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a></li></ol></nav>
+      </div>
+    </div>
+    <div class="wrap">
       <dl class="fatos revela">
         <div><dt>Fundação</dt><dd>2009</dd></div>
-        <div><dt>Cidade</dt><dd>Vitória · ES</dd></div>
-        <div><dt>Atendimento</dt><dd>Presencial e online</dd></div>
-        <div><dt>Idiomas</dt><dd>Português e inglês</dd></div>
+        <div><dt>Sede</dt><dd>Enseada do Suá, Vitória</dd></div>
+        <div><dt>Atendimento</dt><dd>Presencial e por vídeo</dd></div>
+        <div><dt>Idiomas</dt><dd>Português, inglês e espanhol</dd></div>
       </dl>
     </div>
   </section>
 
-  <section class="secao" id="areas" aria-labelledby="t-areas">
+  <section class="secao" id="situacoes" aria-labelledby="t-sit">
     <div class="wrap">
       <div class="cab cab-lado">
-        <div><p class="rotulo revela">Áreas de atuação</p><h2 class="titulo revela" id="t-areas">Em que o escritório pode ajudar.</h2></div>
-        <p class="apoio revela">Abra uma área para ver o que ela cobre e os documentos que ajudam na primeira reunião.</p>
+        <div><p class="rotulo revela">Por onde começar</p><h2 class="titulo revela" id="t-sit">Qual é a sua situação?</h2></div>
+        <p class="apoio revela">Escolha o que mais se parece com o seu caso e veja a área que cuida disso, com prazos, documentos e as dúvidas mais comuns.</p>
+      </div>
+      <div class="sit-abas revela" role="tablist" aria-label="Para quem">
+        <button type="button" role="tab" id="tab-voce" aria-controls="sit-voce" aria-selected="true">Para você</button>
+        <button type="button" role="tab" id="tab-empresa" aria-controls="sit-empresa" aria-selected="false" tabindex="-1">Para empresas</button>
+      </div>
+      <div class="sit-grade" id="sit-voce" role="tabpanel" aria-labelledby="tab-voce"><a class="sit" href="/demos/advocacia/artigos/prazo-rescisao/"><span class="sit-n">01</span><b>Fui demitido e quero conferir a rescisão</b><span class="sit-d">Prazo de pagamento, verbas e documentos.</span><span class="sit-a">Direito do Trabalho <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/areas/familia/"><span class="sit-n">02</span><b>Vou me separar ou me divorciar</b><span class="sit-d">Com acordo, pode ser em cartório; sem acordo, na Justiça.</span><span class="sit-a">Família e Sucessões <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/artigos/revisao-pensao/"><span class="sit-n">03</span><b>A pensão não cabe mais no orçamento</b><span class="sit-d">Revisão quando a situação financeira muda.</span><span class="sit-a">Família e Sucessões <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/areas/familia/"><span class="sit-n">04</span><b>Perdi um familiar e preciso do inventário</b><span class="sit-d">Prazos, documentos e se dá para fazer em cartório.</span><span class="sit-a">Família e Sucessões <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a></div><div class="sit-grade" id="sit-empresa" role="tabpanel" aria-labelledby="tab-empresa" hidden><a class="sit" href="/demos/advocacia/artigos/contrato-social/"><span class="sit-n">01</span><b>Vou abrir uma empresa com sócios</b><span class="sit-d">Tipo de sociedade e o que o contrato social precisa ter.</span><span class="sit-a">Direito Empresarial <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/areas/empresarial/"><span class="sit-n">02</span><b>Um sócio vai entrar ou sair</b><span class="sit-d">Alteração do contrato, registro e responsabilidade de quem sai.</span><span class="sit-a">Direito Empresarial <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/areas/trabalhista/"><span class="sit-n">03</span><b>Vou contratar ou desligar um funcionário</b><span class="sit-d">Contrato, jornada, rescisão e prazos.</span><span class="sit-a">Direito do Trabalho <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a><a class="sit" href="/demos/advocacia/areas/empresarial/"><span class="sit-n">04</span><b>Preciso de um contrato com cliente ou fornecedor</b><span class="sit-d">Redação e revisão de contratos do dia a dia.</span><span class="sit-a">Direito Empresarial <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span></a></div>
+    </div>
+  </section>
+
+  <section class="secao branca" id="areas" aria-labelledby="t-areas">
+    <div class="wrap">
+      <div class="cab cab-lado">
+        <div><p class="rotulo revela">Áreas de atuação</p><h2 class="titulo revela" id="t-areas">Três áreas, cada uma com um responsável.</h2></div>
+        <p class="apoio revela">Abra uma área para ver o que ela cobre, um prazo que costuma importar e os documentos para a primeira reunião.</p>
       </div>
       <div class="areas revela">
         <div class="area aberta">
-          <h3><button class="area-q" type="button" aria-expanded="true" aria-controls="ar-empresarial" id="aq-empresarial"><span class="n">01</span><span class="nome">Direito Empresarial</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
+          <h3><button class="area-q" type="button" aria-expanded="true" aria-controls="ar-empresarial" id="aq-empresarial"><span class="n">01</span><span class="nome">Direito Empresarial</span><span class="resp">Beatriz Arruda</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
           <div class="area-a" id="ar-empresarial" role="region" aria-labelledby="aq-empresarial"><div>
             <div class="area-corpo">
               <div>
                 <p>Para quem abre, organiza ou conduz uma empresa: da escolha do tipo de sociedade aos contratos do dia a dia.</p>
                 <ul class="lista"><li>Abertura de empresa e escolha do tipo de sociedade</li><li>Contrato social, alterações, entrada e saída de sócios</li><li>Acordo de sócios</li><li>Contratos com clientes, fornecedores e parceiros</li><li>Orientação jurídica contínua para a rotina da empresa</li></ul>
-                <a class="link" href="/demos/advocacia/areas/empresarial/">Ver página da área <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+                <a class="link" href="/demos/advocacia/areas/empresarial/">Ver a área completa: etapas, prazos e dúvidas <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
               </div>
-              <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Contrato social e alterações registradas</li><li>Comprovante de inscrição no CNPJ</li><li>Contratos em vigor ou em negociação</li><li>Trocas de e-mail ou mensagens sobre o assunto</li></ul></div>
+              <div class="area-lado">
+                <div class="prazo-mini"><b>30 dias</b><span>para apresentar a alteração do contrato social ao registro. Depois disso, ela só vale a partir da data do registro.</span><small>Código Civil, art. 1.151, §§ 1º e 2º</small></div>
+                <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Contrato social e alterações registradas</li><li>Comprovante de inscrição no CNPJ</li><li>Documentos pessoais dos sócios</li><li>Contratos em vigor ou em negociação</li></ul></div>
+              </div>
             </div>
           </div></div>
         </div>
 <div class="area">
-          <h3><button class="area-q" type="button" aria-expanded="false" aria-controls="ar-trabalhista" id="aq-trabalhista"><span class="n">02</span><span class="nome">Direito do Trabalho</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
+          <h3><button class="area-q" type="button" aria-expanded="false" aria-controls="ar-trabalhista" id="aq-trabalhista"><span class="n">02</span><span class="nome">Direito do Trabalho</span><span class="resp">Rafael Prates</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
           <div class="area-a" id="ar-trabalhista" role="region" aria-labelledby="aq-trabalhista"><div>
             <div class="area-corpo">
               <div>
                 <p>Orientação a empresas e a trabalhadores sobre contratos de trabalho, rotina e encerramento do vínculo.</p>
                 <ul class="lista"><li>Contratação, jornada e horas extras</li><li>Rescisão do contrato e cálculo das verbas</li><li>Acordos entre empresa e empregado</li><li>Reclamações trabalhistas</li><li>Orientação preventiva para empresas</li></ul>
-                <a class="link" href="/demos/advocacia/areas/trabalhista/">Ver página da área <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+                <a class="link" href="/demos/advocacia/areas/trabalhista/">Ver a área completa: etapas, prazos e dúvidas <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
               </div>
-              <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Carteira de Trabalho (física ou digital)</li><li>Contrato de trabalho e aditivos</li><li>Holerites dos últimos meses</li><li>Termo de rescisão, se houver</li><li>Extrato do FGTS e registros de ponto</li></ul></div>
+              <div class="area-lado">
+                <div class="prazo-mini"><b>10 dias</b><span>para a empresa pagar as verbas rescisórias e entregar os documentos, contados do fim do contrato.</span><small>CLT, art. 477, § 6º</small></div>
+                <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Carteira de Trabalho (física ou digital)</li><li>Contrato de trabalho e aditivos</li><li>Holerites dos últimos meses</li><li>Termo de rescisão, se houver</li></ul></div>
+              </div>
             </div>
           </div></div>
         </div>
 <div class="area">
-          <h3><button class="area-q" type="button" aria-expanded="false" aria-controls="ar-familia" id="aq-familia"><span class="n">03</span><span class="nome">Família e Sucessões</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
+          <h3><button class="area-q" type="button" aria-expanded="false" aria-controls="ar-familia" id="aq-familia"><span class="n">03</span><span class="nome">Família e Sucessões</span><span class="resp">Helena Duarte</span><span class="seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></span></button></h3>
           <div class="area-a" id="ar-familia" role="region" aria-labelledby="aq-familia"><div>
             <div class="area-corpo">
               <div>
                 <p>Questões que envolvem relações familiares e patrimônio, tratadas com discrição e linguagem simples.</p>
                 <ul class="lista"><li>Divórcio e dissolução de união estável</li><li>Guarda e convivência com os filhos</li><li>Pensão alimentícia: fixação e revisão</li><li>Inventário e partilha de bens</li><li>Planejamento sucessório e testamento</li></ul>
-                <a class="link" href="/demos/advocacia/areas/familia/">Ver página da área <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+                <a class="link" href="/demos/advocacia/areas/familia/">Ver a área completa: etapas, prazos e dúvidas <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
               </div>
-              <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Documentos pessoais e certidão de casamento ou nascimento</li><li>Comprovantes de renda e de despesas</li><li>Documentos dos bens (matrícula de imóvel, documento de veículo)</li><li>Decisões ou acordos anteriores, se houver</li><li>Certidão de óbito, no caso de inventário</li></ul></div>
+              <div class="area-lado">
+                <div class="prazo-mini"><b>2 meses</b><span>para abrir o inventário judicial, contados do falecimento. O juiz pode prorrogar.</span><small>Código de Processo Civil, art. 611</small></div>
+                <div class="docs"><h4>Para levar na primeira reunião</h4><ul class="lista"><li>Documentos pessoais e certidão de casamento ou nascimento</li><li>Comprovantes de renda e de despesas</li><li>Documentos dos bens (matrícula de imóvel, documento de veículo)</li><li>Decisões ou acordos anteriores, se houver</li></ul></div>
+              </div>
             </div>
           </div></div>
         </div>
@@ -131,84 +158,113 @@
     </div>
   </section>
 
-  <section class="secao branca" id="escritorio" aria-labelledby="t-esc">
+  <section class="secao" id="escritorio" aria-labelledby="t-esc">
     <div class="wrap escritorio">
+      <figure class="foto revela"><img src="/demos/advocacia/assets/img/escritorio-600.webp" srcset="/demos/advocacia/assets/img/escritorio-600.webp 600w, /demos/advocacia/assets/img/escritorio-900.webp 900w" sizes="(min-width: 960px) 540px, 100vw" width="600" height="750" loading="lazy" decoding="async" alt="Sala de reunião com mesa oval de madeira, cadeiras de couro e parede em painel de madeira."><figcaption>Sala de reunião, 12º andar</figcaption></figure>
       <div class="esc-txt">
         <p class="rotulo revela">O escritório</p>
         <h2 class="titulo revela" id="t-esc">Um escritório para empresas e para pessoas.</h2>
         <div class="texto revela">
           <p>O escritório foi fundado em 2009, em Vitória, por Rafael Prates e Beatriz Arruda. Atende empresas e pessoas físicas nas áreas empresarial, trabalhista e de família e sucessões.</p>
-          <p>O atendimento é presencial ou por vídeo, e cada cliente sabe quem é o advogado responsável pelo seu caso.</p>
         </div>
+        <blockquote class="citacao revela">Cada etapa é explicada antes de acontecer, e o escopo e os honorários são combinados por escrito antes de começar.</blockquote>
         <ul class="valores revela">
-          <li><b>Clareza</b><span>Cada etapa explicada em linguagem do dia a dia, sem juridiquês.</span></li>
-          <li><b>Transparência</b><span>Escopo do trabalho e honorários combinados por escrito antes de começar.</span></li>
+          <li><b>Clareza</b><span>Linguagem do dia a dia, sem juridiquês.</span></li>
+          <li><b>Responsável definido</b><span>Um advogado acompanha o caso do começo ao fim.</span></li>
           <li><b>Sigilo</b><span>Informações e documentos tratados com sigilo profissional.</span></li>
         </ul>
       </div>
-      <figure class="foto revela" style="--d:60ms"><img src="/demos/advocacia/assets/img/escritorio-600.webp" srcset="/demos/advocacia/assets/img/escritorio-600.webp 600w, /demos/advocacia/assets/img/escritorio-900.webp 900w" sizes="(min-width: 960px) 540px, 100vw" width="600" height="750" loading="lazy" decoding="async" alt="Sala de reunião com mesa oval de madeira, cadeiras de couro e parede em painel de madeira."></figure>
     </div>
   </section>
 
-  <section class="secao" id="equipe" aria-labelledby="t-eq">
+  <section class="secao escura" id="equipe" aria-labelledby="t-eq">
     <div class="wrap">
       <div class="cab cab-lado">
         <div><p class="rotulo revela">Equipe</p><h2 class="titulo revela" id="t-eq">Quem atende você.</h2></div>
-        <p class="apoio revela">Nomes, fotos e registros na OAB desta demonstração são fictícios.</p>
+        <p class="apoio revela">Formação, idiomas e publicações de cada advogado. Nomes, fotos e registros na OAB desta demonstração são fictícios.</p>
       </div>
       <div class="equipe">
         <article class="pessoa revela" style="--d:0ms">
-          <img src="/demos/advocacia/assets/img/beatriz-400.webp" srcset="/demos/advocacia/assets/img/beatriz-400.webp 400w, /demos/advocacia/assets/img/beatriz-640.webp 640w" sizes="(min-width: 960px) 280px, 45vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Beatriz Arruda, de blazer preto, sorrindo, em fundo cinza.">
+          <div class="pessoa-foto"><img class="" src="/demos/advocacia/assets/img/beatriz-400.webp" srcset="/demos/advocacia/assets/img/beatriz-400.webp 400w, /demos/advocacia/assets/img/beatriz-640.webp 640w" sizes="(min-width: 960px) 360px, 90vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Beatriz Arruda, de blazer preto, sorrindo, em fundo cinza."></div>
           <h3>Beatriz Arruda</h3>
           <p class="cargo">Sócia · Direito Empresarial</p>
           <p class="oab">OAB/ES 00.000</p>
-          <p class="titulos">Mestre em Direito Empresarial. Atende em português e inglês.</p>
+          <p class="atua">Constituição e alteração de sociedades, acordo de sócios e contratos empresariais.</p>
+          <details class="cv">
+            <summary>Currículo</summary>
+            <dl>
+              <div><dt>Formação</dt><dd><ul><li>Mestrado em Direito Empresarial</li><li>Graduação em Direito</li></ul></dd></div>
+              <div><dt>Idiomas</dt><dd>Português e inglês</dd></div>
+              <div><dt>Publicações e palestras</dt><dd><ul><li>Artigo “Acordo de sócios na empresa familiar” (2025)</li><li>Palestra “Contratos para pequenas empresas” (2026)</li></ul></dd></div>
+            </dl>
+          </details>
         </article>
         <article class="pessoa revela" style="--d:60ms">
-          <img src="/demos/advocacia/assets/img/rafael-400.webp" srcset="/demos/advocacia/assets/img/rafael-400.webp 400w, /demos/advocacia/assets/img/rafael-640.webp 640w" sizes="(min-width: 960px) 280px, 45vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Rafael Prates, de blazer escuro, em fundo cinza.">
+          <div class="pessoa-foto"><img class="" src="/demos/advocacia/assets/img/rafael-400.webp" srcset="/demos/advocacia/assets/img/rafael-400.webp 400w, /demos/advocacia/assets/img/rafael-640.webp 640w" sizes="(min-width: 960px) 360px, 90vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Rafael Prates, de blazer escuro, em fundo cinza."></div>
           <h3>Rafael Prates</h3>
           <p class="cargo">Sócio · Direito do Trabalho</p>
           <p class="oab">OAB/ES 00.000</p>
-          <p class="titulos">Pós-graduação em Direito e Processo do Trabalho.</p>
+          <p class="atua">Orientação trabalhista a empresas, rescisões, acordos e reclamações trabalhistas.</p>
+          <details class="cv">
+            <summary>Currículo</summary>
+            <dl>
+              <div><dt>Formação</dt><dd><ul><li>Pós-graduação em Direito e Processo do Trabalho</li><li>Graduação em Direito</li></ul></dd></div>
+              <div><dt>Idiomas</dt><dd>Português e espanhol</dd></div>
+              <div><dt>Publicações e palestras</dt><dd><ul><li>Palestra “Rotina trabalhista sem surpresas” (2026)</li><li>Artigo “Rescisão do contrato de trabalho: qual o prazo para o pagamento?” (2026)</li></ul></dd></div>
+            </dl>
+          </details>
         </article>
         <article class="pessoa revela" style="--d:120ms">
-          <img src="/demos/advocacia/assets/img/helena-400.webp" srcset="/demos/advocacia/assets/img/helena-400.webp 400w, /demos/advocacia/assets/img/helena-640.webp 640w" sizes="(min-width: 960px) 280px, 45vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Helena Duarte, de óculos e vestido azul, em fundo cinza.">
+          <div class="pessoa-foto"><img class="" src="/demos/advocacia/assets/img/helena-400.webp" srcset="/demos/advocacia/assets/img/helena-400.webp 400w, /demos/advocacia/assets/img/helena-640.webp 640w" sizes="(min-width: 960px) 360px, 90vw" width="400" height="500" loading="lazy" decoding="async" alt="Retrato de Helena Duarte, de óculos e vestido azul, em fundo cinza."></div>
           <h3>Helena Duarte</h3>
           <p class="cargo">Advogada · Família e Sucessões</p>
           <p class="oab">OAB/ES 00.000</p>
-          <p class="titulos">Pós-graduação em Direito de Família e Sucessões.</p>
+          <p class="atua">Divórcio e união estável, guarda e pensão, inventário judicial e em cartório, planejamento sucessório.</p>
+          <details class="cv">
+            <summary>Currículo</summary>
+            <dl>
+              <div><dt>Formação</dt><dd><ul><li>Pós-graduação em Direito de Família e Sucessões</li><li>Curso de mediação de conflitos</li><li>Graduação em Direito</li></ul></dd></div>
+              <div><dt>Idiomas</dt><dd>Português</dd></div>
+              <div><dt>Publicações e palestras</dt><dd><ul><li>Artigo “Pensão alimentícia pode mudar depois de fixada?” (2026)</li></ul></dd></div>
+            </dl>
+          </details>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="secao branca" id="artigos" aria-labelledby="t-art">
+  <section class="secao branca" id="conteudo-juridico" aria-labelledby="t-art">
     <div class="wrap">
       <div class="cab cab-lado">
-        <div><p class="rotulo revela">Artigos</p><h2 class="titulo revela" id="t-art">Direito explicado, sem complicar.</h2></div>
-        <p class="apoio revela">Textos curtos sobre dúvidas comuns, com a lei citada. Filtre por área.</p>
+        <div><p class="rotulo revela">Conteúdo</p><h2 class="titulo revela" id="t-art">Direito explicado, sem complicar.</h2></div>
+        <p class="apoio revela">Artigos curtos sobre dúvidas comuns, sempre com a lei citada, e as palestras e publicações da equipe.</p>
       </div>
-      <div class="filtros" role="group" aria-label="Filtrar artigos por área"><button type="button" data-f="todos" aria-pressed="true">Todos</button><button type="button" data-f="empresarial" aria-pressed="false">Empresarial</button><button type="button" data-f="trabalhista" aria-pressed="false">Trabalhista</button><button type="button" data-f="familia" aria-pressed="false">Família e sucessões</button></div>
-      <p class="sr" id="art-status" aria-live="polite"></p>
       <div class="artigos" id="lista-artigos">
-        <a class="artigo-card revela" href="/demos/advocacia/artigos/prazo-rescisao/" data-area="trabalhista" style="--d:0ms">
-          <span class="meta"><b>Trabalhista</b> · <time datetime="2026-10-14">14 out. 2026</time></span>
+        <a class="artigo-card destaque revela" href="/demos/advocacia/artigos/prazo-rescisao/" data-area="trabalhista" style="--d:0ms">
+          <span class="meta"><b>Trabalhista</b> · <time datetime="2026-10-14">14 out. 2026</time> · 4 min de leitura</span>
           <h3>Rescisão do contrato de trabalho: qual o prazo para o pagamento?</h3>
           <p>A CLT dá ao empregador 10 dias, contados do fim do contrato, para pagar as verbas rescisórias e entregar os documentos.</p>
+          <span class="por">Por Rafael Prates</span>
           <span class="link">Ler artigo <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span>
         </a>
         <a class="artigo-card revela" href="/demos/advocacia/artigos/revisao-pensao/" data-area="familia" style="--d:60ms">
-          <span class="meta"><b>Família e sucessões</b> · <time datetime="2026-09-29">29 set. 2026</time></span>
+          <span class="meta"><b>Família e sucessões</b> · <time datetime="2026-09-29">29 set. 2026</time> · 3 min de leitura</span>
           <h3>Pensão alimentícia pode mudar depois de fixada?</h3>
           <p>Pode. O Código Civil permite pedir a revisão quando muda a situação financeira de quem paga ou de quem recebe.</p>
+          <span class="por">Por Helena Duarte</span>
           <span class="link">Ler artigo <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span>
         </a>
         <a class="artigo-card revela" href="/demos/advocacia/artigos/contrato-social/" data-area="empresarial" style="--d:120ms">
-          <span class="meta"><b>Empresarial</b> · <time datetime="2026-09-03">3 set. 2026</time></span>
+          <span class="meta"><b>Empresarial</b> · <time datetime="2026-09-03">3 set. 2026</time> · 4 min de leitura</span>
           <h3>O que não pode faltar no contrato social da sua empresa</h3>
           <p>O Código Civil lista o que o contrato precisa mencionar. Na sociedade limitada, a mesma lista vale no que couber.</p>
+          <span class="por">Por Beatriz Arruda</span>
           <span class="link">Ler artigo <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></span>
         </a>
+      </div>
+      <div class="pubs revela">
+        <h3>Publicações e palestras</h3>
+        <ul><li><span class="ano">2026</span><span class="tipo">Palestra</span><b>“Rotina trabalhista sem surpresas”</b><span class="quem">Rafael Prates · Associação comercial (fictícia)</span></li><li><span class="ano">2026</span><span class="tipo">Palestra</span><b>“Contratos para pequenas empresas”</b><span class="quem">Beatriz Arruda · Evento de empreendedorismo (fictício)</span></li><li><span class="ano">2025</span><span class="tipo">Artigo</span><b>“Acordo de sócios na empresa familiar”</b><span class="quem">Beatriz Arruda · Revista jurídica (fictícia)</span></li></ul>
       </div>
     </div>
   </section>
@@ -229,7 +285,8 @@
     <div class="wrap contato">
       <div>
         <p class="rotulo revela">Contato</p>
-        <h2 class="titulo revela" id="t-cont">Fale com o escritório.</h2>
+        <h2 class="titulo revela" id="t-cont">Agende uma reunião.</h2>
+        <p class="apoio revela">Conte em poucas linhas do que se trata. Respondemos em até um dia útil para combinar dia e horário.</p>
         <dl class="dados revela">
           <div><dt>Endereço</dt><dd>Av. Exemplo, 1000, sala 1201 · Enseada do Suá · Vitória/ES <span class="ficticio">(fictício)</span></dd></div>
           <div><dt>Horário</dt><dd>Segunda a sexta, das 9h às 18h</dd></div>
@@ -248,17 +305,21 @@
         </div>
       </div>
       <form class="form revela" id="form-contato" novalidate>
-        <h3>Enviar mensagem</h3>
+        <h3>Pedir uma reunião</h3>
         <div class="campo"><label for="c-nome">Nome</label><input id="c-nome" name="nome" autocomplete="name"></div>
         <div class="campo"><label for="c-contato">E-mail ou telefone</label><input id="c-contato" name="contato" autocomplete="email"></div>
         <div class="campo"><label for="c-area">Assunto</label><select id="c-area" name="area"><option value="">Escolha</option><option value="empresarial">Direito Empresarial</option><option value="trabalhista">Direito do Trabalho</option><option value="familia">Família e Sucessões</option><option value="outro">Outro assunto</option></select></div>
-        <div class="campo"><label for="c-msg">Mensagem</label><textarea id="c-msg" name="msg" rows="4" maxlength="800" placeholder="Conte em poucas linhas como podemos ajudar."></textarea></div>
-        <p class="nota">Não envie documentos nem detalhes sigilosos por aqui. Seus dados são usados apenas para responder a esta mensagem.</p>
-        <button class="btn btn-p" type="submit" id="c-enviar" disabled>Enviar mensagem</button>
+        <fieldset class="campo"><legend>Como prefere a reunião?</legend><div class="opcoes">
+          <label><input type="radio" name="modo" value="presencial"><span><svg class="ico" aria-hidden="true"><use href="#i-predio"/></svg>Presencial</span></label>
+          <label><input type="radio" name="modo" value="por vídeo"><span><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg>Por vídeo</span></label>
+        </div></fieldset>
+        <div class="campo"><label for="c-msg">Em poucas linhas, do que se trata</label><textarea id="c-msg" name="msg" rows="4" maxlength="800" placeholder="Não precisa de detalhes: a conversa completa é na reunião."></textarea></div>
+        <p class="nota"><svg class="ico" aria-hidden="true"><use href="#i-cadeado"/></svg>Não envie documentos nem detalhes sigilosos por aqui. Seus dados são usados apenas para responder a este pedido.</p>
+        <button class="btn btn-p" type="submit" id="c-enviar" disabled>Pedir reunião</button>
         <div class="enviado" id="c-ok" hidden>
-          <h4 id="c-ok-t" tabindex="-1">Mensagem pronta para envio</h4>
+          <h4 id="c-ok-t" tabindex="-1">Pedido pronto para envio</h4>
           <p id="c-ok-txt"></p>
-          <p>Isto é uma demonstração: nada foi enviado. No site real, a mensagem chegaria ao e-mail do escritório.</p>
+          <p>Isto é uma demonstração: nada foi enviado. No site real, o pedido chegaria ao e-mail do escritório.</p>
           <p>Quer que o cliente novo receba o contrato e a procuração prontos para assinar no celular? <a href="/demos/automacoes/escritorio-sem-papelada/" target="_blank" rel="noopener">Veja a automação de documentos</a>.</p>
         </div>
       </form>
@@ -276,17 +337,14 @@
         <h2>Endereço</h2>
         <p>Av. Exemplo, 1000, sala 1201<br>Enseada do Suá · Vitória/ES<br>Segunda a sexta, das 9h às 18h</p>
       </div>
-      <div>
-        <h2>Áreas de atuação</h2>
-        <ul><li><a href="/demos/advocacia/areas/empresarial/">Direito Empresarial</a></li><li><a href="/demos/advocacia/areas/trabalhista/">Direito do Trabalho</a></li><li><a href="/demos/advocacia/areas/familia/">Família e Sucessões</a></li><li><a href="#artigos">Artigos</a></li></ul>
-      </div>
+      <div><h2>Áreas e conteúdo</h2><ul><li><a href="/demos/advocacia/areas/empresarial/">Direito Empresarial</a></li><li><a href="/demos/advocacia/areas/trabalhista/">Direito do Trabalho</a></li><li><a href="/demos/advocacia/areas/familia/">Família e Sucessões</a></li><li><a href="#conteudo-juridico">Artigos e publicações</a></li><li><a href="/demos/advocacia/en/" lang="en">English</a></li></ul></div>
     </div>
     <p class="regulatorio">Escritório, nomes, registros na OAB e endereço fictícios. Fotos: Unsplash. Conteúdo de caráter informativo, conforme o Provimento nº 205/2021 do Conselho Federal da OAB. Site de demonstração criado pela <a href="https://estudiohk.com.br/">EstudioHK</a>.</p>
   </div>
 </footer>
-<div class="barra-m" id="barra-m" aria-hidden="true"><a class="btn btn-p" href="#contato" tabindex="-1">Fale com o escritório</a></div>
+<div class="barra-m" id="barra-m" aria-hidden="true"><a class="btn btn-p" href="#contato" tabindex="-1">Agendar reunião</a></div>
 <div class="janela" id="janela" hidden>
-  <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="j-titulo">
+  <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="j-titulo" aria-label="Aviso de demonstração">
     <h2 id="j-titulo" tabindex="-1">Isto é uma demonstração</h2>
     <p id="j-texto"></p>
     <div class="botoes">
