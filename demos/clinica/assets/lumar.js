@@ -55,7 +55,8 @@
       var img = $('img', box), r = box.getBoundingClientRect();
       if (!grande.matches) { img.style.transform = ''; return; }
       if (r.bottom < -100 || r.top > vh + 100) return;
-      var f = parseFloat(box.dataset.paralaxe) || .1, d = (r.top + r.height / 2 - vh / 2) * f;
+      var f = parseFloat(box.dataset.paralaxe) || .1, d = (r.top + r.height / 2 - vh / 2) * f, lim = Math.max(0, (img.offsetHeight - r.height) / 2 - 2);
+      d = Math.max(-lim, Math.min(lim, d)); // nunca deixa aparecer a borda da foto
       img.style.transform = 'translate3d(0,' + d.toFixed(1) + 'px,0)';
     });
   }
