@@ -31,6 +31,7 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 | 1 | Contato que não esfria | [demo](https://estudiohk.com.br/demos/automacoes/contato-que-nao-esfria/) | [01-contato-que-nao-esfria.md](01-contato-que-nao-esfria.md) |
 | 2 | Agenda sem faltas | [demo](https://estudiohk.com.br/demos/automacoes/agenda-sem-faltas/) | [02-agenda-sem-faltas.md](02-agenda-sem-faltas.md) |
 | 3 | Atendente com IA no WhatsApp | [demo](https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/) | [03-atendente-whatsapp-ia.md](03-atendente-whatsapp-ia.md) |
+| 4 | Relatório da semana | [demo](https://estudiohk.com.br/demos/automacoes/relatorio-semanal/) | [04-relatorio-semanal.md](04-relatorio-semanal.md) |
 
 ## Regra
 **Toda automação nova que entrar no site ganha o seu guia aqui, no mesmo dia.**

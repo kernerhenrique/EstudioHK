@@ -316,3 +316,62 @@
 @media (prefers-reduced-motion: reduce) { .bolha .digitando i { animation: none; } }
 .planilha.ficha-of .pl-rolar { position: relative; max-height: 440px; overflow-y: auto; }
 .planilha.ficha-of thead th { position: sticky; top: 0; z-index: 1; }
+
+/* ---------- relatório por e-mail com gráficos (demo 4) ---------- */
+.z-av-forja { background: #E8462C; color: #fff; }
+.ferramenta h3 .opc { font-size: 12px; font-weight: 600; color: var(--ink-muted); margin-left: 6px; letter-spacing: 0; }
+.email-rel .er-corpo { padding: 16px; display: grid; gap: 16px; background: #fff; color: var(--ink); min-height: 360px; align-content: start; }
+.er-vazio { margin: auto; padding: 40px 10px; font-size: 13px; color: var(--ink-muted); text-align: center; }
+.er-cab { font-size: 12.5px; line-height: 19px; color: var(--ink-muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.er-cab b { color: var(--ink); }
+.er-kpis { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+#hist table { min-width: 0; }
+.er-kpi { padding: 10px 12px; border-radius: 10px; background: var(--surface-2); display: grid; gap: 2px; }
+.er-kpi span { font-size: 12px; color: var(--ink-muted); }
+.er-kpi b { font-size: 22px; line-height: 26px; font-weight: 600; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.er-kpi small { font-size: 12px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.er-graf h4 { margin: 0 0 8px; font-size: 13.5px; font-weight: 600; }
+.er-graf h4 small { font-weight: 400; color: var(--ink-muted); margin-left: 4px; }
+/* colunas (check-ins por dia): barra fina, ponta arredondada, base reta, 1 cor */
+.colunas { position: relative; display: grid; grid-template-columns: repeat(7, 1fr); align-items: end; height: 140px; padding-top: 18px; border-bottom: 1px solid var(--line); }
+.col { position: relative; display: flex; justify-content: center; align-items: flex-end; height: 100%; outline: none; }
+.col i { display: block; width: min(24px, 60%); height: var(--h); background: #3B5BB5; border-radius: 4px 4px 0 0; transform-origin: bottom; }
+.col.sem i { background: repeating-linear-gradient(135deg, transparent 0 4px, #9AA3B5 4px 5px); border: 1px dashed #9AA3B5; border-bottom: 0; height: 30%; }
+.col .rot { position: absolute; bottom: calc(var(--h) + 4px); font-size: 11px; font-weight: 600; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.col.sem .rot { bottom: calc(30% + 4px); color: var(--ink-muted); font-weight: 500; }
+.colunas-x { display: grid; grid-template-columns: repeat(7, 1fr); font-size: 11.5px; color: var(--ink-muted); text-align: center; margin-top: 4px; }
+/* barras horizontais (ocupação) */
+.barras { display: grid; gap: 6px; }
+.barra-l { display: grid; grid-template-columns: 108px 1fr 36px; align-items: center; gap: 8px; font-size: 12px; outline: none; position: relative; }
+.barra-l > span:first-child { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barra-l .trilho { height: 12px; border-left: 1px solid var(--line); }
+.barra-l .trilho i { display: block; height: 100%; width: var(--w); background: #3B5BB5; border-radius: 0 4px 4px 0; transform-origin: left; }
+.barra-l .v { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink); }
+.barra-l .v:empty { visibility: hidden; }
+/* dica ao passar o mouse ou focar (mesmo conteúdo da tabela) */
+.dica-alvo:hover::after, .dica-alvo:focus-visible::after { content: attr(data-dica); position: absolute; z-index: 3; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; padding: 5px 8px; border-radius: 6px; background: var(--noite); color: var(--on-noite); font-size: 11.5px; font-weight: 500; pointer-events: none; }
+.barra-l.dica-alvo:hover::after, .barra-l.dica-alvo:focus-visible::after { bottom: auto; top: calc(100% + 2px); left: 120px; transform: none; }
+.dica-alvo:focus-visible { box-shadow: 0 0 0 2px var(--brand); border-radius: 4px; }
+.er-graf details { margin-top: 8px; font-size: 12px; }
+.er-graf summary { cursor: pointer; color: var(--brand-ink); font-weight: 600; }
+.er-graf details table { margin-top: 6px; border-collapse: collapse; font-size: 12px; }
+.er-graf details td, .er-graf details th { padding: 3px 10px 3px 0; text-align: left; font-variant-numeric: tabular-nums; }
+.er-dest { margin: 0; padding-left: 18px; font-size: 13px; line-height: 20px; display: grid; gap: 4px; }
+.er-listas { display: grid; gap: 6px; font-size: 13px; line-height: 19px; padding-top: 10px; border-top: 1px solid var(--line); }
+.er-listas b { font-variant-numeric: tabular-nums; }
+.er-aviso { padding: 8px 10px; border-radius: 8px; background: #FBEFD9; color: #6A4100; font-size: 12.5px; line-height: 18px; }
+.anima-in { animation: entra .4s var(--ease-emph) both; }
+.fontes-lidas { margin: 0; border-radius: 16px; overflow: hidden; background: #fff; color: var(--ink); }
+.fontes-lidas figcaption { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.fontes-lidas figcaption .icon { width: 16px; height: 16px; color: var(--success); }
+.fontes-lidas figcaption span { font-weight: 400; color: var(--ink-muted); margin-left: auto; font-size: 12px; }
+.fontes-lidas ul { list-style: none; margin: 0; padding: 6px 14px 10px; display: grid; }
+.fontes-lidas li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 12.5px; }
+.fontes-lidas li:last-child { border-bottom: 0; }
+.fontes-lidas li b { font-weight: 600; font-variant-numeric: tabular-nums; text-align: right; }
+.fontes-lidas li.falta b { color: #9E2A16; }
+.email-rel { margin: 0; min-width: 0; border-radius: 16px; overflow: hidden; background: #fff; color: var(--ink); }
+.email-rel figcaption { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 13px; font-weight: 600; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.email-rel figcaption .icon { width: 16px; height: 16px; color: var(--success); }
+.email-rel figcaption span { font-weight: 400; color: var(--ink-muted); margin-left: auto; font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { .anima-in { animation: none; } }

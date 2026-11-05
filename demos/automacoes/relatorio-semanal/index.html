@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Relatório da semana · Demonstração de automação EstudioHK</title>
+<meta name="description" content="Demonstração de automação criada pela EstudioHK: toda segunda às 8h, o dono recebe no WhatsApp o resumo da semana e no e-mail o relatório completo, com alunos, cancelamentos, frequência, aulas cheias e atrasos. Com ferramentas e custos.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/automacoes/relatorio-semanal/">
+<meta name="theme-color" content="#0B1222">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Relatório da semana · demonstração de automação pela EstudioHK">
+<meta property="og:description" content="Toda segunda às 8h, os números da semana no WhatsApp e no e-mail, sem ninguém montar planilha. Com ferramentas e custos.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/automacoes/relatorio-semanal/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/automacoes/relatorio-semanal/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="../assets/auto.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/auto.js" defer></script>
+<script src="assets/relatorio.js" defer></script>
+</head>
+<body class="auto-pg">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l11-7z"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><path d="M4 6c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+  </defs>
+</svg>
+
+<div class="aviso-demo" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><a class="marca" href="/" aria-label="EstudioHK, início">Estudio<b>HK</b><i aria-hidden="true"></i></a><span class="texto-longo">Demonstração de automação. </span>Tudo simulado: nada é enviado.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="/automacoes/#demos">Ver outras automações</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Relat%C3%B3rio%20da%20semana%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação →</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+  <!-- TOPO + SIMULAÇÃO -->
+  <section class="sim-sec dark" aria-labelledby="titulo">
+    <div class="wrap">
+      <header class="sim-topo">
+        <div class="sim-intro">
+          <span class="eyebrow">Automação · FORJA Academia, academia fictícia</span>
+          <h1 id="titulo">Relatório da semana.</h1>
+          <p class="lead">Toda segunda às 8h, o dono recebe no WhatsApp os números que importam e, no e-mail, o relatório completo. Ninguém abre sistema, ninguém monta planilha.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Começa quando</dt><dd>toda segunda-feira, às 8h, sozinho</dd></div>
+          <div><dt>Usa</dt><dd>sistema da academia, n8n, Gmail, WhatsApp oficial e Google Planilhas</dd></div>
+          <div><dt>Como testar</dt><dd>aperte "Segunda, 8h: rodar" e veja o relatório se montar</dd></div>
+        </dl>
+      </header>
+
+      <div class="sim" id="sim">
+        <div class="abas" role="tablist" aria-label="Lados da simulação">
+          <button type="button" role="tab" id="aba-cli" aria-controls="lado-cli" aria-selected="true">O que o dono vê<span class="ponto" hidden></span></button>
+          <button type="button" role="tab" id="aba-bas" aria-controls="lado-bas" aria-selected="false" tabindex="-1">Bastidores<span class="ponto" hidden></span></button>
+        </div>
+
+        <!-- LADO DO DONO -->
+        <div class="lado lado-cli" id="lado-cli" role="tabpanel" aria-labelledby="aba-cli">
+          <p class="lado-t">O que o dono vê <span>no WhatsApp, segunda de manhã</span></p>
+          <div class="cel">
+            <div class="cel-tela cel-zap">
+              <div class="z-topo"><span class="z-av z-av-of z-av-forja" aria-hidden="true">F</span><span><b>Automação FORJA</b><small>relatórios da academia</small></span></div>
+              <div class="conversa z-conversa" id="conv-dono" role="log" aria-label="Mensagens da automação para o dono">
+                <p class="z-dia">segunda passada</p>
+                <div class="bolha"><span class="de">Automação FORJA</span><b>Resumo da semana · 20/10 a 26/10</b><br>Alunos ativos: 2.398 · Novos: 31 · Cancelamentos: 22 · Check-ins: 10.120<br>Relatório completo no seu e-mail.<span class="hora">08:00</span></div>
+                <p class="z-dia" id="z-hoje" hidden>hoje</p>
+                <div class="z-espera" id="z-espera"><p>O resumo desta semana chega na segunda, às 8h.</p><button type="button" class="z-rodar" id="z-rodar">Segunda, 8h: rodar</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASTIDORES -->
+        <div class="lado lado-bas" id="lado-bas" role="tabpanel" aria-labelledby="aba-bas">
+          <div class="bas-topo">
+            <p class="lado-t">Bastidores <span>o que a automação faz sozinha</span></p>
+            <span class="relogio" role="img" aria-label="Horário da simulação"><svg class="icon"><use href="#i-clock"/></svg><span id="relogio">seg, 07:59</span></span>
+          </div>
+          <p class="gasto-l">Custo desta segunda: <b id="custo">Meta R$ 0,000 · e-mail grátis · sem IA</b></p>
+          <ol class="etapas" id="etapas">
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Começa sozinho às 8h</b><p class="det">Toda segunda, sem ninguém apertar nada.</p><p class="meta"><span class="ferr">n8n · agendado</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Lê os dados da semana</b><p class="det">Alunos, matrículas, cancelamentos, check-ins, aulas e pagamentos.</p><p class="meta"><span class="ferr">Sistema da academia</span><time></time></p></div></li>
+            <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Confere os dados</b><p class="det">Falta algum dia? Algum número fora do normal? Se faltar, não inventa: avisa.</p><p class="meta"><span class="ferr">n8n · conferência</span><time></time></p></div></li>
+            <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Calcula e compara com a semana passada</b><p class="det">Totais, variação, aulas mais cheias e mais vazias, atrasos e quem sumiu.</p><p class="meta"><span class="ferr">n8n + histórico</span><time></time></p></div></li>
+            <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Envia e guarda no histórico</b><p class="det">Resumo no WhatsApp, relatório completo no e-mail e uma linha nova no histórico.</p><p class="meta"><span class="ferr">WhatsApp · R$ 0,035</span><span class="ferr">Gmail · grátis</span><time></time></p></div></li>
+          </ol>
+
+          <div class="artefatos art-agenda">
+            <figure class="email-rel" id="email">
+              <figcaption><svg class="icon"><use href="#i-mail"/></svg>Relatório completo <span>e-mail do dono</span></figcaption>
+              <div class="er-corpo" id="er-corpo">
+                <p class="er-vazio" id="er-vazio">O relatório aparece aqui quando a automação rodar.</p>
+              </div>
+            </figure>
+            <div class="art-col">
+              <figure class="planilha" id="hist">
+                <figcaption><svg class="icon"><use href="#i-sheet"/></svg>Histórico <span>Google Planilhas</span></figcaption>
+                <div class="pl-rolar" tabindex="0" role="region" aria-label="Histórico semanal">
+                  <table>
+                    <thead><tr><th scope="col">Semana</th><th scope="col">Ativos</th><th scope="col">Check-ins</th><th scope="col">Cancel.</th></tr></thead>
+                    <tbody id="hist-linhas">
+                      <tr><td>06/10–12/10</td><td>2.371</td><td>10.310</td><td>19</td></tr>
+                      <tr><td>13/10–19/10</td><td>2.389</td><td>10.240</td><td>21</td></tr>
+                      <tr><td>20/10–26/10</td><td>2.398</td><td>10.120</td><td>22</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </figure>
+              <figure class="fontes-lidas" id="fontes">
+                <figcaption><svg class="icon"><use href="#i-db"/></svg>Dados lidos <span>sistema da academia</span></figcaption>
+                <ul id="fontes-lista">
+                  <li data-f="alunos"><span>Alunos e matrículas</span><b>·</b></li>
+                  <li data-f="checkins"><span>Check-ins da catraca</span><b>·</b></li>
+                  <li data-f="aulas"><span>Reservas das aulas</span><b>·</b></li>
+                  <li data-f="pagamentos"><span>Pagamentos</span><b>·</b></li>
+                </ul>
+              </figure>
+            </div>
+          </div>
+
+          <div class="alerta-hk" id="alerta-hk" hidden>
+            <svg class="icon"><use href="#i-alert"/></svg>
+            <div><b>Alerta para a EstudioHK</b><p id="alerta-txt"></p></div>
+          </div>
+
+          <div class="controles" id="controles">
+            <button type="button" class="ctl ctl-p" id="c-rodar"><svg class="icon"><use href="#i-play"/></svg>Segunda, 8h: rodar</button>
+            <button type="button" class="ctl" id="c-recomecar"><svg class="icon"><use href="#i-redo"/></svg>Recomeçar</button>
+            <label class="ctl chave"><input type="checkbox" id="c-falha"><span>Simular dado faltando</span></label>
+          </div>
+          <p class="sr" id="anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sem-js">A simulação precisa de JavaScript ligado. Abaixo estão as etapas, as ferramentas e os custos.</p></noscript>
+    </div>
+  </section>
+
+  <!-- O QUE DEIXA DE SER FEITO NA MÃO -->
+  <section class="section" aria-labelledby="mao-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">O que deixa de ser feito na mão</span>
+        <h2 id="mao-title">A segunda-feira começa <span class="soft">com os números prontos.</span></h2>
+      </div>
+      <ul class="mao">
+        <li><b>Abrir três sistemas toda segunda</b><p>Alunos, catraca e pagamentos são lidos sozinhos, às 8h.</p></li>
+        <li><b>Montar planilha e somar</b><p>Totais, médias e a ocupação de cada aula já chegam calculados.</p></li>
+        <li><b>Comparar com a semana passada</b><p>O histórico fica guardado, e a variação aparece ao lado de cada número.</p></li>
+        <li><b>Descobrir quem atrasou e quem sumiu</b><p>A lista vai no e-mail, pronta para a recepção ligar.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="section alt" id="ferramentas" aria-labelledby="ferr-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Ferramentas que essa automação usa</span>
+        <h2 id="ferr-title">O que você precisa ter <span class="soft">e em nome de quem fica.</span></h2>
+        <p>Todas as contas ficam no nome do negócio. O que ainda não existir, eu ajudo a criar.</p>
+      </div>
+      <div class="ferramentas">
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-db"/></svg></span>
+          <h3>Dados do negócio</h3>
+          <p>O sistema da academia (alunos, catraca, aulas, pagamentos) ou as planilhas que você já usa.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta. Se o sistema não tiver integração, dá para usar a exportação automática dele, se houver; a gente vê no mapeamento.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <h3>n8n</h3>
+          <p>O motor: roda toda segunda, lê, confere, calcula, monta o relatório e envia.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-mail"/></svg></span>
+          <h3>Gmail</h3>
+          <p>Envia o relatório completo, com gráficos e as listas de atrasados e de quem sumiu.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem</span></dd></div><div><dt>Em nome de quem</dt><dd>Seu e-mail.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
+          <h3>WhatsApp oficial <small class="opc">opcional</small></h3>
+          <p>O resumo curto no celular. Quem prefere, recebe só o e-mail e não precisa de WhatsApp oficial.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Se quiser, eu ajudo</span></dd></div><div><dt>Em nome de quem</dt><dd>Seu número, na sua conta da Meta. Como a automação só manda para o dono, pode ser um número novo só para isso.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-sheet"/></svg></span>
+          <h3>Google Planilhas</h3>
+          <p>O histórico: uma linha por semana, para comparar e ver a tendência.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem, se usa Gmail</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta Google.</dd></div></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOS DE TERCEIROS -->
+  <section class="section" id="custos" aria-labelledby="custos-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Custos de terceiros</span>
+        <h2 id="custos-title">Quanto você paga <span class="soft">a cada um, por mês.</span></h2>
+        <p>Esses valores você paga direto a quem cobra, não à EstudioHK. A criação da automação e a manutenção mensal vêm na proposta.</p>
+      </div>
+      <div class="custo-grid">
+        <table class="custos">
+          <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Meta<small>WhatsApp oficial, opcional</small></th><td data-r="Pelo quê">O resumo da semana, que a automação inicia (utilidade)</td><td data-r="Quanto"><span class="selo-c ter">Por mensagem</span><br><b class="preco">R$ 0,035</b> por pessoa, por semana</td></tr>
+            <tr><th scope="row">Google<small>Gmail e Planilhas</small></th><td data-r="Pelo quê">Relatório completo por e-mail e histórico</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Na conta Google gratuita</td></tr>
+            <tr><th scope="row">IA</th><td data-r="Pelo quê">Não usa: os números vêm do sistema e as regras são fixas</td><td data-r="Quanto"><span class="selo-c gr">R$ 0</span></td></tr>
+            <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="conta" id="conta">
+          <p class="conta-t">Faça a conta do seu negócio</p>
+          <div class="rng"><div class="rng-top"><label for="k-pessoas">Pessoas que recebem o resumo no WhatsApp</label><output for="k-pessoas" id="k-o-pessoas">1</output></div><input type="range" id="k-pessoas" min="0" max="10" step="1" value="1"></div>
+          <div class="conta-res" aria-live="polite" aria-atomic="true">
+            <span>Custo estimado na Meta</span>
+            <strong id="k-total">R$ 0,15</strong>
+            <small id="k-detalhe">1 pessoa × 4,3 semanas × R$ 0,035 por mês</small>
+          </div>
+          <p class="conta-nota">Com zero pessoas no WhatsApp, o relatório vai só por e-mail e o custo de terceiros é R$ 0. O mês tem em média 4,3 semanas.</p>
+        </div>
+      </div>
+      <p class="fonte">Valor da Meta: tabela oficial em reais para o Brasil, mensagens de utilidade, vigente desde 1º/10/2026, consultada em 4/11/2026 (<a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página oficial de preços</a>). A Meta confirma a categoria do modelo de mensagem quando aprova; se ela não aceitar como utilidade, o resumo vai só por e-mail.</p>
+    </div>
+  </section>
+
+  <!-- GARANTIAS -->
+  <section class="section alt" aria-labelledby="gar-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">E se…</span>
+        <h2 id="gar-title">As perguntas que importam <span class="soft">antes de confiar num relatório.</span></h2>
+      </div>
+      <div class="garantias gar-auto">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-alert"/></svg></span><h3>E se faltar algum dado?</h3><p>A automação confere antes de enviar. Se um dia não chegou, o relatório sai marcando "sem dados" naquele dia, sem inventar número, e a EstudioHK é avisada. Teste lá em cima: "Simular dado faltando".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><h3>Os números são confiáveis?</h3><p>Eles vêm do seu sistema, com regras simples e fixas, sem IA. Antes de ligar, o relatório roda duas semanas junto com a conta que você já faz, para comparar número por número.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>As contas e o histórico já são seus. Você recebe o fluxo exportado e eu ajudo a colocá-lo para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIM -->
+  <section class="section fim dark" aria-labelledby="fim-title">
+    <div class="wrap fim-in">
+      <div class="sh">
+        <span class="eyebrow">Para o seu negócio</span>
+        <h2 id="fim-title">Quer começar a semana <span class="soft">sabendo onde está?</span></h2>
+        <p>Funciona para academia, clínica, escola, loja, restaurante: qualquer negócio que tem dados espalhados e ninguém com tempo de juntar. A gente começa escolhendo os 5 números que importam para você.</p>
+      </div>
+      <div class="fim-acoes">
+        <a class="btn btn-volt btn-lg" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Relat%C3%B3rio%20da%20semana%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-dark btn-lg" href="/demos/academia/" target="_blank" rel="noopener">Ver o site da FORJA Academia</a>
+        <a class="fim-link" href="/automacoes/#demos">Ver outras automações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape-auto">
+  <div class="wrap">
+    <p>FORJA Academia, alunos, números e nomes são fictícios. Nada é enviado nesta página. Demonstração criada pela <a href="/">EstudioHK</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
