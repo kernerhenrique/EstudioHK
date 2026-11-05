@@ -33,6 +33,7 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 | 3 | Atendente com IA no WhatsApp | [demo](https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/) | [03-atendente-whatsapp-ia.md](03-atendente-whatsapp-ia.md) |
 | 4 | Relatório da semana | [demo](https://estudiohk.com.br/demos/automacoes/relatorio-semanal/) | [04-relatorio-semanal.md](04-relatorio-semanal.md) |
 | 5 | Escritório sem papelada | [demo](https://estudiohk.com.br/demos/automacoes/escritorio-sem-papelada/) | [05-escritorio-sem-papelada.md](05-escritorio-sem-papelada.md) |
+| 6 | Cobrança sem constrangimento | [demo](https://estudiohk.com.br/demos/automacoes/cobranca-sem-constrangimento/) | [06-cobranca-sem-constrangimento.md](06-cobranca-sem-constrangimento.md) |
 
 ## Regra
 **Toda automação nova que entrar no site ganha o seu guia aqui, no mesmo dia.**
@@ -64,6 +65,10 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 - [Armazenamento grátis do Google (15 GB)](https://support.google.com/drive/answer/6374270?hl=pt-br)
 - [CPC, art. 105 (procuração assinada digitalmente), texto na Câmara](https://www2.camara.leg.br/legin/fed/lei/2015/lei-13105-16-marco-2015-780273-normaatualizada-pl.html)
 - [MP 2.200-2/2001, art. 10 (documento e assinatura eletrônica), texto na Câmara](https://www2.camara.leg.br/legin/fed/medpro/2001/medidaprovisoria-2200-2-24-agosto-2001-391394-publicacaooriginal-1-pe.html)
+- [Preços e taxas do Asaas](https://www.asaas.com/precos-e-taxas): Pix R$ 1,99 por cobrança recebida (R$ 0,99 nos 3 primeiros meses).
+- [Pix Automático, Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pix-automatico)
+- [Pix no WhatsApp (Payments API Brasil)](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/overview)
+- [Código de Defesa do Consumidor, arts. 42 e 42-A, texto na Câmara](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html)
 - [LGPD, texto oficial na Câmara](https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html)
 
 Preços e regras mudam. Antes de cada proposta, confira de novo as páginas acima.

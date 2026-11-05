@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cobrança sem constrangimento · Demonstração de automação EstudioHK</title>
+<meta name="description" content="Demonstração de automação criada pela EstudioHK: o aluno recebe o Pix da mensalidade no WhatsApp antes do vencimento, a baixa e o recibo saem sozinhos e quem atrasa recebe um lembrete educado antes de a recepção entrar. Com ferramentas e custos.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/automacoes/cobranca-sem-constrangimento/">
+<meta name="theme-color" content="#0B1222">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Cobrança sem constrangimento · demonstração de automação pela EstudioHK">
+<meta property="og:description" content="Pix no WhatsApp antes do vencimento, baixa e recibo automáticos e lembrete educado para quem atrasa. Com ferramentas e custos.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/automacoes/cobranca-sem-constrangimento/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/automacoes/cobranca-sem-constrangimento/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="../assets/auto.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/auto.js" defer></script>
+<script src="assets/cobranca.js" defer></script>
+</head>
+<body class="auto-pg">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 5v14l11-7z"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="M12 2.5 21.5 12 12 21.5 2.5 12zM7.5 12h0M12 7.5 16.5 12 12 16.5 7.5 12z"/></symbol>
+    <symbol id="i-sheet" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 10h16M4 15h16M10 4v16"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h6"/></symbol>
+    <symbol id="i-banco" viewBox="0 0 24 24"><path d="M3 9 12 4l9 5M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 5l8 7-8 7zM14 5l8 7-8 7z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+    <symbol id="i-gente" viewBox="0 0 24 24"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM2 21c0-4 3-6 7-6s7 2 7 6M16 3.5a4 4 0 0 1 0 7.5M18 15c2.5.5 4 2.5 4 6"/></symbol>
+  </defs>
+</svg>
+
+<div class="aviso-demo" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><a class="marca" href="/" aria-label="EstudioHK, início">Estudio<b>HK</b><i aria-hidden="true"></i></a><span class="texto-longo">Demonstração de automação. </span>Tudo simulado: nada é enviado nem cobrado.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="/automacoes/#demos">Ver outras automações</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Cobran%C3%A7a%20sem%20constrangimento%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação →</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+  <!-- TOPO + SIMULAÇÃO -->
+  <section class="sim-sec dark" aria-labelledby="titulo">
+    <div class="wrap">
+      <header class="sim-topo">
+        <div class="sim-intro">
+          <span class="eyebrow">Automação · FORJA Academia, academia fictícia</span>
+          <h1 id="titulo">Cobrança sem constrangimento.</h1>
+          <p class="lead">O aluno recebe o Pix da mensalidade no WhatsApp antes de vencer. Quando paga, a baixa e o recibo saem sozinhos. Quem atrasa recebe um lembrete educado e, se precisar, a recepção conversa. Ninguém fica caçando comprovante.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Começa quando</dt><dd>3 dias antes de cada vencimento, sozinho</dd></div>
+          <div><dt>Usa</dt><dd>conta de cobrança com Pix (ex.: Asaas), n8n, WhatsApp oficial, Google Planilhas e Docs</dd></div>
+          <div><dt>Como testar</dt><dd>rode o aviso, pague com Pix ou deixe atrasar e veja a régua de lembretes</dd></div>
+        </dl>
+      </header>
+
+      <div class="sim" id="sim">
+        <div class="abas" role="tablist" aria-label="Lados da simulação">
+          <button type="button" role="tab" id="aba-cli" aria-controls="lado-cli" aria-selected="true">O que o aluno vê<span class="ponto" hidden></span></button>
+          <button type="button" role="tab" id="aba-bas" aria-controls="lado-bas" aria-selected="false" tabindex="-1">Bastidores<span class="ponto" hidden></span></button>
+        </div>
+
+        <!-- LADO DO ALUNO -->
+        <div class="lado lado-cli" id="lado-cli" role="tabpanel" aria-labelledby="aba-cli">
+          <p class="lado-t">O que o aluno vê <span>no WhatsApp, pelo celular</span></p>
+          <div class="cel">
+            <div class="cel-tela cel-zap cel-chat cel-cb">
+              <div class="z-topo"><span class="z-av z-av-of z-av-forja" aria-hidden="true">F</span><span><b>FORJA Academia</b><small>conta comercial</small></span></div>
+              <div class="conversa z-conversa" id="conv-cli" role="log" aria-label="Conversa da academia com o aluno">
+                <p class="z-dia">outubro</p>
+                <div class="bolha"><span class="de">FORJA Academia</span>Recebemos seu Pix de R$ 149,90 (mensalidade de outubro). O recibo está em anexo. Bons treinos!<span class="hora">09:12</span></div>
+                <p class="z-dia" id="z-hoje" hidden>novembro</p>
+                <div class="z-espera" id="z-espera"><p>A mensalidade de novembro do Lucas (plano Livre) vence na quinta, 12/11.</p><button type="button" class="z-rodar" id="z-rodar">Segunda, 9h: rodar</button></div>
+              </div>
+              <div class="z-compor" id="cb-compor" hidden>
+                <div class="z-chips" id="cb-chips" role="group" aria-label="Ações do aluno"></div>
+              </div>
+
+              <!-- app do banco (abre por cima) -->
+              <div class="ov-banco" id="ov-banco" role="dialog" aria-modal="false" aria-labelledby="ov-banco-t" hidden>
+                <div class="ob-topo"><svg class="icon"><use href="#i-banco"/></svg><span><b id="ov-banco-t" tabindex="-1">App do banco do aluno</b><small>Pix Copia e Cola · simulado</small></span></div>
+                <div class="ob-corpo">
+                  <p class="ob-rot">Você vai pagar</p>
+                  <p class="ob-valor">R$ 149,90</p>
+                  <dl class="ob-dados">
+                    <div><dt>Para</dt><dd>FORJA Academia Ltda.</dd></div>
+                    <div><dt>CNPJ</dt><dd>00.000.000/0001-00 (fictício)</dd></div>
+                    <div><dt>Descrição</dt><dd>Mensalidade nov/2026 · plano Livre</dd></div>
+                    <div><dt>Instituição</dt><dd>Asaas (exemplo)</dd></div>
+                  </dl>
+                  <button type="button" class="ob-pagar" id="ob-pagar">Pagar R$ 149,90</button>
+                  <button type="button" class="ob-cancelar" id="ob-cancelar">Agora não</button>
+                </div>
+              </div>
+              <div class="notif" id="notif-cli" hidden>
+                <span class="notif-app"><svg class="icon"><use href="#i-check"/></svg>Área de transferência</span>
+                <span id="notif-cli-txt">Código Pix copiado.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASTIDORES -->
+        <div class="lado lado-bas" id="lado-bas" role="tabpanel" aria-labelledby="aba-bas">
+          <div class="bas-topo">
+            <p class="lado-t">Bastidores <span>o que a automação faz sozinha</span></p>
+            <span class="relogio" role="img" aria-label="Data e horário da simulação"><svg class="icon"><use href="#i-clock"/></svg><span id="relogio">seg 09/11, 08:59</span></span>
+          </div>
+          <p class="gasto-l">Custo deste aluno no mês: <b id="custo">Asaas R$ 0,00 · Meta R$ 0,000 · sem IA</b></p>
+          <ol class="etapas" id="etapas">
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Gera a cobrança com Pix</b><p class="det">3 dias antes do vencimento, cria a cobrança no valor do plano, com código Pix só daquele aluno.</p><p class="meta"><span class="ferr">Asaas (API)</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Avisa antes de vencer</b><p class="det">Mensagem curta com o botão "Copiar código Pix". Sem pressão, sem juros, sem ameaça.</p><p class="meta"><span class="ferr">WhatsApp · R$ 0,035</span><time></time></p></div></li>
+            <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Dá baixa quando o Pix cai</b><p class="det">O Asaas avisa na hora. E, antes de cada lembrete, a automação confere de novo: nunca cobra quem já pagou.</p><p class="meta"><span class="ferr">Asaas → n8n</span><span class="ferr">Google Planilhas</span><time></time></p></div></li>
+            <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Manda o recibo</b><p class="det">Recibo em PDF, com os dados da academia, no WhatsApp do aluno.</p><p class="meta"><span class="ferr">Google Docs → PDF</span><span class="ferr">WhatsApp</span><time></time></p></div></li>
+            <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Se atrasar, lembra com educação</b><p class="det">1 e 3 dias úteis depois do vencimento. Depois disso, para de mandar mensagem e passa para a recepção.</p><p class="meta"><span class="ferr">WhatsApp · R$ 0,035</span><span class="ferr">Recepção</span><time></time></p></div></li>
+          </ol>
+
+          <div class="artefatos art-cb">
+            <figure class="planilha" id="painel">
+              <figcaption><svg class="icon"><use href="#i-sheet"/></svg>Mensalidades de novembro <span>Google Planilhas</span></figcaption>
+              <div class="pl-rolar" tabindex="0" role="region" aria-label="Mensalidades de novembro">
+                <table>
+                  <thead><tr><th scope="col">Aluno</th><th scope="col">Valor</th><th scope="col">Vence</th><th scope="col">Situação</th></tr></thead>
+                  <tbody id="painel-linhas">
+                    <tr><td>Marina Lopes</td><td>R$ 99,90</td><td>05/11</td><td><span class="stt ok">pago · Pix</span></td></tr>
+                    <tr><td>Rafael Gomes</td><td>R$ 219,90</td><td>05/11</td><td><span class="stt ok">Pix Automático</span></td></tr>
+                    <tr><td>Júlia Castro</td><td>R$ 149,90</td><td>08/11</td><td><span class="stt ok">pago · Pix</span></td></tr>
+                    <tr><td>Pedro Alves</td><td>R$ 99,90</td><td>03/11</td><td><span class="stt sem">atrasado · 2º lembrete</span></td></tr>
+                    <tr><td>Beatriz Nunes</td><td>R$ 149,90</td><td>04/11</td><td><span class="stt res">prazo até 20/11</span></td></tr>
+                    <tr class="voce" id="linha-lucas"><td>Lucas Andrade</td><td>R$ 149,90</td><td>12/11</td><td><span class="stt env" id="st-lucas">a vencer</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="pl-total">Recebido em novembro: <b id="recebido">R$ 469,70</b> de R$ 869,40</p>
+            </figure>
+            <div class="art-col">
+              <figure class="recibo" id="recibo">
+                <figcaption><svg class="icon"><use href="#i-doc"/></svg>Recibo <span>PDF gerado sozinho</span></figcaption>
+                <p class="er-vazio" id="recibo-vazio">O recibo aparece aqui quando o Pix cair.</p>
+                <div class="rc-corpo" id="recibo-corpo" hidden></div>
+              </figure>
+              <figure class="equipe" id="recepcao">
+                <figcaption><svg class="icon"><use href="#i-gente"/></svg>Recepção <span>WhatsApp da equipe</span></figcaption>
+                <div class="conversa" id="conv-rec" role="log" aria-label="Avisos da automação para a recepção"><p class="vazio">Os casos que pedem uma conversa aparecem aqui.</p></div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="alerta-hk" id="alerta-hk" hidden>
+            <svg class="icon"><use href="#i-alert"/></svg>
+            <div><b>Alerta para a EstudioHK</b><p id="alerta-txt"></p></div>
+          </div>
+
+          <div class="controles" id="controles">
+            <button type="button" class="ctl ctl-p" id="c-rodar"><svg class="icon"><use href="#i-play"/></svg>Segunda, 9h: rodar</button>
+            <button type="button" class="ctl" id="c-pular" disabled><svg class="icon"><use href="#i-skip"/></svg>Não pagar: ir ao próximo lembrete</button>
+            <button type="button" class="ctl" id="c-recomecar"><svg class="icon"><use href="#i-redo"/></svg>Recomeçar</button>
+            <label class="ctl chave"><input type="checkbox" id="c-falha"><span>Simular aviso de pagamento que não chegou</span></label>
+          </div>
+          <p class="sr" id="anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sem-js">A simulação precisa de JavaScript ligado. Abaixo estão as etapas, as ferramentas e os custos.</p></noscript>
+    </div>
+  </section>
+
+  <!-- O QUE DEIXA DE SER FEITO NA MÃO -->
+  <section class="section" aria-labelledby="mao-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">O que deixa de ser feito na mão</span>
+        <h2 id="mao-title">A recepção para de cobrar <span class="soft">e volta a atender.</span></h2>
+      </div>
+      <ul class="mao">
+        <li><b>Mandar chave Pix e valor para cada aluno</b><p>Cada aluno recebe o Pix com o valor certo, 3 dias antes de vencer, com um botão para copiar o código.</p></li>
+        <li><b>Conferir extrato e pedir comprovante</b><p>O Pix cai, a baixa é feita na planilha e o recibo sai na hora. Ninguém pergunta "você pagou?".</p></li>
+        <li><b>Lembrar quem atrasou, um por um</b><p>Dois lembretes educados, em dia útil. Depois disso, a recepção recebe a lista de quem precisa de uma conversa.</p></li>
+        <li><b>Cobrar quem já tinha pagado</b><p>Antes de cada lembrete, a automação confere o pagamento de novo. O aluno em dia nunca recebe cobrança.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="section alt" id="ferramentas" aria-labelledby="ferr-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Ferramentas que essa automação usa</span>
+        <h2 id="ferr-title">O que você precisa ter <span class="soft">e em nome de quem fica.</span></h2>
+        <p>Todas as contas ficam no nome do negócio. O dinheiro cai direto na sua conta de cobrança: a EstudioHK nunca toca nele.</p>
+      </div>
+      <div class="ferramentas">
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-sheet"/></svg></span>
+          <h3>Lista de alunos</h3>
+          <p>Quem paga, qual plano, qual valor e em que dia vence. Pode vir do sistema da academia ou de uma planilha.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta. Se o sistema não tiver integração, a planilha vira a fonte.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-pix"/></svg></span>
+          <h3>Conta de cobrança com Pix</h3>
+          <p>Gera o código Pix de cada aluno e avisa na hora quando o pagamento cai. Exemplo: Asaas. O banco que você já usa também serve, se tiver Pix com API.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu ajudo a abrir</span></dd></div><div><dt>Em nome de quem</dt><dd>No CNPJ da academia. O dinheiro cai direto nela.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
+          <h3>WhatsApp oficial</h3>
+          <p>Manda o aviso com o botão "Copiar código Pix", o recibo e os lembretes. É a plataforma oficial da Meta.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu ajudo a criar</span></dd></div><div><dt>Em nome de quem</dt><dd>Seu número, na sua conta da Meta. Pode ser um número só para financeiro, ou o de sempre, ligado por um parceiro oficial da Meta.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-doc"/></svg></span>
+          <h3>Google Planilhas e Docs</h3>
+          <p>A planilha mostra quem pagou e quem atrasou. O Docs guarda o modelo do recibo.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem, se usa Gmail</span></dd></div><div><dt>Em nome de quem</dt><dd>Sua conta Google.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <h3>n8n</h3>
+          <p>O motor: gera as cobranças, avisa, confere os pagamentos, faz a baixa, manda o recibo e os lembretes.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOS DE TERCEIROS -->
+  <section class="section" id="custos" aria-labelledby="custos-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Custos de terceiros</span>
+        <h2 id="custos-title">Quanto você paga <span class="soft">a cada um, por mês.</span></h2>
+        <p>Esses valores você paga direto a quem cobra, não à EstudioHK. A criação da automação e a manutenção mensal vêm na proposta.</p>
+      </div>
+      <div class="custo-grid">
+        <table class="custos">
+          <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Conta de cobrança<small>exemplo: Asaas</small></th><td data-r="Pelo quê">Cada cobrança Pix que o aluno paga. Cobrança não paga não tem taxa.</td><td data-r="Quanto"><span class="selo-c ter">Por Pix recebido</span><br><b class="preco">R$ 1,99</b><br>R$ 0,99 nos 3 primeiros meses. Sem mensalidade.</td></tr>
+            <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Aviso antes de vencer, recibo e lembretes de atraso (utilidade)</td><td data-r="Quanto"><span class="selo-c ter">Por mensagem</span><br><b class="preco">R$ 0,035</b> cada. As respostas dentro de 24 horas depois que o aluno escreve são grátis.</td></tr>
+            <tr><th scope="row">Google<small>Planilhas e Docs</small></th><td data-r="Pelo quê">Painel das mensalidades e modelo do recibo</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Na conta Google gratuita</td></tr>
+            <tr><th scope="row">IA</th><td data-r="Pelo quê">Não usa: valores e datas vêm da lista de alunos e as mensagens são fixas</td><td data-r="Quanto"><span class="selo-c gr">R$ 0</span></td></tr>
+            <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="conta" id="conta">
+          <p class="conta-t">Faça a conta da sua academia</p>
+          <div class="rng"><div class="rng-top"><label for="k-alunos">Alunos que pagam por mês</label><output for="k-alunos" id="k-o-alunos">400</output></div><input type="range" id="k-alunos" min="20" max="3000" step="10" value="400"></div>
+          <div class="rng"><div class="rng-top"><label for="k-atraso">Atrasam e recebem lembrete</label><output for="k-atraso" id="k-o-atraso">15%</output></div><input type="range" id="k-atraso" min="0" max="50" step="5" value="15"></div>
+          <div class="conta-res" aria-live="polite" aria-atomic="true">
+            <span>Custo estimado por mês</span>
+            <strong id="k-total">R$ 828,20</strong>
+            <small id="k-detalhe">Asaas R$ 796,00 + Meta R$ 32,20</small>
+          </div>
+          <p class="conta-nota" id="k-nota">Conta: R$ 1,99 por Pix recebido, 2 mensagens por aluno (aviso e recibo) e 2 lembretes para quem atrasa. Numa mensalidade de R$ 149,90, a taxa do Pix é cerca de 1,3%. Nos 3 primeiros meses no Asaas, a taxa é R$ 0,99.</p>
+        </div>
+      </div>
+      <p class="fonte">Taxas do Asaas: página oficial de preços e taxas, consultada em 5/11/2026 (<a href="https://www.asaas.com/precos-e-taxas" target="_blank" rel="noopener">asaas.com/precos-e-taxas</a>). O Asaas é só um exemplo: o banco da academia ou outra conta com Pix e API também servem, e a gente compara na proposta. Valor da Meta: tabela oficial em reais para o Brasil, mensagens de utilidade, vigente desde 1º/10/2026, consultada em 4/11/2026 (<a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página oficial de preços</a>). Lembrete de pagamento é exemplo de mensagem de utilidade na <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization" target="_blank" rel="noopener">regra de categorias da Meta</a>, desde que não tenha oferta nem propaganda.</p>
+    </div>
+  </section>
+
+  <!-- GARANTIAS -->
+  <section class="section alt" aria-labelledby="gar-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">E se…</span>
+        <h2 id="gar-title">As perguntas que importam <span class="soft">antes de automatizar cobrança.</span></h2>
+      </div>
+      <div class="garantias gar-auto gar-4">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Isso não constrange o aluno?</h3><p>O Código de Defesa do Consumidor proíbe expor quem deve ao ridículo ou fazer ameaça na cobrança (art. 42). Por isso a mensagem vai só para o aluno, em tom educado, em dia útil, sem juros inventados, com o nome, o endereço e o CNPJ da academia (art. 42-A). Depois de 2 lembretes, a automação para e a recepção conversa.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><h3>E se o aluno já pagou?</h3><p>Antes de cada lembrete, a automação confere o pagamento de novo na conta de cobrança. Se o aviso de pagamento se perder, a conferência acha o Pix, dá a baixa e manda o recibo. Teste lá em cima: "Simular aviso de pagamento que não chegou".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-pix"/></svg></span><h3>E o Pix Automático?</h3><p>É do Banco Central: o aluno autoriza uma vez e a mensalidade sai sozinha todo mês, sem tarifa para quem paga. Quem aderir não recebe o aviso com código, só o recibo. A tarifa de quem recebe depende da conta de cobrança.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>A conta de cobrança, o dinheiro, a planilha e o WhatsApp já são seus. Você recebe os fluxos exportados e eu ajudo a colocá-los para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
+      </div>
+      <p class="fonte">Código de Defesa do Consumidor (Lei 8.078/1990), arts. 42 e 42-A, <a href="https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html" target="_blank" rel="noopener">texto atualizado na Câmara</a>. Pix Automático: <a href="https://www.bcb.gov.br/estabilidadefinanceira/pix-automatico" target="_blank" rel="noopener">página oficial do Banco Central</a>. Consultados em 5/11/2026.</p>
+    </div>
+  </section>
+
+  <!-- FIM -->
+  <section class="section fim dark" aria-labelledby="fim-title">
+    <div class="wrap fim-in">
+      <div class="sh">
+        <span class="eyebrow">Para o seu negócio</span>
+        <h2 id="fim-title">Quer receber em dia <span class="soft">sem virar cobrador?</span></h2>
+        <p>Funciona para academia, escola, curso, condomínio, clínica com pacote mensal: qualquer negócio com mensalidade. A gente começa pela sua lista de alunos e pelo jeito que você cobra hoje.</p>
+      </div>
+      <div class="fim-acoes">
+        <a class="btn btn-volt btn-lg" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Cobran%C3%A7a%20sem%20constrangimento%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-dark btn-lg" href="/demos/academia/" target="_blank" rel="noopener">Ver o site da FORJA Academia</a>
+        <a class="fim-link" href="/automacoes/#demos">Ver outras automações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape-auto">
+  <div class="wrap">
+    <p>FORJA Academia, alunos, valores, CNPJ e endereço são fictícios. Nada é enviado nem cobrado nesta página, e nenhum código Pix é real. Demonstração criada pela <a href="/">EstudioHK</a>.</p>
+  </div>
+</footer>
+</body>
+</html>

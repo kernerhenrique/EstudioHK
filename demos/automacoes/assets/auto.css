@@ -461,3 +461,47 @@
 @media (prefers-reduced-motion: reduce) { .pa-assina, .drive-arv li.nova { animation: none; } }
 .bolha .bl { display: block; margin-top: 4px; }
 @media (max-width: 479px) { .pa-doc figcaption span, .drive figcaption span { display: none; } }
+
+/* ---------- cobrança sem constrangimento (demo 6): Pix, baixa, recibo e lembretes ---------- */
+.cel-cb { position: relative; }
+.ov-banco[hidden], .rc-corpo[hidden] { display: none; }
+.bolha small { display: block; margin-top: 4px; font-size: 11px; line-height: 15px; color: #5B6170; }
+.bolha .anexo { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; padding: 8px 10px; border-radius: 8px; background: #F1EFEA; font-size: 12.5px; font-weight: 600; }
+.bolha .anexo .icon { width: 20px; height: 20px; color: #B3261E; flex: none; }
+.bolha .anexo small { display: inline; margin: 0 0 0 auto; font-weight: 500; }
+.ov-banco { position: absolute; inset: 0; z-index: 4; display: flex; flex-direction: column; background: #F4F6F8; color: #14171C; animation: sobe .35s var(--ease-emph) both; }
+.ob-topo { display: flex; gap: 10px; align-items: center; padding: 14px; background: #4B2A85; color: #fff; }
+.ob-topo .icon { width: 22px; height: 22px; flex: none; }
+.ob-topo span { display: grid; line-height: 18px; }
+.ob-topo b { font-size: 15px; }
+.ob-topo b:focus { outline: none; }
+.ob-topo small { font-size: 11.5px; color: #DCD3EE; }
+.ob-corpo { flex: 1; overflow-y: auto; padding: 22px 18px; display: grid; gap: 10px; align-content: start; }
+.ob-rot { font-size: 13px; color: #555B66; }
+.ob-valor { font-size: 34px; line-height: 40px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.ob-dados { margin: 6px 0 8px; display: grid; gap: 0; border-radius: 12px; background: #fff; border: 1px solid #E1E4EA; }
+.ob-dados div { display: flex; justify-content: space-between; gap: 12px; padding: 10px 12px; border-bottom: 1px solid #E9ECF1; font-size: 13px; }
+.ob-dados div:last-child { border-bottom: 0; }
+.ob-dados dt { color: #555B66; }
+.ob-dados dd { margin: 0; text-align: right; font-weight: 600; }
+.ob-pagar { height: 48px; border: 0; border-radius: 12px; background: #4B2A85; color: #fff; font-weight: 700; font-size: 15px; cursor: pointer; }
+.ob-pagar:hover { background: #3C2070; }
+.ob-cancelar { height: 40px; border: 0; background: transparent; color: #4B2A85; font-weight: 600; font-size: 14px; cursor: pointer; }
+.ob-pagar:focus-visible, .ob-cancelar:focus-visible { outline: 2px solid #4B2A85; outline-offset: 2px; }
+.cel-cb .z-chips { flex-wrap: wrap; overflow: visible; }
+.cel-cb .z-chips button { display: inline-flex; align-items: center; gap: 6px; }
+.cel-cb .z-chips button .icon { width: 15px; height: 15px; }
+@media (min-width: 760px) { .artefatos.art-cb { grid-template-columns: 1.2fr 1fr; } }
+.art-cb .planilha table { min-width: 360px; }
+.art-cb tr.voce td { background: #F7F9E8; }
+.art-cb tr.voce td:first-child { font-weight: 700; }
+.art-cb tr.voce td:nth-child(2) { font-weight: 400; }
+.pl-total { padding: 10px 12px; font-size: 12.5px; color: var(--ink-muted); border-top: 1px solid var(--line); }
+.pl-total b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.rc-corpo { padding: 14px 16px; display: grid; gap: 8px; font-size: 12.5px; line-height: 19px; color: #1C1F26; }
+.rc-corpo h4 { margin: 0; font-size: 13px; letter-spacing: .06em; text-transform: uppercase; }
+.rc-corpo .rc-num { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-muted); }
+.rc-corpo .rc-rod { font-size: 11.5px; color: var(--ink-muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+@media (prefers-reduced-motion: reduce) { .ov-banco { animation: none; } }
+.cel-cb .notif { z-index: 5; }
+@media (max-width: 479px) { .art-cb figcaption span { display: none; } }
