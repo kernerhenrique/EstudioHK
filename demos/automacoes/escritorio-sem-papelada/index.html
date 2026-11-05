@@ -70,7 +70,7 @@
         </div>
         <dl class="ficha">
           <div><dt>Começa quando</dt><dd>o cliente novo envia o cadastro, depois da consulta</dd></div>
-          <div><dt>Usa</dt><dd>formulário, n8n, Google Drive e Docs, ferramenta de assinatura eletrônica e WhatsApp oficial</dd></div>
+          <div><dt>Usa</dt><dd>formulário, n8n, ferramenta de assinatura eletrônica (com os modelos do escritório), Google Drive e WhatsApp oficial</dd></div>
           <div><dt>Como testar</dt><dd>preencha o cadastro, aprove como advogado, assine e mande os documentos</dd></div>
         </dl>
       </header>
@@ -169,7 +169,7 @@
           <p class="gasto-l">Custo deste cliente: <b id="custo">Meta R$ 0,000 · assinatura: 0 documentos da franquia · sem IA</b></p>
           <ol class="etapas" id="etapas">
             <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Recebe o cadastro</b><p class="det">O formulário entrega os dados do cliente para o n8n.</p><p class="meta"><span class="ferr">Formulário → n8n</span><time></time></p></div></li>
-            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Preenche o contrato e a procuração</b><p class="det">Usa os modelos do escritório e coloca cada dado no lugar certo. Sem digitar, sem IA.</p><p class="meta"><span class="ferr">Google Docs → PDF</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Preenche o contrato e a procuração</b><p class="det">Usa os modelos do escritório, guardados na ferramenta de assinatura, e coloca cada dado no lugar certo. Sem digitar, sem IA.</p><p class="meta"><span class="ferr">Modelo na ferramenta de assinatura</span><time></time></p></div></li>
             <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Cria a pasta e pede o OK do advogado</b><p class="det">Nada vai para o cliente sem o advogado responsável conferir.</p><p class="meta"><span class="ferr">Google Drive</span><span class="ferr">WhatsApp da equipe</span><time></time></p></div></li>
             <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Envia para assinatura e acompanha</b><p class="det">O link chega no WhatsApp do cliente. Quando ele assina, os PDFs assinados vão para a pasta.</p><p class="meta"><span class="ferr">Ferramenta de assinatura</span><span class="ferr">WhatsApp · R$ 0,035</span><time></time></p></div></li>
             <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Pede os documentos e cobra o que falta</b><p class="det">Um por vez, pelo WhatsApp. Cada foto vai para a pasta com o nome certo. Se parar, lembra a cada 2 dias úteis.</p><p class="meta"><span class="ferr">WhatsApp</span><span class="ferr">Google Drive</span><time></time></p></div></li>
@@ -252,15 +252,15 @@
         </article>
         <article class="ferramenta">
           <span class="f-ic"><svg class="icon"><use href="#i-doc"/></svg></span>
-          <h3>Google Drive e Docs</h3>
-          <p>Guardam os modelos de contrato e procuração e as pastas dos clientes. Os modelos continuam sendo os do escritório.</p>
+          <h3>Google Drive</h3>
+          <p>Guarda a pasta de cada cliente, com o contrato, a procuração, os PDFs assinados e os documentos enviados.</p>
           <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem, se usa Google</span></dd></div><div><dt>Em nome de quem</dt><dd>Conta Google do escritório. Só a equipe tem acesso às pastas.</dd></div></dl>
         </article>
         <article class="ferramenta">
           <span class="f-ic"><svg class="icon"><use href="#i-pena"/></svg></span>
           <h3>Assinatura eletrônica</h3>
-          <p>Envia o contrato e a procuração, registra cada assinatura e devolve os PDFs assinados. Exemplos: ZapSign, Clicksign, D4Sign.</p>
-          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Plano com API</span></dd></div><div><dt>Em nome de quem</dt><dd>Conta do escritório. Se você já usa uma, a gente vê se ela tem integração.</dd></div></dl>
+          <p>Guarda os modelos do escritório, gera o contrato e a procuração preenchidos, registra cada assinatura e devolve os PDFs assinados. Exemplos: ZapSign, Clicksign.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Plano com API e modelos</span></dd></div><div><dt>Em nome de quem</dt><dd>Conta do escritório. Se você já usa uma, a gente vê se ela tem integração.</dd></div></dl>
         </article>
         <article class="ferramenta">
           <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
@@ -290,9 +290,9 @@
         <table class="custos">
           <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
           <tbody>
-            <tr><th scope="row">Assinatura eletrônica<small>exemplo: ZapSign, plano Equipe (tem API)</small></th><td data-r="Pelo quê">Contrato e procuração de cada cliente novo: 2 documentos da franquia</td><td data-r="Quanto"><span class="selo-c ter">Plano mensal</span><br><b class="preco">R$ 69,90</b> até 20 documentos<br>R$ 119,90 até 80<br>R$ 259,90 até 200</td></tr>
+            <tr><th scope="row">Assinatura eletrônica<small>exemplo: ZapSign, plano Equipe (tem API e modelos)</small></th><td data-r="Pelo quê">Contrato e procuração de cada cliente novo: 2 documentos da franquia</td><td data-r="Quanto"><span class="selo-c ter">Plano mensal</span><br><b class="preco">R$ 69,90</b> até 20 documentos<br>R$ 119,90 até 80<br>R$ 259,90 até 200</td></tr>
             <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Mensagens que o escritório inicia: link de assinatura, lista de documentos, lembretes e avisos ao advogado (utilidade)</td><td data-r="Quanto"><span class="selo-c ter">Por mensagem</span><br><b class="preco">R$ 0,035</b> cada. As respostas dentro de 24 horas depois que a pessoa escreve são grátis.</td></tr>
-            <tr><th scope="row">Google<small>Drive e Docs</small></th><td data-r="Pelo quê">Modelos, PDFs e pastas dos clientes</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Até 15 GB na conta gratuita, ou no Google Workspace que você já paga</td></tr>
+            <tr><th scope="row">Google<small>Drive</small></th><td data-r="Pelo quê">PDFs e pastas dos clientes</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Até 15 GB na conta gratuita, ou no Google Workspace que você já paga</td></tr>
             <tr><th scope="row">IA</th><td data-r="Pelo quê">Não usa: os dados entram nos campos do modelo, o texto jurídico é sempre o do escritório</td><td data-r="Quanto"><span class="selo-c gr">R$ 0</span></td></tr>
             <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
           </tbody>
@@ -322,7 +322,7 @@
       </div>
       <div class="garantias gar-auto gar-4">
         <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-pena"/></svg></span><h3>A assinatura eletrônica vale?</h3><p>A lei permite assinar a procuração digitalmente (CPC, art. 105, § 1º) e aceita assinatura eletrônica fora da ICP-Brasil quando as partes a admitem como válida (MP 2.200-2/2001, art. 10, § 2º). O tipo de assinatura de cada caso, inclusive com certificado ICP-Brasil, quem escolhe é o escritório.</p></div>
-        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-alert"/></svg></span><h3>E se a ferramenta de assinatura cair?</h3><p>Os documentos ficam salvos na pasta, a automação tenta de novo sozinha e o advogado e a EstudioHK são avisados. Teste lá em cima: "Simular ferramenta de assinatura fora do ar".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-alert"/></svg></span><h3>E se a ferramenta de assinatura cair?</h3><p>O cadastro fica salvo, a automação tenta de novo sozinha e o advogado e a EstudioHK são avisados. Teste lá em cima: "Simular ferramenta de assinatura fora do ar".</p></div>
         <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Os dados dos clientes ficam seguros?</h3><p>Ficam no Drive do escritório, com acesso só da equipe. O n8n só leva os dados de um lugar para outro e é configurado para não guardar os arquivos. O cadastro diz para que os dados serão usados, como pede a LGPD.</p></div>
         <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>As contas, os modelos e as pastas já são seus. Você recebe os fluxos exportados e eu ajudo a colocá-los para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
       </div>

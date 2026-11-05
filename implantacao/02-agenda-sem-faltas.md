@@ -11,7 +11,7 @@
 
 Serve para qualquer negócio com hora marcada: clínica, consultório, salão, barbearia, estúdio, escola.
 
-Leia antes o [00-base-comum.md](00-base-comum.md).
+Leia antes o [00-base-comum.md](00-base-comum.md). Esta automação usa as peças `KIT · Enviar WhatsApp`, `KIT · Receber WhatsApp`, `KIT · Dias úteis` e `KIT · Alerta` (base, item 4b) e a planilha Configuração (base, item 4c). WhatsApp: caminho A, número novo (base, item 3).
 
 ---
 
@@ -27,6 +27,8 @@ Leia antes o [00-base-comum.md](00-base-comum.md).
   - duração das consultas;
   - quais horários podem ser oferecidos na remarcação;
   - quanto tempo a vaga espera a resposta da lista de espera.
+
+Com essas respostas, preencha a **Configuração**: aba Negócio (nome, endereço, dias de atendimento), Pessoas (`recepcao`), Regras (`agenda.lembrete_hora: 18:00`, `agenda.lista_recepcao_hora: 08:00`, `agenda.vaga_espera_min: 60`, `agenda.opcoes_remarcar: 3`) e Feriados.
 
 ## 2. Cuidado com dado de saúde (LGPD)
 - **Dado de saúde é "dado pessoal sensível"** (LGPD, art. 5º, II), e o tratamento só pode ocorrer nas hipóteses do art. 11 (texto oficial na Câmara).
@@ -85,25 +87,25 @@ As respostas dentro da conversa são texto livre ou botões interativos. Elas sa
 ## 5. Fluxos no n8n
 
 ### Fluxo A · Lembretes às 18h
-1. **Schedule Trigger:** todo dia às 18h, só nos dias que têm atendimento no dia seguinte.
+1. **Schedule Trigger:** todo dia no horário de `agenda.lembrete_hora` (aba Regras). Só segue se amanhã for dia de atendimento (aba Negócio) e não for feriado (**KIT · Dias úteis**).
 2. **Google Calendar › Get many events:** de amanhã 00:00 a 23:59, um por calendário (ou o endpoint do sistema).
 3. **Code:** lê `whatsapp` e `aceite_whatsapp` da descrição e pula quem não tem aceite. Esses vão direto para a lista da recepção.
-4. Para cada evento: **WhatsApp Business Cloud › Send Template** `lembrete_consulta`.
-   - Variáveis: primeiro nome, nome da clínica, dia da semana, hora, endereço.
-   - Guardar o ID da mensagem com o ID do evento (planilha de controle).
-   - *Retry On Fail* ligado.
-5. Se o envio der erro na hora (número inválido): **Send Template** `lembrete_nao_entregue` para a recepção.
+4. Para cada evento: **KIT · Enviar WhatsApp** com o modelo `lembrete_consulta`.
+   - Variáveis: primeiro nome, nome da clínica (aba Negócio), dia da semana, hora, endereço.
+   - Botões com id `agenda:confirmo:<evento>` e `agenda:remarcar:<evento>`.
+   - A peça já tenta de novo e guarda o ID da mensagem na planilha de controle; aqui, guarde também o ID do evento junto.
+5. Se a peça devolver `erro` (número inválido): **KIT · Enviar WhatsApp** com `lembrete_nao_entregue` para a `recepcao` (aba Pessoas).
 
 ### Fluxo B · Respostas do paciente
-1. **WhatsApp Trigger** (evento *Messages*). Chegam as respostas e também os **status** de entrega.
-2. **Switch** pelo tipo:
-   - **Status `failed`** de um lembrete: procurar o evento pelo ID da mensagem e mandar `lembrete_nao_entregue` para a recepção.
+1. Chega pelo **KIT · Receber WhatsApp**: respostas dos botões `agenda:…` e também os **status** de entrega das mensagens que esta automação enviou.
+2. **Switch** pela ação:
+   - **Status `failed`** de um lembrete: procurar o evento pelo ID da mensagem e mandar `lembrete_nao_entregue` para a recepção (**KIT · Enviar**).
    - **Botão "Confirmo":**
      - marcar o evento como confirmado;
      - responder "Confirmado! Até amanhã às {{hora}}. Se precisar remarcar, é só responder aqui." (texto livre, dentro da janela).
    - **Botão "Preciso remarcar":**
      - buscar horários livres (Google Calendar › *Get availability* / free-busy, ou regra fixa do cliente);
-     - mandar até 3 opções como **botões interativos**, por **HTTP Request** para a Cloud API (`POST /<PHONE_NUMBER_ID>/messages`, tipo `interactive`). Para mais opções, use mensagem de lista.
+     - mandar até `agenda.opcoes_remarcar` opções como **botões interativos** pelo **KIT · Enviar WhatsApp** (texto livre, dentro da janela), com ids `agenda:horario:<data-hora>`. A peça monta o botão interativo pela Cloud API.
    - **Escolha de horário:**
      - criar o evento novo;
      - marcar o antigo como remarcado e liberar o horário;
@@ -114,19 +116,19 @@ As respostas dentro da conversa são texto livre ou botões interativos. Elas sa
 ### Fluxo C · Vaga para a lista de espera
 1. Recebe o horário que abriu (subfluxo, *Execute Workflow*).
 2. **Google Sheets › Get rows:** o primeiro da lista com status `Esperando vaga`, que pode no período (manhã/tarde) e tem aceite.
-3. **Send Template** `vaga_lista_espera`. Status `Vaga oferecida`, `oferta_em` = agora.
+3. **KIT · Enviar WhatsApp** com `vaga_lista_espera`, botões `agenda:quero:<id>` e `agenda:naoposso:<id>`. Status `Vaga oferecida`, `oferta_em` = agora.
 4. **Resposta "Quero"** (chega pelo Fluxo B):
    - criar o evento;
    - status `Encaixado`;
    - responder confirmando.
 
-   **"Não posso" ou sem resposta em X minutos** (Schedule a cada 10 min conferindo `oferta_em`): status `Não quis`, oferecer ao próximo.
+   **"Não posso" ou sem resposta em `agenda.vaga_espera_min` minutos** (Schedule a cada 10 min conferindo `oferta_em`): status `Não quis`, oferecer ao próximo.
 5. Lista vazia: nada a fazer, a vaga fica livre na agenda.
 
 ### Fluxo D · Lista da recepção às 8h
-1. **Schedule Trigger:** 8h nos dias de atendimento.
+1. **Schedule Trigger:** no horário de `agenda.lista_recepcao_hora`, nos dias de atendimento que não são feriado.
 2. Eventos de hoje que **não** estão confirmados nem remarcados.
-3. Se houver algum, **Send Template** `lista_recepcao` com "11:00 Rita S., 14:00 Paulo M.…" (horário e primeiro nome).
+3. Se houver algum, **KIT · Enviar WhatsApp** com `lista_recepcao` para a `recepcao`, com "11:00 Rita S., 14:00 Paulo M.…" (horário e primeiro nome).
 
 ## 6. Testes (antes de ligar)
 - [ ] Evento de amanhã com aceite → lembrete sai às 18h, com dia, hora e endereço **e nada de saúde**.

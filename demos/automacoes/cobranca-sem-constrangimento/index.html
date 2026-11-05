@@ -130,7 +130,7 @@
           </div>
           <p class="gasto-l">Custo deste aluno no mês: <b id="custo">Asaas R$ 0,00 · Meta R$ 0,000 · sem IA</b></p>
           <ol class="etapas" id="etapas">
-            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Gera a cobrança com Pix</b><p class="det">3 dias antes do vencimento, cria a cobrança no valor do plano, com código Pix só daquele aluno.</p><p class="meta"><span class="ferr">Asaas (API)</span><time></time></p></div></li>
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Pega a cobrança do mês</b><p class="det">O Asaas cria a cobrança de cada mês sozinho (cada aluno é uma assinatura). 3 dias antes de vencer, a automação pega o código Pix daquele aluno.</p><p class="meta"><span class="ferr">Asaas (API)</span><time></time></p></div></li>
             <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Avisa antes de vencer</b><p class="det">Mensagem curta com o botão "Copiar código Pix". Sem pressão, sem juros, sem ameaça.</p><p class="meta"><span class="ferr">WhatsApp · R$ 0,035</span><time></time></p></div></li>
             <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Dá baixa quando o Pix cai</b><p class="det">O Asaas avisa na hora. E, antes de cada lembrete, a automação confere de novo: nunca cobra quem já pagou.</p><p class="meta"><span class="ferr">Asaas → n8n</span><span class="ferr">Google Planilhas</span><time></time></p></div></li>
             <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Manda o recibo</b><p class="det">Recibo em PDF, com os dados da academia, no WhatsApp do aluno.</p><p class="meta"><span class="ferr">Google Docs → PDF</span><span class="ferr">WhatsApp</span><time></time></p></div></li>
@@ -220,7 +220,7 @@
         <article class="ferramenta">
           <span class="f-ic"><svg class="icon"><use href="#i-pix"/></svg></span>
           <h3>Conta de cobrança com Pix</h3>
-          <p>Gera o código Pix de cada aluno e avisa na hora quando o pagamento cai. Exemplo: Asaas. O banco que você já usa também serve, se tiver Pix com API.</p>
+          <p>Cria a cobrança de cada mês sozinha (assinatura), com o código Pix de cada aluno, e avisa na hora quando o pagamento cai. Exemplo: Asaas. O banco que você já usa também pode servir, se tiver Pix com API.</p>
           <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu ajudo a abrir</span></dd></div><div><dt>Em nome de quem</dt><dd>No CNPJ da academia. O dinheiro cai direto nela.</dd></div></dl>
         </article>
         <article class="ferramenta">
@@ -238,7 +238,7 @@
         <article class="ferramenta">
           <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
           <h3>n8n</h3>
-          <p>O motor: gera as cobranças, avisa, confere os pagamentos, faz a baixa, manda o recibo e os lembretes.</p>
+          <p>O motor: busca as cobranças do mês, avisa, confere os pagamentos, faz a baixa, manda o recibo e os lembretes.</p>
           <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
         </article>
       </div>

@@ -1,5 +1,5 @@
 /* Roteiro da demo "Cobrança sem constrangimento" (FORJA Academia, fictícia). Usa window.Auto (../assets/auto.js).
-   3 dias antes do vencimento: cria a cobrança Pix e avisa no WhatsApp com "Copiar código Pix".
+   O Asaas cria a cobrança de cada mês (assinatura). 3 dias antes do vencimento: pega o código Pix e avisa no WhatsApp com "Copiar código Pix".
    Pagou: baixa na planilha e recibo em PDF. Não pagou: lembrete 1 e 3 dias úteis depois; depois disso,
    para de mandar mensagem e passa para a recepção. Antes de cada lembrete confere o pagamento de novo.
    "Simular aviso de pagamento que não chegou": a conferência de hora em hora acha o Pix. Sem IA. Nada é enviado. */
@@ -73,7 +73,7 @@
     A.novidade('aba-bas');
     passa(1).then(function () {
       if (!vivo(id)) return;
-      A.etapa(1, 'feita', 'Cobrança de R$ 149,90 criada para Lucas Andrade, vencimento 12/11, com código Pix só dele.', h());
+      A.etapa(1, 'feita', 'Cobrança de novembro do Lucas Andrade (R$ 149,90, vence 12/11), criada pela assinatura no Asaas. Código Pix só dele.', h());
       A.etapa(2, 'rodando', null, h());
       return A.espera(700);
     }).then(function () {

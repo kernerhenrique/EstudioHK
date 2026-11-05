@@ -8,7 +8,7 @@
 - recusa assunto de fora;
 - quando o cliente pede, reclama ou pergunta algo que não está na ficha, **chama uma pessoa** e para de responder àquele cliente.
 
-Leia antes o [00-base-comum.md](00-base-comum.md).
+Leia antes o [00-base-comum.md](00-base-comum.md). Esta automação usa as peças `KIT · Enviar WhatsApp`, `KIT · Receber WhatsApp` e `KIT · Alerta` (base, item 4b) e a planilha Configuração (base, item 4c). WhatsApp: caminho C, parceiro com coexistência (base, item 3).
 
 ---
 
@@ -40,6 +40,8 @@ O atendente responde no **número principal**, então:
 - [ ] As **50 perguntas reais** mais comuns no WhatsApp dele: print ou exportação das conversas, sem dados de clientes. Viram o teste do item 7.
 - [ ] Quem recebe os avisos e o telefone para urgência.
 
+Com essas respostas, preencha a **Configuração**: aba Negócio (nome, telefone, horário), Pessoas (`dono`, `equipe`) e Textos (`tom`, ex.: "descontraído, sem gírias").
+
 ## 4. A ficha do negócio (Google Planilhas)
 - **Uma aba "Ficha"** com duas colunas: `item` e `o que a IA pode dizer`.
   - Uma linha por serviço: nome, preço, duração e observação.
@@ -60,55 +62,56 @@ Modelo base. Ajuste o nome e o tom de cada cliente:
 > FICHA: {{conteúdo da aba Ficha}}
 > NÃO RESPONDER: {{conteúdo da aba Não responder}}
 
-**Ferramentas (tools) que a IA pode pedir ao n8n:**
-| Ferramenta | Entrada | O que o n8n faz |
+**Ferramentas que a IA pode usar** (cada uma é ligada ao bloco AI Agent como *tool*):
+| Ferramenta | Bloco no n8n | O que faz |
 |---|---|---|
-| `ver_horarios_livres` | dia, período (manhã/tarde), profissional (opcional) | Consulta a agenda e devolve até 3 a 5 opções |
-| `marcar_horario` | dia, hora, profissional, serviço | Cria o evento, confirma e avisa o profissional |
-| `passar_para_humano` | motivo | Marca a conversa como "humano", avisa a equipe e para a IA |
+| `ver_horarios_livres` | **Google Calendar** como ferramenta (eventos do dia ou disponibilidade) | Mostra os horários ocupados do dia; a IA cruza com a duração do serviço e o horário da ficha e oferece de 3 a 5 opções |
+| `marcar_horario` | **Call n8n Workflow Tool** → Fluxo B | Confere de novo, cria o evento e avisa o profissional |
+| `passar_para_humano` | **Call n8n Workflow Tool** → Fluxo C | Marca a conversa como "humano", avisa a equipe e para a IA |
+
+Na descrição de cada ferramenta, escreva em uma frase **quando** a IA deve usá-la (o agente escolhe a ferramenta por essa descrição).
 
 **Modelo de IA:**
 - **Claude Haiku 5.5 (padrão):** rápido e barato, bom para ficha e agenda.
 - **Claude Sonnet 5.5:** só se os testes mostrarem que o Haiku erra no caso do cliente.
-- O texto do sistema e a ficha vêm primeiro e não mudam, o que permite usar **cache de prompt** e baixa o custo de entrada.
 
 ## 6. Fluxos no n8n
+Montagem com os blocos de IA que já vêm no n8n ([AI Agent](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent), [Anthropic Chat Model](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic), [Simple Memory](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow)). O agente faz sozinho o vai e volta entre a IA e as ferramentas: **não é preciso montar a chamada da API à mão**.
 
 ### Fluxo A · Mensagem recebida
-1. **WhatsApp Trigger** (evento *Messages*). Só texto e respostas de botão. Áudio e imagem: responder "por aqui eu leio só texto; se preferir, liga no {{telefone}}" (ou transcrever, em versão futura).
+1. Chega pelo **KIT · Receber WhatsApp** (texto ou resposta de botão `atendente:`). Áudio e imagem: **KIT · Enviar WhatsApp** com "por aqui eu leio só texto; se preferir, liga no {{telefone}}" (telefone da aba Negócio da Configuração).
 2. **Conversa em modo humano?** Consultar a planilha "Conversas" (`telefone`, `modo`, `ate`):
    - se `modo = humano`, **não chama a IA** e só registra a mensagem;
    - o modo volta para `ia` depois de 24 h sem mensagem do cliente, ou quando a equipe marca na planilha.
-3. **Contexto:**
-   - **Google Sheets › Get rows** da Ficha e do Não responder (guardar em cache no n8n por 5 a 10 minutos);
-   - as últimas 10 mensagens do cliente, de uma planilha ou base de dados "Mensagens". Guarde só o necessário e apague depois de 30 dias.
-4. **Chamada da IA:** **HTTP Request** para a API da Anthropic (`POST https://api.anthropic.com/v1/messages`), com:
-   - o texto do sistema (item 5) e as ferramentas;
-   - `max_tokens` baixo (500);
-   - *Retry On Fail* ligado.
+3. **Ficha:** **Google Sheets › Get rows** das abas Ficha e Não responder. Junte o texto num campo só (bloco *Aggregate* ou *Code* curto) para entrar nas instruções.
+4. **AI Agent:**
+   - **Mensagem do usuário:** o texto que chegou.
+   - **Instruções do sistema (System Message):** o texto do item 5, com a ficha, o "não responder" e o nome do negócio vindos das planilhas.
+   - **Chat Model:** **Anthropic Chat Model**, com a credencial da conta Anthropic **do cliente**; modelo Haiku 5.5; limite de tamanho da resposta baixo (cerca de 500 tokens).
+   - **Memory:** **Simple Memory**, com a chave da sessão (*Session Key*) = telefone do cliente e janela de 10 mensagens.
+   - **Tools:** as 3 ferramentas da tabela acima.
+   - *Retry On Fail* ligado no agente.
+5. **Resposta:** **KIT · Enviar WhatsApp** com texto livre (dentro da janela de 24 h, porque o cliente acabou de escrever).
+6. **Registrar** a pergunta, a resposta e a ferramenta usada na planilha "Mensagens", para a revisão semanal. Guarde só o necessário e apague depois de 30 dias.
+7. **Erro da IA** (saída de erro do agente, depois das tentativas):
+   - **KIT · Enviar WhatsApp:** "Recebemos sua mensagem! Já te respondemos por aqui.";
+   - avisar o dono (aba Pessoas) e **KIT · Alerta**.
 
-   A chave fica numa **credencial do n8n** (cabeçalho `x-api-key`), nunca no fluxo. Confira o formato da chamada na documentação oficial da Anthropic no dia da montagem.
-5. **IA pediu ferramenta?**
-   - executar (Fluxo B, C ou D), devolver o resultado e chamar a IA de novo (até 3 voltas);
-   - texto final: **WhatsApp Business Cloud › Send** (mensagem de texto, dentro da janela de 24 h).
-6. **Registrar** a pergunta, a resposta e a ferramenta usada na planilha "Mensagens", para a revisão semanal.
-7. **Erro da IA** (saída de erro depois das tentativas):
-   - mandar "Recebemos sua mensagem! Já te respondemos por aqui.";
-   - avisar o dono e a EstudioHK (fluxo de erro do guia base).
+**Ressalvas da memória simples (documentação oficial do n8n):**
+- não use o Simple Memory se o n8n rodar em **modo fila** (*queue mode*): a memória pode se perder entre os trabalhadores;
+- a memória fica no próprio n8n: se o servidor reiniciar, a conversa em andamento pode ser esquecida. A ficha, a agenda e o registro não se perdem;
+- se o cliente precisar de histórico garantido, troque por uma memória com banco de dados (o n8n tem blocos para isso, como Redis ou Postgres). É a opção avançada, não o padrão.
 
-### Fluxo B · `ver_horarios_livres`
-**Google Calendar** (disponibilidade / eventos do dia) ou o sistema do cliente. Cruzar com a duração do serviço e o horário de funcionamento da ficha. Devolver a lista curta.
-
-### Fluxo C · `marcar_horario`
+### Fluxo B · `marcar_horario` (subfluxo chamado pela ferramenta)
 1. Conferir de novo se o horário está livre, porque outro cliente pode ter marcado.
-2. **Create event:** título com o primeiro nome do cliente e o serviço, descrição com o WhatsApp.
-3. Avisar o profissional, por **Send Template** de utilidade, R$ 0,035, ou por mensagem livre se ele tiver escrito nas últimas 24 h.
-4. Devolver a confirmação para a IA escrever ao cliente.
+2. **Google Calendar › Create event:** título com o primeiro nome do cliente e o serviço, descrição com o WhatsApp.
+3. Avisar o profissional pelo **KIT · Enviar WhatsApp** (modelo de utilidade, ou texto livre se ele tiver escrito nas últimas 24 h; a peça decide).
+4. Devolver ao agente "marcado: dia, hora, profissional" (ou "ocupado", para a IA oferecer outro).
 
-### Fluxo D · `passar_para_humano`
+### Fluxo C · `passar_para_humano` (subfluxo chamado pela ferramenta)
 1. "Conversas": `modo = humano`.
-2. Aviso para o dono/equipe com o nome do cliente, o motivo e a última mensagem.
-3. Devolver à IA um texto para avisar o cliente sobre quando a equipe responde, de acordo com o horário da ficha.
+2. Aviso para o dono ou a equipe (aba Pessoas), pelo **KIT · Enviar WhatsApp**, com o nome do cliente, o motivo e a última mensagem.
+3. Devolver ao agente um texto para avisar o cliente sobre quando a equipe responde, de acordo com o horário da ficha.
 
 ## 7. Testes (antes de ligar)
 - [ ] As **50 perguntas reais**: cada resposta confere com a ficha. Anote as erradas, corrija a ficha ou as instruções e rode de novo até zerar.
@@ -119,6 +122,7 @@ Modelo base. Ajuste o nome e o tom de cada cliente:
 - [ ] Marcar horário → evento certo e aviso ao profissional. Dois clientes no mesmo horário → só um consegue.
 - [ ] Mudar um preço na ficha → a próxima resposta já usa o novo.
 - [ ] Chave da IA errada ou sem crédito → mensagem de reserva e alerta.
+- [ ] Reiniciar o n8n no meio de uma conversa → a IA pode esquecer o que foi dito, mas continua respondendo pela ficha.
 - [ ] Áudio e imagem → resposta padrão.
 - [ ] **Rodar 1 semana em "modo sombra":** a IA escreve a resposta, mas ela vai **só para o dono** aprovar. Depois, liga para os clientes.
 

@@ -10,7 +10,7 @@
 
 **Se a planilha falhar:** o n8n tenta de novo, guarda o pedido no e-mail de reserva e avisa a EstudioHK.
 
-Leia antes o [00-base-comum.md](00-base-comum.md).
+Leia antes o [00-base-comum.md](00-base-comum.md). Esta automação usa as peças `KIT · Enviar WhatsApp`, `KIT · Receber WhatsApp` e `KIT · Alerta` (base, item 4b) e a planilha Configuração (base, item 4c). WhatsApp: caminho A, número novo (base, item 3).
 
 ---
 
@@ -20,6 +20,8 @@ Leia antes o [00-base-comum.md](00-base-comum.md).
 - [ ] WhatsApp oficial montado (caminho A, B ou C do guia base) e cartão na Meta.
 - [ ] O WhatsApp **pessoal** de quem atende (recebe os avisos).
 - [ ] Horário de atendimento (para o texto da confirmação e para o lembrete não sair de madrugada).
+
+Com essas respostas, preencha a **Configuração**: aba Negócio (nome, horário), Pessoas (`atendimento`: WhatsApp de quem atende), Textos (`prazo_resposta`, ex.: "A Laís responde no mesmo dia útil") e Regras (`contato.lembrete_horas: 2`).
 
 ## 2. Formulário do site
 - **Campos:**
@@ -81,25 +83,24 @@ Sem ofertas nem promoções nos textos, para não virar Marketing.
    - normaliza o telefone para `55DDDNNNNNNNNN`;
    - gera o `id`.
 3. **Google Sheets › Append row:** grava com status `Novo`. *Retry On Fail* ligado (3 vezes, 5 s).
-   - **Saída de erro** (*On Error › Continue using error output*): vai para **Gmail › Send**, assunto `[Reserva] Novo pedido <id>`, com os dados, para o e-mail do negócio. Depois, alerta para o Henrique (ver base, item 4).
-4. **WhatsApp Business Cloud › Send Template** `aviso_novo_pedido` para quem atende, com o `id` no botão.
-5. **IF** `aceite_whatsapp = sim` → **Send Template** `confirmacao_pedido` para o cliente.
-6. **Google Sheets › Update row:** registra o envio.
+   - **Saída de erro** (*On Error › Continue using error output*): vai para **Gmail › Send**, assunto `[Reserva] Novo pedido <id>`, com os dados, para o e-mail do negócio. Depois, **KIT · Alerta**.
+4. **KIT · Enviar WhatsApp:** modelo `aviso_novo_pedido` para quem atende (telefone `atendimento` da aba Pessoas), botão com id `contato:<id>`.
+5. **KIT · Enviar WhatsApp:** modelo `confirmacao_pedido` para o cliente, com `exige_aceite = sim` (a peça confere o aceite e não envia sem ele).
+6. **Google Sheets › Update row:** registra o envio (o registro detalhado já fica na planilha de controle do kit).
 
 ### Fluxo B · Lembrete de 2 horas
-1. **Schedule Trigger** a cada 15 min, só no horário de atendimento.
-2. **Google Sheets › Get rows** com status `Novo` e `recebido_em` há mais de 2 horas e `lembrete_em` vazio.
+1. **Schedule Trigger** a cada 15 min. Lê a Configuração e só segue no horário de atendimento (aba Negócio) e em dia útil (**KIT · Dias úteis**).
+2. **Google Sheets › Get rows** com status `Novo`, `recebido_em` há mais de `contato.lembrete_horas` (aba Regras) e `lembrete_em` vazio.
 3. Para cada linha:
-   - **Send Template** `lembrete_sem_resposta` para quem atende;
+   - **KIT · Enviar WhatsApp:** modelo `lembrete_sem_resposta` para quem atende, botão `contato:<id>`;
    - **Update row:** status `Sem resposta`, `lembrete_em` preenchido.
 
 Por que um Schedule e não um "Wait" de 2 horas no Fluxo A: se o servidor reiniciar, nada se perde, e o "Já respondi" só precisa mudar a planilha.
 
 ### Fluxo C · "Já respondi"
-1. **WhatsApp Trigger** (evento *Messages*).
-2. **IF:** é a resposta do botão "Já respondi"? Pegar o `id` da mensagem ou do botão.
-3. **Google Sheets › Update row:** status `Respondido`, `respondido_em` = agora.
-4. Opcional: responder "Anotado ✓". É mensagem de atendimento, grátis até 1.000 por mês.
+1. Chega pelo **KIT · Receber WhatsApp** quando alguém toca no botão `contato:<id>`. O `id` do pedido já vem separado.
+2. **Google Sheets › Update row:** status `Respondido`, `respondido_em` = agora.
+3. Opcional: **KIT · Enviar WhatsApp** com texto livre "Anotado ✓" (dentro da janela; atendimento, grátis até 1.000 por mês).
 
 ### Fluxo D · Reserva de volta para a planilha
 - **Na prática:** uma vez por dia, quem cuida da manutenção confere o e-mail com `[Reserva]` e cola as linhas na planilha.

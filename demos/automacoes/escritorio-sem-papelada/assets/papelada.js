@@ -1,7 +1,8 @@
 /* Roteiro da demo "Escritório sem papelada" (Prates & Arruda Advogados, fictício). Usa window.Auto (../assets/auto.js).
    Cadastro → contrato e procuração preenchidos nos modelos do escritório → pasta no Drive + OK do advogado →
    link de assinatura no WhatsApp → assinatura → pede os documentos um por vez e lembra a cada 2 dias úteis.
-   "Simular ferramenta de assinatura fora do ar": falha, avisa e tenta de novo 15 min depois. Sem IA. Nada é enviado. */
+   "Simular ferramenta de assinatura fora do ar": ao gerar os documentos (os modelos ficam nela), falha, avisa e tenta
+   de novo 15 min depois. Sem IA. Nada é enviado. */
 (function () {
   'use strict';
   var A = window.Auto; if (!A) return;
@@ -167,10 +168,11 @@
   /* ---------- 1 a 3: recebe, preenche, cria a pasta e pede o OK ---------- */
   var btEqAprovar = null;
   function recebe() {
-    var id = ++S.id, d = S.d; S.fase = 'rodando';
+    var id = ++S.id, d = S.d, falha = cFalha.checked; S.fase = 'rodando';
     form.hidden = true; ok.hidden = false; papel.hidden = true; $('#pa-ok-t').focus();
     $('#pa-ok-sub').textContent = 'O ' + (d.A.tit === 'advogado' ? 'advogado' : 'a advogada') + ' confere o contrato e a procuração e eles chegam no seu WhatsApp para assinar.';
-    cFalha.disabled = false;
+    cFalha.disabled = true;
+    eqQuem.textContent = 'WhatsApp ' + (d.A.tit === 'advogado' ? 'do ' : 'da ') + d.A.adv;
     A.novidade('aba-bas');
     passa(2).then(function () {
       if (!vivo(id)) return;
@@ -179,14 +181,31 @@
       return A.espera(800);
     }).then(function () {
       if (!vivo(id)) return;
+      if (!falha) return;
+      // a ferramenta de assinatura (onde ficam os modelos) não respondeu: guarda o cadastro e tenta de novo
+      S.falhou = true;
+      A.etapa(2, 'erro', 'A ferramenta de assinatura não respondeu (3 tentativas). O cadastro está salvo. Nova tentativa em 15 minutos.', h());
+      alertaTxt.textContent = 'Ferramenta de assinatura fora do ar às ' + h() + '. Documentos de ' + d.nome + ' (' + NUM + ') em espera; nova tentativa automática em 15 min.';
+      alerta.hidden = false;
+      cobra('eq');
+      A.bolha(convEq, ['A ferramenta de assinatura está fora do ar. O cadastro de ' + primeiro(d.nome) + ' está salvo e a automação tenta gerar o contrato e a procuração de novo em 15 minutos. Você não precisa fazer nada.'], { de: 'Automação P&A', hora: h() });
+      A.anuncia('A ferramenta de assinatura está fora do ar. Nova tentativa em 15 minutos.');
+      return A.espera(1800).then(function () { if (vivo(id)) return passa(15); }).then(function () {
+        if (!vivo(id)) return;
+        A.etapa(2, 'rodando', 'Tentando de novo…', h());
+        return A.espera(700);
+      });
+    }).then(function () {
+      if (!vivo(id)) return;
       mostraDocs(d);
-      A.etapa(2, 'feita', 'Contrato e procuração preenchidos com os dados do cadastro, nos modelos do escritório, e salvos em PDF.', h());
+      S.franquia = 2; poeCusto();
+      alerta.hidden = true;
+      A.etapa(2, 'feita', 'Contrato e procuração gerados nos modelos do escritório, com os dados do cadastro, já em PDF e com o link de assinatura' + (S.falhou ? ', na nova tentativa' : '') + '.', h());
       A.etapa(3, 'rodando', null, h());
       return A.espera(700);
     }).then(function () {
       if (!vivo(id)) return;
       montaPasta(d);
-      eqQuem.textContent = 'WhatsApp ' + (d.A.tit === 'advogado' ? 'do ' : 'da ') + d.A.adv;
       cobra('eq');
       var b = A.bolha(convEq, [
         { texto: 'Cliente novo: ' + d.nome + ' · ' + d.A.curta },
@@ -204,9 +223,8 @@
   /* ---------- 4: aprova e envia para assinatura ---------- */
   function aprova() {
     if (S.fase !== 'aprovar') return;
-    var id = S.id, d = S.d, falha = cFalha.checked; S.fase = 'rodando';
+    var id = S.id, d = S.d; S.fase = 'rodando';
     btAprovar.disabled = true; if (btEqAprovar) { btEqAprovar.disabled = true; btEqAprovar.classList.add('escolhida'); }
-    cFalha.disabled = true;
     S.janEq = S.abs + 3;
     passa(3).then(function () {
       if (!vivo(id)) return;
@@ -215,29 +233,12 @@
       st('contrato', 'aprovado', 'novo'); st('proc', 'aprovado', 'novo');
       A.etapa(4, 'rodando', null, h());
       return A.espera(800);
-    }).then(function () {
-      if (!vivo(id)) return;
-      if (!falha) return enviaAssinatura(id, false);
-      S.falhou = true;
-      A.etapa(4, 'erro', 'A ferramenta de assinatura não respondeu (3 tentativas). Os PDFs estão salvos na pasta. Nova tentativa em 15 minutos.', h());
-      alertaTxt.textContent = 'Ferramenta de assinatura fora do ar às ' + h() + '. Envio de ' + d.nome + ' (' + NUM + ') em espera; nova tentativa automática em 15 min.';
-      alerta.hidden = false;
-      cobra('eq');
-      A.bolha(convEq, ['A ferramenta de assinatura está fora do ar. Os documentos de ' + primeiro(d.nome) + ' estão na pasta e a automação tenta de novo em 15 minutos. Você não precisa fazer nada.'], { de: 'Automação P&A', hora: h() });
-      A.anuncia('A ferramenta de assinatura está fora do ar. Nova tentativa em 15 minutos.');
-      return A.espera(1800).then(function () { if (vivo(id)) return passa(15); }).then(function () {
-        if (!vivo(id)) return;
-        A.etapa(4, 'rodando', 'Tentando de novo…', h());
-        return A.espera(700);
-      }).then(function () { if (vivo(id)) return enviaAssinatura(id, true); });
-    });
+    }).then(function () { if (vivo(id)) return enviaAssinatura(id); });
   }
-  function enviaAssinatura(id, segunda) {
+  function enviaAssinatura(id) {
     var d = S.d;
-    S.franquia = 2; poeCusto();
     st('contrato', 'para assinar', 'sem'); st('proc', 'para assinar', 'sem');
-    if (segunda) { alerta.hidden = true; }
-    A.etapa(4, 'espera', 'Enviado para ' + primeiro(d.nome) + ' às ' + h() + (segunda ? ', na nova tentativa' : '') + '. Esperando a assinatura.', h());
+    A.etapa(4, 'espera', 'Link de assinatura enviado para ' + primeiro(d.nome) + ' às ' + h() + '. Esperando a assinatura.', h());
     notifTxt.textContent = 'Seu contrato e sua procuração estão prontos para assinar.';
     notif.hidden = false;
     A.novidade('aba-cli');

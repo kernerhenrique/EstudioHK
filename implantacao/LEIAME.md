@@ -14,6 +14,7 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
    - contas do cliente e WhatsApp oficial;
    - modelos de mensagem;
    - n8n, testes, entrega, manutenção e saída do cliente.
+   **Monte uma vez só, no servidor da EstudioHK, o kit de peças** (base, item 4b): `KIT · Enviar WhatsApp`, `KIT · Receber WhatsApp`, `KIT · Alerta`, `KIT · Dias úteis` e `KIT · PDF de modelo`. A cada cliente, copie o kit e crie a **planilha Configuração** dele (base, item 4c): é ali que ficam nomes, telefones, horários, textos e prazos, nunca dentro dos fluxos. O caminho do WhatsApp de cada automação já está decidido (base, item 3).
 2. Abra o guia da automação vendida e siga na ordem. Cada guia tem:
    - o que o cliente precisa ter (checklist para mandar a ele);
    - a estrutura dos dados (planilha, agenda);
@@ -69,6 +70,10 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 - [Pix Automático, Banco Central](https://www.bcb.gov.br/estabilidadefinanceira/pix-automatico)
 - [Pix no WhatsApp (Payments API Brasil)](https://developers.facebook.com/documentation/business-messaging/whatsapp/payments/payments-br/overview)
 - [Código de Defesa do Consumidor, arts. 42 e 42-A, texto na Câmara](https://www2.camara.leg.br/legin/fed/lei/1990/lei-8078-11-setembro-1990-365086-normaatualizada-pl.html)
+- **n8n, blocos de IA:** [AI Agent](https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent), [Anthropic Chat Model](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.lmchatanthropic) e [Simple Memory](https://docs.n8n.io/integrations/builtin/cluster-nodes/sub-nodes/n8n-nodes-langchain.memorybufferwindow) (não usar em modo fila).
+- [n8n, HTTP Request](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest): chama a API de qualquer serviço que não tem bloco próprio.
+- [ZapSign, criar documento via modelo](https://docs.zapsign.com.br/documentos/criar-documento-via-modelo): modelo DOCX com variáveis; devolve o PDF e o link de assinatura.
+- **Asaas:** [assinaturas](https://docs.asaas.com/reference/criar-nova-assinatura), [cobrança Pix e código copia e cola](https://docs.asaas.com/docs/cobrancas-via-pix), [webhooks](https://docs.asaas.com/docs/about-webhooks) (`PAYMENT_RECEIVED`, `PAYMENT_OVERDUE`).
 - [LGPD, texto oficial na Câmara](https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html)
 
 Preços e regras mudam. Antes de cada proposta, confira de novo as páginas acima.
