@@ -207,10 +207,10 @@
     var id = S.id, d = S.d, falha = cFalha.checked; S.fase = 'rodando';
     btAprovar.disabled = true; if (btEqAprovar) { btEqAprovar.disabled = true; btEqAprovar.classList.add('escolhida'); }
     cFalha.disabled = true;
-    A.bolha(convEq, ['Aprovado.'], { dela: true, hora: h() });
-    S.janEq = S.abs;
+    S.janEq = S.abs + 3;
     passa(3).then(function () {
       if (!vivo(id)) return;
+      A.bolha(convEq, ['Aprovado.'], { dela: true, hora: h() });
       A.etapa(3, 'feita', 'Aprovado por ' + d.A.adv + ' às ' + h() + '.', h());
       st('contrato', 'aprovado', 'novo'); st('proc', 'aprovado', 'novo');
       A.etapa(4, 'rodando', null, h());
