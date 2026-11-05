@@ -164,18 +164,6 @@ img, svg { display: block; }
 .demo-foot button:hover { border-color: var(--steel); }
 .demo-foot button:disabled { opacity: .5; cursor: default; }
 
-/* ---------- faixa de ferramentas ---------- */
-.stack { border-block: 1px solid var(--noite-line); padding-block: 20px; }
-.stack-in { display: flex; align-items: center; gap: 24px; }
-.stack-label { flex: none; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--on-noite-subtle); }
-.marquee { position: relative; overflow: hidden; flex: 1; min-width: 0; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 40px; width: max-content; animation: marquee 38s linear infinite; }
-.marquee:hover ul { animation-play-state: paused; }
-.marquee li { font-size: 17px; font-weight: 500; color: var(--on-noite-muted); white-space: nowrap; display: inline-flex; align-items: center; gap: 40px; }
-.marquee li::after { content: ""; width: 5px; height: 5px; border-radius: 99px; background: var(--noite-line); }
-@keyframes marquee { to { transform: translateX(-50%); } }
-@media (max-width: 640px) { .stack-label { display: none; } }
-
 /* ---------- serviços ---------- */
 .svc-head { display: grid; gap: 20px; margin-bottom: 40px; }
 @media (min-width: 960px) { .svc-head { grid-template-columns: 1fr auto; align-items: end; } }
@@ -466,9 +454,6 @@ kbd { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-r
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0ms !important; }
   .js .rv { opacity: 1; transform: none; }
-  .marquee ul { animation: none; flex-wrap: wrap; width: auto; gap: 12px 32px; }
-  .marquee ul li[aria-hidden] { display: none; }
-  .marquee { -webkit-mask-image: none; mask-image: none; }
   .svc:hover, .cell:hover, .btn-volt:hover, .cell:hover .phone { transform: none; }
 }
 
