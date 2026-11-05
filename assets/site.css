@@ -575,17 +575,17 @@ kbd { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-r
    Sem JS: uma fileira com rolagem lateral. Com JS: cards posicionados por profundidade, o do centro na frente. */
 .carrossel { position: relative; }
 .car-palco { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 18px; }
-.svc-c { flex: none; width: min(360px, 82vw); scroll-snap-align: center; }
-.svc-c .svc-media .mock { height: 136px; }
-.svc-c .svc-body { gap: 12px; padding: 20px 22px 22px; }
-.svc-c .svc-body > p { font-size: 14.5px; line-height: 22px; }
-.svc-c .checks { gap: 8px; font-size: 14.5px; }
-.svc-c h3 { font-size: 21px; }
-.svc-c .price b { font-size: 20px; }
+.svc-c { flex: none; width: min(410px, 86vw); scroll-snap-align: center; }
+.svc-c .svc-media .mock { height: 156px; }
+.svc-c .svc-body { gap: 13px; padding: 24px 26px 26px; }
+.svc-c .svc-body > p { font-size: 15.5px; line-height: 24px; }
+.svc-c .checks { gap: 9px; font-size: 15.5px; }
+.svc-c h3 { font-size: 23px; }
+.svc-c .price b { font-size: 22px; }
 .car-ctl { display: none; }
 .js .carrossel { overflow-x: clip; padding-block: 8px 4px; }
 .js .car-palco { display: block; overflow: visible; padding: 0; height: var(--car-h, 600px); perspective: 1400px; touch-action: pan-y; }
-.js .svc-c { position: absolute; left: 50%; top: 0; margin-left: calc(min(360px, 82vw) / -2); height: var(--car-h, auto); transform-origin: 50% 50%; transition: transform .6s var(--ease-emph), opacity .6s var(--ease-emph), box-shadow .3s; will-change: transform; cursor: pointer; }
+.js .svc-c { position: absolute; left: 50%; top: 0; margin-left: calc(min(410px, 86vw) / -2); height: var(--car-h, auto); transform-origin: 50% 50%; transition: transform .6s var(--ease-emph), opacity .6s var(--ease-emph), box-shadow .3s; will-change: transform; cursor: pointer; }
 .js .svc-c.centro { cursor: auto; box-shadow: var(--shadow-lg); }
 .js .svc-c { position: absolute; }
 .js .svc-c::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: var(--bg); opacity: var(--veu, 0); transition: opacity .6s var(--ease-emph); pointer-events: none; }
