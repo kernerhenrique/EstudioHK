@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clínica Lumar · Demonstração EstudioHK</title>
-<meta name="description" content="Demonstração de landing page para clínica médica criada pela EstudioHK: convênios, especialidades com o médico responsável, consulta particular e agendamento pelo WhatsApp. Negócio fictício.">
+<meta name="description" content="Demonstração de landing page para clínica médica criada pela EstudioHK: agendamento com horários livres, especialidades com médico e valor, exames na clínica, primeira consulta, convênios e localização. Negócio fictício.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://estudiohk.com.br/demos/clinica/">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#0F3B3A">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Clínica Lumar · demonstração de landing page pela EstudioHK">
-<meta property="og:description" content="Veja como pode ficar a página da sua clínica: convênios, especialidades e agendamento pelo WhatsApp.">
+<meta property="og:description" content="Veja como pode ficar a página da sua clínica: horários livres, especialidades com valor, exames, convênios e agendamento pelo WhatsApp.">
 <meta property="og:url" content="https://estudiohk.com.br/demos/clinica/">
 <meta property="og:image" content="https://estudiohk.com.br/demos/clinica/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preload" href="assets/fonts/figtree-latin-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/capa-700.webp" imagesrcset="assets/img/capa-700.webp 700w, assets/img/capa-1100.webp 1100w" imagesizes="(min-width: 980px) 520px, 100vw">
+<link rel="preload" href="assets/fonts/newsreader-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/h-consulta-800.webp" imagesrcset="assets/img/h-consulta-800.webp 800w, assets/img/h-consulta-1400.webp 1400w" imagesizes="(min-width: 1024px) 56vw, 100vw">
 <link rel="stylesheet" href="assets/lumar.css">
 <script>document.documentElement.classList.add('js');</script>
 <script src="assets/lumar.js" defer></script>
@@ -38,12 +39,10 @@
     <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h9l3 3v15H6zM9 11h6M9 15h6"/></symbol>
     <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
     <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
-    <symbol id="i-cor" viewBox="0 0 24 24"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
-    <symbol id="i-pele" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM9 10h.01M15 14h.01M11 15h.01"/></symbol>
-    <symbol id="i-estet" viewBox="0 0 24 24"><path d="M6 3v6a4 4 0 0 0 8 0V3M10 13v3a4 4 0 0 0 8 0v-2M18 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol>
-    <symbol id="i-mulher" viewBox="0 0 24 24"><path d="M12 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 13v8M9 18h6"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-bebe" viewBox="0 0 24 24"><path d="M12 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM9.5 10h.01M14.5 10h.01M10 13.5a2.5 2.5 0 0 0 4 0"/></symbol>
-    <symbol id="i-osso" viewBox="0 0 24 24"><path d="M8 4a2 2 0 0 0-3 2 2 2 0 0 0-1 3l4 4-1 5a2 2 0 0 0 3 1 2 2 0 0 0 3 0l1-5 4-4a2 2 0 0 0-1-3 2 2 0 0 0-3-2z"/></symbol>
+    <symbol id="i-laboratorio" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M7.5 15h9"/></symbol>
   </defs>
 </svg>
 
@@ -59,149 +58,246 @@
 
 <header class="topo">
   <div class="wrap">
-    <a class="logo" href="#conteudo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#DCE8F3"/><path d="M16 8v16M8 16h16" stroke="#2C5A85" stroke-width="3.2" stroke-linecap="round"/><circle cx="23.5" cy="8.5" r="3" fill="#E8D9C4"/></svg>Clínica Lumar</a>
+    <a class="logo" href="#conteudo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#0F3B3A"/><path d="M16 9v14M9 16h14" stroke="#F4EEE5" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="8" r="3" fill="#E08A6C"/></svg><span>Clínica <b>Lumar</b></span></a>
     <nav aria-label="Principal">
       <ul class="menu">
         <li><a href="#especialidades">Especialidades</a></li>
-        <li><a href="#convenios">Convênios</a></li>
-        <li><a href="#como-agendar">Como agendar</a></li>
+        <li><a href="#exames">Exames</a></li>
+        <li><a href="#primeira-consulta">Primeira consulta</a></li>
+        <li><a href="#convenios">Convênios e valores</a></li>
         <li><a href="#equipe">Equipe</a></li>
         <li><a href="#onde">Onde estamos</a></li>
       </ul>
     </nav>
     <div class="acoes">
       <a class="tel" href="#" data-demo="Num site de verdade, este botão ligaria para a recepção da clínica."><svg class="ico" aria-hidden="true"><use href="#i-tel"/></svg>(27) 0000-0000</a>
-      <a class="btn btn-p" href="#agendar">Agendar consulta</a>
+      <a class="btn btn-p" href="#agendar">Agendar</a>
       <button class="abre-menu" type="button" aria-expanded="false" aria-controls="gaveta" aria-label="Abrir menu"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
   </div>
   <nav class="wrap gaveta" id="gaveta" aria-label="Menu">
-    <a href="#especialidades">Especialidades</a><a href="#convenios">Convênios</a><a href="#como-agendar">Como agendar</a><a href="#equipe">Equipe</a><a href="#onde">Onde estamos</a><a href="#agendar">Agendar consulta</a>
+    <a href="#especialidades">Especialidades</a><a href="#exames">Exames</a><a href="#primeira-consulta">Primeira consulta</a><a href="#convenios">Convênios e valores</a><a href="#equipe">Equipe</a><a href="#onde">Onde estamos</a><a href="#agendar">Agendar consulta</a>
   </nav>
 </header>
 
 <main id="conteudo">
   <!-- CAPA -->
-  <section class="capa branca" aria-labelledby="t-capa">
-    <div class="wrap">
-      <div>
-        <span class="selo-agenda"><i aria-hidden="true"></i>Agenda aberta nesta semana</span>
-        <h1 id="t-capa">Consulta com especialista, <em>perto de você.</em></h1>
-        <p class="apoio">Clínica geral, cardiologia, dermatologia, ginecologia, pediatria e ortopedia na Praia do Canto, em Vitória. Particular e convênios.</p>
-        <div class="botoes">
-          <a class="btn btn-p" href="#agendar">Agendar consulta <span class="seta" aria-hidden="true">→</span></a>
-          <a class="btn btn-s" href="#convenios">Consultar meu convênio</a>
+  <section class="capa" aria-labelledby="t-capa">
+    <div class="capa-in">
+      <div class="capa-txt">
+        <span class="olho olho-claro">Clínica médica · Praia do Canto, Vitória</span>
+        <h1 id="t-capa">Consultas e exames, <em>no mesmo andar.</em></h1>
+        <p class="apoio">Clínica geral, cardiologia, dermatologia, ginecologia, pediatria e ortopedia, com eletrocardiograma, ultrassom e dermatoscopia na própria clínica. Particular e convênios.</p>
+
+        <div class="horarios-livres" id="livres">
+          <p class="hl-t"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Próximos horários livres</p>
+          <div class="hl-esp" role="group" aria-label="Escolha a especialidade" id="hl-esp"></div>
+          <div class="hl-slots" id="hl-slots" aria-live="polite"></div>
+          <p class="hl-nota">Horários de demonstração. A recepção confirma pelo WhatsApp.</p>
         </div>
-        <ul class="confia">
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>6 especialidades num só lugar</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>Estacionamento no prédio</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-acess"/></svg>Acessível para cadeira de rodas</li>
-        </ul>
       </div>
-      <div class="capa-foto">
-        <div class="moldura"><img src="assets/img/capa-700.webp" srcset="assets/img/capa-700.webp 700w, assets/img/capa-1100.webp 1100w" sizes="(min-width: 980px) 520px, 100vw" width="700" height="770" alt="Médica de jaleco e óculos atendendo um paciente no consultório." fetchpriority="high"></div>
-        <div class="flutua f1" aria-hidden="true"><span class="ok-ic">✓</span><span><b>Convênios aceitos</b><small>Vida+ Saúde, Plena e mais 4</small></span></div>
-        <div class="flutua f2" aria-hidden="true"><span class="av"><img src="assets/img/d-laura-200.webp" width="200" height="200" alt=""></span><span><b>Dra. Laura Mendes</b><small>Médica · Dermatologia</small></span></div>
+      <div class="capa-foto paralaxe" data-paralaxe=".08">
+        <img src="assets/img/h-consulta-800.webp" srcset="assets/img/h-consulta-800.webp 800w, assets/img/h-consulta-1400.webp 1400w" sizes="(min-width: 1024px) 56vw, 100vw" width="1400" height="1120" alt="Médico de jaleco medindo a pressão de uma paciente no consultório." fetchpriority="high">
+        <span class="capa-selo" aria-hidden="true"><b>Sábado</b>8h às 12h</span>
       </div>
     </div>
   </section>
 
-  <!-- CONVÊNIOS (faixa) -->
-  <div class="convenios" aria-label="Convênios aceitos">
+  <!-- NÚMEROS -->
+  <div class="fatos" aria-label="A clínica em números">
     <div class="wrap">
-      <span>Convênios aceitos (nomes fictícios):</span>
-      <ul><li>Vida+ Saúde</li><li>Plena Seguros</li><li>Bem Viver Saúde</li><li>Mais Cuidado</li><li>Horizonte Saúde</li><li>Elo Saúde</li></ul>
+      <dl>
+        <div><dt>Na Praia do Canto</dt><dd class="num">desde 2014</dd></div>
+        <div><dt>Especialidades</dt><dd class="num">6</dd></div>
+        <div><dt>Convênios</dt><dd class="num">6 + particular</dd></div>
+        <div><dt>Exames na clínica</dt><dd>ECG, ultrassom e pele</dd></div>
+        <div><dt>Acessível</dt><dd>elevador e rampa</dd></div>
+      </dl>
     </div>
   </div>
 
-  <!-- VERIFICADOR -->
-  <section class="secao" id="convenios" aria-labelledby="t-conv">
-    <div class="wrap verifica">
-      <div class="revela">
-        <span class="olho">Convênios</span>
-        <h2 class="titulo" id="t-conv">Atende o meu convênio? <em>Descubra agora.</em></h2>
-        <p class="apoio">Digite o nome do seu plano. Se não atendermos, você ainda pode consultar como particular e pedir reembolso com o recibo.</p>
-      </div>
-      <div class="caixa-conv revela">
-        <div class="campo"><label for="conv">Nome do seu convênio</label><input id="conv" autocomplete="off" placeholder="Ex.: Vida+ Saúde" aria-describedby="conv-resp"></div>
-        <div class="sugestoes" id="sugestoes" aria-label="Exemplos"><button type="button">Vida+ Saúde</button><button type="button">Plena Seguros</button><button type="button">Outro plano</button></div>
-        <div class="resposta" id="conv-resp" role="status" aria-live="polite"></div>
-        <button class="btn btn-s" type="button" id="conv-agendar" style="margin-top:18px">Agendar com este convênio <span class="seta" aria-hidden="true">→</span></button>
-      </div>
-    </div>
-  </section>
-
   <!-- ESPECIALIDADES -->
-  <section class="secao branca" id="especialidades" aria-labelledby="t-esp">
+  <section class="secao" id="especialidades" aria-labelledby="t-esp">
     <div class="wrap">
-      <div class="cab revela">
-        <span class="olho">Especialidades</span>
-        <h2 class="titulo" id="t-esp">Quem vai te atender, <em>em cada especialidade.</em></h2>
-        <p class="apoio">Escolha uma especialidade para ver o que ela trata, o médico responsável, os dias de atendimento e o que levar na consulta.</p>
+      <div class="cab cab-2 revela">
+        <div><span class="olho">Especialidades</span><h2 class="titulo" id="t-esp">Quem vai te atender, <em>e quando procurar.</em></h2></div>
+        <p class="apoio">Cada especialidade tem um médico responsável, com CRM e RQE à vista, dias fixos de atendimento e valor claro para a consulta particular.</p>
       </div>
-      <div class="esp-box revela">
-        <div class="esp-lista" id="esp-lista" role="tablist" aria-label="Especialidades" aria-orientation="vertical">
-          <button type="button" role="tab" aria-controls="ficha" data-esp="clinica"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-estet"/></svg></span>Clínica geral</button>
-          <button type="button" role="tab" aria-controls="ficha" data-esp="cardiologia"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-cor"/></svg></span>Cardiologia</button>
-          <button type="button" role="tab" aria-controls="ficha" data-esp="dermatologia"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-pele"/></svg></span>Dermatologia</button>
-          <button type="button" role="tab" aria-controls="ficha" data-esp="ginecologia"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-mulher"/></svg></span>Ginecologia</button>
-          <button type="button" role="tab" aria-controls="ficha" data-esp="pediatria"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-bebe"/></svg></span>Pediatria</button>
-          <button type="button" role="tab" aria-controls="ficha" data-esp="ortopedia"><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-osso"/></svg></span>Ortopedia</button>
-        </div>
-        <div class="ficha" id="ficha" role="tabpanel" aria-live="polite">
-          <div><h3 tabindex="-1">Clínica geral</h3><p class="trata"></p></div>
-          <div class="medico"><span class="av"><img src="assets/img/d-ricardo-200.webp" width="200" height="200" loading="lazy" alt=""></span><span><b></b><span class="t"></span><span class="r"></span></span></div>
-          <dl class="fatos">
-            <div><dt>Dias de atendimento</dt><dd data-f="dias"></dd></div>
-            <div><dt>Duração da consulta</dt><dd data-f="dur"></dd></div>
-            <div style="grid-column:1/-1"><dt>O que levar</dt><dd data-f="levar"></dd></div>
-          </dl>
-          <button class="btn btn-p" type="button" data-f="agendar">Agendar</button>
-        </div>
+      <div class="esp-grade" id="esp-grade">
+        <article class="esp revela" style="--d:0ms">
+          <div class="esp-topo"><h3>Clínica geral</h3><span class="preco">Particular <b>R$ 250</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Check-up, pressão alta, diabetes, infecções do dia a dia e encaminhamento para outros especialistas quando for preciso.</p>
+          <div class="medico"><img src="assets/img/d-ricardo-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dr. Ricardo Alves</b><span>Médico · Clínica Médica</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Segunda a sexta</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>30 min</span></div>
+          <details><summary>O que levar</summary><p>Documento com foto, carteirinha do convênio, exames recentes e a lista dos remédios que você usa.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="clinica">Agendar clínica geral <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+        <article class="esp revela" style="--d:70ms">
+          <div class="esp-topo"><h3>Cardiologia</h3><span class="preco">Particular <b>R$ 320</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Pressão alta, palpitação, falta de ar ao esforço e avaliação antes de começar atividade física.</p>
+          <div class="medico"><img src="assets/img/d-paulo-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dr. Paulo Neves</b><span>Médico · Cardiologia</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Terça e quinta</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>40 min</span></div>
+          <details><summary>O que levar</summary><p>Exames do coração que você já tenha feito (eletrocardiograma, ecocardiograma) e a lista de remédios.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="cardiologia">Agendar cardiologia <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+        <article class="esp revela" style="--d:140ms">
+          <div class="esp-topo"><h3>Dermatologia</h3><span class="preco">Particular <b>R$ 300</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Manchas, acne, queda de cabelo, alergias de pele e avaliação de pintas.</p>
+          <div class="medico"><img src="assets/img/d-laura-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dra. Laura Mendes</b><span>Médica · Dermatologia</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Segunda e quarta</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>30 min</span></div>
+          <details><summary>O que levar</summary><p>Fotos de como a lesão estava antes, se tiver, e os produtos que usa na pele.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="dermatologia">Agendar dermatologia <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+        <article class="esp revela" style="--d:0ms">
+          <div class="esp-topo"><h3>Ginecologia</h3><span class="preco">Particular <b>R$ 300</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Consulta de rotina, preventivo, contracepção, sintomas da menopausa e acompanhamento da saúde da mulher.</p>
+          <div class="medico"><img src="assets/img/d-beatriz-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dra. Beatriz Souza</b><span>Médica · Ginecologia e Obstetrícia</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Terça e sexta</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>30 min</span></div>
+          <details><summary>O que levar</summary><p>Exames anteriores, como preventivo e ultrassom, e a data da última menstruação.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="ginecologia">Agendar ginecologia <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+        <article class="esp revela" style="--d:70ms">
+          <div class="esp-topo"><h3>Pediatria</h3><span class="preco">Particular <b>R$ 260</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Consultas de rotina, crescimento e desenvolvimento, febre e doenças comuns da infância, do recém-nascido aos 12 anos.</p>
+          <div class="medico"><img src="assets/img/d-camila-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dra. Camila Rocha</b><span>Médica · Pediatria</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Segunda a sábado, de manhã</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>30 min</span></div>
+          <details><summary>O que levar</summary><p>Caderneta de saúde da criança e documento do responsável.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="pediatria">Agendar pediatria <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+        <article class="esp revela" style="--d:140ms">
+          <div class="esp-topo"><h3>Ortopedia</h3><span class="preco">Particular <b>R$ 320</b></span></div>
+          <p class="quando"><b>Procure quando:</b> Dor nas costas, no joelho e no ombro, lesões do esporte e problemas nas articulações.</p>
+          <div class="medico"><img src="assets/img/d-andre-200.webp" width="200" height="200" loading="lazy" decoding="async" alt=""><span><b>Dr. André Lima</b><span>Médico · Ortopedia e Traumatologia</span><span class="nw">CRM-ES 00000 · RQE 00000</span></span></div>
+          <div class="meta"><span><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Quarta e sexta</span><span><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>30 min</span></div>
+          <details><summary>O que levar</summary><p>Exames de imagem (raio-x, ressonância) e laudos, se tiver.</p></details>
+          <a class="btn btn-s" href="#agendar" data-agendar="ortopedia">Agendar ortopedia <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a>
+        </article>
+      </div>
+      <p class="fonte-v">Valores fictícios da demonstração. O retorno em até 30 dias, para mostrar exames, não é cobrado.</p>
+    </div>
+  </section>
+
+  <!-- EXAMES -->
+  <section class="secao escura" id="exames" aria-labelledby="t-ex">
+    <div class="wrap">
+      <div class="cab cab-2 revela">
+        <div><span class="olho olho-claro">Exames na clínica</span><h2 class="titulo" id="t-ex">O exame no mesmo lugar <em>da consulta.</em></h2></div>
+        <p class="apoio">Com pedido médico, alguns exames são feitos aqui mesmo, sem marcar em outro endereço. Veja para que serve cada um e como se preparar.</p>
+      </div>
+      <div class="exames">
+        <article class="exame revela">
+          <img src="assets/img/x-ecg-480.webp" srcset="assets/img/x-ecg-480.webp 480w, assets/img/x-ecg-800.webp 800w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Traçado de eletrocardiograma no papel milimetrado.">
+          <div class="ex-txt">
+            <h3>Eletrocardiograma</h3>
+            <p>Registra a atividade elétrica do coração. Ajuda a investigar palpitação, dor no peito e a avaliar antes de começar atividade física.</p>
+            <dl><div><dt>Preparo</dt><dd>Nenhum. Evite creme no peito no dia.</dd></div><div><dt>Duração</dt><dd>Cerca de 10 minutos</dd></div></dl>
+          </div>
+        </article>
+        <article class="exame revela" style="--d:80ms">
+          <img src="assets/img/x-ultra-480.webp" srcset="assets/img/x-ultra-480.webp 480w, assets/img/x-ultra-800.webp 800w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Mãos de luva ajustando o aparelho de ultrassom.">
+          <div class="ex-txt">
+            <h3>Ultrassonografia</h3>
+            <p>Imagens do abdômen, da tireoide, das mamas e da pelve, feitas com ondas de som, sem radiação.</p>
+            <dl><div><dt>Preparo</dt><dd>Depende do exame: jejum ou bexiga cheia. A recepção envia as orientações.</dd></div><div><dt>Duração</dt><dd>20 a 30 minutos</dd></div></dl>
+          </div>
+        </article>
+        <article class="exame revela" style="--d:160ms">
+          <img src="assets/img/x-derma-480.webp" srcset="assets/img/x-derma-480.webp 480w, assets/img/x-derma-800.webp 800w" sizes="(min-width: 900px) 30vw, 100vw" width="800" height="600" loading="lazy" decoding="async" alt="Lupa sobre uma pinta na pele do pescoço.">
+          <div class="ex-txt">
+            <h3>Dermatoscopia digital</h3>
+            <p>Examina as pintas com aumento e luz especial e guarda as imagens para comparar nas próximas consultas.</p>
+            <dl><div><dt>Preparo</dt><dd>Venha sem maquiagem ou creme na região.</dd></div><div><dt>Duração</dt><dd>15 a 30 minutos</dd></div></dl>
+          </div>
+        </article>
+      </div>
+      <p class="coleta revela"><svg class="ico" aria-hidden="true"><use href="#i-laboratorio"/></svg><span><b>Exames de sangue:</b> coleta com laboratório parceiro na própria clínica, de segunda a sábado, das 7h às 10h. Equipamentos com registro na Anvisa.</span></p>
+    </div>
+  </section>
+
+  <!-- FAIXA COM PARALLAX -->
+  <section class="faixa" aria-labelledby="t-faixa">
+    <div class="faixa-foto paralaxe" data-paralaxe=".12" aria-hidden="true">
+      <img src="assets/img/f-sala-1200.webp" srcset="assets/img/f-sala-1200.webp 1200w, assets/img/f-sala-2400.webp 2400w" sizes="100vw" width="2400" height="1000" loading="lazy" decoding="async" alt="">
+    </div>
+    <div class="wrap faixa-in">
+      <h2 id="t-faixa" class="revela">Consultórios silenciosos, <em>luz natural e tempo para conversar.</em></h2>
+      <ul class="faixa-itens revela">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-acess"/></svg>Elevador, rampa e banheiro adaptado</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>Estacionamento no próprio prédio</li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-bebe"/></svg>Espaço infantil na sala de espera</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PRIMEIRA CONSULTA -->
+  <section class="secao" id="primeira-consulta" aria-labelledby="t-pc">
+    <div class="wrap pc">
+      <div class="pc-foto revela">
+        <img src="assets/img/p-consulta-540.webp" srcset="assets/img/p-consulta-540.webp 540w, assets/img/p-consulta-900.webp 900w" sizes="(min-width: 1024px) 38vw, 100vw" width="900" height="1125" loading="lazy" decoding="async" alt="Médica anotando durante a consulta, à mesa do consultório.">
+      </div>
+      <div>
+        <div class="revela"><span class="olho">Sua primeira consulta</span><h2 class="titulo" id="t-pc">Do agendamento <em>ao retorno.</em></h2></div>
+        <ol class="linha-tempo revela">
+          <li>
+            <span class="lt-n">Antes</span>
+            <ul>
+              <li>Agende pelo site ou pelo WhatsApp da recepção.</li>
+              <li>Na véspera, chega um lembrete: você confirma ou remarca com um toque.</li>
+              <li>Separe documento com foto, carteirinha, exames recentes e a lista dos remédios que usa.</li>
+            </ul>
+          </li>
+          <li>
+            <span class="lt-n">No dia</span>
+            <ul>
+              <li>Chegue 15 minutos antes. A recepção confere o convênio ou registra o particular.</li>
+              <li>A consulta dura de 30 a 40 minutos, com tempo para as suas perguntas.</li>
+            </ul>
+          </li>
+          <li>
+            <span class="lt-n">Depois</span>
+            <ul>
+              <li>Pedidos de exame e receita saem no fim da consulta.</li>
+              <li>Retorno em até 30 dias para mostrar exames, sem custo.</li>
+              <li>Na consulta particular, o recibo para pedir reembolso ao plano.</li>
+            </ul>
+          </li>
+        </ol>
+        <p class="nota-auto revela">Quer ver o lembrete da véspera funcionando? <a href="/demos/automacoes/agenda-sem-faltas/" target="_blank" rel="noopener">Veja a automação de agenda</a>.</p>
       </div>
     </div>
   </section>
 
-  <!-- COMO AGENDAR -->
-  <section class="secao" id="como-agendar" aria-labelledby="t-como">
+  <!-- CONVÊNIOS E VALORES -->
+  <section class="secao clara" id="convenios" aria-labelledby="t-conv">
     <div class="wrap">
-      <div class="cab cab-c revela"><span class="olho">Como agendar</span><h2 class="titulo" id="t-como">Três passos, <em>sem fila no telefone.</em></h2></div>
-      <ol class="passos revela">
-        <li><h3>Escolha a especialidade</h3><p>E diga se é pelo convênio ou particular.</p></li>
-        <li><h3>Envie pelo WhatsApp</h3><p>A mensagem sai pronta, com o período que você prefere.</p></li>
-        <li><h3>Receba a confirmação</h3><p>A recepção responde com o dia e o horário disponíveis.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- CONSULTA PARTICULAR -->
-  <section class="secao branca" aria-labelledby="t-part">
-    <div class="wrap">
-      <div class="cab revela"><span class="olho">Consulta particular</span><h2 class="titulo" id="t-part">Sem convênio? <em>Valor claro desde o início.</em></h2></div>
-      <div class="particular revela">
-        <div class="valor"><small>Consulta com especialista</small><b class="num">R$ 280</b><p>Valor fictício da demonstração. O retorno em até 30 dias, para mostrar exames, não é cobrado.</p></div>
-        <div class="formas">
-          <div><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-pix"/></svg></span><span><b>Pix</b><span>Na recepção, no dia da consulta.</span></span></div>
-          <div><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg></span><span><b>Cartão</b><span>Débito ou crédito em até 3 vezes.</span></span></div>
-          <div><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span><span><b>Recibo para reembolso</b><span>Entregamos o recibo para você pedir o reembolso ao seu plano.</span></span></div>
-          <div><span class="ic"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg></span><span><b>Remarcação</b><span>Sem custo, avisando até 24 horas antes.</span></span></div>
+      <div class="cab revela"><span class="olho">Convênios e valores</span><h2 class="titulo" id="t-conv">Pelo convênio <em>ou particular.</em></h2></div>
+      <div class="pagar">
+        <div class="caixa-conv revela">
+          <h3>Atende o meu convênio?</h3>
+          <div class="campo"><label for="conv">Nome do seu plano</label><input id="conv" autocomplete="off" placeholder="Ex.: Vida+ Saúde" aria-describedby="conv-resp"></div>
+          <div class="sugestoes" id="sugestoes" aria-label="Exemplos"><button type="button">Vida+ Saúde</button><button type="button">Plena Seguros</button><button type="button">Outro plano</button></div>
+          <div class="resposta" id="conv-resp" role="status" aria-live="polite"></div>
+          <button class="btn btn-s" type="button" id="conv-agendar">Agendar com este plano <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></button>
+          <p class="conv-lista"><b>Aceitos (nomes fictícios):</b> Vida+ Saúde · Plena Seguros · Bem Viver Saúde · Mais Cuidado · Horizonte Saúde · Elo Saúde</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ESTRUTURA -->
-  <section class="secao" aria-labelledby="t-est">
-    <div class="wrap">
-      <div class="cab revela"><span class="olho">Estrutura</span><h2 class="titulo" id="t-est">Um lugar calmo <em>para cuidar da saúde.</em></h2></div>
-      <div class="estrutura revela">
-        <figure><img src="assets/img/e-recepcao-700.webp" srcset="assets/img/e-recepcao-700.webp 700w, assets/img/e-recepcao-1100.webp 1100w" sizes="(min-width: 900px) 56vw, 100vw" width="700" height="525" loading="lazy" decoding="async" alt="Recepção clara, com cadeiras confortáveis e balcão de atendimento."></figure>
-        <div class="lado">
-          <figure><img src="assets/img/e-consultorio-700.webp" srcset="assets/img/e-consultorio-700.webp 700w" sizes="(min-width: 900px) 40vw, 100vw" width="700" height="525" loading="lazy" decoding="async" alt="Consultório iluminado, com mesa e maca."></figure>
-          <ul class="itens">
-            <li><svg class="ico" aria-hidden="true"><use href="#i-acess"/></svg>Elevador, rampa e banheiro adaptado.</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-car"/></svg>Estacionamento no próprio prédio.</li>
-            <li><svg class="ico" aria-hidden="true"><use href="#i-bebe"/></svg>Espaço infantil na sala de espera.</li>
+        <div class="particular revela" style="--d:80ms">
+          <h3>Consulta particular</h3>
+          <table class="valores">
+            <caption class="sr">Valor da consulta particular por especialidade</caption>
+            <tbody id="valores">
+              <tr><th scope="row">Clínica geral</th><td>R$ 250,00</td></tr>
+              <tr><th scope="row">Cardiologia</th><td>R$ 320,00</td></tr>
+              <tr><th scope="row">Dermatologia</th><td>R$ 300,00</td></tr>
+              <tr><th scope="row">Ginecologia</th><td>R$ 300,00</td></tr>
+              <tr><th scope="row">Pediatria</th><td>R$ 260,00</td></tr>
+              <tr><th scope="row">Ortopedia</th><td>R$ 320,00</td></tr>
+            </tbody>
+          </table>
+          <ul class="formas">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-pix"/></svg>Pix na recepção</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-card"/></svg>Cartão em até 3 vezes</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>Recibo para reembolso</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Remarcação sem custo até 24 h antes</li>
           </ul>
         </div>
       </div>
@@ -209,30 +305,38 @@
   </section>
 
   <!-- EQUIPE -->
-  <section class="secao branca" id="equipe" aria-labelledby="t-eq">
+  <section class="secao" id="equipe" aria-labelledby="t-eq">
     <div class="wrap">
-      <div class="cab revela"><span class="olho">Corpo clínico</span><h2 class="titulo" id="t-eq">Médicos com <em>especialidade registrada.</em></h2><p class="apoio">Todos os nomes, CRM e RQE desta página são fictícios.</p></div>
-      <div class="equipe">
-        <article class="doc revela"><div class="foto"><img src="assets/img/d-ricardo-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. Ricardo Alves, de jaleco, sorrindo."></div><div class="info"><b>Dr. Ricardo Alves</b><span>Médico · Clínica Médica</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
-        <article class="doc revela" style="--d:50ms"><div class="foto"><img src="assets/img/d-paulo-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. Paulo Neves, de jaleco, no consultório."></div><div class="info"><b>Dr. Paulo Neves</b><span>Médico · Cardiologia</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
-        <article class="doc revela" style="--d:100ms"><div class="foto"><img src="assets/img/d-laura-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Laura Mendes, de jaleco, sorrindo."></div><div class="info"><b>Dra. Laura Mendes</b><span>Médica · Dermatologia</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
-        <article class="doc revela"><div class="foto"><img src="assets/img/d-beatriz-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Beatriz Souza, de jaleco, com estetoscópio."></div><div class="info"><b>Dra. Beatriz Souza</b><span>Médica · Ginecologia e Obstetrícia</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
-        <article class="doc revela" style="--d:50ms"><div class="foto"><img src="assets/img/d-camila-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Camila Rocha, pediatra, sorrindo."></div><div class="info"><b>Dra. Camila Rocha</b><span>Médica · Pediatria</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
-        <article class="doc revela" style="--d:100ms"><div class="foto"><img src="assets/img/d-andre-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. André Lima, de jaleco, de braços cruzados."></div><div class="info"><b>Dr. André Lima</b><span>Médico · Ortopedia e Traumatologia</span><span class="reg"><span class="nw">CRM-ES 00000</span> · <span class="nw">RQE 00000</span></span></div></article>
+      <div class="cab cab-2 revela">
+        <div><span class="olho">Corpo clínico</span><h2 class="titulo" id="t-eq">Médicos com <em>especialidade registrada.</em></h2></div>
+        <p class="apoio">Nome, CRM e RQE de cada médico, como pede o Conselho Federal de Medicina. Todos os nomes e registros desta página são fictícios.</p>
       </div>
-      <p class="dt revela"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span><b>Diretor técnico:</b> Dr. Ricardo Alves · CRM-ES 00000 · RQE 00000 (fictício)</span></p>
+      <div class="equipe" id="equipe-grade">
+        <article class="doc revela" style="--d:0ms"><img src="assets/img/d-ricardo-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. Ricardo Alves, de jaleco, de braços cruzados."><div class="info"><b>Dr. Ricardo Alves</b><span>Médico · Clínica Médica</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Segunda a sexta</span></div></article>
+        <article class="doc revela" style="--d:60ms"><img src="assets/img/d-paulo-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. Paulo Neves, de jaleco, sorrindo."><div class="info"><b>Dr. Paulo Neves</b><span>Médico · Cardiologia</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Terça e quinta</span></div></article>
+        <article class="doc revela" style="--d:120ms"><img src="assets/img/d-laura-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Laura Mendes, de jaleco e óculos."><div class="info"><b>Dra. Laura Mendes</b><span>Médica · Dermatologia</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Segunda e quarta</span></div></article>
+        <article class="doc revela" style="--d:0ms"><img src="assets/img/d-beatriz-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Beatriz Souza, de jaleco, sorrindo."><div class="info"><b>Dra. Beatriz Souza</b><span>Médica · Ginecologia e Obstetrícia</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Terça e sexta</span></div></article>
+        <article class="doc revela" style="--d:60ms"><img src="assets/img/d-camila-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dra. Camila Rocha, sorrindo."><div class="info"><b>Dra. Camila Rocha</b><span>Médica · Pediatria</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Segunda a sábado, de manhã</span></div></article>
+        <article class="doc revela" style="--d:120ms"><img src="assets/img/d-andre-400.webp" width="400" height="400" loading="lazy" decoding="async" alt="Dr. André Lima, de jaleco, de braços cruzados."><div class="info"><b>Dr. André Lima</b><span>Médico · Ortopedia e Traumatologia</span><span class="reg nw">CRM-ES 00000 · RQE 00000</span><span class="dias">Quarta e sexta</span></div></article>
+      </div>
+      <p class="dt revela"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span><b>Diretor técnico:</b> Dr. Ricardo Alves · Médico · CRM-ES 00000 · RQE 00000 (fictício)</span></p>
     </div>
   </section>
 
   <!-- AGENDAR -->
-  <section class="secao" id="agendar" aria-labelledby="t-ag">
+  <section class="secao escura" id="agendar" aria-labelledby="t-ag">
     <div class="wrap ag-box">
       <div class="revela">
-        <span class="olho">Agendar consulta</span>
+        <span class="olho olho-claro">Agendar consulta</span>
         <h2 class="titulo" id="t-ag">Monte o pedido. <em>A gente confirma o horário.</em></h2>
         <p class="apoio">Preencha 4 informações e a mensagem fica pronta para o WhatsApp da recepção. Respondemos no mesmo dia, em horário comercial.</p>
+        <ul class="ag-confia">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg>Resposta no mesmo dia útil</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lembrete na véspera</li>
+        </ul>
       </div>
       <form class="form-ag revela" id="form-ag" novalidate>
+        <p class="escolhido" id="ag-escolhido" hidden></p>
         <div class="dois">
           <div class="campo"><label for="ag-esp">Especialidade</label><select id="ag-esp" required><option value="">Escolha</option></select></div>
           <div class="campo"><label for="ag-conv">Convênio ou particular</label><select id="ag-conv" required><option value="">Escolha</option><option value="particular">Particular</option></select></div>
@@ -243,25 +347,25 @@
           <label><input type="radio" name="periodo" value="qualquer horário"><span>Tanto faz</span></label>
         </div></fieldset>
         <div class="campo"><label for="ag-nome">Nome do paciente</label><input id="ag-nome" autocomplete="name" placeholder="Nome completo"></div>
-        <button class="btn btn-p" type="submit" id="ag-montar" disabled>Montar mensagem <span class="seta" aria-hidden="true">→</span></button>
+        <button class="btn btn-p" type="submit" id="ag-montar" disabled>Montar mensagem <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></button>
         <div id="ag-saida" hidden>
-          <p id="ag-saida-t" tabindex="-1" style="font-weight:600;margin-bottom:10px;outline:none">Mensagem pronta. Num site de verdade, ela abriria no WhatsApp da clínica:</p>
+          <p id="ag-saida-t" tabindex="-1" class="saida-t">Mensagem pronta. Num site de verdade, ela abriria no WhatsApp da clínica:</p>
           <div class="zap"><div class="de">Para: Clínica Lumar (WhatsApp)</div><div class="msg" id="ag-msg"></div></div>
-          <p class="aviso-demo" style="margin-top:12px">Isto é uma demonstração: nada foi enviado e nenhum dado foi guardado.</p>
-          <p class="aviso-demo" style="margin-top:8px">Quer que o paciente receba um lembrete na véspera e confirme com um toque? <a href="/demos/automacoes/agenda-sem-faltas/" target="_blank" rel="noopener">Veja a automação de agenda</a>.</p>
+          <p class="aviso-demo">Isto é uma demonstração: nada foi enviado e nenhum dado foi guardado.</p>
+          <p class="aviso-demo">Quer que o paciente receba um lembrete na véspera e confirme com um toque? <a href="/demos/automacoes/agenda-sem-faltas/" target="_blank" rel="noopener">Veja a automação de agenda</a>.</p>
         </div>
       </form>
     </div>
   </section>
 
   <!-- DÚVIDAS -->
-  <section class="secao branca duvidas" aria-labelledby="t-duv">
+  <section class="secao duvidas" aria-labelledby="t-duv">
     <div class="wrap">
       <div class="revela"><span class="olho">Dúvidas</span><h2 class="titulo" id="t-duv">Antes da <em>consulta.</em></h2></div>
       <div class="acc revela">
         <div class="acc-item aberto"><h3><button class="acc-q" type="button" aria-expanded="true" aria-controls="r1" id="p1">O que preciso levar?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r1" role="region" aria-labelledby="p1"><div><p>Documento com foto e, se for pelo convênio, a carteirinha. Leve também exames recentes e a lista dos remédios que você usa.</p></div></div></div>
-        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r2" id="p2">Como funciona o reembolso?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r2" role="region" aria-labelledby="p2"><div><p>Na consulta particular, entregamos o recibo com os dados do médico. Você envia ao seu plano, que reembolsa conforme as regras do seu contrato.</p></div></div></div>
-        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r3" id="p3">Preciso de pedido médico?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r3" role="region" aria-labelledby="p3"><div><p>Para consulta, não. Alguns convênios pedem autorização prévia para especialistas: a recepção confere isso para você ao agendar.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r2" id="p2">Como funciona o reembolso?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r2" role="region" aria-labelledby="p2"><div><p>Na consulta particular, entregamos o recibo com o nome do médico, CRM, data e valor. Você envia ao seu plano, que reembolsa conforme as regras do seu contrato.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r3" id="p3">Preciso de pedido médico?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r3" role="region" aria-labelledby="p3"><div><p>Para consulta, não. Para os exames, sim. Alguns convênios pedem autorização prévia: a recepção confere isso para você ao agendar.</p></div></div></div>
         <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r4" id="p4">Posso remarcar?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r4" role="region" aria-labelledby="p4"><div><p>Sim, sem custo, avisando pelo WhatsApp até 24 horas antes. Assim o horário volta para a agenda de outro paciente.</p></div></div></div>
         <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="r5" id="p5">Atendem crianças?<span class="mais" aria-hidden="true"></span></button></h3><div class="acc-a" id="r5" role="region" aria-labelledby="p5"><div><p>Sim, na pediatria, do recém-nascido aos 12 anos, sempre com um responsável. Traga a caderneta de saúde da criança.</p></div></div></div>
       </div>
@@ -269,7 +373,7 @@
   </section>
 
   <!-- ONDE ESTAMOS -->
-  <section class="secao" id="onde" aria-labelledby="t-onde">
+  <section class="secao clara" id="onde" aria-labelledby="t-onde">
     <div class="wrap local">
       <div class="revela">
         <span class="olho">Onde estamos</span>
@@ -287,11 +391,11 @@
       </div>
       <div class="mapa revela" aria-hidden="true">
         <svg viewBox="0 0 400 320" preserveAspectRatio="xMidYMid slice">
-          <rect width="400" height="320" fill="#E4ECF4"/>
-          <path d="M0 230 C110 210 240 260 400 220 L400 320 L0 320Z" fill="#C9DCEC"/>
-          <g stroke="#FFFFFF" stroke-width="14" fill="none" stroke-linecap="round"><path d="M-10 70 L410 110"/><path d="M90 -10 L150 330"/><path d="M-10 170 L410 160"/><path d="M290 -10 L260 240"/></g>
-          <g stroke="#F6F9FC" stroke-width="5" fill="none"><path d="M-10 125 L410 140"/><path d="M210 -10 L200 230"/></g>
-          <rect x="300" y="40" width="60" height="44" rx="6" fill="#D3E5D9"/>
+          <rect width="400" height="320" fill="#EAE1D3"/>
+          <path d="M0 230 C110 210 240 260 400 220 L400 320 L0 320Z" fill="#C9DAD4"/>
+          <g stroke="#FBF8F3" stroke-width="14" fill="none" stroke-linecap="round"><path d="M-10 70 L410 110"/><path d="M90 -10 L150 330"/><path d="M-10 170 L410 160"/><path d="M290 -10 L260 240"/></g>
+          <g stroke="#F4EEE5" stroke-width="5" fill="none"><path d="M-10 125 L410 140"/><path d="M210 -10 L200 230"/></g>
+          <rect x="300" y="40" width="60" height="44" rx="6" fill="#B9CFC4"/>
         </svg>
         <div class="pino"><b>Clínica Lumar</b><i></i></div>
         <small>Mapa ilustrativo</small>
@@ -303,19 +407,19 @@
 <footer class="rodape">
   <div class="wrap">
     <div class="topo-r">
-      <div><a class="logo" href="#conteudo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#2C5A85"/><path d="M16 8v16M8 16h16" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round"/><circle cx="23.5" cy="8.5" r="3" fill="#E8D9C4"/></svg>Clínica Lumar</a><p style="margin-top:12px;max-width:34ch">Rua Exemplo, 500, sala 301 · Praia do Canto · Vitória/ES.</p></div>
+      <div><a class="logo logo-claro" href="#conteudo"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="#F4EEE5"/><path d="M16 9v14M9 16h14" stroke="#0F3B3A" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="8" r="3" fill="#E08A6C"/></svg><span>Clínica <b>Lumar</b></span></a><p class="end">Rua Exemplo, 500, sala 301 · Praia do Canto · Vitória/ES.</p></div>
       <div><h2>Horários</h2><ul><li>Seg a sex · 7h às 19h</li><li>Sábado · 8h às 12h</li></ul></div>
-      <div><h2>Navegar</h2><ul><li><a href="#especialidades">Especialidades</a></li><li><a href="#convenios">Convênios</a></li><li><a href="#agendar">Agendar consulta</a></li></ul></div>
+      <div><h2>Navegar</h2><ul><li><a href="#especialidades">Especialidades</a></li><li><a href="#exames">Exames</a></li><li><a href="#convenios">Convênios e valores</a></li><li><a href="#agendar">Agendar consulta</a></li></ul></div>
     </div>
     <div class="regulatorio">
       <span><b>Clínica Lumar</b> · CRM-ES 0000-PJ (fictício) · CNPJ 00.000.000/0001-00 (fictício)</span>
       <span><b>Diretor técnico:</b> Dr. Ricardo Alves · Médico · CRM-ES 00000 · RQE 00000 (fictício)</span>
-      <span>Negócio, nomes e registros fictícios. Fotos: Unsplash. Página de demonstração criada pela <a href="https://estudiohk.com.br/">EstudioHK</a>.</span>
+      <span>Negócio, nomes, valores e registros fictícios. Fotos: Unsplash. Página de demonstração criada pela <a href="https://estudiohk.com.br/">EstudioHK</a>.</span>
     </div>
   </div>
 </footer>
 
-<div class="barra-m" id="barra-m" aria-hidden="true"><a class="btn btn-p" href="#agendar" tabindex="-1">Agendar consulta <span class="seta" aria-hidden="true">→</span></a></div>
+<div class="barra-m" id="barra-m" aria-hidden="true"><a class="btn btn-p" href="#agendar" tabindex="-1">Agendar consulta <svg class="ico seta" aria-hidden="true"><use href="#i-seta"/></svg></a></div>
 
 <div class="janela" id="janela" hidden>
   <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="j-titulo">
