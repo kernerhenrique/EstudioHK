@@ -1,0 +1,142 @@
+# 00 · Base comum a todas as automações
+
+Leia antes de qualquer cliente. Os guias de cada automação partem daqui.
+
+---
+
+## 1. Mapeamento (antes da proposta)
+
+Conversa de 30 a 60 minutos. Saia dela com as respostas abaixo por escrito.
+
+**O processo hoje**
+- Como a informação chega? Formulário, WhatsApp, telefone, Instagram, sistema?
+- Quem faz o quê, em qual ferramenta, e quanto tempo leva por semana?
+- Onde a informação se perde? É exatamente isso que a automação resolve.
+- Quantos casos por mês? Contatos, consultas, cobranças… Esse número entra na conta de custos.
+
+**As ferramentas que o cliente já tem**
+- Conta Google (Gmail pessoal ou Google Workspace)?
+- Sistema próprio (agenda, financeiro, CRM)? Ele tem API ou integração documentada? Peça o nome do sistema e confira a documentação **antes** de fechar.
+- **WhatsApp:** qual número usa hoje? No aplicativo WhatsApp comum ou no WhatsApp Business? Quem atende por ele? (Isso define o caminho do item 3.)
+- Tem empresa aberta (CNPJ)? A Meta pede dados da empresa para verificar a conta. Sem verificação a conta funciona, mas com limites menores.
+
+**Regras do ramo**
+- **Saúde:** dado de saúde é "dado pessoal sensível" (LGPD, art. 5º, II) e só pode ser tratado nas hipóteses do art. 11. Na prática:
+  - mensagem sem especialidade, médico ou motivo;
+  - a clínica confirma o aviso de privacidade dela.
+- **Advocacia, psicologia e outros conselhos:** conferir as regras de publicidade e sigilo do conselho antes de escrever mensagens.
+
+**Na proposta, sempre:**
+- valor da criação, fechado;
+- manutenção mensal (inclui o n8n e o acompanhamento);
+- custos de terceiros estimados (Meta, IA, parceiro), pagos pelo cliente direto a eles;
+- prazo e o que o cliente precisa providenciar (lista do item 2);
+- "E se eu parar": contas no nome do cliente, fluxos exportados e ajuda para migrar.
+
+---
+
+## 2. Contas do cliente (sempre no nome dele)
+
+Mande esta lista ao cliente logo depois do aceite:
+
+- [ ] Conta Google do negócio (de preferência um e-mail do negócio, não o pessoal do dono).
+- [ ] Portfólio empresarial na Meta (business.facebook.com) em nome do negócio, com o Henrique adicionado como **administrador**.
+- [ ] Cartão de crédito cadastrado na Meta (Billing Hub) para as mensagens do WhatsApp. Sem forma de pagamento, a Meta não entrega mensagens além da faixa grátis.
+- [ ] O número de WhatsApp que será usado (ver item 3) com acesso ao chip para receber o código.
+- [ ] Acesso de leitura e escrita aos sistemas que vão ser ligados (agenda, planilha, CRM).
+- [ ] Texto ou print do aviso de privacidade do site ou do formulário (para conferir o opt-in).
+
+O Henrique trabalha como **convidado/administrador** nas contas do cliente. Nunca crie as contas no nome da EstudioHK.
+
+---
+
+## 3. WhatsApp oficial: escolher o caminho do número
+
+**Regra da Meta (página oficial "Migrate an existing WhatsApp number", atualizada em 16/jun/2026):**
+- para usar na Cloud API um número que já está no WhatsApp, é preciso **apagar a conta do aplicativo** antes;
+- para um número do **WhatsApp Business**, a outra opção é fazer a ligação por um **parceiro que suporte a "coexistência"**.
+
+| Caminho | Como fica | Quando usar |
+|---|---|---|
+| **A. Número novo só para a automação** (recomendado para começar) | Chip novo registrado direto na Cloud API. O número atual continua no app, como sempre. | Avisos, lembretes e confirmações. O cliente continua conversando pelo número de sempre. |
+| **B. Migrar o número atual** | Apaga a conta do app e registra o número na Cloud API. **Perde o histórico** e o número **para de funcionar no aplicativo**. Para conversar à mão, precisa de uma ferramenta de atendimento ligada à API. | Só se o cliente quiser tudo num número só e aceitar uma ferramenta de atendimento. |
+| **C. Coexistência por parceiro oficial** | O número continua no app WhatsApp Business (versão 2.24.17 ou superior) e também na API. O parceiro cobra à parte. Algumas funções do app mudam, como as listas de transmissão, que viram só leitura. | O cliente faz questão do mesmo número e do aplicativo. |
+| **D. EstudioHK como Tech Provider** (futuro) | O Henrique oferece a coexistência direto pelo "Embedded Signup". Exige empresa verificada na Meta e aprovação do app (App Review) com acesso avançado a `whatsapp_business_messaging` e `whatsapp_business_management`. | Quando houver vários clientes de WhatsApp. Avaliar à parte. |
+
+No caminho C, os parceiros estão na [vitrine de parceiros da Meta](https://business.facebook.com/messaging/partner-showcase). Confira se o parceiro suporta "business app number onboarding" e qual é o preço dele.
+
+### Montar o WhatsApp oficial (caminhos A e B, direto na Meta)
+1. No portfólio do cliente, crie um **app** em developers.facebook.com, do tipo Business, e adicione o produto **WhatsApp**. Use **um app por cliente**: cada app da Meta tem um único endereço de webhook.
+2. Adicione o número em **WhatsApp Manager** e verifique por SMS ou ligação.
+3. **Registre** o número na Cloud API. A Meta só permite isso **pela API** (endpoint `/<PHONE_NUMBER_ID>/register`, com um PIN de 6 dígitos de verificação em duas etapas). Guarde o PIN no cofre de senhas da EstudioHK, numa entrada com o nome do cliente.
+4. Crie um **usuário do sistema** no portfólio, dê a ele acesso ao app e à conta do WhatsApp e gere um **token permanente**, com as permissões `whatsapp_business_messaging` e `whatsapp_business_management`. Esse token vai para a credencial do n8n.
+5. Cadastre o **cartão** do cliente (Billing Hub) e escolha **BRL** como moeda.
+6. No n8n, crie as credenciais `WhatsApp API` (para enviar) e `WhatsApp OAuth API` (para o WhatsApp Trigger receber). Siga a página de cada bloco na documentação do n8n.
+7. Mande uma mensagem de teste para o celular do Henrique.
+
+### Modelos de mensagem (templates)
+- **Mensagem que o negócio inicia só sai com modelo aprovado.** Resposta livre só dentro de 24 horas da última mensagem do cliente.
+- Crie os modelos no **WhatsApp Manager › Modelos de mensagem**, em português (pt_BR), com variáveis `{{1}}`, `{{2}}`… e um exemplo de cada variável.
+- **Categoria:** peça **Utilidade** para avisos ligados a algo que o cliente pediu (pedido, consulta, cobrança). **A Meta decide a categoria pelo conteúdo** e pode mudá-la: nada de oferta, desconto ou "aproveite" num modelo de utilidade, senão ele vira Marketing (R$ 0,3217 em vez de R$ 0,035).
+- **Botões de resposta rápida** ("Confirmo", "Já respondi") abrem a janela de 24 h quando a pessoa toca. A resposta seguinte é de atendimento: as 1.000 primeiras do mês são grátis.
+- **Crie os modelos no primeiro dia:** a aprovação depende da Meta e é o item que mais pode atrasar a entrega.
+
+### Permissão (opt-in)
+A Meta exige a permissão da pessoa antes de mandar mensagem.
+- No formulário: caixa "Aceito receber a resposta pelo WhatsApp" (não pode vir marcada).
+- Na marcação de consulta: a recepção pergunta e registra.
+- **Sem aceite registrado, não envia.** O fluxo confere esse campo antes de cada envio.
+
+---
+
+## 4. n8n (servidor da EstudioHK)
+
+- A licença do n8n permite rodar fluxos de clientes no servidor da EstudioHK. **O cliente não acessa o n8n**: ele recebe só os resultados.
+- **Organização:**
+  - um projeto, ou pasta e etiqueta, por cliente, com o nome `CLIENTE-<nome>`;
+  - credenciais com o nome do cliente no começo (`Lumar · Google`, `Lumar · WhatsApp`).
+- **Todo fluxo tem:**
+  - **Fluxo de erro:** um fluxo `ALERTA · erros` começando com **Error Trigger**, que manda WhatsApp ou e-mail para o Henrique com o nome do fluxo, o cliente e a mensagem de erro. Em cada fluxo do cliente, ligue em *Settings › Error workflow*.
+  - **Nova tentativa:** nos blocos que falam com Google ou Meta, ligar *Retry On Fail* (3 tentativas, 5 s entre elas).
+  - **Plano B:** onde perder dado é grave (pedido de cliente), usar a saída de erro do bloco (*On Error › Continue using error output*) para guardar o dado em outro lugar (e-mail de reserva).
+  - **Registro:** guardar data, hora e resultado do que foi enviado (planilha de controle ou coluna na própria planilha).
+  - **Sem dado sensível em texto livre** nos logs e nas mensagens de alerta. Use o ID da linha, não o nome e o telefone.
+- **Backup:** exportar os fluxos de cada cliente (JSON) uma vez por mês e a cada mudança. Guardar com data.
+- **Saída do cliente:** entregar os JSON dos fluxos, a lista de credenciais que ele precisa recriar e uma hora de ajuda para colocar no n8n ou servidor dele.
+
+---
+
+## 5. Testes antes de ligar
+
+1. **Teste de mesa:** rodar cada caminho com dados falsos e o celular do Henrique como destinatário:
+   - caminho feliz;
+   - pessoa sem aceite;
+   - número inválido;
+   - planilha ou agenda fora (tirar a permissão por 1 minuto);
+   - resposta fora da janela de 24 h.
+2. **Teste com o cliente:** o dono testa no próprio celular, com a demo do site aberta ao lado para comparar.
+3. **Rodar junto** com o jeito antigo por 3 a 7 dias. A recepção continua fazendo o processo à mão e compara com o que a automação fez.
+4. Só então **desligar o processo manual**.
+
+---
+
+## 6. Entrega ao cliente
+
+- Um documento de 1 página, com prints:
+  - o que a automação faz;
+  - o que muda para a equipe;
+  - o que fazer quando receber cada aviso;
+  - quem chamar se algo parecer errado.
+- 30 minutos de treinamento com quem usa no dia a dia.
+- Os textos dos modelos aprovados e onde ficam as planilhas.
+- A estimativa de custo mensal na Meta (conta do guia) e onde ver a fatura (Billing Hub).
+
+## 7. Manutenção mensal (o que entra)
+- Olhar alertas e execuções com erro toda semana.
+- Conferir uma vez por mês:
+  - a qualidade do número no WhatsApp Manager;
+  - a fatura da Meta;
+  - se algum modelo foi recategorizado.
+- Ajustes pequenos de texto e de horário.
+- Exportar os fluxos (backup).
+- Mudanças de processo maiores são orçadas à parte.
