@@ -32,6 +32,7 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 | 2 | Agenda sem faltas | [demo](https://estudiohk.com.br/demos/automacoes/agenda-sem-faltas/) | [02-agenda-sem-faltas.md](02-agenda-sem-faltas.md) |
 | 3 | Atendente com IA no WhatsApp | [demo](https://estudiohk.com.br/demos/automacoes/atendente-whatsapp/) | [03-atendente-whatsapp-ia.md](03-atendente-whatsapp-ia.md) |
 | 4 | Relatório da semana | [demo](https://estudiohk.com.br/demos/automacoes/relatorio-semanal/) | [04-relatorio-semanal.md](04-relatorio-semanal.md) |
+| 5 | Escritório sem papelada | [demo](https://estudiohk.com.br/demos/automacoes/escritorio-sem-papelada/) | [05-escritorio-sem-papelada.md](05-escritorio-sem-papelada.md) |
 
 ## Regra
 **Toda automação nova que entrar no site ganha o seu guia aqui, no mesmo dia.**
@@ -59,6 +60,10 @@ Esta pasta **não vai para o ar** (está no `.vercelignore`).
 - [Política de mensagens do WhatsApp Business](https://business.whatsapp.com/policy): automação com escalonamento para uma pessoa, opt-in e penalidades.
 - [Meta Business Agent e preços de atendimento](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages)
 - [Preços da API do Claude (Anthropic)](https://platform.claude.com/docs/en/about-claude/pricing): Haiku 5.5 a US$ 0,10 / US$ 0,50 e Sonnet 5.5 a US$ 2 / US$ 10 por milhão de tokens.
+- [Planos da ZapSign](https://zapsign.com.br/planos-pre%C3%A7os): exemplo de ferramenta de assinatura com API (plano Equipe).
+- [Armazenamento grátis do Google (15 GB)](https://support.google.com/drive/answer/6374270?hl=pt-br)
+- [CPC, art. 105 (procuração assinada digitalmente), texto na Câmara](https://www2.camara.leg.br/legin/fed/lei/2015/lei-13105-16-marco-2015-780273-normaatualizada-pl.html)
+- [MP 2.200-2/2001, art. 10 (documento e assinatura eletrônica), texto na Câmara](https://www2.camara.leg.br/legin/fed/medpro/2001/medidaprovisoria-2200-2-24-agosto-2001-391394-publicacaooriginal-1-pe.html)
 - [LGPD, texto oficial na Câmara](https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html)
 
 Preços e regras mudam. Antes de cada proposta, confira de novo as páginas acima.

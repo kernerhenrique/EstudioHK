@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escritório sem papelada · Demonstração de automação EstudioHK</title>
+<meta name="description" content="Demonstração de automação criada pela EstudioHK: o cliente novo preenche o cadastro e recebe o contrato de honorários e a procuração já preenchidos para assinar no celular. A pasta é criada no Drive e os documentos que faltam são cobrados sozinhos. Com ferramentas e custos.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/automacoes/escritorio-sem-papelada/">
+<meta name="theme-color" content="#0B1222">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Escritório sem papelada · demonstração de automação pela EstudioHK">
+<meta property="og:description" content="Cadastro, contrato e procuração preenchidos, assinatura no celular, pasta no Drive e cobrança dos documentos que faltam. Com ferramentas e custos.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/automacoes/escritorio-sem-papelada/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/automacoes/escritorio-sem-papelada/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="../assets/auto.css">
+<script>document.documentElement.classList.add('js');</script>
+<script src="../assets/auto.js" defer></script>
+<script src="assets/papelada.js" defer></script>
+</head>
+<body class="auto-pg">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4h4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-form" viewBox="0 0 24 24"><path d="M4 3h16v18H4zM8 8h8M8 12h8M8 16h5"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6zM14 2v6h6M9 13h8M9 17h6"/></symbol>
+    <symbol id="i-pasta" viewBox="0 0 24 24"><path d="M3 6h7l2 2h9v11H3z"/></symbol>
+    <symbol id="i-pena" viewBox="0 0 24 24"><path d="M4 20c4-1 7-3 10-6l6-6-4-4-6 6c-3 3-5 6-6 10zM4 20l5-5M14 4l6 6"/></symbol>
+    <symbol id="i-foto" viewBox="0 0 24 24"><path d="M3 7h4l2-3h6l2 3h4v13H3zM12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 1 0 0-18zM12 7v5l3 2"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 5l8 7-8 7zM14 5l8 7-8 7z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8.2 8 9 4.6-.8 8-4.5 8-9V6l-8-3zM9 12l2 2 4-4"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><path d="M8 8h12v12H8zM16 8V4H4v12h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7"/></symbol>
+  </defs>
+</svg>
+
+<div class="aviso-demo" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><a class="marca" href="/" aria-label="EstudioHK, início">Estudio<b>HK</b><i aria-hidden="true"></i></a><span class="texto-longo">Demonstração de automação. </span>Tudo simulado: nada é enviado.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="/automacoes/#demos">Ver outras automações</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Escrit%C3%B3rio%20sem%20papelada%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação →</a>
+    </nav>
+  </div>
+</div>
+
+<main id="conteudo">
+  <!-- TOPO + SIMULAÇÃO -->
+  <section class="sim-sec dark" aria-labelledby="titulo">
+    <div class="wrap">
+      <header class="sim-topo">
+        <div class="sim-intro">
+          <span class="eyebrow">Automação · Prates &amp; Arruda Advogados, escritório fictício</span>
+          <h1 id="titulo">Escritório sem papelada.</h1>
+          <p class="lead">O cliente novo preenche um cadastro e recebe no celular o contrato e a procuração já preenchidos para assinar. A pasta se monta sozinha no Drive e os documentos que faltam são cobrados sem ninguém ficar lembrando.</p>
+        </div>
+        <dl class="ficha">
+          <div><dt>Começa quando</dt><dd>o cliente novo envia o cadastro, depois da consulta</dd></div>
+          <div><dt>Usa</dt><dd>formulário, n8n, Google Drive e Docs, ferramenta de assinatura eletrônica e WhatsApp oficial</dd></div>
+          <div><dt>Como testar</dt><dd>preencha o cadastro, aprove como advogado, assine e mande os documentos</dd></div>
+        </dl>
+      </header>
+
+      <div class="sim" id="sim">
+        <div class="abas" role="tablist" aria-label="Lados da simulação">
+          <button type="button" role="tab" id="aba-cli" aria-controls="lado-cli" aria-selected="true">O que o cliente vê<span class="ponto" hidden></span></button>
+          <button type="button" role="tab" id="aba-bas" aria-controls="lado-bas" aria-selected="false" tabindex="-1">Bastidores<span class="ponto" hidden></span></button>
+        </div>
+
+        <!-- LADO DO CLIENTE -->
+        <div class="lado lado-cli" id="lado-cli" role="tabpanel" aria-labelledby="aba-cli">
+          <p class="lado-t">O que o cliente vê <span id="lado-cli-sub">no link do cadastro, pelo celular</span></p>
+          <div class="cel">
+            <div class="cel-tela cel-pa">
+              <!-- tela 1: cadastro -->
+              <div class="pa-site" id="pa-site">
+                <div class="pa-topo"><span class="pa-logo">Prates <i>&amp;</i> Arruda<small>Advogados</small></span></div>
+                <form class="t-form pa-form" id="pa-form" novalidate>
+                  <p class="t-h">Cadastro de cliente</p>
+                  <p class="t-sub">Com estes dados o escritório prepara o contrato e a procuração. Leva uns 3 minutos.</p>
+                  <button type="button" class="t-exemplo" id="pa-exemplo">Preencher com um exemplo</button>
+                  <fieldset class="t-campo"><legend>Área do seu caso</legend>
+                    <div class="t-pilulas">
+                      <label><input type="radio" name="area" value="trabalhista"><span>Trabalhista</span></label>
+                      <label><input type="radio" name="area" value="familia"><span>Família</span></label>
+                      <label><input type="radio" name="area" value="empresarial"><span>Empresarial</span></label>
+                    </div>
+                  </fieldset>
+                  <div class="t-campo"><label for="pa-nome">Nome completo</label><input id="pa-nome" autocomplete="off"></div>
+                  <div class="pa-dupla">
+                    <div class="t-campo"><label for="pa-cpf">CPF</label><input id="pa-cpf" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00"></div>
+                    <div class="t-campo"><label for="pa-civil">Estado civil</label><select id="pa-civil"><option value="">Escolha</option><option>solteiro(a)</option><option>casado(a)</option><option>em união estável</option><option>divorciado(a)</option><option>viúvo(a)</option></select></div>
+                  </div>
+                  <div class="t-campo"><label for="pa-prof">Profissão</label><input id="pa-prof" autocomplete="off"></div>
+                  <div class="t-campo"><label for="pa-end">Endereço completo</label><input id="pa-end" autocomplete="off" placeholder="Rua, número, bairro, cidade/UF"></div>
+                  <div class="pa-empresa" id="pa-empresa" hidden>
+                    <div class="t-campo"><label for="pa-emp">Nome da empresa</label><input id="pa-emp" autocomplete="off"></div>
+                    <div class="t-campo"><label for="pa-cnpj">CNPJ</label><input id="pa-cnpj" inputmode="numeric" autocomplete="off" placeholder="00.000.000/0000-00"></div>
+                  </div>
+                  <div class="t-campo"><label for="pa-assunto">Em poucas palavras, o assunto</label><input id="pa-assunto" autocomplete="off"></div>
+                  <div class="t-campo"><label for="pa-email">E-mail</label><input id="pa-email" type="email" autocomplete="off"></div>
+                  <div class="t-campo"><label for="pa-zap">WhatsApp</label><input id="pa-zap" inputmode="tel" autocomplete="off" placeholder="(27) 90000-0000"></div>
+                  <label class="t-aceite"><input type="checkbox" id="pa-aceite"><span>Autorizo o uso destes dados para preparar meu contrato e minha procuração e para receber mensagens do escritório sobre este atendimento pelo WhatsApp.</span></label>
+                  <p class="t-erro" id="pa-erro" role="alert"></p>
+                  <button type="submit" class="t-enviar" id="pa-enviar">Enviar cadastro</button>
+                </form>
+                <div class="t-ok pa-ok" id="pa-ok" hidden>
+                  <span class="t-ok-ic" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>
+                  <p class="t-h" tabindex="-1" id="pa-ok-t">Cadastro recebido.</p>
+                  <p class="t-sub" id="pa-ok-sub">O advogado confere o contrato e a procuração e eles chegam no seu WhatsApp para assinar.</p>
+                  <div class="pa-papel" id="pa-papel">
+                    <p>Na vida real, o advogado aprova pelo WhatsApp dele. Aqui, faça o papel dele:</p>
+                    <button type="button" class="t-enviar" id="pa-aprovar">Aprovar como advogado</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- tela 2: WhatsApp do cliente -->
+              <div class="pa-chat cel-zap" id="pa-chat" hidden>
+                <div class="z-topo"><span class="z-av z-av-of z-av-pa" aria-hidden="true">P&amp;A</span><span><b>Prates &amp; Arruda</b><small>conta comercial</small></span></div>
+                <div class="conversa z-conversa" id="conv-cli" role="log" aria-label="Conversa do escritório com o cliente"></div>
+                <div class="z-compor" id="pa-compor" hidden>
+                  <div class="z-chips" id="pa-chips" role="group" aria-label="Ações do cliente"></div>
+                </div>
+              </div>
+
+              <!-- ferramenta de assinatura (abre por cima) -->
+              <div class="pa-assina" id="pa-assina" role="dialog" aria-modal="false" aria-labelledby="pa-assina-t" hidden>
+                <div class="pa-as-topo"><svg class="icon"><use href="#i-pena"/></svg><span><b id="pa-assina-t">Assinatura eletrônica</b><small>ferramenta de assinatura · ambiente seguro</small></span></div>
+                <div class="pa-as-corpo">
+                  <p class="pa-as-de">Prates &amp; Arruda Advogados pediu a sua assinatura em 2 documentos:</p>
+                  <ul class="pa-as-docs"><li><svg class="icon"><use href="#i-doc"/></svg>Contrato de honorários</li><li><svg class="icon"><use href="#i-doc"/></svg>Procuração</li></ul>
+                  <div class="pa-as-prev" id="pa-as-prev" tabindex="0" role="region" aria-label="Prévia da procuração"></div>
+                  <label class="t-aceite"><input type="checkbox" id="pa-li"><span>Li os 2 documentos e concordo em assinar eletronicamente.</span></label>
+                  <p class="t-erro" id="pa-as-erro" role="alert"></p>
+                  <button type="button" class="t-enviar" id="pa-assinar">Assinar os 2 documentos</button>
+                </div>
+              </div>
+
+              <div class="notif" id="notif-cli" hidden>
+                <span class="notif-app"><svg class="icon"><use href="#i-msg"/></svg>WhatsApp · agora</span>
+                <b>Prates &amp; Arruda</b>
+                <span id="notif-cli-txt"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BASTIDORES -->
+        <div class="lado lado-bas" id="lado-bas" role="tabpanel" aria-labelledby="aba-bas">
+          <div class="bas-topo">
+            <p class="lado-t">Bastidores <span>o que a automação faz sozinha</span></p>
+            <span class="relogio" role="img" aria-label="Horário da simulação"><svg class="icon"><use href="#i-clock"/></svg><span id="relogio">ter, 10:10</span></span>
+          </div>
+          <p class="gasto-l">Custo deste cliente: <b id="custo">Meta R$ 0,000 · assinatura: 0 documentos da franquia · sem IA</b></p>
+          <ol class="etapas" id="etapas">
+            <li data-e="1"><span class="st" aria-hidden="true"></span><div><b>Recebe o cadastro</b><p class="det">O formulário entrega os dados do cliente para o n8n.</p><p class="meta"><span class="ferr">Formulário → n8n</span><time></time></p></div></li>
+            <li data-e="2"><span class="st" aria-hidden="true"></span><div><b>Preenche o contrato e a procuração</b><p class="det">Usa os modelos do escritório e coloca cada dado no lugar certo. Sem digitar, sem IA.</p><p class="meta"><span class="ferr">Google Docs → PDF</span><time></time></p></div></li>
+            <li data-e="3"><span class="st" aria-hidden="true"></span><div><b>Cria a pasta e pede o OK do advogado</b><p class="det">Nada vai para o cliente sem o advogado responsável conferir.</p><p class="meta"><span class="ferr">Google Drive</span><span class="ferr">WhatsApp da equipe</span><time></time></p></div></li>
+            <li data-e="4"><span class="st" aria-hidden="true"></span><div><b>Envia para assinatura e acompanha</b><p class="det">O link chega no WhatsApp do cliente. Quando ele assina, os PDFs assinados vão para a pasta.</p><p class="meta"><span class="ferr">Ferramenta de assinatura</span><span class="ferr">WhatsApp · R$ 0,035</span><time></time></p></div></li>
+            <li data-e="5"><span class="st" aria-hidden="true"></span><div><b>Pede os documentos e cobra o que falta</b><p class="det">Um por vez, pelo WhatsApp. Cada foto vai para a pasta com o nome certo. Se parar, lembra a cada 2 dias úteis.</p><p class="meta"><span class="ferr">WhatsApp</span><span class="ferr">Google Drive</span><time></time></p></div></li>
+          </ol>
+
+          <div class="artefatos art-pa">
+            <figure class="pa-doc" id="doc">
+              <figcaption><svg class="icon"><use href="#i-doc"/></svg>Documento preenchido <span>modelo do escritório</span></figcaption>
+              <div class="doc-abas" role="tablist" aria-label="Documentos gerados" id="doc-abas" hidden>
+                <button type="button" role="tab" id="doc-t-contrato" aria-controls="doc-contrato" aria-selected="true">Contrato</button>
+                <button type="button" role="tab" id="doc-t-proc" aria-controls="doc-proc" aria-selected="false" tabindex="-1">Procuração</button>
+              </div>
+              <div class="doc-corpo">
+                <p class="er-vazio" id="doc-vazio">O contrato e a procuração aparecem aqui, preenchidos, quando o cadastro chegar.</p>
+                <div class="doc-pag" id="doc-contrato" role="tabpanel" aria-labelledby="doc-t-contrato" tabindex="0" hidden></div>
+                <div class="doc-pag" id="doc-proc" role="tabpanel" aria-labelledby="doc-t-proc" tabindex="0" hidden></div>
+              </div>
+              <p class="doc-leg" id="doc-leg" hidden><mark>Marcado</mark>: o que a automação preencheu. O resto é o texto do modelo do escritório.</p>
+            </figure>
+            <div class="art-col">
+              <figure class="drive" id="drive">
+                <figcaption><svg class="icon"><use href="#i-pasta"/></svg>Pasta do cliente <span>Google Drive do escritório</span></figcaption>
+                <p class="er-vazio" id="drive-vazio">A pasta aparece aqui quando o cadastro chegar.</p>
+                <ul class="drive-arv" id="drive-arv" hidden></ul>
+              </figure>
+              <figure class="equipe" id="equipe">
+                <figcaption><svg class="icon"><use href="#i-msg"/></svg><b class="eq-quem" id="eq-quem">WhatsApp do advogado</b><span>equipe</span></figcaption>
+                <div class="conversa" id="conv-equipe" role="log" aria-label="Mensagens da automação para o advogado"><p class="vazio">Os avisos para o advogado aparecem aqui.</p></div>
+              </figure>
+            </div>
+          </div>
+
+          <div class="alerta-hk" id="alerta-hk" hidden>
+            <svg class="icon"><use href="#i-alert"/></svg>
+            <div><b>Alerta para a EstudioHK</b><p id="alerta-txt"></p></div>
+          </div>
+
+          <div class="controles" id="controles">
+            <button type="button" class="ctl ctl-p" id="c-pular" disabled><svg class="icon"><use href="#i-skip"/></svg>Pular 2 dias úteis</button>
+            <button type="button" class="ctl" id="c-recomecar"><svg class="icon"><use href="#i-redo"/></svg>Recomeçar</button>
+            <label class="ctl chave"><input type="checkbox" id="c-falha"><span>Simular ferramenta de assinatura fora do ar</span></label>
+          </div>
+          <p class="sr" id="anuncio" aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sem-js">A simulação precisa de JavaScript ligado. Abaixo estão as etapas, as ferramentas e os custos.</p></noscript>
+    </div>
+  </section>
+
+  <!-- O QUE DEIXA DE SER FEITO NA MÃO -->
+  <section class="section" aria-labelledby="mao-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">O que deixa de ser feito na mão</span>
+        <h2 id="mao-title">Do cadastro à pasta completa, <span class="soft">sem copiar e colar.</span></h2>
+      </div>
+      <ul class="mao">
+        <li><b>Copiar dados para o contrato e a procuração</b><p>Nome, CPF, endereço e assunto entram sozinhos nos modelos do escritório. Acaba o CPF digitado errado.</p></li>
+        <li><b>Imprimir, colher assinatura e escanear</b><p>O cliente assina pelo celular. Os PDFs assinados e o registro da assinatura vão direto para a pasta.</p></li>
+        <li><b>Criar pasta e renomear arquivos</b><p>Toda pasta nasce igual, com número do cliente e nomes padrão. Qualquer pessoa da equipe acha tudo.</p></li>
+        <li><b>Cobrar documento por documento</b><p>A automação pede um por vez e lembra sozinha. O advogado só é chamado quando precisa.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FERRAMENTAS -->
+  <section class="section alt" id="ferramentas" aria-labelledby="ferr-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Ferramentas que essa automação usa</span>
+        <h2 id="ferr-title">O que você precisa ter <span class="soft">e em nome de quem fica.</span></h2>
+        <p>Todas as contas ficam no nome do escritório. O que ainda não existir, eu ajudo a criar.</p>
+      </div>
+      <div class="ferramentas">
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-form"/></svg></span>
+          <h3>Formulário de cadastro</h3>
+          <p>Uma página com o seu visual, no seu site ou num link próprio, que o escritório manda depois da consulta.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu faço</span></dd></div><div><dt>Em nome de quem</dt><dd>No seu site ou na sua conta. Os dados vão direto para a automação.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-doc"/></svg></span>
+          <h3>Google Drive e Docs</h3>
+          <p>Guardam os modelos de contrato e procuração e as pastas dos clientes. Os modelos continuam sendo os do escritório.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem ja">Já tem, se usa Google</span></dd></div><div><dt>Em nome de quem</dt><dd>Conta Google do escritório. Só a equipe tem acesso às pastas.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-pena"/></svg></span>
+          <h3>Assinatura eletrônica</h3>
+          <p>Envia o contrato e a procuração, registra cada assinatura e devolve os PDFs assinados. Exemplos: ZapSign, Clicksign, D4Sign.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Plano com API</span></dd></div><div><dt>Em nome de quem</dt><dd>Conta do escritório. Se você já usa uma, a gente vê se ela tem integração.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-msg"/></svg></span>
+          <h3>WhatsApp oficial</h3>
+          <p>Manda o link de assinatura, pede os documentos, recebe as fotos e avisa o advogado. É a plataforma oficial da Meta.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem criar">Eu ajudo a criar</span></dd></div><div><dt>Em nome de quem</dt><dd>Seu número, na sua conta da Meta. Pode ser um número só para documentos, ou o número de sempre, ligado por um parceiro oficial da Meta.</dd></div></dl>
+        </article>
+        <article class="ferramenta">
+          <span class="f-ic"><svg class="icon"><use href="#i-zap"/></svg></span>
+          <h3>n8n</h3>
+          <p>O motor: preenche os modelos, cria a pasta, envia para assinatura, recebe as fotos e cobra o que falta.</p>
+          <dl><div><dt>Você precisa ter?</dt><dd><span class="tem hk">A EstudioHK cuida</span></dd></div><div><dt>Em nome de quem</dt><dd>Roda no servidor da EstudioHK. Está incluso na manutenção mensal da automação.</dd></div></dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOS DE TERCEIROS -->
+  <section class="section" id="custos" aria-labelledby="custos-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">Custos de terceiros</span>
+        <h2 id="custos-title">Quanto você paga <span class="soft">a cada um, por mês.</span></h2>
+        <p>Esses valores você paga direto a quem cobra, não à EstudioHK. A criação da automação e a manutenção mensal vêm na proposta.</p>
+      </div>
+      <div class="custo-grid">
+        <table class="custos">
+          <thead><tr><th scope="col">Quem cobra</th><th scope="col">Pelo quê</th><th scope="col">Quanto</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Assinatura eletrônica<small>exemplo: ZapSign, plano Equipe (tem API)</small></th><td data-r="Pelo quê">Contrato e procuração de cada cliente novo: 2 documentos da franquia</td><td data-r="Quanto"><span class="selo-c ter">Plano mensal</span><br><b class="preco">R$ 69,90</b> até 20 documentos<br>R$ 119,90 até 80<br>R$ 259,90 até 200</td></tr>
+            <tr><th scope="row">Meta<small>WhatsApp oficial</small></th><td data-r="Pelo quê">Mensagens que o escritório inicia: link de assinatura, lista de documentos, lembretes e avisos ao advogado (utilidade)</td><td data-r="Quanto"><span class="selo-c ter">Por mensagem</span><br><b class="preco">R$ 0,035</b> cada. As respostas dentro de 24 horas depois que a pessoa escreve são grátis.</td></tr>
+            <tr><th scope="row">Google<small>Drive e Docs</small></th><td data-r="Pelo quê">Modelos, PDFs e pastas dos clientes</td><td data-r="Quanto"><span class="selo-c gr">Grátis</span><br>Até 15 GB na conta gratuita, ou no Google Workspace que você já paga</td></tr>
+            <tr><th scope="row">IA</th><td data-r="Pelo quê">Não usa: os dados entram nos campos do modelo, o texto jurídico é sempre o do escritório</td><td data-r="Quanto"><span class="selo-c gr">R$ 0</span></td></tr>
+            <tr><th scope="row">n8n<small>servidor da automação</small></th><td data-r="Pelo quê">Rodar o fluxo</td><td data-r="Quanto"><span class="selo-c inc">Incluso</span><br>Na manutenção mensal da EstudioHK. Não é custo de terceiro.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="conta" id="conta">
+          <p class="conta-t">Faça a conta do seu escritório</p>
+          <div class="rng"><div class="rng-top"><label for="k-clientes">Clientes novos por mês</label><output for="k-clientes" id="k-o-clientes">10</output></div><input type="range" id="k-clientes" min="1" max="120" step="1" value="10"></div>
+          <div class="conta-res" aria-live="polite" aria-atomic="true">
+            <span>Custo estimado por mês</span>
+            <strong id="k-total">R$ 71,30</strong>
+            <small id="k-detalhe">Assinatura R$ 69,90 (20 documentos) + Meta R$ 1,40</small>
+          </div>
+          <p class="conta-nota">Conta com 2 documentos por cliente (contrato e procuração) e até 4 mensagens pagas por cliente. No plano anual à vista, o plano de 20 documentos sai por R$ 49,90 por mês. O plano mais barato da ZapSign não tem API, por isso não serve para a automação.</p>
+        </div>
+      </div>
+      <p class="fonte">Preços da ZapSign: página oficial de planos, em reais, consultada em 5/11/2026 (<a href="https://zapsign.com.br/planos-pre%C3%A7os" target="_blank" rel="noopener">zapsign.com.br/planos-preços</a>). A ZapSign é só um exemplo: outras ferramentas com API servem e a gente compara na proposta. Valor da Meta: tabela oficial em reais para o Brasil, mensagens de utilidade, vigente desde 1º/10/2026, consultada em 4/11/2026 (<a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" target="_blank" rel="noopener">página oficial de preços</a>). Google: 15 GB por conta pessoal (<a href="https://support.google.com/drive/answer/6374270?hl=pt-br" target="_blank" rel="noopener">ajuda oficial do Google</a>).</p>
+    </div>
+  </section>
+
+  <!-- GARANTIAS -->
+  <section class="section alt" aria-labelledby="gar-title">
+    <div class="wrap">
+      <div class="sh">
+        <span class="eyebrow">E se…</span>
+        <h2 id="gar-title">As perguntas que um escritório faz <span class="soft">antes de automatizar.</span></h2>
+      </div>
+      <div class="garantias gar-auto gar-4">
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-pena"/></svg></span><h3>A assinatura eletrônica vale?</h3><p>A lei permite assinar a procuração digitalmente (CPC, art. 105, § 1º) e aceita assinatura eletrônica fora da ICP-Brasil quando as partes a admitem como válida (MP 2.200-2/2001, art. 10, § 2º). O tipo de assinatura de cada caso, inclusive com certificado ICP-Brasil, quem escolhe é o escritório.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-alert"/></svg></span><h3>E se a ferramenta de assinatura cair?</h3><p>Os documentos ficam salvos na pasta, a automação tenta de novo sozinha e o advogado e a EstudioHK são avisados. Teste lá em cima: "Simular ferramenta de assinatura fora do ar".</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Os dados dos clientes ficam seguros?</h3><p>Ficam no Drive do escritório, com acesso só da equipe. O n8n só leva os dados de um lugar para outro e é configurado para não guardar os arquivos. O cadastro diz para que os dados serão usados, como pede a LGPD.</p></div>
+        <div class="garantia"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>E se eu parar de trabalhar com a EstudioHK?</h3><p>As contas, os modelos e as pastas já são seus. Você recebe os fluxos exportados e eu ajudo a colocá-los para rodar no seu próprio n8n ou servidor. Nada fica preso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIM -->
+  <section class="section fim dark" aria-labelledby="fim-title">
+    <div class="wrap fim-in">
+      <div class="sh">
+        <span class="eyebrow">Para o seu escritório</span>
+        <h2 id="fim-title">Quer que o cliente novo <span class="soft">chegue com a pasta pronta?</span></h2>
+        <p>Funciona para escritório de advocacia, contabilidade, imobiliária, despachante: qualquer negócio que começa com cadastro, contrato e documentos. A gente começa pelos seus modelos e pela lista de documentos de cada área.</p>
+      </div>
+      <div class="fim-acoes">
+        <a class="btn btn-volt btn-lg" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20de%20automa%C3%A7%C3%A3o%20%22Escrit%C3%B3rio%20sem%20papelada%22%20e%20quero%20algo%20assim%20no%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Quero essa automação <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost-dark btn-lg" href="/demos/advocacia/" target="_blank" rel="noopener">Ver o site da Prates &amp; Arruda</a>
+        <a class="fim-link" href="/automacoes/#demos">Ver outras automações</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape-auto">
+  <div class="wrap">
+    <p>Prates &amp; Arruda Advogados, clientes, CPFs, registros na OAB e endereços são fictícios. Os textos do contrato e da procuração são só ilustração, não são modelos para uso. Nada é enviado nesta página. Demonstração criada pela <a href="/">EstudioHK</a>.</p>
+  </div>
+</footer>
+</body>
+</html>
