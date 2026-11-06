@@ -208,7 +208,7 @@
       { alvo: function () { return novoP && $('#p-' + novoP.n); }, tela: 'pedidos', tit: 'Chegou na hora', txt: 'O pedido caiu no quadro e na cozinha, sem ninguém anotar. Toque em "Preparando" para a cozinha começar.', espera: 'uau:move', faz: function () { C.move(novoP, 'preparando'); document.dispatchEvent(new CustomEvent('uau:move')); } },
       { alvo: function () { return $('#celular .aparelho'); }, cel: 'qr', tit: 'O cliente acompanha', txt: 'No celular, o cliente já vê "Preparando". Ninguém precisa chamar o garçom para perguntar se vai demorar.' },
       { alvo: function () { return $('#alertas'); }, tela: 'pedidos', tit: 'Avisa antes do problema', txt: 'O sistema mostra o que precisa de atenção: pedido atrasado, mesa pedindo a conta, salgado que vai acabar antes do almoço.' },
-      { alvo: function () { return $('#devolve'); }, tela: 'caixa', tit: 'O que importa para o dono', txt: 'Quanto o sistema devolve em tempo e dinheiro. Troque pelos números do seu negócio. Depois explore à vontade: novos pedidos continuam chegando sozinhos.' }
+      { alvo: function () { return $('#devolve'); }, tela: 'caixa', tit: 'O que importa para o dono', txt: 'Quanto o sistema devolve em tempo e dinheiro. Troque pelos números do seu negócio. Depois explore à vontade: novos pedidos continuam chegando sozinhos. Lembrando: esta é uma prévia das funcionalidades, não o sistema final. O seu é feito sob medida.' }
     ];
     function posiciona() {
       if (!passeio.ativo) return; var p = PASSOS[passeio.i], el = p.alvo();

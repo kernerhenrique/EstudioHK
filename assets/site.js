@@ -334,7 +334,8 @@
   var form = $('#brief'), bubble = $('#bubble'), wa = $('#wa'), toast = $('#toast');
   var updateBrief = function () {};
   if (form) (function () {
-  var ORIGEM = { sites: 'a página de sites', automacoes: 'a página de automações' }[pagina];
+  var ORIGEM = { sites: 'a página de sites', automacoes: 'a página de automações', sistemas: 'a página de sistemas' }[pagina];
+  if (pagina === 'sistemas') $$('input[name=what]', form).forEach(function (i) { i.checked = i.id === 'w3'; });
   if (pagina === 'automacoes') $$('input[name=what]', form).forEach(function (i) { i.checked = i.id === 'w4'; });
   if (!WHATSAPP_NUMBER) {
     $('#wa-label').textContent = 'Enviar por e-mail';
@@ -406,6 +407,9 @@
     { t: 'Automações', i: 'i-zap', u: '/automacoes/' },
     { t: 'Demonstrações de automação', i: 'i-zap', u: '/automacoes/#demos' },
     { t: 'Calculadora de economia', i: 'i-calc', u: '/automacoes/#calculadora' },
+    { t: 'Sistemas sob medida', i: 'i-grid', u: '/sistemas/' },
+    { t: 'Experimentar um sistema', i: 'i-play', u: '/sistemas/#experimente' },
+    { t: 'Prévias de sistemas', i: 'i-grid', u: '/sistemas/#demos' },
     { t: 'Ferramentas e custos', i: 'i-plug', u: '/automacoes/#custos' },
     { t: 'Como funciona', i: 'i-steps', a: function () { go('#processo'); } },
     { t: 'Dúvidas', i: 'i-help', a: function () { go('#faq'); } },
