@@ -6,15 +6,24 @@
   var anima = document.documentElement.classList.contains('anima');
 
   /* ---------- da fachada para dentro: a sala se abre num círculo a partir da janela ---------- */
-  var dentro = $('section.dentro'), interior = $('#interior'), caixa = $('.zoom-caixa');
+  var dentro = $('section.dentro'), moldura = $('#interior'), caixa = $('.zoom-caixa');
   if (anima && dentro) {
-    var abre = function (p) {
-      var w = caixa.clientWidth, h = caixa.clientHeight, bw = Math.min(w, h * 600 / 760);
-      var cx = (w - bw) / 2 + .441 * bw, cy = (h - bw * 760 / 600) / 2 + .366 * (bw * 760 / 600);
-      var q = Math.max(0, Math.min(1, (p - .38) / .14)), raio = q * Math.hypot(Math.max(cx, w - cx), Math.max(cy, h - cy)) * 1.05;
-      interior.style.clipPath = 'circle(' + raio.toFixed(1) + 'px at ' + cx.toFixed(1) + 'px ' + cy.toFixed(1) + 'px)';
+    // geometria medida só ao carregar e ao redimensionar: ponto da janela do 12º andar em relação à moldura
+    var geo = null, ultimo = 0;
+    var mede = function () {
+      var c = caixa.getBoundingClientRect(), m = moldura.getBoundingClientRect(), w = c.width, h = c.height;
+      var bw = Math.min(w, h * 600 / 760), bh = bw * 760 / 600;
+      var jx = c.left + (w - bw) / 2 + .441 * bw, jy = c.top + (h - bh) / 2 + .366 * bh;   // a janela fica parada durante o zoom (é a origem)
+      var x = jx - m.left, y = jy - m.top;
+      geo = { x: x, y: y, r: Math.hypot(Math.max(x, m.width - x), Math.max(y, m.height - y)) };
     };
-    dentro.addEventListener('cena:progresso', function (e) { abre(e.detail.p); });
+    var abre = function (p) {
+      if (!geo) mede();
+      var q = Math.max(0, Math.min(1, (p - .32) / .12)), e = 1 - Math.pow(1 - q, 3);
+      moldura.style.clipPath = 'circle(' + (e * geo.r).toFixed(1) + 'px at ' + geo.x.toFixed(1) + 'px ' + geo.y.toFixed(1) + 'px)';
+    };
+    dentro.addEventListener('cena:progresso', function (ev) { ultimo = ev.detail.p; abre(ultimo); });
+    addEventListener('resize', function () { geo = null; abre(ultimo); });
     abre(0);
   }
 

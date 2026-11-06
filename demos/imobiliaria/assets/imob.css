@@ -81,39 +81,40 @@ small { font-size: 13px; color: var(--cinza); }
 .capa-predio small { display: block; text-align: center; margin-top: 8px; }
 @media (max-width: 959px) { .capa-predio svg { max-height: 56svh; } .numeros { gap: 0 20px; } .numeros dd { font-size: 20px; } }
 
-/* de fora para dentro (cena presa) */
+/* de fora para dentro (cena presa): o prédio aproxima, o fundo escurece e a sala abre numa moldura */
 .dentro .palco { background: var(--grafite); color: #F1EDE3; }
 .cena-dentro { position: relative; height: calc(100svh - var(--topo)); overflow: hidden; }
 .zoom-caixa { position: absolute; inset: 0; display: grid; place-items: center; }
 .zoom { width: min(100%, calc((100svh - var(--topo)) * 600 / 760)); aspect-ratio: 600 / 760; transform-origin: 44.1% 36.6%; }
 .zoom svg { width: 100%; height: 100%; }
-.marca-alvo { position: absolute; top: 14%; left: 50%; margin-left: -90px; width: 180px; text-align: center; }
-.marca-alvo > span { display: inline-block; background: var(--latao); color: var(--grafite); font: 700 13px/1 var(--t); padding: 9px 14px; }
-.interior { position: absolute; inset: 0; clip-path: circle(0px at 50% 40%); }
-.foto-int { position: absolute; inset: 0; overflow: hidden; background: #2E3430; }
+.escurece { position: absolute; inset: 0; background: #151917; }
+.topo-dentro { position: absolute; z-index: 3; top: 0; left: 0; right: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 24px; padding: 18px max(var(--g), env(safe-area-inset-left, 0px)); background: linear-gradient(rgba(21,25,23,.85), rgba(21,25,23,0)); }
+.topo-dentro h2 { font-size: clamp(22px, 2.4vw, 30px); }
+.moldura-caixa { position: absolute; z-index: 2; left: 0; right: 0; top: 92px; bottom: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding-inline: max(var(--g), 16px); }
+.moldura { position: relative; width: min(960px, 100%, calc((100svh - var(--topo) - 200px) * 16 / 9)); aspect-ratio: 16 / 9; overflow: hidden; background: #2E3430; box-shadow: 0 30px 80px rgba(0,0,0,.5); clip-path: circle(0px at 50% 50%); }
+.foto-int { position: absolute; inset: 0; margin: 0; }
 .foto-int img { width: 100%; height: 100%; object-fit: cover; }
-.f-sala > div { width: 122%; height: 100%; }
-.rotulos { position: absolute; right: max(var(--g), 20px); bottom: 28px; width: min(360px, 80vw); height: 60px; }
-.rot { position: absolute; right: 0; bottom: 0; }
-.rot > span, .rot { white-space: nowrap; }
-.rot b { font-weight: 700; }
-.rot > span, .rot:not(:has(> span)) { display: inline-block; background: rgba(31,36,33,.82); color: #F1EDE3; padding: 12px 16px; font-size: 15px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.legenda-dentro { position: absolute; left: max(var(--g), env(safe-area-inset-left, 0px)); top: 24px; z-index: 3; max-width: 380px; background: rgba(31,36,33,.82); padding: 18px 20px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
-.legenda-dentro h2 { font-size: clamp(24px, 2.6vw, 32px); }
-.legenda-dentro small { display: block; color: #C9C4B8; margin-top: 10px; font-size: 12px; }
-.etapas { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.rotulos { position: relative; height: 26px; width: min(960px, 100%); }
+.rot { position: absolute; left: 0; top: 0; white-space: nowrap; font-size: 16px; color: #F1EDE3; }
+.rot b { font-weight: 700; color: #E2C691; }
+.ilustra { color: #A9A397; font-size: 12px; width: min(960px, 100%); }
+.etapas { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .etapas li { font: 700 12px/1 var(--t); padding: 7px 10px; border: 1px solid rgba(241,237,227,.3); color: #C9C4B8; transition: background-color .3s, color .3s; }
 .etapas li.feita { color: #F1EDE3; border-color: rgba(241,237,227,.6); }
 .etapas li.ativa { background: var(--latao); border-color: var(--latao); color: var(--grafite); }
-@media (max-width: 700px) { .legenda-dentro { right: max(var(--g), 16px); max-width: none; padding: 14px 16px; } .legenda-dentro small { display: none; } .rotulos { bottom: 18px; } .rot > span, .rot:not(:has(> span)) { font-size: 13px; padding: 10px 12px; } }
+@media (max-width: 700px) {
+  .topo-dentro { padding-block: 14px; } .topo-dentro h2 { font-size: 20px; }
+  .moldura-caixa { top: 110px; }
+  .moldura { aspect-ratio: 4 / 3; width: min(100%, calc((100svh - var(--topo) - 240px) * 4 / 3)); }
+  .rot { font-size: 14px; } .rotulos { width: 100%; }
+}
 /* sem animação: tudo em sequência */
-html:not(.anima) .cena-dentro { height: auto; overflow: visible; display: grid; gap: 16px; padding: 24px var(--g) 40px; }
-html:not(.anima) .zoom-caixa, html:not(.anima) .interior, html:not(.anima) .foto-int, html:not(.anima) .legenda-dentro { position: static; }
-html:not(.anima) .zoom { height: auto; width: min(420px, 100%); }
-html:not(.anima) .interior { clip-path: none; display: grid; gap: 12px; }
-html:not(.anima) .foto-int { aspect-ratio: 16 / 9; }
-html:not(.anima) .f-sala > div { width: 100%; }
-html:not(.anima) .rotulos, html:not(.anima) .marca-alvo { display: none; }
+html:not(.anima) .cena-dentro { height: auto; overflow: visible; display: grid; gap: 18px; padding-block: 24px 40px; }
+html:not(.anima) .zoom-caixa, html:not(.anima) .topo-dentro, html:not(.anima) .moldura-caixa, html:not(.anima) .foto-int { position: static; }
+html:not(.anima) .escurece, html:not(.anima) .rotulos { display: none; }
+html:not(.anima) .zoom { width: min(420px, 90%); }
+html:not(.anima) .moldura { clip-path: none; aspect-ratio: auto; display: grid; gap: 12px; background: none; box-shadow: none; }
+html:not(.anima) .foto-int img { aspect-ratio: 16 / 9; height: auto; }
 
 /* plantas (cena presa) */
 .plantas .palco { background: var(--concreto-2); }
