@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quadro de pedidos · Coadouro · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de sistema criada pela EstudioHK: quadro de pedidos e encomendas de uma cafeteria fictícia, com etapas, total do dia, o que separar para amanhã e aviso de pedido pronto pelo WhatsApp.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/sistemas/pedidos/">
+<meta name="theme-color" content="#2B1A12">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Quadro de pedidos · demonstração de sistema pela EstudioHK">
+<meta property="og:description" content="Pedidos em etapas, total do dia, encomendas de amanhã e aviso de pedido pronto pelo WhatsApp. Teste à vontade: é uma demonstração.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/sistemas/pedidos/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/sistemas/pedidos/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/demos/cafeteria/assets/favicon.svg">
+<link rel="preload" href="/demos/cafeteria/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/demos/cafeteria/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/sis.css">
+<link rel="stylesheet" href="assets/pedidos.css">
+<script src="../assets/sis.js" defer></script>
+<script src="assets/pedidos.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-quadro" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-volta" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="logo-c" viewBox="0 0 34 34"><circle cx="17" cy="17" r="17" fill="#F2EADF"/><path d="M9.5 11.5h15l-5.6 12.5h-3.8z" fill="#2B1A12"/><path d="M8 11.5h18M26 11.5h2.6" stroke="#D9622A" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="27.6" r="1.7" fill="#D9622A"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração de sistema: </span>negócio fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/sistemas/#demos">Ver outros sistemas</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20quadro%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu do sistema">
+    <a class="logo" href="#quadro"><svg aria-hidden="true"><use href="#logo-c"/></svg><span>Coadouro<small>Pedidos</small></span></a>
+    <nav aria-label="Telas">
+      <ul class="vistas">
+        <li><button class="vista" type="button" data-vista="quadro"><svg class="ico" aria-hidden="true"><use href="#i-quadro"/></svg><span>Hoje<span class="sr"> (pedidos em aberto:</span></span><span class="num" id="n-hoje"></span><span class="sr">)</span></button></li>
+        <li><button class="vista" type="button" data-vista="amanha"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span>Amanhã<span class="sr"> (encomendas:</span></span><span class="num" id="n-amanha"></span><span class="sr">)</span></button></li>
+        <li><button class="vista" type="button" data-vista="cardapio"><svg class="ico" aria-hidden="true"><use href="#i-lista"/></svg><span>Cardápio</span></button></li>
+      </ul>
+    </nav>
+    <div class="quem"><span class="av" aria-hidden="true">J</span><span><b>Júlia</b>Balcão · manhã</span></div>
+  </aside>
+
+  <main class="area" id="conteudo">
+    <div class="topo-app">
+      <span class="logo-mob"><svg aria-hidden="true"><use href="#logo-c"/></svg>Coadouro · Pedidos</span>
+      <div><h1 id="titulo" tabindex="-1">Pedidos de hoje</h1><span class="data" id="subtitulo"></span></div>
+      <div class="acoes" data-so-em="quadro amanha"><button class="btn btn-p" type="button" id="novo"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo pedido</button></div>
+    </div>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com dados fictícios. No sistema real, os dados ficam salvos com segurança e cada pessoa entra com a própria senha.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
+
+    <section data-tela="quadro" data-titulo="Pedidos de hoje" aria-label="Pedidos de hoje">
+      <div class="resumo" id="resumo-hoje"></div>
+      <div class="ferramentas">
+        <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar pedido pelo nome do cliente</label><input id="busca" type="search" placeholder="Buscar pelo nome do cliente" autocomplete="off"></div>
+        <p class="dica-quadro">Use os botões do cartão para mudar a etapa<span class="so-mouse"> ou arraste o cartão</span>.</p>
+      </div>
+      <div class="quadro" id="quadro"></div>
+    </section>
+
+    <section data-tela="amanha" data-titulo="Encomendas de amanhã" aria-label="Encomendas de amanhã" hidden>
+      <div class="resumo" id="resumo-amanha"></div>
+      <div class="amanha-grade">
+        <div>
+          <h2 class="tit-bloco">Encomendas</h2>
+          <div class="lista-amanha" id="lista-amanha"></div>
+        </div>
+        <div>
+          <h2 class="tit-bloco">O que separar</h2>
+          <p class="dica-bloco">A soma de todas as encomendas. Muda sozinha quando você cria ou edita uma.</p>
+          <table class="tabela separar">
+            <thead><tr><th scope="col">Item</th><th scope="col" class="num">Quantidade</th></tr></thead>
+            <tbody id="separar"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section data-tela="cardapio" data-titulo="Cardápio e vendas de hoje" aria-label="Cardápio e vendas de hoje" hidden>
+      <p class="dica-bloco">Os itens que aparecem na hora de lançar um pedido, com o que já saiu hoje.</p>
+      <table class="tabela">
+        <thead><tr><th scope="col">Item</th><th scope="col" class="num">Preço</th><th scope="col" class="num">Saíram hoje</th><th scope="col" class="num">Total hoje</th></tr></thead>
+        <tbody id="cardapio"></tbody>
+        <tfoot><tr><td class="principal">Total do dia</td><td></td><td class="num" data-rot="Itens" id="c-itens"></td><td class="num" data-rot="Total" id="c-total"></td></tr></tfoot>
+      </table>
+    </section>
+  </main>
+</div>
+
+<dialog class="painel" id="painel" aria-labelledby="p-titulo">
+  <form id="f-pedido" novalidate>
+    <div class="painel-topo"><h2 id="p-titulo">Novo pedido</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="f-cliente">Cliente</label><input id="f-cliente" autocomplete="off" aria-describedby="e-cliente"><span class="erro" id="e-cliente" hidden>Escreva o nome do cliente.</span></div>
+      <div class="campo"><label for="f-tel">WhatsApp do cliente <span class="dica">(opcional)</span></label><input id="f-tel" type="tel" inputmode="tel" placeholder="(27) 99999-0000" autocomplete="off"></div>
+      <div class="duas">
+        <fieldset><legend>Para quando</legend><div class="opcoes"><label><input type="radio" name="dia" value="hoje" checked>Hoje</label><label><input type="radio" name="dia" value="amanha">Amanhã</label></div></fieldset>
+        <div class="campo"><label for="f-hora">Retirada</label><select id="f-hora"></select></div>
+      </div>
+      <fieldset><legend>Veio por</legend><div class="opcoes"><label><input type="radio" name="origem" value="Balcão" checked>Balcão</label><label><input type="radio" name="origem" value="WhatsApp">WhatsApp</label><label><input type="radio" name="origem" value="Instagram">Instagram</label></div></fieldset>
+      <fieldset aria-describedby="e-itens"><legend>Itens</legend><ul class="itens-form" id="itens-form"></ul><span class="erro" id="e-itens" hidden>Escolha pelo menos um item.</span></fieldset>
+      <div class="campo"><label for="f-obs">Observação <span class="dica">(opcional)</span></label><textarea id="f-obs" placeholder="Ex.: um com leite de aveia"></textarea></div>
+      <button class="btn btn-perigo" type="button" id="excluir" hidden>Excluir este pedido</button>
+    </div>
+    <div class="painel-pe"><span class="total"><small>Total</small><output id="f-total" for="itens-form">R$ 0,00</output></span><button class="btn btn-p" type="submit" id="salvar">Salvar pedido</button></div>
+  </form>
+</dialog>
+
+<dialog class="janela" id="janela" aria-labelledby="j-titulo">
+  <div class="j-in">
+    <h2 id="j-titulo">Isto é uma demonstração</h2>
+    <p>No sistema real, o WhatsApp abriria com esta mensagem pronta. Aqui nada é enviado.</p>
+    <p class="msg" id="j-msg"></p>
+    <div class="botoes">
+      <button class="btn btn-s" type="button" data-fechar>Fechar</button>
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20quadro%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="confirma" aria-labelledby="c-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="c-titulo">Tem certeza?</h2>
+    <p id="c-texto"></p>
+    <div class="botoes"><button class="btn btn-s" value="nao">Cancelar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
+  </form>
+</dialog>
+
+<div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+</body>
+</html>

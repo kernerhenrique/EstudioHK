@@ -1,0 +1,74 @@
+/* Quadro de pedidos · Coadouro (cores e fontes da demo da cafeteria) */
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 600 800; font-display: swap; src: url(/demos/cafeteria/assets/fonts/bricolage.woff2) format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/demos/cafeteria/assets/fonts/instrument-sans.woff2) format("woff2"); }
+:root {
+  --s-fundo: #F2EADF; --s-papel: #FFFDF9; --s-tinta: #2B1A12; --s-suave: #6B5444; --s-linha: #E0D2BF;
+  --s-marca: #8E4520; --s-marca-txt: #8E4520; --s-sobre-marca: #FFFDF9;
+  --s-lateral: #2B1A12; --s-lateral-txt: #F2EADF; --s-lateral-suave: #CDBBA6;
+  --s-d: "Bricolage Grotesque", "Arial Narrow", Arial, sans-serif; --s-t: "Instrument Sans", "Segoe UI", Arial, sans-serif;
+  --e-novo: #24476B; --e-preparando: #B5602E; --e-pronto: #3D6B2C; --e-entregue: #8A7868;
+}
+.logo small { display: block; margin-top: 3px; font: 600 12px var(--s-t); color: var(--s-lateral-suave); letter-spacing: .02em; }
+
+.ferramentas .dica-quadro { color: var(--s-suave); font-size: 13px; }
+.so-mouse { display: none; }
+@media (hover: hover) and (pointer: fine) { .so-mouse { display: inline; } }
+
+/* quadro em 4 colunas; no celular desliza para o lado */
+.quadro { display: grid; grid-template-columns: repeat(4, minmax(232px, 1fr)); gap: 12px; align-items: start; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+.coluna { scroll-snap-align: start; min-height: 220px; padding: 10px; border-radius: var(--s-r); background: #E9DECF; transition: box-shadow .15s; }
+.coluna.solta { box-shadow: inset 0 0 0 2px var(--e); }
+.coluna > header { display: flex; align-items: center; justify-content: space-between; padding: 4px 6px 10px; }
+.coluna h2 { display: flex; align-items: center; gap: 8px; font-size: 17px; }
+.coluna h2 i { width: 10px; height: 10px; border-radius: 99px; background: var(--e); }
+.coluna .qtd { min-width: 26px; padding: 1px 8px; border-radius: 99px; background: var(--s-papel); font-weight: 700; font-size: 13px; text-align: center; }
+.cartoes { display: grid; gap: 10px; }
+.vazio-col { padding: 18px 8px; text-align: center; color: var(--s-suave); font-size: 14px; border: 1px dashed #CDBBA6; border-radius: 10px; }
+
+.pedido { position: relative; padding: 12px 10px 10px 12px; border: 1px solid var(--s-linha); border-left: 4px solid var(--e); border-radius: 12px; background: var(--s-papel); box-shadow: 0 1px 2px rgba(43,26,18,.06); }
+.pedido[draggable="true"] { cursor: grab; }
+.pedido.arrastando { opacity: .45; }
+.pedido:focus { outline: 3px solid var(--s-marca); outline-offset: 2px; }
+.pedido.achado { box-shadow: 0 0 0 2px var(--s-marca); }
+.ped-topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; color: var(--s-suave); }
+.ped-num { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ped-hora { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--s-tinta); }
+.ped-hora .ico { width: 15px; height: 15px; }
+.pedido h3 { margin: 6px 0 6px; font: 700 16px/1.25 var(--s-t); }
+.ped-itens { margin: 0; padding: 0; list-style: none; font-size: 14px; }
+.ped-itens b { display: inline-block; min-width: 24px; font-variant-numeric: tabular-nums; }
+.ped-obs { margin-top: 6px; padding: 5px 8px; border-radius: 8px; background: #F7EFE4; font-size: 13px; color: var(--s-tinta); }
+.ped-pe { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; margin-top: 8px; }
+.ped-pe .etqs { display: flex; flex-wrap: wrap; gap: 4px; }
+.ped-total { font-weight: 700; font-variant-numeric: tabular-nums; }
+.ped-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--s-linha); }
+.ped-acoes .avanca { margin-left: auto; }
+.ped-acoes [data-avisar] { order: -1; flex: 1 1 100%; }
+.ped-acoes .btn-ico { width: 32px; min-height: 32px; }
+.ped-acoes .btn-ico .ico { width: 16px; height: 16px; }
+.ped-acoes .btn-sm { padding-inline: 10px; }
+.etq.proxima { background: var(--s-tinta); color: var(--s-papel); }
+.etq.avisado { background: #E3EDDC; color: #2F5A21; }
+
+/* amanhã */
+.amanha-grade { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px; align-items: start; }
+.tit-bloco { font-size: 19px; margin-bottom: 10px; }
+.dica-bloco { margin: -4px 0 12px; color: var(--s-suave); font-size: 14px; }
+.lista-amanha { display: grid; gap: 10px; }
+.lista-amanha .pedido { --e: var(--e-novo); }
+.separar td:first-child { font-weight: 600; }
+.tabela tfoot td { font-weight: 700; background: var(--s-fundo); border-top: 1px solid var(--s-linha); }
+
+/* formulário do pedido */
+.itens-form { display: grid; gap: 2px; margin: 6px 0 0; padding: 0; list-style: none; }
+.itens-form li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--s-linha); }
+.itens-form li:last-child { border-bottom: 0; }
+.itens-form .nome { font-weight: 600; font-size: 15px; }
+.itens-form .preco { display: block; color: var(--s-suave); font-size: 13px; font-weight: 400; }
+.itens-form li.tem .nome { color: var(--s-marca-txt); }
+
+@media (max-width: 1100px) { .amanha-grade { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 860px) {
+  .quadro { grid-template-columns: repeat(4, minmax(78vw, 1fr)); margin-inline: calc(-1 * var(--g)); padding-inline: var(--g); scroll-padding-inline: var(--g); }
+  .ferramentas .dica-quadro { flex-basis: 100%; }
+}
