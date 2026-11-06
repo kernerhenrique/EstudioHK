@@ -57,6 +57,9 @@ img, svg { display: block; }
 .sh h2 .soft, .brief h2 .soft { color: var(--ink-muted); }
 .brief h2 .soft { color: var(--on-noite-muted); }
 .sh p { font-size: 18px; line-height: 28px; color: var(--ink-muted); max-width: 56ch; }
+.sh p.obs-demos, .dark .sh p.obs-demos { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 25px; color: var(--volt); max-width: 62ch; padding: 12px 16px; border: 1px solid rgba(198,242,78,.35); border-radius: var(--r-md); background: rgba(198,242,78,.07); }
+.obs-demos .icon { width: 18px; height: 18px; flex: none; margin-top: 3px; }
+.obs-demos b { font-weight: 700; }
 .alt { background: var(--surface-2); }
 
 /* ---------- ícones, botões, tags ---------- */
