@@ -37,3 +37,12 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
   - entrega com bairro e taxa.
 - Perfis (garçom, cozinha, caixa) ficaram de fora da demo.
 - **Os outros 3 sistemas** seguem o mesmo nível. Antes de montar cada um, mostrar a lista do que ele vai ter para o Henrique aprovar.
+
+## Atualização (6/nov/2026): academia
+
+- O check-in na recepção saiu. Motivo dado pelo Henrique: em academia, quem marca a entrada é a catraca.
+- O sistema da FORJA ficou com três partes:
+  - mensalidades (com planos editáveis e trancamento);
+  - fichas de treino A/B/C montadas pelo professor;
+  - aulas com vagas, reserva e lista de espera.
+- **Estoque (Ofício):** ele ficou sem preferência sobre os extras. Entram os 4 recomendados: venda no balcão, gasto por serviço, validade e pedido ao fornecedor.

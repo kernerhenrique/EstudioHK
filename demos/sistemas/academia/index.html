@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mensalidades, treinos e aulas · FORJA Academia · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de sistema criada pela EstudioHK para uma academia fictícia: mensalidades com cobrança educada, fichas de treino montadas pelo professor e aulas com reserva e lista de espera.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/sistemas/academia/">
+<meta name="theme-color" content="#0D0D0F">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Mensalidades, treinos e aulas · demonstração de sistema pela EstudioHK">
+<meta property="og:description" content="Quem está em dia e quem atrasou, fichas de treino A/B/C pelo WhatsApp e aulas com vagas e lista de espera. Teste à vontade: é uma demonstração.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/sistemas/academia/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/sistemas/academia/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/demos/academia/assets/favicon.png">
+<link rel="preload" href="/demos/academia/assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('carregando');</script>
+<link rel="stylesheet" href="../assets/sis.css">
+<link rel="stylesheet" href="assets/academia.css">
+<script src="../assets/sis.js" defer></script>
+<script src="assets/academia.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6 6 0 0 1 3.5 6"/></symbol>
+    <symbol id="i-peso" viewBox="0 0 24 24"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-cartao" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-volta" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-cima" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-baixo" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M7 14h10v7H7z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-lixo" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-moeda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1 1.7 3 2 3 1 3 2.2-1.3 1.8-3 1.8c-1.5 0-2.6-.6-3-1.6M12 6v2M12 16v2"/></symbol>
+    <symbol id="i-pausa" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração de sistema: </span>negócio fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/sistemas/#demos">Ver outros sistemas</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20da%20academia%20(FORJA)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu do sistema">
+    <a class="logo" href="#inicio"><span class="forja" aria-hidden="true"><i></i>FORJA</span><span class="sr">FORJA</span><small>Gestão da academia</small></a>
+    <nav aria-label="Telas">
+      <ul class="vistas">
+        <li><button class="vista" type="button" data-vista="inicio"><svg class="ico" aria-hidden="true"><use href="#i-inicio"/></svg><span>Início</span><span class="num" id="n-cobrar"></span></button></li>
+        <li><button class="vista" type="button" data-vista="alunos"><svg class="ico" aria-hidden="true"><use href="#i-pessoas"/></svg><span>Alunos</span></button></li>
+        <li><button class="vista" type="button" data-vista="treinos"><svg class="ico" aria-hidden="true"><use href="#i-peso"/></svg><span>Treinos</span><span class="num" id="n-renovar"></span></button></li>
+        <li><button class="vista" type="button" data-vista="aulas"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span>Aulas</span></button></li>
+        <li><button class="vista" type="button" data-vista="planos"><svg class="ico" aria-hidden="true"><use href="#i-cartao"/></svg><span>Planos</span></button></li>
+      </ul>
+    </nav>
+    <div class="quem"><span class="av" aria-hidden="true">P</span><span><b>Paula</b>Recepção · manhã</span></div>
+  </aside>
+
+  <main class="area" id="conteudo">
+    <div class="topo-app">
+      <span class="logo-mob"><span class="forja" aria-hidden="true"><i></i>FORJA</span> Gestão da academia</span>
+      <div><h1 id="titulo" tabindex="-1">Início</h1><span class="data" id="subtitulo"></span></div>
+      <div class="acoes">
+        <button class="btn btn-p" type="button" id="novo-aluno" data-so-em="inicio alunos"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo aluno</button>
+        <button class="btn btn-p" type="button" id="nova-ficha" data-so-em="treinos" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Nova ficha</button>
+        <button class="btn btn-p" type="button" id="novo-plano" data-so-em="planos" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo plano</button>
+      </div>
+    </div>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com dados fictícios. No sistema real, os dados ficam salvos com segurança, cada pessoa (recepção, professores, dono) entra com a própria senha e o aluno vê a ficha e reserva aulas pelo celular.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
+
+    <!-- INÍCIO -->
+    <section data-tela="inicio" data-titulo="Início" aria-label="Início">
+      <div class="resumo" id="resumo-inicio"></div>
+      <div class="inicio-grade">
+        <div class="bloco">
+          <h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-moeda"/></svg>Cobrar hoje</h2>
+          <p class="dica-bloco">Mensalidades atrasadas e as que vencem em até 3 dias.</p>
+          <ul class="lista-cartoes" id="cobrar"></ul>
+        </div>
+        <div class="bloco">
+          <h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Aulas de hoje</h2>
+          <ul class="aulas-hoje" id="aulas-hoje"></ul>
+        </div>
+        <div class="bloco">
+          <h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-peso"/></svg>Treinos para renovar</h2>
+          <p class="dica-bloco">Fichas com mais de 6 semanas. Hora de ajustar a carga ou trocar os exercícios.</p>
+          <ul class="lista-cartoes" id="renovar"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUNOS -->
+    <section data-tela="alunos" data-titulo="Alunos e mensalidades" aria-label="Alunos e mensalidades" hidden>
+      <div class="ferramentas">
+        <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar aluno</label><input id="busca" type="search" placeholder="Buscar aluno" autocomplete="off"></div>
+        <div class="filtros" role="group" aria-label="Situação" id="filtros"></div>
+      </div>
+      <table class="tabela alunos">
+        <thead><tr><th scope="col">Aluno</th><th scope="col">Vencimento</th><th scope="col">Situação</th><th scope="col" class="num">Mensalidade</th><th scope="col"><span class="sr">Ações</span></th></tr></thead>
+        <tbody id="lista-alunos"></tbody>
+      </table>
+    </section>
+
+    <!-- TREINOS -->
+    <section data-tela="treinos" data-titulo="Fichas de treino" aria-label="Fichas de treino" hidden>
+      <p class="dica-bloco">O professor monta a ficha de cada aluno, por dia de treino. O aluno recebe no WhatsApp ou leva impressa.</p>
+      <table class="tabela fichas">
+        <thead><tr><th scope="col">Aluno</th><th scope="col">Objetivo</th><th scope="col">Professor</th><th scope="col">Renovar em</th><th scope="col"><span class="sr">Ações</span></th></tr></thead>
+        <tbody id="lista-fichas"></tbody>
+      </table>
+    </section>
+
+    <!-- AULAS -->
+    <section data-tela="aulas" data-titulo="Aulas da semana" aria-label="Aulas da semana" hidden>
+      <div class="ferramentas">
+        <div class="filtros" role="group" aria-label="Modalidade" id="filtro-mod"></div>
+      </div>
+      <div class="segm dias-mob" role="group" aria-label="Dia" id="dias-mob"></div>
+      <div class="legenda-aulas" aria-hidden="true"><span class="l-livre">Com vagas</span><span class="l-quase">Quase cheia</span><span class="l-cheia">Lotada</span></div>
+      <div class="grade" id="grade"></div>
+    </section>
+
+    <!-- PLANOS -->
+    <section data-tela="planos" data-titulo="Planos" aria-label="Planos" hidden>
+      <p class="dica-bloco">O que cada plano inclui e quanto ele traz por mês. Mudanças de preço valem a partir do próximo vencimento de cada aluno.</p>
+      <div class="planos" id="planos"></div>
+    </section>
+
+    <!-- EDITOR DE FICHA (fora do menu) -->
+    <section id="editor" aria-labelledby="titulo" hidden>
+      <div class="ed-topo">
+        <button class="btn btn-s btn-sm" type="button" id="ed-voltar"><svg class="ico" aria-hidden="true"><use href="#i-volta"/></svg>Fichas</button>
+        <span id="ed-status"></span>
+      </div>
+      <form class="ed-form" id="ed-form" novalidate>
+        <div class="ed-dados">
+          <div class="campo"><label for="ed-aluno">Aluno</label><select id="ed-aluno"></select></div>
+          <div class="campo"><label for="ed-prof">Professor</label><select id="ed-prof"></select></div>
+          <div class="campo"><label for="ed-obj">Objetivo</label><select id="ed-obj"><option>Hipertrofia</option><option>Emagrecimento</option><option>Condicionamento</option><option>Iniciante</option></select></div>
+          <div class="campo modelo"><label for="ed-modelo">Começar de um modelo</label><div class="junto"><select id="ed-modelo"><option value="">Escolha um modelo</option><option value="iniciante">Iniciante · corpo inteiro (A/B)</option><option value="hipertrofia">Hipertrofia · ABC</option><option value="emagrecimento">Emagrecimento e condicionamento (A/B)</option></select><button class="btn btn-s" type="button" id="ed-aplicar">Usar modelo</button></div></div>
+        </div>
+        <div id="ed-divs"></div>
+        <button class="btn btn-s" type="button" id="ed-add-div"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Adicionar treino</button>
+        <div class="campo"><label for="ed-obs">Orientações gerais <span class="dica">(aparecem na ficha)</span></label><textarea id="ed-obs"></textarea></div>
+      </form>
+      <div class="ed-acoes" id="ed-acoes"></div>
+    </section>
+  </main>
+</div>
+
+<div id="impressao" aria-hidden="true"></div>
+
+<!-- painel: aluno -->
+<dialog class="painel" id="painel-aluno" aria-labelledby="al-titulo">
+  <div class="painel-topo"><h2 id="al-titulo">Aluno</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+  <div class="painel-corpo" id="al-corpo"></div>
+  <div class="painel-pe" id="al-pe"></div>
+</dialog>
+
+<!-- painel: novo aluno -->
+<dialog class="painel" id="painel-novo" aria-labelledby="na-titulo">
+  <form id="f-novo" novalidate>
+    <div class="painel-topo"><h2 id="na-titulo">Novo aluno</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="na-nome">Nome</label><input id="na-nome" autocomplete="off" aria-describedby="e-nanome"><span class="erro" id="e-nanome" hidden>Escreva o nome do aluno.</span></div>
+      <div class="campo"><label for="na-tel">WhatsApp</label><input id="na-tel" type="tel" inputmode="tel" autocomplete="off" placeholder="(27) 99999-0000"></div>
+      <fieldset><legend>Plano</legend><div class="opcoes" id="na-planos"></div></fieldset>
+      <label class="chave"><input type="checkbox" id="na-pago" checked><span>Primeira mensalidade paga hoje (Pix)</span></label>
+      <p class="dica-bloco">O vencimento fica todo mês no mesmo dia da matrícula.</p>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit">Matricular</button></div>
+  </form>
+</dialog>
+
+<!-- painel: registrar pagamento -->
+<dialog class="janela" id="painel-pag" aria-labelledby="pg-titulo">
+  <form class="j-in" id="f-pag" novalidate>
+    <h2 id="pg-titulo">Registrar pagamento</h2>
+    <p id="pg-texto"></p>
+    <fieldset><legend>Forma de pagamento</legend><div class="opcoes"><label><input type="radio" name="pg-forma" value="Pix" checked>Pix</label><label><input type="radio" name="pg-forma" value="Cartão">Cartão</label><label><input type="radio" name="pg-forma" value="Dinheiro">Dinheiro</label></div></fieldset>
+    <div class="botoes"><button class="btn btn-s" type="button" data-fechar>Voltar</button><button class="btn btn-p" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Confirmar pagamento</button></div>
+  </form>
+</dialog>
+
+<!-- painel: trancar -->
+<dialog class="janela" id="painel-tranca" aria-labelledby="tr-titulo">
+  <form class="j-in" id="f-tranca" novalidate>
+    <h2 id="tr-titulo">Trancar o plano</h2>
+    <p id="tr-texto">Durante o trancamento, o aluno não paga e o vencimento anda junto.</p>
+    <fieldset><legend>Motivo</legend><div class="opcoes"><label><input type="radio" name="tr-motivo" value="Viagem" checked>Viagem</label><label><input type="radio" name="tr-motivo" value="Lesão">Lesão</label><label><input type="radio" name="tr-motivo" value="Outro motivo">Outro</label></div></fieldset>
+    <div class="campo"><label for="tr-volta">Volta em</label><input id="tr-volta" type="date" aria-describedby="e-tr"><span class="erro" id="e-tr" hidden>Escolha uma data de volta depois de hoje (até 90 dias).</span></div>
+    <div class="botoes"><button class="btn btn-s" type="button" data-fechar>Voltar</button><button class="btn btn-p" type="submit">Trancar plano</button></div>
+  </form>
+</dialog>
+
+<!-- painel: aula -->
+<dialog class="painel" id="painel-aula" aria-labelledby="au-titulo">
+  <div class="painel-topo"><h2 id="au-titulo">Aula</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+  <div class="painel-corpo" id="au-corpo">
+    <p class="au-info" id="au-info"></p>
+    <div class="reservar">
+      <div class="campo"><label for="au-busca">Reservar aluno</label><input id="au-busca" type="search" autocomplete="off" placeholder="Digite o nome do aluno" aria-describedby="au-dica"><span class="dica" id="au-dica">Escolha na lista abaixo. Se a aula estiver lotada, o aluno entra na lista de espera.</span></div>
+      <ul class="achados" id="au-achados"></ul>
+      <div class="barrado" id="au-barrado" role="alert" hidden></div>
+    </div>
+    <h3 class="cat-form" id="au-t-res">Reservas</h3>
+    <ol class="nomes" id="au-res"></ol>
+    <h3 class="cat-form" id="au-t-esp">Lista de espera</h3>
+    <ol class="nomes" id="au-esp"></ol>
+  </div>
+</dialog>
+
+<!-- painel: plano -->
+<dialog class="painel" id="painel-plano" aria-labelledby="pl-titulo">
+  <form id="f-plano" novalidate>
+    <div class="painel-topo"><h2 id="pl-titulo">Novo plano</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="pl-nome">Nome do plano</label><input id="pl-nome" autocomplete="off" aria-describedby="e-plnome"><span class="erro" id="e-plnome" hidden>Escreva o nome do plano.</span></div>
+      <div class="campo"><label for="pl-preco">Preço por mês (R$)</label><input id="pl-preco" inputmode="decimal" autocomplete="off" aria-describedby="e-plpreco"><span class="erro" id="e-plpreco" hidden>Escreva um preço válido.</span></div>
+      <label class="chave"><input type="checkbox" id="pl-aulas"><span>Inclui aulas coletivas (bike, funcional, boxe…)</span></label>
+      <div class="duas">
+        <div class="campo"><label for="pl-personal">Sessões de personal por mês</label><input id="pl-personal" type="number" min="0" max="12" inputmode="numeric"></div>
+        <div class="campo"><label for="pl-aval">Avaliação física</label><select id="pl-aval"><option>Na entrada</option><option>A cada 3 meses</option><option>Todo mês</option></select></div>
+      </div>
+      <label class="chave"><input type="checkbox" id="pl-ativo" checked><span>Aberto para novas matrículas</span></label>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit">Salvar plano</button></div>
+  </form>
+</dialog>
+
+<dialog class="janela" id="janela" aria-labelledby="j-titulo">
+  <div class="j-in">
+    <h2 id="j-titulo">Isto é uma demonstração</h2>
+    <p>No sistema real, o WhatsApp abriria com esta mensagem pronta. Aqui nada é enviado.</p>
+    <p class="msg" id="j-msg"></p>
+    <div class="botoes">
+      <button class="btn btn-s" type="button" data-fechar>Fechar</button>
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20da%20academia%20(FORJA)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="confirma" aria-labelledby="c-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="c-titulo">Tem certeza?</h2>
+    <p id="c-texto"></p>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
+  </form>
+</dialog>
+
+<div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+</body>
+</html>
