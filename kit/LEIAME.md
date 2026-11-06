@@ -72,7 +72,7 @@ mobília porque é isso que o projeto de interiores faz. Animação que só enfe
 - `data-palavras` (em um título ou parágrafo, com `data-de`/`data-ate`): o JS quebra em palavras (`.kit-palavra`) que sobem do desfoque uma a uma. Mantém `<em>` e `<strong>` (estilizar no CSS do cliente: cor, contorno com `-webkit-text-stroke`).
 
 **Blocos novos (nov/2026)**
-- `data-empilha`: no elemento que contém as seções; cada filha prende no alto e a próxima sobe por cima. A variável `--cobre` (0 a 1) escurece (`::after`) e encolhe a de baixo. Sem JS ou com movimento reduzido, viram seções normais.
+- `data-empilha`: no elemento que contém as seções; cada filha prende no alto e a próxima sobe por cima. A variável `--kit-cobre` (0 a 1) escurece (`::after`) e encolhe a de baixo. Sem JS ou com movimento reduzido, viram seções normais.
 - `data-entrada` (ou `data-entrada="lado"`) com atraso em `style="--d:200ms"`: entra ao abrir a página, com desfoque de movimento. Só CSS; usar só no primeiro trecho da página.
 
 **Listas**: `data-etapa=".2,.4"` fica `.ativa` nesse trecho e `.feita` depois. `data-contador` recebe quantas etapas já começaram.

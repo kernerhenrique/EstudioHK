@@ -66,9 +66,9 @@ html:not(.anima) .esboco .linha-cortina { display: none; }
 [data-palavras] { perspective: 600px; }
 .kit-palavra { display: inline-block; transform-origin: 50% 100%; }
 
-/* seções empilhadas: cada filha prende no topo e a próxima sobe por cima; a de baixo escurece (--cobre de 0 a 1) */
-.anima [data-empilha] > * { position: sticky; top: var(--topo); min-height: calc(100svh - var(--topo)); transform: scale(calc(1 - var(--cobre, 0) * .05)); transform-origin: 50% 0; }
-.anima [data-empilha] > *::after { content: ""; position: absolute; inset: 0; background: #000; opacity: calc(var(--cobre, 0) * .45); pointer-events: none; }
+/* seções empilhadas: cada filha prende no topo e a próxima sobe por cima; a de baixo escurece (--kit-cobre de 0 a 1) */
+.anima [data-empilha] > * { position: sticky; top: var(--topo); min-height: calc(100svh - var(--topo)); transform: scale(calc(1 - var(--kit-cobre, 0) * .05)); transform-origin: 50% 0; }
+.anima [data-empilha] > *::after { content: ""; position: absolute; inset: 0; background: #000; opacity: calc(var(--kit-cobre, 0) * .45); pointer-events: none; }
 
 /* entrada ao abrir a página, com desfoque de movimento */
 .anima [data-entrada] { animation: kit-entrada 1s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0ms); }
