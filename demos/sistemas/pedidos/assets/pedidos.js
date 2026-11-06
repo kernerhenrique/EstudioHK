@@ -32,10 +32,13 @@
     I('croissant', 'Croissant de manteiga', 'Salgados', 1100); I('paodequeijo', 'Pão de queijo', 'Salgados', 600);
     I('bolo', 'Bolo do dia', 'Doces', 1000, 'fatia'); I('torta', 'Torta de limão', 'Doces', 1400, 'fatia', false);
     var item = {}; d.itens.forEach(function (i) { item[i.id] = i; });
+    item.paodequeijo.ini = 14; item.croissant.ini = 24; item.bolo.ini = 16;   // feitos de manhã: o sistema prevê quando acabam
+    d.chat = []; d.chegadas = 0;
     var linhas = function (o) { return Object.keys(o).map(function (k) { return { id: k, nome: item[k].nome, preco: item[k].preco, q: o[k] }; }); };
     var C = function (tipo, mesa, aberta, extra) { var c = { id: d.proxConta++, tipo: tipo, mesa: mesa || 0, aberta: min(aberta), fechada: 0, servico: tipo === 'mesa', pediuConta: false, pags: [] }; Object.keys(extra || {}).forEach(function (k) { c[k] = extra[k]; }); d.contas.push(c); return c; };
     var P = function (n, tipo, o) {
       var p = { n: n, tipo: tipo, mesa: o.mesa || 0, cli: o.cli || '', tel: '', end: o.end || '', bairro: o.bairro || '', taxa: tipo === 'entrega' ? TAXA[o.bairro] : 0, dia: o.dia || 'hoje', etapa: o.etapa || 'novo', hora: o.hora || '', criado: min(o.criado), itens: linhas(o.itens), obs: o.obs || '', avisado: !!o.avisado, saiu: o.saiu ? min(o.saiu) : 0, cancelado: o.cancelado || '', conta: 0 };
+      p.origem = o.origem || (tipo === 'mesa' ? 'Garçom' : 'Balcão');
       if (o.conta) p.conta = o.conta.id;
       else if (p.dia === 'hoje' && tipo !== 'mesa') p.conta = C(tipo, 0, o.criado).id;
       d.pedidos.push(p); return p;
@@ -54,18 +57,24 @@
     P(425, 'mesa', { mesa: 2, conta: m2, criado: '09:07', etapa: 'entregue', itens: { cappuccino: 2, croissant: 2 } });
     m2.pags.push({ forma: 'Pix', valor: 2530, min: min('09:38'), recebido: 0 });
     P(426, 'mesa', { mesa: 4, conta: m4, criado: '09:21', etapa: 'entregue', itens: { coado: 2, paodequeijo: 2 } });
-    P(427, 'retirada', { cli: 'Fernando Lima', hora: '09:45', criado: '09:22', etapa: 'pronto', itens: { coado: 1, croissant: 1 } });
-    P(428, 'entrega', { cli: 'Helena Rocha', end: 'Av. Exemplo, 900, casa 2', bairro: 'Santa Lúcia', hora: '10:00', criado: '09:24', etapa: 'preparando', itens: { garrafa: 1 } });
+    P(427, 'retirada', { cli: 'Fernando Lima', hora: '09:45', criado: '09:22', etapa: 'pronto', itens: { coado: 1, croissant: 1 } , origem: 'WhatsApp'});
+    P(428, 'entrega', { cli: 'Helena Rocha', end: 'Av. Exemplo, 900, casa 2', bairro: 'Santa Lúcia', hora: '10:00', criado: '09:24', etapa: 'preparando', itens: { garrafa: 1 } , origem: 'WhatsApp'});
     P(429, 'mesa', { mesa: 9, conta: m9, criado: '09:27', etapa: 'pronto', itens: { coldbrew: 1, espresso: 1 } });
     P(430, 'mesa', { mesa: 4, conta: m4, criado: '09:31', etapa: 'preparando', itens: { bolo: 2 }, obs: 'Uma fatia bem quentinha' });
-    P(431, 'retirada', { cli: 'Igor Martins', hora: '10:00', criado: '09:34', itens: { coado: 1, bolo: 1 } });
-    P(432, 'entrega', { cli: 'Paulo Reis', end: 'Rua Exemplo, 210, ap. 1101', bairro: 'Praia do Canto', hora: '10:15', criado: '09:35', itens: { coldbrew: 2, paodequeijo: 2 } });
-    P(433, 'mesa', { mesa: 7, conta: m7, criado: '09:36', itens: { coado: 4, croissant: 2, bolo: 2 } });
-    P(434, 'retirada', { cli: 'Júlio Nunes', hora: '10:15', criado: '09:38', itens: { espresso: 3, croissant: 3 }, obs: 'Para o escritório, pode embalar junto' });
+    P(431, 'retirada', { cli: 'Igor Martins', hora: '10:00', criado: '09:34', itens: { coado: 1, bolo: 1 } , origem: 'WhatsApp'});
+    P(432, 'entrega', { cli: 'Paulo Reis', end: 'Rua Exemplo, 210, ap. 1101', bairro: 'Praia do Canto', hora: '10:15', criado: '09:35', itens: { coldbrew: 2, paodequeijo: 2 } , origem: 'WhatsApp'});
+    P(433, 'mesa', { mesa: 7, conta: m7, criado: '09:36', itens: { coado: 4, croissant: 2, bolo: 2 } , origem: 'QR da mesa'});
+    P(434, 'retirada', { cli: 'Júlio Nunes', hora: '10:15', criado: '09:38', itens: { espresso: 3, croissant: 3 }, obs: 'Para o escritório, pode embalar junto' , origem: 'WhatsApp'});
     // encomendas de amanhã
     P(435, 'retirada', { cli: 'Escritório Vale Verde', dia: 'amanha', hora: '07:30', criado: '08:50', itens: { garrafa: 2, paodequeijo: 12, bolo: 1 }, obs: 'Quem retira é a Renata' });
     P(436, 'retirada', { cli: 'Lúcia Andrade', dia: 'amanha', hora: '08:00', criado: '09:10', itens: { coado: 2, croissant: 2 } });
     P(437, 'entrega', { cli: 'Clínica Lumar (recepção)', dia: 'amanha', end: 'Rua Exemplo, 77, sala 4', bairro: 'Enseada do Suá', hora: '09:00', criado: '09:30', itens: { coado: 6, paodequeijo: 6 }, obs: 'Para a reunião das 9h30' });
+    d.chat = [
+      { cli: 'Fernando Lima', de: 'cli', h: '09:21', t: 'Bom dia! Consegue separar 1 coado e 1 croissant pra eu retirar às 9h45?' },
+      { cli: 'Fernando Lima', de: 'loja', h: '09:22', t: 'Bom dia, Fernando! Anotado: pedido #0427, R$ 20,00, retirada às 9h45. Te aviso quando estiver pronto ☕' },
+      { cli: 'Júlio Nunes', de: 'cli', h: '09:37', t: 'Oi! 3 espressos e 3 croissants pro escritório, retiro 10h15. Pode embalar junto?' },
+      { cli: 'Júlio Nunes', de: 'loja', h: '09:38', t: 'Oi, Júlio! Anotado: pedido #0434, R$ 54,00, retirada às 10h15, tudo embalado junto.' }
+    ];
     return d;
   }
 
@@ -79,7 +88,7 @@
     return { ps: ps, sub: sub, taxa: taxa, serv: serv, total: total, pago: pago, falta: Math.max(0, total - pago) };
   }
 
-  var G = S.guarda('estudiohk-sis-pedidos-v2', semente, true);
+  var G = S.guarda('estudiohk-sis-pedidos-v3', semente, true);
   var D = function () { return G.d; };
   var agora = function () { return Math.min(INICIO + Math.floor((Date.now() - D().t0) / 6e4), 18 * 60 + 59); };
   var itemDe = function (id) { return D().itens.filter(function (i) { return i.id === id; })[0]; };
@@ -94,7 +103,8 @@
   var res = function (rot, val, det) { return '<div class="res"><small>' + rot + '</small><b>' + val + '</b><span>' + det + '</span></div>'; };
   var plural = function (n, um, varios) { return n + ' ' + (n === 1 ? um : varios); };
   var ico = function (id) { return '<svg class="ico" aria-hidden="true"><use href="#i-' + id + '"/></svg>'; };
-  function salva() { G.salva(); desenha(); }
+  var EV = [];   // quem quer saber quando algo muda (celular do cliente, alertas)
+  function salva() { G.salva(); desenha(); EV.forEach(function (f) { f(); }); }
 
   /* ---------- cartão do pedido ---------- */
   function etqTipo(p) {
@@ -106,7 +116,7 @@
     var i = POS[p.etapa], ant = ETAPAS[i - 1], prox = ETAPAS[i + 1], c = p.conta ? contaDe(p.conta) : null;
     var quando = p.tipo === 'mesa' ? '<span class="sr">Pedido feito às </span>' + hm(p.criado) : p.tipo === 'entrega' ? '<span class="sr">Entrega prevista às </span>' + hm(min(p.hora)) : '<span class="sr">Retirada às </span>' + hm(min(p.hora));
     var itens = p.itens.map(function (l) { return '<li><b>' + l.q + '×</b> ' + esc(l.nome) + '</li>'; }).join('');
-    var etqs = etqTipo(p);
+    var etqs = etqTipo(p) + (p.origem === 'QR da mesa' ? '<span class="etq t-qr">Pelo QR da mesa</span>' : p.origem === 'WhatsApp' ? '<span class="etq t-zap">WhatsApp</span>' : '');
     if (p.tipo === 'retirada' && p.etapa === 'pronto' && p.avisado) etqs += '<span class="etq avisado">Cliente avisado</span>';
     if (p.saiu && p.etapa !== 'entregue') etqs += '<span class="etq avisado">Saiu às ' + hm(p.saiu) + '</span>';
     if (c && p.tipo !== 'mesa') etqs += c.fechada ? '<span class="etq ok">Pago</span>' : (p.etapa === 'entregue' ? '<span class="etq perigo">A receber</span>' : '');
@@ -120,7 +130,7 @@
       if (prox) b.push('<button class="btn btn-p btn-sm avanca" type="button" data-move="' + prox.id + '"><span class="sr">Mover o pedido ' + N + ' para </span>' + (prox.id === 'entregue' && p.tipo === 'mesa' ? 'Levado à mesa' : prox.nome) + ico('seta') + '</button>');
       else b.push('<span class="etq ok avanca">' + ico('check') + (p.tipo === 'mesa' ? 'Na mesa' : 'Entregue') + '</span>');
     } else b.push('<button class="btn btn-s btn-sm" type="button" data-editar>' + ico('editar') + 'Editar<span class="sr"> o pedido ' + N + '</span></button>');
-    return '<article class="pedido" id="p-' + p.n + '" data-n="' + p.n + '" tabindex="-1" style="--e:var(--e-' + p.etapa + ')"' + (modo === 'quadro' ? ' draggable="true"' : '') + ' aria-labelledby="pt-' + p.n + '">' +
+    return '<article class="pedido' + (p.ts && Date.now() - p.ts < 6000 ? ' chegou' : '') + '" id="p-' + p.n + '" data-n="' + p.n + '" tabindex="-1" style="--e:var(--e-' + p.etapa + ')"' + (modo === 'quadro' ? ' draggable="true"' : '') + ' aria-labelledby="pt-' + p.n + '">' +
       '<div class="ped-topo"><span class="ped-num">' + N + '</span><span class="ped-hora">' + ico('relogio') + quando + '</span></div>' +
       '<h3 id="pt-' + p.n + '">' + esc(titulo(p)) + '</h3><ul class="ped-itens">' + itens + '</ul>' +
       (p.obs ? '<p class="ped-obs">' + esc(p.obs) + '</p>' : '') +
@@ -283,6 +293,8 @@
   });
 
   /* ---------- tela: cardápio ---------- */
+  var FOTO = { coado: 'm-coado', cappuccino: 'm-capuccino', coldbrew: 'm-coldbrew', croissant: 'm-croissant' };
+  function miniatura(i) { return FOTO[i.id] ? '<img class="mini-foto" src="/demos/cafeteria/assets/img/' + FOTO[i.id] + '-400.webp" alt="" width="40" height="40" loading="lazy">' : '<span class="mini-foto ilu c-' + i.cat.normalize('NFD').replace(/[^a-z]/gi, '').toLowerCase() + '" aria-hidden="true">' + i.nome.charAt(0) + '</span>'; }
   function desenhaCardapio() {
     var vendidos = {}; hoje().forEach(function (p) { p.itens.forEach(function (l) { vendidos[l.id] = (vendidos[l.id] || 0) + l.q; }); });
     $('#cardapio').innerHTML = CATS.map(function (cat) {
@@ -290,7 +302,7 @@
       if (!its.length) return '';
       return '<h2 class="tit-bloco">' + cat + '</h2><table class="tabela itens-cardapio"><thead><tr><th scope="col">Item</th><th scope="col" class="num">Preço</th><th scope="col" class="num">Saíram hoje</th><th scope="col">Situação</th><th scope="col"><span class="sr">Editar</span></th></tr></thead><tbody>' +
         its.map(function (i) {
-          return '<tr class="' + (i.disp ? '' : 'esgotado') + '"><td class="principal">' + esc(i.nome) + (i.det ? ' <span class="dica">· ' + esc(i.det) + '</span>' : '') + '</td><td class="num" data-rot="Preço">' + R(i.preco) + '</td><td class="num" data-rot="Saíram hoje">' + (vendidos[i.id] || 0) + '</td>' +
+          return '<tr class="' + (i.disp ? '' : 'esgotado') + '"><td class="principal">' + miniatura(i) + esc(i.nome) + (i.det ? ' <span class="dica">· ' + esc(i.det) + '</span>' : '') + '</td><td class="num" data-rot="Preço">' + R(i.preco) + '</td><td class="num" data-rot="Saíram hoje">' + (vendidos[i.id] || 0) + '</td>' +
             '<td data-rot="Situação"><label class="chave"><input type="checkbox" data-disp="' + i.id + '"' + (i.disp ? ' checked' : '') + '><span>' + (i.disp ? 'Disponível' : 'Esgotado') + '</span><span class="sr"> · ' + esc(i.nome) + '</span></label></td>' +
             '<td class="acao"><button class="btn btn-s btn-sm" type="button" data-item="' + i.id + '">' + ico('editar') + 'Editar<span class="sr"> ' + esc(i.nome) + '</span></button></td></tr>';
         }).join('') + '</tbody></table>';
@@ -518,8 +530,21 @@
   setInterval(tique, 15000);
 
   $('.recomecar').addEventListener('click', function () {
-    S.confirma('Recomeçar apaga o que você fez nesta demonstração e volta ao início, às 9h40.', function () { G.recomeca(); $('#busca').value = ''; desenha(); S.aviso('Demonstração recomeçada.'); });
+    S.confirma('Recomeçar apaga o que você fez nesta demonstração e volta ao início, às 9h40.', function () { G.recomeca(); $('#busca').value = ''; desenha(); EV.forEach(function (f) { f(); }); S.aviso('Demonstração recomeçada.'); });
   });
   var SUB = { pedidos: S.longa(S.hoje), mesas: 'Toque numa mesa para lançar ou receber', cozinha: S.longa(S.hoje), caixa: S.longa(S.hoje), cardapio: 'Itens, preços e o que está esgotado' };
-  S.telas(function (tela) { telaAtual = tela; $('#subtitulo').textContent = SUB[tela]; desenha(); });
+  var vaiTela = S.telas(function (tela) { telaAtual = tela; $('#subtitulo').textContent = SUB[tela]; desenha(); EV.forEach(function (f) { f(); }); });
+
+  /* ---------- pedido vindo de fora (QR da mesa ou WhatsApp) ---------- */
+  function criaPedido(o) {
+    var d = D(), qt = o.itens, p = { n: d.prox++, etapa: 'novo', criado: agora(), avisado: false, saiu: 0, cancelado: '', conta: 0, tipo: o.tipo, origem: o.origem, ts: Date.now(), obs: o.obs || '', dia: 'hoje', taxa: 0, end: '', bairro: '', tel: '' };
+    p.itens = Object.keys(qt).map(function (k) { var i = itemDe(k); return { id: k, nome: i.nome, preco: i.preco, q: qt[k] }; });
+    if (o.tipo === 'mesa') { p.mesa = o.mesa; p.cli = ''; p.hora = ''; var c = contaMesa(o.mesa); if (!c) { c = { id: d.proxConta++, tipo: 'mesa', mesa: o.mesa, aberta: agora(), fechada: 0, servico: true, pediuConta: false, pags: [] }; d.contas.push(c); } p.conta = c.id; }
+    else { p.mesa = 0; p.cli = o.cli; p.hora = hstr(Math.min(18 * 60 + 45, Math.ceil((agora() + 25) / 15) * 15)); var nc = { id: d.proxConta++, tipo: o.tipo, mesa: 0, aberta: agora(), fechada: 0, servico: false, pediuConta: false, pags: [] }; d.contas.push(nc); p.conta = nc.id; }
+    d.pedidos.push(p); salva(); return p;
+  }
+  window.COADOURO = { D: D, G: G, EV: EV, salva: salva, desenha: desenha, agora: agora, acha: acha, contaMesa: contaMesa, contaDe: contaDe, calc: function (c) { return calc(D(), c); }, criaPedido: criaPedido, move: move,
+    totalPed: totalPed, num: num, R: R, hm: hm, min: min, hstr: hstr, itemDe: itemDe, hoje: hoje, abrePag: abrePag, titulo: titulo, primeiro: primeiro, plural: plural, miniatura: miniatura, FOTO: FOTO, CATS: CATS, MESAS: MESAS,
+    tela: function () { return telaAtual; }, vaiTela: vaiTela, recomeca: function () { G.recomeca(); desenha(); EV.forEach(function (f) { f(); }); } };
+  document.dispatchEvent(new CustomEvent('coadouro:pronto'));
 })();

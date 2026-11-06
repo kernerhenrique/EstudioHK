@@ -46,3 +46,31 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
   - fichas de treino A/B/C montadas pelo professor;
   - aulas com vagas, reserva e lista de espera.
 - **Estoque (Ofício):** ele ficou sem preferência sobre os extras. Entram os 4 recomendados: venda no balcão, gasto por serviço, validade e pedido ao fornecedor.
+
+## Atualização (6/nov/2026): apresentação dos sistemas
+
+- O Henrique gostou das ideias, mas achou o visual e as funções simples demais para vender.
+- Decidido: as 4 demos ficam cada uma na sua prévia (ramos `sis-pedidos`, `sis-orcamento`, `sis-academia`, `sis-estoque`), e a página `/sistemas/` fica **pendente**.
+- **Piloto "uau"** no sistema de pedidos da Coadouro (ramo `sis-uau`). Se ele aprovar, o padrão vai para os outros três:
+  - tela dividida com o celular do cliente;
+  - passeio guiado;
+  - quadro "quanto te devolve";
+  - coisas acontecendo sozinhas;
+  - fotos e gráficos;
+  - cardápio por QR code na mesa.
+
+## Pendência: imagens e vídeos de IA nas demos de site (6/nov/2026)
+
+- O Henrique mandou imagens de IA (cold brew, copos, moedor, coador, prédio). A ideia **não** é mostrar o produto exato do cliente, e sim usar imagens bonitas para dar vida às animações.
+- **Avaliação feita:**
+  - moedor, coador e copo cheio servem, recortados, para a cena MOER / COAR / SERVIR;
+  - copos em sequência só funcionam com mesma câmera (gerar um e editar o mesmo);
+  - jarras derramando no balcão não servem;
+  - o prédio serve só como foto de capa, porque o zoom borra;
+  - o nome "VIVENCE" aparece nas fotos e precisa sair.
+- **Para quando voltar ao assunto, pedir:**
+  - imagens com 2.000 px ou mais, sem texto, com fundo liso (creme para os vidros);
+  - sequências editando a mesma imagem;
+  - de preferência, **vídeo de IA de 3 a 6 s com a câmera parada** (café enchendo, câmera entrando no prédio).
+- **Como mandar:** ZIP no chat com os arquivos originais, ou upload em `materiais/fotos/` pelo GitHub.
+- **A fazer no kit quando voltar:** bloco "vídeo na rolagem" (sequência de quadros, menos quadros no celular).

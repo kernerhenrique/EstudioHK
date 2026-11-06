@@ -77,7 +77,7 @@
       }
       botoes.forEach(function (b) { b.addEventListener('click', function () { history.replaceState(null, '', '#' + b.dataset.vista); vai(b.dataset.vista, true); }); });
       vai(location.hash.slice(1) || botoes[0].dataset.vista, false);
-      document.documentElement.classList.remove('carregando');
+      requestAnimationFrame(function () { setTimeout(function () { document.documentElement.classList.remove('carregando'); }, 0); });   // espera os outros scripts da página desenharem
       return vai;
     }
   };

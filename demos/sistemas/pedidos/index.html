@@ -20,11 +20,12 @@
 <link rel="icon" type="image/svg+xml" href="/demos/cafeteria/assets/favicon.svg">
 <link rel="preload" href="/demos/cafeteria/assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/demos/cafeteria/assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
-<script>document.documentElement.classList.add('carregando');</script>
+<script>document.documentElement.classList.add('carregando');if(matchMedia('(min-width: 1240px)').matches)document.documentElement.classList.add('cel-aberto');</script>
 <link rel="stylesheet" href="../assets/sis.css">
 <link rel="stylesheet" href="assets/pedidos.css">
 <script src="../assets/sis.js" defer></script>
 <script src="assets/pedidos.js" defer></script>
+<script src="assets/uau.js" defer></script>
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -83,6 +84,8 @@
       <span class="logo-mob"><svg aria-hidden="true"><use href="#logo-c"/></svg>Coadouro · Pedidos e caixa</span>
       <div><h1 id="titulo" tabindex="-1">Pedidos</h1><span class="data"><span id="subtitulo"></span> · <span class="relogio"><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span id="agora"></span></span></span></div>
       <div class="acoes">
+        <button class="btn btn-s ao-vivo" type="button" id="ao-vivo" aria-pressed="true"><i aria-hidden="true"></i>Ao vivo<span class="sr">: pedidos chegando sozinhos</span></button>
+        <button class="btn btn-s" type="button" id="ver-passeio"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg>Passeio guiado</button>
         <button class="btn btn-p" type="button" id="novo" data-so-em="pedidos mesas"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo pedido</button>
         <button class="btn btn-p" type="button" id="novo-item" data-so-em="cardapio" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo item</button>
         <button class="btn btn-p" type="button" id="fechar-caixa" data-so-em="caixa" hidden><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fechar o caixa</button>
@@ -97,6 +100,7 @@
         <button type="button" data-dia="amanha" aria-pressed="false">Amanhã <span class="segm-n" id="n-amanha"></span></button>
       </div>
       <div id="bloco-hoje">
+        <div class="alertas" id="alertas"></div>
         <div class="resumo" id="resumo-hoje"></div>
         <div class="ferramentas">
           <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar por cliente ou mesa</label><input id="busca" type="search" placeholder="Buscar por cliente ou mesa" autocomplete="off"></div>
@@ -138,6 +142,18 @@
     <!-- CAIXA -->
     <section data-tela="caixa" data-titulo="Caixa do dia" aria-label="Caixa do dia" hidden>
       <div class="resumo" id="resumo-caixa"></div>
+      <div class="devolve" id="devolve">
+        <div class="dv-texto"><h2 class="tit-bloco">Quanto este sistema devolve</h2><p class="dica-bloco">Troque pelos números do seu negócio e veja a conta.</p>
+          <div class="dv-campos">
+            <div class="campo"><label for="dv-ped">Pedidos por dia</label><input id="dv-ped" type="number" min="0" inputmode="numeric" value="120"></div>
+            <div class="campo"><label for="dv-min">Minutos para anotar e confirmar cada pedido</label><input id="dv-min" type="number" min="0" step="0.5" inputmode="decimal" value="2"></div>
+            <div class="campo"><label for="dv-esq">Pedidos esquecidos ou errados por semana</label><input id="dv-esq" type="number" min="0" inputmode="numeric" value="6"></div>
+            <div class="campo"><label for="dv-tic">Valor médio do pedido (R$)</label><input id="dv-tic" type="number" min="0" inputmode="decimal" value="24"></div>
+          </div>
+        </div>
+        <div class="dv-res" aria-live="polite"><div><b id="dv-horas">0 h</b><span>por mês de volta para a equipe</span></div><div><b id="dv-reais">R$ 0</b><span>por mês que deixam de se perder</span></div><p>Estimativa simples com os números acima. No projeto real, a gente mede nas primeiras semanas de uso.</p></div>
+      </div>
+      <div class="bloco-caixa por-hora"><h2 class="tit-bloco">Pedidos por hora hoje</h2><div class="grafico" id="por-hora"></div></div>
       <h2 class="tit-bloco">Contas em aberto</h2>
       <table class="tabela contas">
         <thead><tr><th scope="col">Conta</th><th scope="col" class="num">Total</th><th scope="col" class="num">Já pago</th><th scope="col" class="num">Falta</th><th scope="col"><span class="sr">Ação</span></th></tr></thead>
@@ -255,6 +271,20 @@
     <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
   </form>
 </dialog>
+
+<!-- celular do cliente -->
+<aside class="celular" id="celular" aria-labelledby="cel-tit">
+  <div class="cel-ext"><h2 id="cel-tit">Celular do cliente</h2><button class="btn btn-s btn-ico" type="button" id="cel-fechar" aria-label="Esconder o celular do cliente"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+  <p class="cel-dica">O que você faz aqui aparece no sistema. O que você faz no sistema aparece aqui.</p>
+  <div class="aparelho">
+    <div class="tela">
+      <div class="cel-status" aria-hidden="true"><span id="cel-hora">9:40</span><i></i></div>
+      <div class="cel-abas" role="group" aria-label="App do cliente"><button type="button" data-cel="qr" aria-pressed="true">Mesa 5 · QR code</button><button type="button" data-cel="zap" aria-pressed="false">WhatsApp <span class="cel-n" id="cel-n" hidden></span></button></div>
+      <div class="cel-conteudo" id="cel-conteudo"></div>
+    </div>
+  </div>
+</aside>
+<button class="abre-cel" type="button" id="abre-cel" aria-controls="celular" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg>Celular do cliente<span class="cel-n" id="abre-cel-n" hidden></span></button>
 
 <div class="avisos" id="avisos" role="status" aria-live="polite"></div>
 </body>
