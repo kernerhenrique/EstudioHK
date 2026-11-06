@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orçamentos · Respiga Marcenaria · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de sistema criada pela EstudioHK para uma marcenaria fictícia: orçamento por ambiente com medidas, PDF com a marca, envio pelo WhatsApp, lembrete de retorno, serviços com etapas e clientes com histórico.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/sistemas/orcamento/">
+<meta name="theme-color" content="#2A2119">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Orçamentos em PDF · demonstração de sistema pela EstudioHK">
+<meta property="og:description" content="Monte o orçamento por ambiente com as medidas, gere o PDF com a sua marca e acompanhe até a instalação. Teste à vontade: é uma demonstração.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/sistemas/orcamento/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/sistemas/orcamento/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/worksans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bitter.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('carregando');</script>
+<link rel="stylesheet" href="../assets/sis.css">
+<link rel="stylesheet" href="assets/orcamento.css">
+<script src="../assets/sis.js" defer></script>
+<script src="assets/orcamento.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-obra" viewBox="0 0 24 24"><path d="M14 3l7 7-3 3-7-7z"/><path d="M12.5 8.5 4 17l3 3 8.5-8.5"/></symbol>
+    <symbol id="i-pessoas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6 6 0 0 1 3.5 6"/></symbol>
+    <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-volta" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+    <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/></symbol>
+    <symbol id="i-copia" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-lixo" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-sino" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 20a2 2 0 0 0 4 0"/></symbol>
+    <symbol id="i-moeda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1 1.7 3 2 3 1 3 2.2-1.3 1.8-3 1.8c-1.5 0-2.6-.6-3-1.6M12 6v2M12 16v2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="logo-r" viewBox="0 0 34 34"><rect width="34" height="34" rx="9" fill="#E9D3B4"/><path d="M7 11h12v4h-4v8H7z" fill="#2A2119"/><path d="M27 11v12H17v-6h-0.5v-2H27z" fill="#2F5D50"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração de sistema: </span>negócio fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/sistemas/#demos">Ver outros sistemas</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20or%C3%A7amentos%20(Respiga%20Marcenaria)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu do sistema">
+    <a class="logo" href="#inicio"><svg aria-hidden="true"><use href="#logo-r"/></svg><span>Respiga<small>Orçamentos e obras</small></span></a>
+    <nav aria-label="Telas">
+      <ul class="vistas">
+        <li><button class="vista" type="button" data-vista="inicio"><svg class="ico" aria-hidden="true"><use href="#i-inicio"/></svg><span>Início</span><span class="num" id="n-retorno"></span></button></li>
+        <li><button class="vista" type="button" data-vista="orcamentos"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg><span>Orçamentos</span></button></li>
+        <li><button class="vista" type="button" data-vista="servicos"><svg class="ico" aria-hidden="true"><use href="#i-obra"/></svg><span>Serviços</span><span class="num" id="n-servicos"></span></button></li>
+        <li><button class="vista" type="button" data-vista="clientes"><svg class="ico" aria-hidden="true"><use href="#i-pessoas"/></svg><span>Clientes</span></button></li>
+        <li><button class="vista" type="button" data-vista="catalogo"><svg class="ico" aria-hidden="true"><use href="#i-lista"/></svg><span>Catálogo</span></button></li>
+      </ul>
+    </nav>
+    <div class="quem"><span class="av" aria-hidden="true">A</span><span><b>André</b>Dono · orçamentos</span></div>
+  </aside>
+
+  <main class="area" id="conteudo">
+    <div class="topo-app">
+      <span class="logo-mob"><svg aria-hidden="true"><use href="#logo-r"/></svg>Respiga · Orçamentos e obras</span>
+      <div><h1 id="titulo" tabindex="-1">Início</h1><span class="data" id="subtitulo"></span></div>
+      <div class="acoes">
+        <button class="btn btn-s" type="button" id="novo-cliente" data-so-em="clientes" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo cliente</button>
+        <button class="btn btn-p" type="button" id="novo-orc" data-so-em="inicio orcamentos clientes"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo orçamento</button>
+        <button class="btn btn-p" type="button" id="novo-item" data-so-em="catalogo" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo item</button>
+      </div>
+    </div>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com dados fictícios. No sistema real, os dados ficam salvos com segurança, cada pessoa entra com a própria senha e o cliente recebe um link do PDF.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
+
+    <!-- INÍCIO -->
+    <section data-tela="inicio" data-titulo="Início" aria-label="Início">
+      <div class="resumo" id="resumo-inicio"></div>
+      <div class="inicio-grade">
+        <div class="bloco">
+          <h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-sino"/></svg>Precisa de retorno</h2>
+          <p class="dica-bloco">Enviados há 3 dias ou mais sem resposta, e os que vencem em até 2 dias.</p>
+          <ul class="retornos" id="retornos"></ul>
+        </div>
+        <div class="bloco">
+          <h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Próximas etapas das obras</h2>
+          <ul class="agenda" id="agenda"></ul>
+        </div>
+        <div class="bloco largo">
+          <h2 class="tit-bloco">Orçamentos dos últimos 30 dias</h2>
+          <div class="barras" id="funil"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORÇAMENTOS -->
+    <section data-tela="orcamentos" data-titulo="Orçamentos" aria-label="Orçamentos" hidden>
+      <div class="ferramentas">
+        <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar por cliente, ambiente ou número</label><input id="busca" type="search" placeholder="Buscar por cliente, ambiente ou número" autocomplete="off"></div>
+        <div class="filtros" role="group" aria-label="Situação" id="filtros"></div>
+      </div>
+      <table class="tabela orcs">
+        <thead><tr><th scope="col">Nº</th><th scope="col">Cliente e ambientes</th><th scope="col">Situação</th><th scope="col" class="num">Total</th><th scope="col"><span class="sr">Ações</span></th></tr></thead>
+        <tbody id="lista-orcs"></tbody>
+      </table>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section data-tela="servicos" data-titulo="Serviços" aria-label="Serviços" hidden>
+      <p class="dica-bloco">Orçamento aprovado vira serviço. Aqui você acompanha cada etapa e o que falta receber.</p>
+      <div class="resumo" id="resumo-servicos"></div>
+      <div class="servicos" id="servicos"></div>
+    </section>
+
+    <!-- CLIENTES -->
+    <section data-tela="clientes" data-titulo="Clientes" aria-label="Clientes" hidden>
+      <div class="ferramentas"><div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca-cli">Buscar cliente</label><input id="busca-cli" type="search" placeholder="Buscar cliente" autocomplete="off"></div></div>
+      <table class="tabela clientes">
+        <thead><tr><th scope="col">Cliente</th><th scope="col" class="num">Orçamentos</th><th scope="col" class="num">Fechados</th><th scope="col" class="num">Total fechado</th><th scope="col"><span class="sr">Ficha</span></th></tr></thead>
+        <tbody id="lista-clientes"></tbody>
+      </table>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section data-tela="catalogo" data-titulo="Catálogo" aria-label="Catálogo" hidden>
+      <p class="dica-bloco">Os itens e preços que aparecem na hora de montar o orçamento. Item desativado some do editor, mas continua nos orçamentos antigos.</p>
+      <div id="catalogo"></div>
+    </section>
+
+    <!-- EDITOR DE ORÇAMENTO (fora do menu) -->
+    <section id="editor" aria-labelledby="titulo" hidden>
+      <div class="ed-topo">
+        <button class="btn btn-s btn-sm" type="button" id="ed-voltar"><svg class="ico" aria-hidden="true"><use href="#i-volta"/></svg>Orçamentos</button>
+        <span id="ed-status"></span>
+        <div class="segm ed-abas" role="group" aria-label="Ver"><button type="button" data-aba="editar" aria-pressed="true">Editar</button><button type="button" data-aba="pdf" aria-pressed="false">Ver PDF</button></div>
+      </div>
+      <p class="trava" id="ed-trava" hidden></p>
+      <div class="ed-grade">
+        <form class="ed-form" id="ed-form" novalidate>
+          <fieldset class="ed-bloco" id="ed-campos">
+            <legend class="sr">Dados do orçamento</legend>
+            <div class="ed-cli">
+              <div class="campo"><label for="ed-cliente">Cliente</label><select id="ed-cliente"></select></div>
+              <button class="btn btn-s" type="button" id="ed-novo-cli"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo cliente</button>
+            </div>
+            <div id="ed-ambientes"></div>
+            <button class="btn btn-s" type="button" id="ed-add-amb"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Adicionar ambiente</button>
+            <div class="ed-cond">
+              <h2 class="tit-bloco">Condições</h2>
+              <div class="duas">
+                <div class="campo"><label for="ed-frete">Frete (R$)</label><input id="ed-frete" inputmode="decimal" autocomplete="off"></div>
+                <div class="campo"><label for="ed-desc">Desconto</label><div class="junto"><input id="ed-desc" inputmode="decimal" autocomplete="off" aria-describedby="ed-desc-tipo-rot"><select id="ed-desc-tipo" aria-label="Tipo de desconto"><option value="%">%</option><option value="R$">R$</option></select></div><span class="sr" id="ed-desc-tipo-rot">Escolha ao lado se o desconto é em porcentagem ou em reais.</span></div>
+              </div>
+              <div class="duas">
+                <div class="campo"><label for="ed-inicio">Início do serviço</label><input id="ed-inicio" type="date"></div>
+                <div class="campo"><label for="ed-termino">Término (entrega e instalação)</label><input id="ed-termino" type="date" aria-describedby="e-datas"><span class="erro" id="e-datas" hidden>O término precisa ser depois do início.</span></div>
+              </div>
+              <div class="duas">
+                <div class="campo"><label for="ed-entrada">Entrada na aprovação</label><select id="ed-entrada"><option value="0">Sem entrada</option><option value="30">30%</option><option value="40">40%</option><option value="50">50%</option></select></div>
+                <div class="campo"><label for="ed-parcelas">Restante em</label><select id="ed-parcelas"></select></div>
+              </div>
+              <p class="pag-calc" id="ed-pag-calc" aria-live="polite"></p>
+              <div class="campo"><label for="ed-validade">Validade <span class="dica">(dias, contados de quando o cliente recebe)</span></label><input id="ed-validade" type="number" min="1" max="60" inputmode="numeric"></div>
+              <div class="campo"><label for="ed-obs">Observações <span class="dica">(aparecem no PDF)</span></label><textarea id="ed-obs"></textarea></div>
+            </div>
+          </fieldset>
+        </form>
+        <div class="ed-previa" aria-label="Prévia do PDF"><div class="folha-caixa"><div class="folha" id="folha"></div></div></div>
+      </div>
+      <div class="ed-acoes" id="ed-acoes"></div>
+    </section>
+  </main>
+</div>
+
+<!-- impressão (o "Baixar PDF" imprime só isto) -->
+<div id="impressao" aria-hidden="true"></div>
+
+<!-- painel: cliente (novo e ficha) -->
+<dialog class="painel" id="painel-cli" aria-labelledby="cl-titulo">
+  <form id="f-cli" novalidate>
+    <div class="painel-topo"><h2 id="cl-titulo">Novo cliente</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div id="cl-ficha"></div>
+      <div class="campo"><label for="cl-nome">Nome</label><input id="cl-nome" autocomplete="off" aria-describedby="e-clnome"><span class="erro" id="e-clnome" hidden>Escreva o nome do cliente.</span></div>
+      <div class="campo"><label for="cl-tel">WhatsApp</label><input id="cl-tel" type="tel" inputmode="tel" autocomplete="off" placeholder="(27) 99999-0000"></div>
+      <div class="campo"><label for="cl-end">Endereço da obra</label><input id="cl-end" autocomplete="off" placeholder="Rua, número, bairro"></div>
+    </div>
+    <div class="painel-pe"><button class="btn btn-s" type="button" id="cl-orc" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo orçamento</button><button class="btn btn-p" type="submit" id="cl-salvar">Salvar cliente</button></div>
+  </form>
+</dialog>
+
+<!-- painel: aprovar (vira serviço) -->
+<dialog class="painel" id="painel-aprovar" aria-labelledby="ap-titulo">
+  <form id="f-aprovar" novalidate>
+    <div class="painel-topo"><h2 id="ap-titulo">Aprovar orçamento</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <p id="ap-texto"></p>
+      <div class="campo"><label for="ap-sinal">Sinal recebido (R$)</label><input id="ap-sinal" inputmode="decimal" autocomplete="off" aria-describedby="e-sinal"><span class="erro" id="e-sinal" hidden></span></div>
+      <fieldset><legend>Forma de pagamento do sinal</legend><div class="opcoes"><label><input type="radio" name="ap-forma" value="Pix" checked>Pix</label><label><input type="radio" name="ap-forma" value="Transferência">Transferência</label><label><input type="radio" name="ap-forma" value="Cartão">Cartão</label><label><input type="radio" name="ap-forma" value="Dinheiro">Dinheiro</label></div></fieldset>
+      <div class="campo"><label for="ap-entrega">Entrega e instalação</label><input id="ap-entrega" type="date"></div>
+      <p class="dica-bloco">Ao aprovar, o orçamento vira um serviço com as etapas medição técnica, produção e instalação. Depois de aprovado, ele só muda em comum acordo (CDC, art. 40, § 2º).</p>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Aprovar e criar serviço</button></div>
+  </form>
+</dialog>
+
+<!-- painel: receber (serviço) -->
+<dialog class="painel" id="painel-receber" aria-labelledby="rc-titulo">
+  <form id="f-receber" novalidate>
+    <div class="painel-topo"><h2 id="rc-titulo">Receber</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div id="rc-conta"></div>
+      <div class="campo"><label for="rc-valor">Valor recebido (R$)</label><input id="rc-valor" inputmode="decimal" autocomplete="off" aria-describedby="e-rc"><span class="erro" id="e-rc" hidden></span></div>
+      <fieldset><legend>Forma de pagamento</legend><div class="opcoes"><label><input type="radio" name="rc-forma" value="Pix" checked>Pix</label><label><input type="radio" name="rc-forma" value="Transferência">Transferência</label><label><input type="radio" name="rc-forma" value="Cartão">Cartão</label><label><input type="radio" name="rc-forma" value="Dinheiro">Dinheiro</label></div></fieldset>
+    </div>
+    <div class="painel-pe"><span class="total"><small>Saldo</small><output id="rc-saldo"></output></span><button class="btn btn-p" type="submit">Registrar pagamento</button></div>
+  </form>
+</dialog>
+
+<!-- painel: item do catálogo -->
+<dialog class="painel" id="painel-item" aria-labelledby="it-titulo">
+  <form id="f-item" novalidate>
+    <div class="painel-topo"><h2 id="it-titulo">Novo item</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="it-nome">Nome do item</label><input id="it-nome" autocomplete="off" aria-describedby="e-itnome"><span class="erro" id="e-itnome" hidden>Escreva o nome do item.</span></div>
+      <div class="campo"><label for="it-cat">Categoria</label><select id="it-cat"></select></div>
+      <div class="duas">
+        <div class="campo"><label for="it-un">Cobrado por</label><select id="it-un"><option value="m2">m² (largura × altura)</option><option value="m">metro (comprimento)</option><option value="un">unidade</option></select></div>
+        <div class="campo"><label for="it-preco">Preço (R$)</label><input id="it-preco" inputmode="decimal" autocomplete="off" aria-describedby="e-itpreco"><span class="erro" id="e-itpreco" hidden>Escreva um preço válido.</span></div>
+      </div>
+      <label class="chave"><input type="checkbox" id="it-ativo" checked><span>Ativo (aparece no editor)</span></label>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit">Salvar item</button></div>
+  </form>
+</dialog>
+
+<!-- recusar -->
+<dialog class="janela" id="recusar" aria-labelledby="x-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="x-titulo">Marcar como recusado</h2>
+    <p id="x-texto">Saber o motivo ajuda a ajustar os próximos orçamentos.</p>
+    <fieldset><legend>Motivo</legend><div class="opcoes"><label><input type="radio" name="motivo" value="Preço" checked>Preço</label><label><input type="radio" name="motivo" value="Prazo">Prazo</label><label><input type="radio" name="motivo" value="Fechou com outro">Fechou com outro</label><label><input type="radio" name="motivo" value="Desistiu do projeto">Desistiu do projeto</label></div></fieldset>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Marcar recusado</button></div>
+  </form>
+</dialog>
+
+<dialog class="janela" id="janela" aria-labelledby="j-titulo">
+  <div class="j-in">
+    <h2 id="j-titulo">Isto é uma demonstração</h2>
+    <p>No sistema real, o WhatsApp abriria com esta mensagem pronta. Aqui nada é enviado.</p>
+    <p class="msg" id="j-msg"></p>
+    <div class="botoes">
+      <button class="btn btn-s" type="button" data-fechar>Fechar</button>
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20or%C3%A7amentos%20(Respiga%20Marcenaria)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="confirma" aria-labelledby="c-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="c-titulo">Tem certeza?</h2>
+    <p id="c-texto"></p>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
+  </form>
+</dialog>
+
+<div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -53,7 +53,7 @@ button { cursor: pointer; }
 .area { min-width: 0; padding: 0 var(--g) 48px; }
 .topo-app { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 20px; padding: 24px 0 14px; }
 .topo-app h1 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; }
-.topo-app .data { display: block; margin-top: 4px; color: var(--s-suave); font-size: 14px; }
+.topo-app .data { display: block; min-height: 1.5em; margin-top: 4px; color: var(--s-suave); font-size: 14px; }
 .topo-app .acoes { display: flex; flex-wrap: wrap; gap: 10px; }
 .logo-mob { display: none; }
 .aviso-demo { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-bottom: 20px; padding: 9px 14px; border: 1px dashed var(--s-linha); border-radius: 10px; color: var(--s-suave); font-size: 13px; }
@@ -179,3 +179,6 @@ fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
   .painel { width: 100%; }
   .duas { grid-template-columns: 1fr; }
 }
+/* até o sistema desenhar os números, as telas ficam invisíveis (evita a página "pular"); se o script falhar, aparecem sozinhas em 3 s */
+.carregando [data-tela] { visibility: hidden; animation: aparece 0s 3s forwards; }
+@keyframes aparece { to { visibility: visible; } }
