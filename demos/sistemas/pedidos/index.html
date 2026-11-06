@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Quadro de pedidos · Coadouro · Demonstração EstudioHK</title>
-<meta name="description" content="Demonstração de sistema criada pela EstudioHK: quadro de pedidos e encomendas de uma cafeteria fictícia, com etapas, total do dia, o que separar para amanhã e aviso de pedido pronto pelo WhatsApp.">
+<title>Sistema de pedidos · Coadouro · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de sistema criada pela EstudioHK para uma cafeteria fictícia: pedidos de mesa, retirada e entrega, garçom lançando pelo celular, tela da cozinha, cardápio editável, pagamento com divisão e troco e fechamento do caixa.">
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://estudiohk.com.br/demos/sistemas/pedidos/">
 <meta name="theme-color" content="#2B1A12">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="Quadro de pedidos · demonstração de sistema pela EstudioHK">
-<meta property="og:description" content="Pedidos em etapas, total do dia, encomendas de amanhã e aviso de pedido pronto pelo WhatsApp. Teste à vontade: é uma demonstração.">
+<meta property="og:title" content="Sistema de pedidos · demonstração de sistema pela EstudioHK">
+<meta property="og:description" content="Mesas, retirada e entrega no mesmo quadro, tela da cozinha, cardápio editável e fechamento do caixa. Teste à vontade: é uma demonstração.">
 <meta property="og:url" content="https://estudiohk.com.br/demos/sistemas/pedidos/">
 <meta property="og:image" content="https://estudiohk.com.br/demos/sistemas/pedidos/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -31,7 +31,9 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <symbol id="i-quadro" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="11" rx="1.5"/><rect x="17" y="4" width="4" height="7" rx="1.5"/></symbol>
-    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-mesa" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="5" rx="1.5"/><path d="M6 12v7M18 12v7M9 7V4M15 7V4"/></symbol>
+    <symbol id="i-fogo" viewBox="0 0 24 24"><path d="M12 3c1 4 5 5.5 5 10a5 5 0 0 1-10 0c0-2.4 1.4-3.6 2.5-5 .3 1.8 1.2 2.6 2 3 0-3-.5-5.5.5-8z"/></symbol>
+    <symbol id="i-caixa" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></symbol>
     <symbol id="i-lista" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
     <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
     <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
@@ -43,6 +45,9 @@
     <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
     <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-moto" viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-3-7H8M15 6h3l2 7"/></symbol>
+    <symbol id="i-sacola" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-moeda" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2s1 1.7 3 2 3 1 3 2.2-1.3 1.8-3 1.8c-1.5 0-2.6-.6-3-1.6M12 6v2M12 16v2"/></symbol>
     <symbol id="logo-c" viewBox="0 0 34 34"><circle cx="17" cy="17" r="17" fill="#F2EADF"/><path d="M9.5 11.5h15l-5.6 12.5h-3.8z" fill="#2B1A12"/><path d="M8 11.5h18M26 11.5h2.6" stroke="#D9622A" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="27.6" r="1.7" fill="#D9622A"/></symbol>
   </defs>
 </svg>
@@ -52,86 +57,181 @@
     <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração de sistema: </span>negócio fictício criado pela EstudioHK.</span>
     <nav aria-label="EstudioHK">
       <a class="outras" href="https://estudiohk.com.br/sistemas/#demos">Ver outros sistemas</a>
-      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20quadro%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
     </nav>
   </div>
 </div>
 
 <div class="app">
   <aside class="lateral" aria-label="Menu do sistema">
-    <a class="logo" href="#quadro"><svg aria-hidden="true"><use href="#logo-c"/></svg><span>Coadouro<small>Pedidos</small></span></a>
+    <a class="logo" href="#pedidos"><svg aria-hidden="true"><use href="#logo-c"/></svg><span>Coadouro<small>Pedidos e caixa</small></span></a>
     <nav aria-label="Telas">
       <ul class="vistas">
-        <li><button class="vista" type="button" data-vista="quadro"><svg class="ico" aria-hidden="true"><use href="#i-quadro"/></svg><span>Hoje<span class="sr"> (pedidos em aberto:</span></span><span class="num" id="n-hoje"></span><span class="sr">)</span></button></li>
-        <li><button class="vista" type="button" data-vista="amanha"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg><span>Amanhã<span class="sr"> (encomendas:</span></span><span class="num" id="n-amanha"></span><span class="sr">)</span></button></li>
+        <li><button class="vista" type="button" data-vista="pedidos"><svg class="ico" aria-hidden="true"><use href="#i-quadro"/></svg><span>Pedidos</span><span class="num" id="n-pedidos"></span></button></li>
+        <li><button class="vista" type="button" data-vista="mesas"><svg class="ico" aria-hidden="true"><use href="#i-mesa"/></svg><span>Mesas</span><span class="num" id="n-mesas"></span></button></li>
+        <li><button class="vista" type="button" data-vista="cozinha"><svg class="ico" aria-hidden="true"><use href="#i-fogo"/></svg><span>Cozinha</span><span class="num" id="n-cozinha"></span></button></li>
+        <li><button class="vista" type="button" data-vista="caixa"><svg class="ico" aria-hidden="true"><use href="#i-caixa"/></svg><span>Caixa</span><span class="num" id="n-caixa"></span></button></li>
         <li><button class="vista" type="button" data-vista="cardapio"><svg class="ico" aria-hidden="true"><use href="#i-lista"/></svg><span>Cardápio</span></button></li>
       </ul>
     </nav>
-    <div class="quem"><span class="av" aria-hidden="true">J</span><span><b>Júlia</b>Balcão · manhã</span></div>
+    <div class="quem"><span class="av" aria-hidden="true">J</span><span><b>Júlia</b>Gerente · manhã</span></div>
   </aside>
 
   <main class="area" id="conteudo">
     <div class="topo-app">
-      <span class="logo-mob"><svg aria-hidden="true"><use href="#logo-c"/></svg>Coadouro · Pedidos</span>
-      <div><h1 id="titulo" tabindex="-1">Pedidos de hoje</h1><span class="data" id="subtitulo"></span></div>
-      <div class="acoes" data-so-em="quadro amanha"><button class="btn btn-p" type="button" id="novo"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo pedido</button></div>
+      <span class="logo-mob"><svg aria-hidden="true"><use href="#logo-c"/></svg>Coadouro · Pedidos e caixa</span>
+      <div><h1 id="titulo" tabindex="-1">Pedidos</h1><span class="data"><span id="subtitulo"></span> · <span class="relogio"><svg class="ico" aria-hidden="true"><use href="#i-relogio"/></svg><span id="agora"></span></span></span></div>
+      <div class="acoes">
+        <button class="btn btn-p" type="button" id="novo" data-so-em="pedidos mesas"><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo pedido</button>
+        <button class="btn btn-p" type="button" id="novo-item" data-so-em="cardapio" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo item</button>
+        <button class="btn btn-p" type="button" id="fechar-caixa" data-so-em="caixa" hidden><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Fechar o caixa</button>
+      </div>
     </div>
-    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com dados fictícios. No sistema real, os dados ficam salvos com segurança e cada pessoa entra com a própria senha.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Demonstração com dados fictícios. O relógio começa às 9h40. No sistema real, os dados ficam salvos com segurança e cada pessoa (garçom, cozinha, caixa) entra com a própria senha.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
 
-    <section data-tela="quadro" data-titulo="Pedidos de hoje" aria-label="Pedidos de hoje">
-      <div class="resumo" id="resumo-hoje"></div>
-      <div class="ferramentas">
-        <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar pedido pelo nome do cliente</label><input id="busca" type="search" placeholder="Buscar pelo nome do cliente" autocomplete="off"></div>
-        <p class="dica-quadro">Use os botões do cartão para mudar a etapa<span class="so-mouse"> ou arraste o cartão</span>.</p>
+    <!-- PEDIDOS -->
+    <section data-tela="pedidos" data-titulo="Pedidos" aria-label="Pedidos">
+      <div class="segm" role="group" aria-label="Dia">
+        <button type="button" data-dia="hoje" aria-pressed="true">Hoje</button>
+        <button type="button" data-dia="amanha" aria-pressed="false">Amanhã <span class="segm-n" id="n-amanha"></span></button>
       </div>
-      <div class="quadro" id="quadro"></div>
+      <div id="bloco-hoje">
+        <div class="resumo" id="resumo-hoje"></div>
+        <div class="ferramentas">
+          <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar por cliente ou mesa</label><input id="busca" type="search" placeholder="Buscar por cliente ou mesa" autocomplete="off"></div>
+          <div class="filtros" role="group" aria-label="Tipo de pedido">
+            <button type="button" data-tipo="todos" aria-pressed="true">Todos</button>
+            <button type="button" data-tipo="mesa" aria-pressed="false">Mesa</button>
+            <button type="button" data-tipo="retirada" aria-pressed="false">Retirada</button>
+            <button type="button" data-tipo="entrega" aria-pressed="false">Entrega</button>
+          </div>
+        </div>
+        <p class="dica-quadro">Use os botões do cartão para mudar a etapa<span class="so-mouse"> ou arraste o cartão para outra coluna</span>.</p>
+        <div class="quadro" id="quadro"></div>
+      </div>
+      <div id="bloco-amanha" hidden>
+        <div class="resumo" id="resumo-amanha"></div>
+        <div class="amanha-grade">
+          <div><h2 class="tit-bloco">Encomendas</h2><div class="lista-amanha" id="lista-amanha"></div></div>
+          <div>
+            <h2 class="tit-bloco">O que separar</h2>
+            <p class="dica-bloco">A soma de todas as encomendas. Muda sozinha quando você cria ou edita uma.</p>
+            <table class="tabela separar"><thead><tr><th scope="col">Item</th><th scope="col" class="num">Quantidade</th></tr></thead><tbody id="separar"></tbody></table>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section data-tela="amanha" data-titulo="Encomendas de amanhã" aria-label="Encomendas de amanhã" hidden>
-      <div class="resumo" id="resumo-amanha"></div>
-      <div class="amanha-grade">
-        <div>
-          <h2 class="tit-bloco">Encomendas</h2>
-          <div class="lista-amanha" id="lista-amanha"></div>
-        </div>
-        <div>
-          <h2 class="tit-bloco">O que separar</h2>
-          <p class="dica-bloco">A soma de todas as encomendas. Muda sozinha quando você cria ou edita uma.</p>
-          <table class="tabela separar">
-            <thead><tr><th scope="col">Item</th><th scope="col" class="num">Quantidade</th></tr></thead>
-            <tbody id="separar"></tbody>
-          </table>
-        </div>
-      </div>
+    <!-- MESAS -->
+    <section data-tela="mesas" data-titulo="Mesas" aria-label="Mesas" hidden>
+      <div class="legenda-mesas" aria-hidden="true"><span class="l-livre">Livre</span><span class="l-ocupada">Ocupada</span><span class="l-conta">Conta pedida</span></div>
+      <ul class="mesas" id="mesas"></ul>
     </section>
 
-    <section data-tela="cardapio" data-titulo="Cardápio e vendas de hoje" aria-label="Cardápio e vendas de hoje" hidden>
-      <p class="dica-bloco">Os itens que aparecem na hora de lançar um pedido, com o que já saiu hoje.</p>
-      <table class="tabela">
-        <thead><tr><th scope="col">Item</th><th scope="col" class="num">Preço</th><th scope="col" class="num">Saíram hoje</th><th scope="col" class="num">Total hoje</th></tr></thead>
-        <tbody id="cardapio"></tbody>
-        <tfoot><tr><td class="principal">Total do dia</td><td></td><td class="num" data-rot="Itens" id="c-itens"></td><td class="num" data-rot="Total" id="c-total"></td></tr></tfoot>
+    <!-- COZINHA -->
+    <section data-tela="cozinha" data-titulo="Cozinha" aria-label="Cozinha" hidden>
+      <p class="dica-bloco">O que preparar, na ordem de chegada. Cartão amarelo: esperando há mais de 10 minutos. Vermelho: mais de 15.</p>
+      <div class="cozinha" id="cozinha"></div>
+    </section>
+
+    <!-- CAIXA -->
+    <section data-tela="caixa" data-titulo="Caixa do dia" aria-label="Caixa do dia" hidden>
+      <div class="resumo" id="resumo-caixa"></div>
+      <h2 class="tit-bloco">Contas em aberto</h2>
+      <table class="tabela contas">
+        <thead><tr><th scope="col">Conta</th><th scope="col" class="num">Total</th><th scope="col" class="num">Já pago</th><th scope="col" class="num">Falta</th><th scope="col"><span class="sr">Ação</span></th></tr></thead>
+        <tbody id="contas"></tbody>
       </table>
+      <div class="fechamento">
+        <div class="bloco-caixa"><h2 class="tit-bloco">Recebido por forma de pagamento</h2><div class="barras" id="por-forma"></div></div>
+        <div class="bloco-caixa"><h2 class="tit-bloco">Vendas por tipo de pedido</h2><div class="barras" id="por-tipo"></div></div>
+        <div class="bloco-caixa"><h2 class="tit-bloco">Mais vendidos hoje</h2><div class="barras" id="mais-vendidos"></div></div>
+        <div class="bloco-caixa"><h2 class="tit-bloco">Cancelamentos</h2><div id="cancelados"></div></div>
+      </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section data-tela="cardapio" data-titulo="Cardápio" aria-label="Cardápio" hidden>
+      <p class="dica-bloco">O que muda aqui aparece na hora de lançar um pedido. Item esgotado some da lista até você ligar de novo.</p>
+      <div id="cardapio"></div>
     </section>
   </main>
 </div>
 
+<!-- painel: pedido -->
 <dialog class="painel" id="painel" aria-labelledby="p-titulo">
   <form id="f-pedido" novalidate>
     <div class="painel-topo"><h2 id="p-titulo">Novo pedido</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
     <div class="painel-corpo">
-      <div class="campo"><label for="f-cliente">Cliente</label><input id="f-cliente" autocomplete="off" aria-describedby="e-cliente"><span class="erro" id="e-cliente" hidden>Escreva o nome do cliente.</span></div>
-      <div class="campo"><label for="f-tel">WhatsApp do cliente <span class="dica">(opcional)</span></label><input id="f-tel" type="tel" inputmode="tel" placeholder="(27) 99999-0000" autocomplete="off"></div>
-      <div class="duas">
+      <fieldset id="g-tipo"><legend>Tipo de pedido</legend><div class="opcoes tipos"><label><input type="radio" name="tipo" value="mesa"><svg class="ico" aria-hidden="true"><use href="#i-mesa"/></svg>Mesa</label><label><input type="radio" name="tipo" value="retirada" checked><svg class="ico" aria-hidden="true"><use href="#i-sacola"/></svg>Retirada</label><label><input type="radio" name="tipo" value="entrega"><svg class="ico" aria-hidden="true"><use href="#i-moto"/></svg>Entrega</label></div></fieldset>
+      <div class="campo" data-para="mesa"><label for="f-mesa">Mesa</label><select id="f-mesa"></select></div>
+      <div class="campo" data-para="retirada entrega"><label for="f-cliente">Cliente</label><input id="f-cliente" autocomplete="off" aria-describedby="e-cliente"><span class="erro" id="e-cliente" hidden>Escreva o nome do cliente.</span></div>
+      <div class="campo" data-para="retirada entrega"><label for="f-tel">WhatsApp do cliente <span class="dica">(opcional)</span></label><input id="f-tel" type="tel" inputmode="tel" placeholder="(27) 99999-0000" autocomplete="off"></div>
+      <div class="campo" data-para="entrega"><label for="f-end">Endereço</label><input id="f-end" autocomplete="off" placeholder="Rua, número, apartamento" aria-describedby="e-end"><span class="erro" id="e-end" hidden>Escreva o endereço da entrega.</span></div>
+      <div class="campo" data-para="entrega"><label for="f-bairro">Bairro <span class="dica">(define a taxa de entrega)</span></label><select id="f-bairro"></select></div>
+      <div class="duas" data-para="retirada entrega">
         <fieldset><legend>Para quando</legend><div class="opcoes"><label><input type="radio" name="dia" value="hoje" checked>Hoje</label><label><input type="radio" name="dia" value="amanha">Amanhã</label></div></fieldset>
-        <div class="campo"><label for="f-hora">Retirada</label><select id="f-hora"></select></div>
+        <div class="campo"><label for="f-hora" id="l-hora">Retirada</label><select id="f-hora"></select></div>
       </div>
-      <fieldset><legend>Veio por</legend><div class="opcoes"><label><input type="radio" name="origem" value="Balcão" checked>Balcão</label><label><input type="radio" name="origem" value="WhatsApp">WhatsApp</label><label><input type="radio" name="origem" value="Instagram">Instagram</label></div></fieldset>
-      <fieldset aria-describedby="e-itens"><legend>Itens</legend><ul class="itens-form" id="itens-form"></ul><span class="erro" id="e-itens" hidden>Escolha pelo menos um item.</span></fieldset>
+      <fieldset aria-describedby="e-itens"><legend>Itens</legend><div id="itens-form"></div><span class="erro" id="e-itens" hidden>Escolha pelo menos um item.</span></fieldset>
       <div class="campo"><label for="f-obs">Observação <span class="dica">(opcional)</span></label><textarea id="f-obs" placeholder="Ex.: um com leite de aveia"></textarea></div>
-      <button class="btn btn-perigo" type="button" id="excluir" hidden>Excluir este pedido</button>
+      <button class="btn btn-perigo" type="button" id="cancelar-ped" hidden>Cancelar este pedido</button>
     </div>
-    <div class="painel-pe"><span class="total"><small>Total</small><output id="f-total" for="itens-form">R$ 0,00</output></span><button class="btn btn-p" type="submit" id="salvar">Salvar pedido</button></div>
+    <div class="painel-pe"><span class="total"><small id="f-total-rot">Total</small><output id="f-total">R$ 0,00</output></span><button class="btn btn-p" type="submit" id="salvar">Salvar pedido</button></div>
+  </form>
+</dialog>
+
+<!-- painel: mesa -->
+<dialog class="painel" id="painel-mesa" aria-labelledby="m-titulo">
+  <div class="painel-topo"><h2 id="m-titulo">Mesa</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+  <div class="painel-corpo" id="m-corpo"></div>
+  <div class="painel-pe" id="m-pe"></div>
+</dialog>
+
+<!-- painel: receber -->
+<dialog class="painel" id="painel-pag" aria-labelledby="r-titulo">
+  <form id="f-pag" novalidate>
+    <div class="painel-topo"><h2 id="r-titulo">Receber</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div id="r-conta"></div>
+      <div class="dividir">
+        <span class="rot" id="l-div">Dividir a conta</span>
+        <span class="passo" role="group" aria-labelledby="l-div"><button type="button" data-div="-1" aria-label="Menos uma pessoa">−</button><output id="r-pessoas" aria-live="polite">1</output><button type="button" data-div="1" aria-label="Mais uma pessoa">+</button></span>
+        <span class="por-pessoa" id="r-por-pessoa"></span>
+      </div>
+      <div class="campo"><label for="r-valor">Valor deste pagamento</label><input id="r-valor" inputmode="decimal" autocomplete="off" aria-describedby="e-valor"><span class="erro" id="e-valor" hidden></span></div>
+      <fieldset><legend>Forma de pagamento</legend><div class="opcoes" id="r-formas"><label><input type="radio" name="forma" value="Pix" checked>Pix</label><label><input type="radio" name="forma" value="Crédito">Crédito</label><label><input type="radio" name="forma" value="Débito">Débito</label><label><input type="radio" name="forma" value="Dinheiro">Dinheiro</label></div></fieldset>
+      <div class="campo" id="g-recebido" hidden><label for="r-recebido">Valor recebido em dinheiro</label><input id="r-recebido" inputmode="decimal" autocomplete="off" placeholder="Ex.: 50,00"><span class="troco" id="r-troco" aria-live="polite"></span></div>
+    </div>
+    <div class="painel-pe"><span class="total"><small>Falta pagar</small><output id="r-falta">R$ 0,00</output></span><button class="btn btn-p" type="submit">Registrar pagamento</button></div>
+  </form>
+</dialog>
+
+<!-- painel: item do cardápio -->
+<dialog class="painel" id="painel-item" aria-labelledby="i-titulo">
+  <form id="f-item" novalidate>
+    <div class="painel-topo"><h2 id="i-titulo">Novo item</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="i-nome">Nome do item</label><input id="i-nome" autocomplete="off" aria-describedby="e-inome"><span class="erro" id="e-inome" hidden>Escreva o nome do item.</span></div>
+      <div class="duas">
+        <div class="campo"><label for="i-cat">Categoria</label><select id="i-cat"></select></div>
+        <div class="campo"><label for="i-preco">Preço (R$)</label><input id="i-preco" inputmode="decimal" autocomplete="off" placeholder="0,00" aria-describedby="e-ipreco"><span class="erro" id="e-ipreco" hidden>Escreva um preço válido.</span></div>
+      </div>
+      <div class="campo"><label for="i-det">Detalhe <span class="dica">(opcional: tamanho, porção)</span></label><input id="i-det" autocomplete="off" placeholder="Ex.: 300 ml"></div>
+      <label class="chave"><input type="checkbox" id="i-disp" checked><span>Disponível para pedir</span></label>
+      <button class="btn btn-perigo" type="button" id="i-excluir" hidden>Tirar este item do cardápio</button>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit" id="i-salvar">Salvar item</button></div>
+  </form>
+</dialog>
+
+<!-- cancelar pedido -->
+<dialog class="janela" id="cancelar" aria-labelledby="x-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="x-titulo">Cancelar pedido</h2>
+    <p id="x-texto"></p>
+    <fieldset><legend>Motivo</legend><div class="opcoes"><label><input type="radio" name="motivo" value="Cliente desistiu" checked>Cliente desistiu</label><label><input type="radio" name="motivo" value="Item esgotado">Item esgotado</label><label><input type="radio" name="motivo" value="Pedido lançado errado">Lançado errado</label></div></fieldset>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Cancelar pedido</button></div>
   </form>
 </dialog>
 
@@ -142,7 +242,7 @@
     <p class="msg" id="j-msg"></p>
     <div class="botoes">
       <button class="btn btn-s" type="button" data-fechar>Fechar</button>
-      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20quadro%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20pedidos%20(Coadouro)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
     </div>
   </div>
 </dialog>
@@ -151,7 +251,7 @@
   <form method="dialog" class="j-in">
     <h2 id="c-titulo">Tem certeza?</h2>
     <p id="c-texto"></p>
-    <div class="botoes"><button class="btn btn-s" value="nao">Cancelar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
   </form>
 </dialog>
 

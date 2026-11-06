@@ -23,3 +23,17 @@ Ficaram de fora: 3 (ordem de serviço) e 5 (agenda e ficha do cliente).
 - Dados fictícios, tudo clicável no navegador, sem login.
 - Aviso de que no sistema real os dados ficam salvos, com acesso por senha.
 - Mesmas regras das outras demos: ramo curto para prévia, publicar só com o OK dele.
+
+## Atualização (6/nov/2026, depois da primeira prévia)
+
+O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, mas ainda simples. Decidido:
+
+- **Pedidos (Coadouro)** ganhou:
+  - mesas, com o garçom lançando pelo celular;
+  - tela da cozinha;
+  - cardápio editável (categorias, preço, esgotado);
+  - pagamento com divisão da conta e troco;
+  - fechamento do caixa;
+  - entrega com bairro e taxa.
+- Perfis (garçom, cozinha, caixa) ficaram de fora da demo.
+- **Os outros 3 sistemas** seguem o mesmo nível. Antes de montar cada um, mostrar a lista do que ele vai ter para o Henrique aprovar.
