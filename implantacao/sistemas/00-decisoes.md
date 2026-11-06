@@ -81,3 +81,15 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
 - Home: "Sistemas" no menu, 3ª porta, "Ver demonstrações" no cartão de serviço, rodapé e Ctrl+K.
 - Arquivos: `assets/sistemas.js`, os estilos `/* página /sistemas/ */` em `assets/site.css`, o modelo `scratchpad/tools/paginas/sistemas.main.html` (gerado por `hk_paginas.py`), e as miniaturas `demos/sistemas/*/assets/thumb-{480,800}.webp`.
 - Próximo passo, depois do OK: levar orçamento, academia e estoque ao nível do piloto, um por vez.
+
+## Mudança na página /sistemas/ (6/11/2026, pedido do Henrique)
+- **Sem demos no site.** A página só tem simulações curtas: 4 abas (cafeteria, marcenaria, academia e barbearia) × 3 funcionalidades cada.
+  - Cafeteria: pedido pelo QR, conta dividida, fechar o caixa.
+  - Marcenaria: orçamento por ambiente, aprovação e assinatura, lembrete de retorno.
+  - Academia: aula e lista de espera, ficha de treino, mensalidade atrasada.
+  - Barbearia: venda no balcão, controle de validade, pedido ao fornecedor.
+- Seções novas: "O que é sob medida" (3 colunas e o comparativo planilha × app pronto × sob medida) e "Funcionalidades possíveis" (4 grupos e os segmentos).
+- A tabela de custos saiu.
+- As 4 demos completas ficam **guardadas fora do site**: nenhum link no site e `noindex` (já existia). Servem para mostrar numa reunião:
+  - /demos/sistemas/pedidos/ · /demos/sistemas/orcamento/ · /demos/sistemas/academia/ · /demos/sistemas/estoque/
+- O plano de levar as demos ao nível do piloto fica suspenso, porque elas não vão para o site.
