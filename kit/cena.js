@@ -46,6 +46,7 @@
     conta:  function (s, q, e, it) { it.n.textContent = fmt(it.valor * e, it.casas); },
     escorre:function (s, q, e) { s.opacity = q > 0 ? 1 : 0; s.transform = 'scaleY(' + e + ')'; },   // de cima para baixo (líquido, fio)
     enche:  function (s, q, e) { s.clipPath = 'inset(' + ((1 - e) * 100) + '% 0 0 0)'; },            // enche de baixo para cima (copo, barra)
+    barra:  function (s, q, e) { s.transform = 'scaleX(' + e + ')'; },                                 // barra que cresce da esquerda (largura final no CSS)
     foco:   function (s, q, e) { s.opacity = e; s.transform = 'translateY(' + ((1 - e) * .4) + 'em) rotateX(' + ((1 - e) * -70) + 'deg)'; s.filter = e < 1 ? 'blur(' + ((1 - e) * 6).toFixed(2) + 'px)' : ''; },
     // movimento livre: vai de (data-x, data-y, data-r, data-s, data-o) até (data-x2, data-y2, data-r2, data-s2, data-o2)
     move:   function (s, q, e, it) {
@@ -128,9 +129,9 @@
     c.el.dispatchEvent(new CustomEvent('cena:progresso', { detail: { p: p } }));
   }
 
-  function progresso(c) {
-    var r = c.el.getBoundingClientRect(), t = topo();
-    if (c.preso) { var total = c.el.offsetHeight - (innerHeight - t); return total <= 0 ? 1 : cl((t - r.top) / total); }
+  // progresso a partir de medidas já lidas (r = retângulo do bloco, h = altura, t = altura do cabeçalho fixo)
+  function progresso(c, r, h, t) {
+    if (c.preso) { var total = h - (innerHeight - t); return total <= 0 ? 1 : cl((t - r.top) / total); }
     return cl((innerHeight * .9 - r.top) / (innerHeight * .9 - t - innerHeight * .05));   // passagem: entra por baixo até chegar no alto
   }
 
@@ -154,27 +155,30 @@
 
   /* ---------- seções empilhadas: a próxima sobe por cima ---------- */
   var pilhas = $$('[data-empilha]').map(function (pl) { return Array.prototype.slice.call(pl.children); });
-  function empilha() {
-    var t = topo(), alt = innerHeight - t;
+  function medePilhas(t) {
+    var alt = innerHeight - t, res = [];
     pilhas.forEach(function (filhos) {
-      for (var i = 0; i < filhos.length - 1; i++) {
-        var r = filhos[i + 1].getBoundingClientRect(), c = cl(1 - (r.top - t) / alt);
-        filhos[i].style.setProperty('--cobre', c.toFixed(3));
-      }
+      for (var i = 0; i < filhos.length - 1; i++) res.push([filhos[i], cl(1 - (filhos[i + 1].getBoundingClientRect().top - t) / alt)]);
     });
+    return res;
   }
 
   /* ---------- laço ---------- */
   var pedido = false;
   function quadro() {
     pedido = false;
-    blocos.forEach(function (c) {
-      var r = c.el.getBoundingClientRect();
+    // 1) só leituras
+    var t = topo();
+    var med = blocos.map(function (c) { return { r: c.el.getBoundingClientRect(), h: c.preso ? c.el.offsetHeight : 0 }; });
+    var pil = medePilhas(t);
+    // 2) só escritas
+    blocos.forEach(function (c, i) {
+      var r = med[i].r;
       if (r.bottom < -200 || r.top > innerHeight + 200) { var alvo = r.top > 0 ? 0 : 1; if (c.p !== alvo) desenha(c, alvo); return; }
-      desenha(c, progresso(c));
+      desenha(c, progresso(c, r, med[i].h, t));
     });
+    pil.forEach(function (x) { var v = x[1].toFixed(3); if (x[0]._cobre !== v) { x[0]._cobre = v; x[0].style.setProperty('--kit-cobre', v); } });
     moveGalerias();
-    empilha();
   }
   function agenda() { if (!pedido) { pedido = true; requestAnimationFrame(quadro); } }
   if (anima) {

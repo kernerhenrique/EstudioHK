@@ -88,7 +88,7 @@ const op = (p, sel) => p.$eval(sel, e => +getComputedStyle(e).opacity);
   ok(JSON.stringify(await gig()) === '[false,false,true]' && await p.evaluate(() => +getComputedStyle(document.querySelector('.objeto')).zIndex > +getComputedStyle(document.querySelector('.gigante')).zIndex), 'ref 2: no fim SERVIR, com o objeto na frente da palavra');
   // referência 3: empilhadas e relógio
   await p.evaluate(() => { const pl = document.querySelector('[data-empilha]'); scrollTo(0, pl.getBoundingClientRect().top + scrollY - 56 + (innerHeight - 56) * 1.5); }); await p.waitForTimeout(250);
-  ok(await p.evaluate(() => { const s = document.querySelectorAll('[data-empilha] > section'); return getComputedStyle(s[0]).position === 'sticky' && +s[0].style.getPropertyValue('--cobre') > .99 && +s[1].style.getPropertyValue('--cobre') > .2; }), 'ref 3: seção de cima coberta e escurecida pela seguinte');
+  ok(await p.evaluate(() => { const s = document.querySelectorAll('[data-empilha] > section'); return getComputedStyle(s[0]).position === 'sticky' && +s[0].style.getPropertyValue('--kit-cobre') > .99 && +s[1].style.getPropertyValue('--kit-cobre') > .2; }), 'ref 3: seção de cima coberta e escurecida pela seguinte');
   await p.evaluate(() => { const c = document.querySelector('.relogio'); scrollTo(0, c.closest('section').offsetTop); }); await p.locator('.relogio').scrollIntoViewIfNeeded(); await p.waitForTimeout(250);
   ok(await p.$eval('.ponteiro-h', e => /rotate\((1\d\d|2[01]\d)/.test(e.style.transform)), 'ref 3: ponteiro das horas girou até perto das 7h');
   // referência 4: palavra por palavra

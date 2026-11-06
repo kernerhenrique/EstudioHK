@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coadouro Cafés · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de landing page para cafeteria criada pela EstudioHK: o café escorre no copo enquanto você rola, a palavra fica atrás do moedor, as seções sobem uma sobre a outra e o pedido sai pelo WhatsApp. Negócio fictício.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/cafeteria/">
+<meta name="theme-color" content="#2B1A12">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Coadouro Cafés · demonstração de landing page pela EstudioHK">
+<meta property="og:description" content="Veja como pode ficar a página da sua cafeteria: animações que contam o preparo, cardápio com preço, horário e pedido pelo WhatsApp.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/cafeteria/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/cafeteria/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/capa-600.webp" imagesrcset="assets/img/capa-600.webp 600w, assets/img/capa-1000.webp 1000w" imagesizes="(min-width: 960px) 44vw, 100vw">
+<link rel="stylesheet" href="assets/cena.css">
+<link rel="stylesheet" href="assets/cafe.css">
+<script>document.documentElement.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('anima');</script>
+<script src="assets/cena.js" defer></script>
+<script src="assets/cafe.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="grao" viewBox="0 0 40 40"><ellipse cx="20" cy="20" rx="12.5" ry="17" transform="rotate(28 20 20)" fill="currentColor"/><path d="M13.5 9.5 C22 17 20 23 16.5 31" stroke="#E2D3BF" stroke-width="2.4" fill="none" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração: </span>negócio fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/sites/#demos">Ver outras demos</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20da%20cafeteria%20(Coadouro)%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Quero uma página assim →</a>
+    </nav>
+  </div>
+</div>
+
+<header class="topo">
+  <div class="wrap">
+    <a class="logo" href="#conteudo"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#2B1A12"/><path d="M9.5 11.5h15l-5.6 12.5h-3.8z" fill="#E2D3BF"/><path d="M8 11.5h18M26 11.5h2.6" stroke="#D9622A" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="27.6" r="1.7" fill="#D9622A"/></svg>Coadouro</a>
+    <nav aria-label="Principal">
+      <ul class="menu">
+        <li><a href="#cold-brew">Cold brew</a></li>
+        <li><a href="#preparo">Do grão à xícara</a></li>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#horario">Horário</a></li>
+        <li><a href="#onde">Onde estamos</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-p" href="#pedido"><svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg><span>Pedir para retirar</span></a>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- CAPA: entra com desfoque ao abrir a página -->
+  <section class="capa" aria-labelledby="t-capa">
+    <div class="wrap">
+      <div class="capa-grid">
+        <div>
+          <span class="rotulo" data-entrada>Cafés coados · Praia do Canto, Vitória</span>
+          <h1 id="t-capa" data-entrada="lado" style="--d:120ms">Café coado no pano, <em>sem pressa.</em></h1>
+          <p class="sub" data-entrada style="--d:260ms">Grão do Caparaó capixaba, moído na hora e passado no coador de pano, uma xícara de cada vez. Para tomar aqui ou levar pronto.</p>
+          <div class="botoes" data-entrada style="--d:360ms">
+            <a class="btn btn-p" href="#cardapio">Ver cardápio <svg class="ico" aria-hidden="true"><use href="#i-seta"/></svg></a>
+            <a class="btn btn-s" href="#pedido">Pedir para retirar</a>
+          </div>
+        </div>
+        <div class="capa-foto" data-entrada="lado" style="--d:200ms">
+          <img src="assets/img/capa-600.webp" srcset="assets/img/capa-600.webp 600w, assets/img/capa-1000.webp 1000w" sizes="(min-width: 960px) 44vw, 100vw" width="600" height="750" fetchpriority="high" alt="Barista despejando leite vaporizado numa xícara e desenhando uma folha na espuma do café.">
+          <svg class="selo" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ-selo" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><circle cx="100" cy="100" r="98" fill="#D9622A"/><text font-size="15" font-weight="700" fill="currentColor" font-family="Instrument Sans, Arial, sans-serif"><textPath href="#circ-selo" textLength="460" lengthAdjust="spacing">COADO NO PANO · NA HORA · VITÓRIA ES ·</textPath></text><use href="#grao" x="72" y="72" width="56" height="56" style="color:#2B1A12"/></svg>
+        </div>
+      </div>
+      <dl class="fatos" data-entrada style="--d:420ms">
+        <div><dt>Grão</dt><dd>Caparaó, torra média</dd></div>
+        <div><dt>Preparo</dt><dd>Coado no pano, 92 °C</dd></div>
+        <div><dt>Aberto</dt><dd>Todos os dias, 7h às 19h</dd></div>
+        <div><dt>Pedido</dt><dd>Pelo WhatsApp, pronto para retirar</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 1. COLD BREW: o café escorre da garrafa e enche o copo enquanto as etapas passam -->
+  <section class="fio" id="cold-brew" data-cena style="--h:340" aria-labelledby="t-fio">
+    <div class="palco">
+      <div class="wrap fio-grid">
+        <div>
+          <span class="rotulo">Cold brew da casa</span>
+          <h2 id="t-fio" class="sr-titulo" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Como fazemos o cold brew</h2>
+          <div class="paineis">
+            <div class="painel" data-a="move" data-de=".26" data-ate=".36" data-y2="-110%" data-o2="0">
+              <span class="n">01 · Extração</span><h3>18 horas na água fria.</h3>
+              <p>O café moído grosso descansa na geladeira de um dia para o outro. Sai encorpado, doce e com pouca acidez.</p>
+            </div>
+            <div class="painel" data-a="move" data-de=".3" data-ate=".42" data-y="110%" data-o="0">
+              <div data-a="move" data-de=".62" data-ate=".72" data-y2="-110%" data-o2="0">
+                <span class="n">02 · Gelo e leite</span><h3>Gelo primeiro, leite depois.</h3>
+                <p>O leite gelado entra devagar e desenha o café no copo. Também sai puro, ou com leite de aveia.</p>
+              </div>
+            </div>
+            <div class="painel" data-a="move" data-de=".66" data-ate=".78" data-y="110%" data-o="0">
+              <span class="n">03 · Pronto</span><h3>R$ 16, no copo de 400 ml.</h3>
+              <p>A garrafa de 500 ml para levar para casa sai por R$ 28 e dura cinco dias na geladeira.</p>
+            </div>
+          </div>
+          <ol class="etapas" aria-label="Etapas do cold brew"><li data-etapa="0,.36">Extração</li><li data-etapa=".36,.7">Gelo e leite</li><li data-etapa=".7,1.01">Pronto</li></ol>
+        </div>
+        <svg class="copo-svg" viewBox="0 0 420 560" role="img" aria-labelledby="s-fio"><title id="s-fio">Garrafa de cold brew da Coadouro servindo um copo com gelo; depois o leite desce e se mistura ao café.</title>
+          <defs>
+            <linearGradient id="vidro" x1="0" x2="1"><stop offset="0" stop-color="#6A3C22"/><stop offset=".45" stop-color="#2E180D"/><stop offset="1" stop-color="#1A0C06"/></linearGradient>
+            <linearGradient id="liq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A2F1A"/><stop offset="1" stop-color="#2A130A"/></linearGradient>
+            <clipPath id="dentro-copo"><path d="M141 306 H279 L266 494 H154 Z"/></clipPath>
+          </defs>
+          <circle cx="210" cy="392" r="168" fill="#E2D3BF"/>
+          <g data-a="move" data-de="0" data-ate=".1" data-x="60" data-y="-90" data-r="50" data-o="0">
+            <g transform="translate(262 92) rotate(-150)">
+              <path d="M-36 -48 Q-36 -82 -13 -88 V-106 H13 V-88 Q36 -82 36 -48 Z" fill="url(#vidro)"/>
+              <rect x="-36" y="-64" width="72" height="128" rx="18" fill="url(#vidro)"/>
+              <rect x="-15" y="-110" width="30" height="9" rx="3" fill="#120804"/>
+              <rect x="-29" y="-58" width="7" height="112" rx="3.5" fill="#FFFFFF" opacity=".16"/>
+              <rect x="-29" y="-30" width="58" height="68" rx="5" fill="#E2D3BF"/>
+              <g transform="rotate(90)" font-family="Bricolage Grotesque, Arial, sans-serif" text-anchor="middle" fill="#2B1A12">
+                <text x="4" y="-6" font-size="7.5" font-weight="700" letter-spacing="1.4">COADOURO</text>
+                <text x="4" y="9" font-size="15" font-weight="800">cold brew</text>
+              </g>
+            </g>
+          </g>
+          <g data-a="move" data-de=".44" data-ate=".5" data-o2="0">
+            <rect data-a="escorre" data-de=".08" data-ate=".18" x="200.5" y="178" width="9" height="320" rx="4.5" fill="#3E1F12"/>
+          </g>
+          <g data-a="move" data-de=".72" data-ate=".78" data-o2="0">
+            <rect data-a="escorre" data-de=".5" data-ate=".6" x="172" y="-60" width="8" height="560" rx="4" fill="#FBF5EC" stroke="#DCCAB3"/>
+          </g>
+          <g clip-path="url(#dentro-copo)">
+            <rect data-a="enche" data-de=".12" data-ate=".46" x="130" y="352" width="160" height="150" fill="url(#liq)"/>
+            <g data-a="enche" data-de=".56" data-ate=".8">
+              <path d="M130 352 Q168 336 200 356 T290 350 V424 Q252 446 212 424 T130 432 Z" fill="#EAD5BC"/>
+              <path d="M142 372 Q176 392 206 376 T272 382 M150 404 Q186 418 222 404" stroke="#B88E6A" stroke-width="3" fill="none" opacity=".7"/>
+            </g>
+            <g fill="#F4FAFB" fill-opacity=".5" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="1.5">
+              <rect data-a="cai" data-de=".4" data-ate=".5" x="160" y="330" width="42" height="42" rx="9"/>
+              <rect data-a="cai" data-de=".44" data-ate=".54" x="214" y="318" width="46" height="46" rx="9"/>
+              <rect data-a="cai" data-de=".48" data-ate=".58" x="186" y="374" width="38" height="38" rx="8"/>
+            </g>
+          </g>
+          <path d="M133 300 H287 L273 500 Q272 512 259 512 H161 Q148 512 147 500 Z" fill="#FFFFFF" fill-opacity=".14" stroke="#2B1A12" stroke-opacity=".35" stroke-width="2"/>
+          <path d="M148 318 L157 482" stroke="#FFFFFF" stroke-opacity=".6" stroke-width="5" stroke-linecap="round"/>
+          <path d="M268 332 L263 410" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>
+          <ellipse cx="210" cy="520" rx="98" ry="9" fill="#2B1A12" opacity=".14"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. DO GRÃO À XÍCARA: a palavra fica atrás do objeto -->
+  <section class="camadas" id="preparo" data-cena style="--h:380" aria-labelledby="t-preparo">
+    <div class="palco">
+      <div class="cena-camadas">
+        <svg class="grao g1" data-a="move" data-linear data-y="150" data-y2="-170" data-r="-20" data-r2="40" aria-hidden="true"><use href="#grao"/></svg>
+        <svg class="grao g2" data-a="move" data-linear data-y="240" data-y2="-260" data-r="10" data-r2="-50" aria-hidden="true"><use href="#grao"/></svg>
+        <svg class="grao g3" data-a="move" data-linear data-y="90" data-y2="-100" data-r="0" data-r2="30" aria-hidden="true"><use href="#grao"/></svg>
+        <svg class="grao g4" data-a="move" data-linear data-y="300" data-y2="-320" aria-hidden="true"><use href="#grao"/></svg>
+
+        <span class="gigante" data-a="move" data-de="0" data-ate=".1" data-x="35%" data-o="0" aria-hidden="true"><span style="display:inline-block" data-a="move" data-de=".28" data-ate=".36" data-s2="1.2" data-o2="0">MOER</span></span>
+        <span class="gigante contorno" data-a="move" data-de=".36" data-ate=".46" data-x="35%" data-o="0" aria-hidden="true"><span style="display:inline-block" data-a="move" data-de=".62" data-ate=".7" data-s2="1.2" data-o2="0">COAR</span></span>
+        <span class="gigante" data-a="move" data-de=".7" data-ate=".8" data-x="35%" data-o="0" aria-hidden="true">SERVIR</span>
+
+        <!-- moedor manual -->
+        <svg class="objeto" viewBox="0 0 300 400" data-a="move" data-de="0" data-ate=".1" data-y="60" data-o="0" role="img" aria-labelledby="s-moer"><title id="s-moer">Moedor manual de madeira; os grãos caem e a manivela gira.</title>
+          <g data-a="move" data-de=".28" data-ate=".34" data-y2="-40" data-o2="0">
+            <g fill="#3B2214"><ellipse data-a="cai" data-de=".02" data-ate=".1" cx="138" cy="18" rx="9" ry="6"/><ellipse data-a="cai" data-de=".05" data-ate=".13" cx="162" cy="6" rx="9" ry="6"/><ellipse data-a="cai" data-de=".08" data-ate=".16" cx="150" cy="-10" rx="9" ry="6"/></g>
+            <path d="M92 74 H208 L194 132 H106 Z" fill="#CFC6BA" stroke="#2B1A12" stroke-width="3" stroke-linejoin="round"/>
+            <g fill="#3B2214"><ellipse cx="124" cy="86" rx="10" ry="6"/><ellipse cx="150" cy="82" rx="10" ry="6"/><ellipse cx="176" cy="87" rx="10" ry="6"/><ellipse cx="138" cy="94" rx="10" ry="6"/><ellipse cx="164" cy="95" rx="10" ry="6"/></g>
+            <path d="M100 100 L196 100" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="3"/>
+            <rect x="146" y="44" width="8" height="32" rx="3" fill="#2B1A12"/>
+            <g data-a="move" data-linear data-de="0" data-ate=".3" data-r2="720" style="transform-box:view-box;transform-origin:150px 48px">
+              <rect x="146" y="44" width="74" height="9" rx="4.5" fill="#2B1A12"/>
+              <rect x="214" y="22" width="12" height="28" rx="6" fill="#8B5A3C" stroke="#2B1A12" stroke-width="2.5"/>
+            </g>
+            <circle cx="150" cy="48" r="7" fill="#D9622A" stroke="#2B1A12" stroke-width="2.5"/>
+            <rect x="86" y="132" width="128" height="156" rx="10" fill="#8B5A3C" stroke="#2B1A12" stroke-width="3"/>
+            <path d="M98 150 Q120 170 104 196 M200 160 Q182 190 198 214 M112 250 Q130 262 120 276" stroke="#6E432B" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <rect x="106" y="214" width="88" height="50" rx="5" fill="#6E432B" stroke="#2B1A12" stroke-width="3"/>
+            <rect data-a="enche" data-de=".1" data-ate=".26" x="110" y="200" width="80" height="14" fill="#4A2A18"/>
+            <circle cx="150" cy="239" r="7" fill="#E2D3BF" stroke="#2B1A12" stroke-width="2.5"/>
+            <ellipse cx="150" cy="300" rx="92" ry="10" fill="#2B1A12" opacity=".14"/>
+          </g>
+        </svg>
+        <!-- coador de pano no suporte -->
+        <svg class="objeto" viewBox="0 0 300 400" data-a="move" data-de=".34" data-ate=".44" data-y="60" data-o="0" role="img" aria-labelledby="s-coar"><title id="s-coar">Chaleira despejando água no coador de pano, que vai escurecendo; o café pinga no bule.</title>
+          <g data-a="move" data-de=".62" data-ate=".68" data-y2="-40" data-o2="0">
+            <path d="M206 36 h56 q12 0 12 12 v40 h-80 v-40 q0 -12 12 -12z" fill="#2B1A12"/><rect x="222" y="26" width="24" height="10" rx="4" fill="#2B1A12"/>
+            <path d="M196 64 Q160 54 140 96" stroke="#2B1A12" stroke-width="9" fill="none" stroke-linecap="round"/>
+            <rect data-a="escorre" data-de=".44" data-ate=".5" x="137" y="98" width="5" height="64" rx="2.5" fill="#BFDDE6"/>
+            <path d="M64 120 V318 M236 120 V318 M56 120 H244" stroke="#8B5A3C" stroke-width="10" stroke-linecap="round"/>
+            <path d="M98 154 Q150 300 150 300 Q150 300 202 154 Z" fill="#EFE5D5" stroke="#C9B79E" stroke-width="2.5" stroke-linejoin="round"/>
+            <clipPath id="pano"><path d="M98 154 Q150 300 150 300 Q150 300 202 154 Z"/></clipPath>
+            <g clip-path="url(#pano)"><rect data-a="enche" data-de=".46" data-ate=".58" x="94" y="150" width="112" height="152" fill="#6B3A20" opacity=".78"/></g>
+            <ellipse cx="150" cy="154" rx="54" ry="9" fill="none" stroke="#2B1A12" stroke-width="3"/>
+            <g fill="#3E1F12"><ellipse data-a="cai" data-de=".52" data-ate=".58" cx="150" cy="306" rx="3.5" ry="5"/><ellipse data-a="cai" data-de=".56" data-ate=".62" cx="150" cy="306" rx="3.5" ry="5"/></g>
+            <path d="M108 318 H192 L200 378 Q200 388 190 388 H110 Q100 388 100 378 Z" fill="#FFFFFF" fill-opacity=".55" stroke="#2B1A12" stroke-width="3" stroke-linejoin="round"/>
+            <clipPath id="bule"><path d="M108 318 H192 L200 378 Q200 388 190 388 H110 Q100 388 100 378 Z"/></clipPath>
+            <g clip-path="url(#bule)"><rect data-a="enche" data-de=".52" data-ate=".64" x="98" y="340" width="104" height="50" fill="#3E1F12"/></g>
+            <path d="M192 330 Q214 336 206 356" stroke="#2B1A12" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <!-- caneca esmaltada -->
+        <svg class="objeto" viewBox="0 0 300 400" data-a="move" data-de=".68" data-ate=".78" data-y="60" data-o="0" role="img" aria-labelledby="s-servir"><title id="s-servir">Caneca esmaltada com café fumegante.</title>
+          <path d="M70 180 H218 V300 Q218 330 188 330 H100 Q70 330 70 300 Z" fill="#FBF7F0" stroke="#2B1A12" stroke-width="3"/>
+          <path d="M218 206 Q260 206 260 244 Q260 282 218 282" stroke="#24476B" stroke-width="13" fill="none"/>
+          <path d="M218 206 Q260 206 260 244 Q260 282 218 282" stroke="#2B1A12" stroke-width="3" fill="none" transform="translate(0 0)" opacity=".25"/>
+          <ellipse cx="144" cy="180" rx="74" ry="14" fill="#4A2616" stroke="#24476B" stroke-width="7"/>
+          <path d="M70 300 Q70 330 100 330 H188 Q218 330 218 300" stroke="#24476B" stroke-width="7" fill="none"/>
+          <path d="M96 250 L98 300" stroke="#E7DCCB" stroke-width="7" stroke-linecap="round"/>
+          <g stroke="#2B1A12" stroke-width="3.5" fill="none" stroke-linecap="round"><path class="t" pathLength="1" data-a="traco" data-de=".8" data-ate=".9" d="M120 158 q-14 -26 0 -48 t0 -48"/><path class="t" pathLength="1" data-a="traco" data-de=".84" data-ate=".94" d="M160 158 q-14 -26 0 -48 t0 -48"/></g>
+          <ellipse cx="144" cy="342" rx="104" ry="11" fill="#2B1A12" opacity=".14"/>
+        </svg>
+
+        <div class="legenda">
+          <span class="rotulo">Do grão à xícara</span>
+          <h2 id="t-preparo">Moer, coar, servir.</h2>
+          <p>Cada pedido é moído na hora, passa pelo pano e chega à mesa em uns quatro minutos.</p>
+          <ol class="etapas" aria-label="Etapas do preparo"><li data-etapa="0,.34">Moer</li><li data-etapa=".34,.68">Coar</li><li data-etapa=".68,1.01">Servir</li></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CARDÁPIO, HORÁRIO E PEDIDO: cada seção sobe por cima da anterior -->
+  <div class="pilha" data-empilha>
+    <section class="s-cardapio" id="cardapio" aria-labelledby="t-cardapio">
+      <div class="wrap">
+        <div class="cab">
+          <span class="rotulo">Cardápio</span>
+          <h2 id="t-cardapio">O que sai do balcão.</h2>
+        </div>
+        <div class="cardapio">
+          <article class="item"><img src="assets/img/m-coado-400.webp" srcset="assets/img/m-coado-400.webp 400w, assets/img/m-coado-640.webp 640w" sizes="(min-width: 900px) 280px, 46vw" width="400" height="300" loading="lazy" decoding="async" alt="Café moído e grãos ao lado de uma xícara com espuma."><div class="info"><b>Coado no pano</b><span>Caparaó do dia, 200 ml</span><span class="preco">R$ 9,00</span></div></article>
+          <article class="item"><img src="assets/img/m-capuccino-400.webp" srcset="assets/img/m-capuccino-400.webp 400w, assets/img/m-capuccino-640.webp 640w" sizes="(min-width: 900px) 280px, 46vw" width="400" height="300" loading="lazy" decoding="async" alt="Cappuccino visto de cima com uma folha desenhada na espuma."><div class="info"><b>Cappuccino</b><span>Espresso, leite e espuma</span><span class="preco">R$ 12,00</span></div></article>
+          <article class="item"><img src="assets/img/m-coldbrew-400.webp" srcset="assets/img/m-coldbrew-400.webp 400w, assets/img/m-coldbrew-640.webp 640w" sizes="(min-width: 900px) 280px, 46vw" width="400" height="300" loading="lazy" decoding="async" alt="Copo de cold brew com gelo e leite se misturando."><div class="info"><b>Cold brew com leite</b><span>18 horas de extração, 400 ml</span><span class="preco">R$ 16,00</span></div></article>
+          <article class="item"><img src="assets/img/m-croissant-400.webp" srcset="assets/img/m-croissant-400.webp 400w, assets/img/m-croissant-640.webp 640w" sizes="(min-width: 900px) 280px, 46vw" width="400" height="300" loading="lazy" decoding="async" alt="Dois croissants dourados num prato escuro."><div class="info"><b>Croissant de manteiga</b><span>Assado aqui toda manhã</span><span class="preco">R$ 11,00</span></div></article>
+        </div>
+        <p class="mais">Também tem espresso (R$ 7), pão de queijo (R$ 6) e bolo do dia (R$ 10). Leite de aveia sem custo a mais.</p>
+      </div>
+    </section>
+    <section class="s-horario" id="horario" aria-labelledby="t-horario">
+      <div class="wrap dois">
+        <div>
+          <span class="rotulo">Horário</span>
+          <div class="cab"><h2 id="t-horario">A primeira xícara sai às 7h.</h2></div>
+          <dl class="horarios">
+            <div><dt>Segunda a sexta</dt><dd>7h às 19h</dd></div>
+            <div><dt>Sábado</dt><dd>8h às 19h</dd></div>
+            <div><dt>Domingo e feriados</dt><dd>8h às 14h</dd></div>
+          </dl>
+        </div>
+        <div data-passagem>
+          <svg class="relogio" viewBox="0 0 300 300" role="img" aria-labelledby="s-relogio"><title id="s-relogio">Relógio de parede da Coadouro marcando 7 horas.</title>
+            <circle cx="150" cy="150" r="144" fill="#2B1A12"/>
+            <circle cx="150" cy="150" r="128" fill="#FFFDF9"/>
+            <g stroke="#2B1A12" stroke-width="4" stroke-linecap="round"><path d="M150 32 v14 M150 254 v14 M32 150 h14 M254 150 h14"/></g>
+            <g stroke="#2B1A12" stroke-width="2" stroke-linecap="round" opacity=".6"><path d="M209 48.8 l-5 8.6 M251.2 91 l-8.6 5 M251.2 209 l-8.6 -5 M209 251.2 l-5 -8.6 M91 251.2 l5 -8.6 M48.8 209 l8.6 -5 M48.8 91 l8.6 5 M91 48.8 l5 8.6"/></g>
+            <g font-family="Bricolage Grotesque, Arial, sans-serif" font-size="24" font-weight="800" fill="#2B1A12" text-anchor="middle"><text x="150" y="76">12</text><text x="232" y="158">3</text><text x="150" y="242">6</text><text x="68" y="158">9</text></g>
+            <text x="150" y="196" text-anchor="middle" font-family="Instrument Sans, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2" fill="#8E4520">COADOURO</text>
+            <rect class="ponteiro" data-a="move" data-de="0" data-ate=".9" data-r2="210" x="145" y="84" width="10" height="66" rx="5" fill="#2B1A12"/>
+            <rect class="ponteiro" data-a="move" data-de="0" data-ate=".9" data-r2="720" x="147.5" y="44" width="5" height="106" rx="2.5" fill="#D9622A"/>
+            <circle cx="150" cy="150" r="9" fill="#2B1A12"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+    <section class="s-pedido" id="pedido" aria-labelledby="t-pedido">
+      <div class="wrap dois">
+        <div>
+          <span class="rotulo">Peça antes de chegar</span>
+          <div class="cab"><h2 id="t-pedido">Seu café pronto na hora que você passar.</h2></div>
+          <ol class="passos">
+            <li>Mande o pedido e o horário pelo WhatsApp.</li>
+            <li>A gente confirma e coa na hora marcada.</li>
+            <li>Você retira no balcão, sem fila.</li>
+          </ol>
+          <div class="botoes">
+            <a class="btn btn-p" href="#" data-demo="Aqui o botão abriria o WhatsApp da Coadouro com a mensagem pronta: “Olá! Quero pedir para retirar às ___: ___”. A equipe confirma e o café fica pronto no horário.">Pedir pelo WhatsApp <svg class="ico" aria-hidden="true"><use href="#i-zap"/></svg></a>
+          </div>
+        </div>
+        <div data-passagem>
+          <div class="recibo" data-a="move" data-de="0" data-ate=".85" data-y="170" data-r="-7" data-o="0">
+            <b>Coadouro</b><br>Pedido 0427 · retirar 8h15<hr>
+            <div class="linha"><span>1 coado no pano</span><span>9,00</span></div>
+            <div class="linha"><span>1 croissant</span><span>11,00</span></div><hr>
+            <div class="linha total"><span>Total</span><span>R$ 20,00</span></div>
+            <span class="pronto">Confirmado pelo WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 4. A CASA: a frase se monta palavra por palavra e as fotos passam -->
+  <section class="casa" data-cena style="--h:300" aria-labelledby="t-casa">
+    <div class="palco">
+      <div class="wrap">
+        <span class="rotulo">A casa</span>
+        <h2 id="t-casa" data-palavras data-de=".04" data-ate=".46">A gente coa cada xícara <em>na hora,</em> no <strong>pano,</strong> sem pressa.</h2>
+        <p class="apoio" data-palavras data-de=".46" data-ate=".7">Água a 92 °C, quatro minutos de paciência e um balcão onde dá para ver tudo acontecendo.</p>
+        <div class="fotos-casa">
+          <div class="fotos-giro">
+            <div class="fotos-trilho" data-a="move" data-linear data-de="0" data-ate="1" data-x="28%" data-x2="-34%">
+              <figure><img src="assets/img/a-salao-440.webp" srcset="assets/img/a-salao-440.webp 440w, assets/img/a-salao-720.webp 720w" sizes="330px" width="440" height="275" loading="lazy" decoding="async" alt="Salão com mesas de madeira, plantas e prateleiras de café."></figure>
+              <figure><img src="assets/img/a-luzes-440.webp" srcset="assets/img/a-luzes-440.webp 440w, assets/img/a-luzes-720.webp 720w" sizes="330px" width="440" height="275" loading="lazy" decoding="async" alt="Balcão com lâmpadas penduradas e vitrine de doces."></figure>
+              <figure><img src="assets/img/a-noite-440.webp" srcset="assets/img/a-noite-440.webp 440w, assets/img/a-noite-720.webp 720w" sizes="330px" width="440" height="275" loading="lazy" decoding="async" alt="Mesas e banquetas com luz quente no fim da tarde."></figure>
+              <figure><img src="assets/img/a-banco-440.webp" srcset="assets/img/a-banco-440.webp 440w, assets/img/a-banco-720.webp 720w" sizes="330px" width="440" height="275" loading="lazy" decoding="async" alt="Banco de madeira ao longo da parede com mesas redondas."></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ONDE ESTAMOS -->
+  <section class="onde" id="onde" aria-labelledby="t-onde">
+    <div class="wrap onde-grid">
+      <div class="rv">
+        <span class="rotulo">Onde estamos</span>
+        <div class="cab"><h2 id="t-onde">Na esquina, com mesa na calçada.</h2></div>
+        <dl class="dados">
+          <div><dt>Endereço</dt><dd>Rua Exemplo, 120 · Praia do Canto · Vitória/ES <span class="ficticio">(fictício)</span></dd></div>
+          <div><dt>Horário</dt><dd>Seg. a sex. 7h às 19h · sáb. 8h às 19h · dom. 8h às 14h</dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="#" data-demo="Aqui o link abriria o WhatsApp da Coadouro para pedidos e dúvidas.">(27) 0000-0000</a></dd></div>
+          <div><dt>Instagram</dt><dd><a href="#" data-demo="Aqui o link abriria o Instagram da cafeteria.">@coadouro</a></dd></div>
+        </dl>
+        <div class="mapa" aria-hidden="true">
+          <svg viewBox="0 0 400 200"><rect width="400" height="200" fill="#E9DECF"/><path d="M0 150 C120 140 260 176 400 146 V200 H0Z" fill="#C9DCE2"/><g stroke="#FFFDF9" stroke-width="14" fill="none"><path d="M-10 60 L410 76"/><path d="M130 -10 L160 210"/><path d="M290 -10 L270 160"/></g><g stroke="#FFFDF9" stroke-width="5" fill="none"><path d="M-10 112 L410 104"/><path d="M215 -10 L205 160"/></g><circle cx="208" cy="80" r="11" fill="#D9622A" stroke="#FFFDF9" stroke-width="4"/></svg>
+          <small>Mapa ilustrativo</small>
+        </div>
+      </div>
+      <img class="rv" style="--atraso:120ms" src="assets/img/balcao-600.webp" srcset="assets/img/balcao-600.webp 600w, assets/img/balcao-1000.webp 1000w" sizes="(min-width: 900px) 540px, 100vw" width="600" height="450" loading="lazy" decoding="async" alt="Salão claro com janelas em arco, balcão curvo de madeira e cardápio na parede.">
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <a class="logo" href="#conteudo"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#F2EADF"/><path d="M9.5 11.5h15l-5.6 12.5h-3.8z" fill="#2B1A12"/><path d="M8 11.5h18M26 11.5h2.6" stroke="#D9622A" stroke-width="2.4" stroke-linecap="round"/><circle cx="17" cy="27.6" r="1.7" fill="#D9622A"/></svg>Coadouro</a>
+    <p>Cafés coados no pano, na Praia do Canto, em Vitória. Grão do Caparaó, moído na hora.</p>
+    <p class="reg">Coadouro Cafés Ltda. · CNPJ 00.000.000/0001-00 (fictícios). Negócio, endereço, telefone e preços desta página são fictícios. Fotos: Unsplash. Site de demonstração criado pela <a href="https://estudiohk.com.br/">EstudioHK</a>.</p>
+  </div>
+</footer>
+
+<div class="janela" id="janela" hidden>
+  <div class="caixa" role="dialog" aria-modal="true" aria-labelledby="j-titulo">
+    <h2 id="j-titulo" tabindex="-1">Isto é uma demonstração</h2>
+    <p id="j-texto"></p>
+    <div class="botoes">
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20da%20cafeteria%20(Coadouro)%20e%20quero%20uma%20p%C3%A1gina%20assim." target="_blank" rel="noopener">Quero uma página assim</a>
+      <button class="btn btn-s" type="button" id="j-fechar">Fechar</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
