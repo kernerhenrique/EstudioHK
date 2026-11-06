@@ -58,7 +58,9 @@ html:not(.anima) [data-trilho] { overflow-x: auto; scroll-snap-type: x mandatory
 html:not(.anima) .esboco .linha-cortina { display: none; }
 
 /* peças novas (nov/2026): move, escorre, enche, palavras */
-.anima [data-a="move"], .anima [data-a="enche"] { opacity: 1; }
+.anima [data-a="move"], .anima [data-a="enche"], .anima [data-a="barra"] { opacity: 1; }
+.anima [data-a="barra"] { transform: scaleX(0); }
+[data-a="barra"] { transform-origin: 0 50%; }
 .anima [data-a="enche"] { clip-path: inset(100% 0 0 0); }
 [data-a="move"], [data-a="escorre"] { transform-box: fill-box; }
 [data-a="move"] { transform-origin: 50% 50%; }

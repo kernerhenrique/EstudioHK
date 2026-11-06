@@ -67,6 +67,7 @@ mobília porque é isso que o projeto de interiores faz. Animação que só enfe
 - `zona` + `data-some="0.4"`: mancha que aparece e depois esmaece.
 - `revela`: máscara que abre do centro. `cortina`: a foto corre da esquerda para a direita (esboço → foto).
 - `conta` + `data-valor="6.6" data-casas="2"`: número contando (formato brasileiro).
+- `barra`: cresce da esquerda até a largura que o CSS der ao elemento (ex.: `width: calc(var(--v) * 100%)` para porcentagens de obra, metas, avaliações).
 - `escorre`: nasce de cima para baixo (fio de líquido, fita). `enche`: sobe de baixo como nível de copo (pôr dentro de um `<g clip-path>` com o formato do copo; o recorte do `enche` substitui o do próprio elemento).
 - `move`: movimento livre de um estado a outro. Começo: `data-x`, `data-y` (px ou %), `data-r` (graus), `data-s` (escala), `data-o` (opacidade). Fim: os mesmos com `2` (`data-x2`, `data-o2`…). O que não for dado fica no lugar (0, escala 1, opacidade 1). `data-linear` tira a desaceleração (bom para parallax e ponteiros). Para entrar e depois sair, aninhar dois `move` (o de fora entra, o de dentro sai). Ponto de giro pelo CSS (`transform-origin`).
 - `data-palavras` (em um título ou parágrafo, com `data-de`/`data-ate`): o JS quebra em palavras (`.kit-palavra`) que sobem do desfoque uma a uma. Mantém `<em>` e `<strong>` (estilizar no CSS do cliente: cor, contorno com `-webkit-text-stroke`).
