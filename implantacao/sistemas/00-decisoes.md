@@ -59,7 +59,8 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
   - fotos e gráficos;
   - cardápio por QR code na mesa.
 
-## Pendência: imagens e vídeos de IA nas demos de site (6/nov/2026)
+## ~~Pendência: imagens e vídeos de IA nas demos de site (6/nov/2026)~~ · CANCELADA em 7/11/2026, a pedido do Henrique
+- Não fazer. O texto abaixo fica só como registro.
 
 - O Henrique mandou imagens de IA (cold brew, copos, moedor, coador, prédio). A ideia **não** é mostrar o produto exato do cliente, e sim usar imagens bonitas para dar vida às animações.
 - **Avaliação feita:**
@@ -75,7 +76,7 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
 - **Como mandar:** ZIP no chat com os arquivos originais, ou upload em `materiais/fotos/` pelo GitHub.
 - **A fazer no kit quando voltar:** bloco "vídeo na rolagem" (sequência de quadros, menos quadros no celular).
 
-## Página /sistemas/ (6/11/2026, ramo pg-sistemas, aguardando aprovação)
+## Página /sistemas/, primeira versão (6/11/2026) · substituída pela versão sem demos, publicada em 7/11/2026
 - Seções: topo · "Experimente em 10 segundos" (4 cenas: cafeteria, marcenaria, academia e barbearia, com o painel do dono e o celular do cliente lado a lado) · calculadora "quanto devolve" por tipo de negócio · 4 prévias completas · o que vem em todo sistema · custos (Vercel Pro US$ 20, Supabase Pro US$ 25, Registro.br R$ 40/ano, Meta R$ 0,035; consultados em 6/11/2026) · como funciona · dúvidas · pedido de orçamento.
 - Aviso de prévia (regra 3) na página e nas 4 demos: "Prévia das funcionalidades: este não é o sistema final." Também aparece no último passo do passeio do piloto.
 - Home: "Sistemas" no menu, 3ª porta, "Ver demonstrações" no cartão de serviço, rodapé e Ctrl+K.
