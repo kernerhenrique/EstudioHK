@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estoque · Ofício Barbearia · Demonstração EstudioHK</title>
+<meta name="description" content="Demonstração de sistema criada pela EstudioHK para uma barbearia fictícia: estoque com validade, venda no balcão, gasto de produto por serviço e pedido ao fornecedor pelo WhatsApp.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://estudiohk.com.br/demos/sistemas/estoque/">
+<meta name="theme-color" content="#1B1A17">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Estoque · demonstração de sistema pela EstudioHK">
+<meta property="og:description" content="Aviso de produto acabando, validade, venda no balcão, baixa automática por serviço e pedido ao fornecedor. Teste à vontade: é uma demonstração.">
+<meta property="og:url" content="https://estudiohk.com.br/demos/sistemas/estoque/">
+<meta property="og:image" content="https://estudiohk.com.br/demos/sistemas/estoque/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/demos/barbearia/assets/favicon.png">
+<link rel="preload" href="/demos/barbearia/assets/fonts/dm-sans-normal-400-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/demos/barbearia/assets/fonts/fraunces-normal-400-700.woff2" as="font" type="font/woff2" crossorigin>
+<script>document.documentElement.classList.add('carregando');</script>
+<link rel="stylesheet" href="../assets/sis.css">
+<link rel="stylesheet" href="assets/estoque.css">
+<script src="../assets/sis.js" defer></script>
+<script src="assets/estoque.js" defer></script>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-inicio" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-caixa" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4zM3 7v10l9 4 9-4V7M12 11v10"/></symbol>
+    <symbol id="i-sacola" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8zM9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+    <symbol id="i-tesoura" viewBox="0 0 24 24"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="M8.5 8.5 20 18M8.5 15.5 20 6"/></symbol>
+    <symbol id="i-carrinho" viewBox="0 0 24 24"><path d="M3 4h2l2 11h11l2-8H6.5"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+    <symbol id="i-entra" viewBox="0 0 24 24"><path d="M12 4v12M7 11l5 5 5-5M5 20h14"/></symbol>
+    <symbol id="i-sai" viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></symbol>
+    <symbol id="i-editar" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+    <symbol id="i-alerta" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-caminhao" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
+  </defs>
+</svg>
+
+<div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+  <div class="wrap">
+    <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração de sistema: </span>negócio fictício criado pela EstudioHK.</span>
+    <nav aria-label="EstudioHK">
+      <a class="outras" href="https://estudiohk.com.br/sistemas/">Ver sistemas sob medida</a>
+      <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20estoque%20(Of%C3%ADcio%20Barbearia)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim →</a>
+    </nav>
+  </div>
+</div>
+
+<div class="app">
+  <aside class="lateral" aria-label="Menu do sistema">
+    <a class="logo" href="#inicio"><span class="oficio"><b>Ofício</b><span>Barbearia</span></span><small>Estoque e balcão</small></a>
+    <nav aria-label="Telas">
+      <ul class="vistas">
+        <li><button class="vista" type="button" data-vista="inicio"><svg class="ico" aria-hidden="true"><use href="#i-inicio"/></svg><span>Início</span><span class="num" id="n-alertas"></span></button></li>
+        <li><button class="vista" type="button" data-vista="produtos"><svg class="ico" aria-hidden="true"><use href="#i-caixa"/></svg><span>Produtos</span></button></li>
+        <li><button class="vista" type="button" data-vista="balcao"><svg class="ico" aria-hidden="true"><use href="#i-sacola"/></svg><span>Balcão</span></button></li>
+        <li><button class="vista" type="button" data-vista="servicos"><svg class="ico" aria-hidden="true"><use href="#i-tesoura"/></svg><span>Serviços</span></button></li>
+        <li><button class="vista" type="button" data-vista="compras"><svg class="ico" aria-hidden="true"><use href="#i-carrinho"/></svg><span>Compras</span><span class="num" id="n-compras"></span></button></li>
+      </ul>
+    </nav>
+    <div class="quem"><span class="av" aria-hidden="true">R</span><span><b>Rafa</b>Barbeiro e sócio</span></div>
+  </aside>
+
+  <main class="area" id="conteudo">
+    <div class="topo-app">
+      <span class="logo-mob"><span class="oficio"><b>Ofício</b><span>Barbearia</span></span> Estoque e balcão</span>
+      <div><h1 id="titulo" tabindex="-1">Início</h1><span class="data" id="subtitulo"></span></div>
+      <div class="acoes">
+        <button class="btn btn-p" type="button" id="novo-produto" data-so-em="produtos" hidden><svg class="ico" aria-hidden="true"><use href="#i-mais"/></svg>Novo produto</button>
+      </div>
+    </div>
+    <p class="aviso-demo"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span><b>Prévia das funcionalidades: este não é o sistema final.</b> O seu é feito sob medida, com a sua marca, as suas regras e os seus dados. Aqui os dados são fictícios. No sistema real, os dados ficam salvos com segurança, cada barbeiro entra com a própria senha e o atendimento pode baixar o estoque sozinho direto da agenda.</span><button class="recomecar" type="button">Recomeçar a demonstração</button></p>
+
+    <!-- INÍCIO -->
+    <section data-tela="inicio" data-titulo="Início" aria-label="Início">
+      <div class="resumo" id="resumo-inicio"></div>
+      <div class="inicio-grade">
+        <div class="bloco"><h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-alerta"/></svg>Acabando</h2><p class="dica-bloco">Chegaram no estoque mínimo. Já entram sozinhos na lista de compras.</p><ul class="lista" id="acabando"></ul></div>
+        <div class="bloco"><h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-cal"/></svg>Vencendo em até 60 dias</h2><p class="dica-bloco">Use ou venda primeiro. O sistema já tira do lote que vence antes.</p><ul class="lista" id="vencendo"></ul></div>
+        <div class="bloco"><h2 class="tit-bloco"><svg class="ico" aria-hidden="true"><use href="#i-caminhao"/></svg>Pedidos a caminho</h2><ul class="lista" id="caminho"></ul></div>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section data-tela="produtos" data-titulo="Produtos" aria-label="Produtos" hidden>
+      <div class="segm" role="group" aria-label="Ver"><button type="button" data-aba="lista" aria-pressed="true">Estoque</button><button type="button" data-aba="mov" aria-pressed="false">Movimentos</button></div>
+      <div id="aba-lista">
+        <div class="ferramentas">
+          <div class="busca"><svg class="ico" aria-hidden="true"><use href="#i-busca"/></svg><label class="sr" for="busca">Buscar produto</label><input id="busca" type="search" placeholder="Buscar produto" autocomplete="off"></div>
+          <div class="filtros" role="group" aria-label="Tipo" id="filtros"></div>
+        </div>
+        <table class="tabela produtos">
+          <thead><tr><th scope="col">Produto</th><th scope="col">Em estoque</th><th scope="col">Validade</th><th scope="col" class="num">Valor parado</th><th scope="col"><span class="sr">Ações</span></th></tr></thead>
+          <tbody id="lista-produtos"></tbody>
+        </table>
+      </div>
+      <div id="aba-mov" hidden>
+        <div class="filtros" role="group" aria-label="Tipo de movimento" id="filtros-mov"></div>
+        <table class="tabela movs">
+          <thead><tr><th scope="col">Quando</th><th scope="col">Produto</th><th scope="col">Movimento</th><th scope="col" class="num">Quantidade</th></tr></thead>
+          <tbody id="lista-movs"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- BALCÃO -->
+    <section data-tela="balcao" data-titulo="Venda no balcão" aria-label="Venda no balcão" hidden>
+      <div class="balcao">
+        <ul class="vitrine" id="vitrine"></ul>
+        <form class="carrinho" id="f-venda" novalidate aria-labelledby="c-tit">
+          <h2 class="tit-bloco" id="c-tit"><svg class="ico" aria-hidden="true"><use href="#i-sacola"/></svg>Venda atual</h2>
+          <ul class="itens-venda" id="itens-venda"></ul>
+          <fieldset><legend>Pagamento</legend><div class="opcoes"><label><input type="radio" name="v-forma" value="Pix" checked>Pix</label><label><input type="radio" name="v-forma" value="Cartão">Cartão</label><label><input type="radio" name="v-forma" value="Dinheiro">Dinheiro</label></div></fieldset>
+          <div class="campo"><label for="v-cliente">Cliente <span class="dica">(opcional)</span></label><input id="v-cliente" autocomplete="off" placeholder="Nome do cliente"></div>
+          <div class="c-total"><span>Total</span><output id="v-total">R$ 0,00</output></div>
+          <button class="btn btn-p" type="submit" id="v-fechar"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Finalizar venda</button>
+        </form>
+        <div class="vendas-hoje">
+          <h2 class="tit-bloco vendas-tit">Vendas de hoje</h2>
+          <div class="resumo" id="resumo-vendas"></div>
+          <table class="tabela vendas"><thead><tr><th scope="col">Hora</th><th scope="col">Itens</th><th scope="col">Pagamento</th><th scope="col" class="num">Total</th></tr></thead><tbody id="lista-vendas"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section data-tela="servicos" data-titulo="Gasto por serviço" aria-label="Gasto por serviço" hidden>
+      <div class="segm" role="group" aria-label="Ver"><button type="button" data-aba-s="hoje" aria-pressed="true">Atendimentos de hoje</button><button type="button" data-aba-s="receitas" aria-pressed="false">Quanto cada serviço gasta</button></div>
+      <div id="aba-hoje">
+        <form class="registrar" id="f-atend" novalidate>
+          <div class="campo"><label for="at-barbeiro">Barbeiro</label><select id="at-barbeiro"></select></div>
+          <div class="campo"><label for="at-servico">Serviço</label><select id="at-servico"></select></div>
+          <button class="btn btn-p" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Registrar atendimento</button>
+          <p class="dica-bloco gasto-prev" id="at-prev" aria-live="polite"></p>
+        </form>
+        <div class="resumo" id="resumo-atend"></div>
+        <table class="tabela atends"><thead><tr><th scope="col">Hora</th><th scope="col">Atendimento</th><th scope="col">O que saiu do estoque</th></tr></thead><tbody id="lista-atend"></tbody></table>
+      </div>
+      <div id="aba-receitas" hidden>
+        <p class="dica-bloco">O quanto de produto cada serviço usa. Ao registrar o atendimento, o estoque baixa sozinho.</p>
+        <div class="receitas" id="receitas"></div>
+      </div>
+    </section>
+
+    <!-- COMPRAS -->
+    <section data-tela="compras" data-titulo="Compras" aria-label="Compras" hidden>
+      <h2 class="tit-bloco">Lista de compras</h2>
+      <p class="dica-bloco">Montada sozinha com o que chegou no mínimo, separada por fornecedor. A quantidade sugerida deixa o estoque no dobro do mínimo.</p>
+      <div class="fornecedores" id="lista-compras"></div>
+      <h2 class="tit-bloco">Pedidos</h2>
+      <div class="pedidos" id="pedidos"></div>
+    </section>
+  </main>
+</div>
+
+<!-- painel: produto -->
+<dialog class="painel" id="painel-prod" aria-labelledby="pr-titulo">
+  <form id="f-prod" novalidate>
+    <div class="painel-topo"><h2 id="pr-titulo">Novo produto</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <div class="campo"><label for="pr-nome">Nome</label><input id="pr-nome" autocomplete="off" aria-describedby="e-prnome"><span class="erro" id="e-prnome" hidden>Escreva o nome do produto.</span></div>
+      <fieldset><legend>Tipo</legend><div class="opcoes"><label><input type="radio" name="pr-tipo" value="uso" checked>Uso no salão</label><label><input type="radio" name="pr-tipo" value="venda">Venda no balcão</label></div></fieldset>
+      <div class="duas">
+        <div class="campo"><label for="pr-un">Medido em</label><select id="pr-un"><option value="un">unidades</option><option value="ml">ml</option><option value="g">gramas</option></select></div>
+        <div class="campo"><label for="pr-emb">Cada embalagem tem</label><input id="pr-emb" type="number" min="1" inputmode="numeric"></div>
+      </div>
+      <div class="duas">
+        <div class="campo"><label for="pr-custo">Custo da embalagem (R$)</label><input id="pr-custo" inputmode="decimal" autocomplete="off" aria-describedby="e-prcusto"><span class="erro" id="e-prcusto" hidden>Escreva um custo válido.</span></div>
+        <div class="campo" id="g-preco"><label for="pr-preco">Preço de venda (R$)</label><input id="pr-preco" inputmode="decimal" autocomplete="off"></div>
+      </div>
+      <div class="duas">
+        <div class="campo"><label for="pr-min">Estoque mínimo</label><input id="pr-min" type="number" min="0" inputmode="numeric"></div>
+        <div class="campo"><label for="pr-forn">Fornecedor</label><select id="pr-forn"></select></div>
+      </div>
+      <label class="chave"><input type="checkbox" id="pr-vence" checked><span>Tem prazo de validade</span></label>
+      <p class="dica-bloco" id="pr-dica"></p>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit">Salvar produto</button></div>
+  </form>
+</dialog>
+
+<!-- painel: entrada e saída -->
+<dialog class="painel" id="painel-mov" aria-labelledby="mv-titulo">
+  <form id="f-mov" novalidate>
+    <div class="painel-topo"><h2 id="mv-titulo">Movimento</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <p id="mv-info"></p>
+      <fieldset><legend>O que aconteceu</legend><div class="opcoes" id="mv-tipos"><label><input type="radio" name="mv-tipo" value="entrada" checked>Entrada (compra)</label><label><input type="radio" name="mv-tipo" value="saida">Saída</label></div></fieldset>
+      <div class="campo" id="g-mv-motivo" hidden><label for="mv-motivo">Motivo da saída</label><select id="mv-motivo"><option>Uso no salão</option><option>Perda ou quebra</option><option>Vencido</option><option>Ajuste de contagem</option></select></div>
+      <div class="campo"><label for="mv-qtd" id="mv-qtd-rot">Quantidade</label><input id="mv-qtd" type="number" min="1" inputmode="numeric" aria-describedby="e-mv"><span class="erro" id="e-mv" hidden></span></div>
+      <div class="campo" id="g-mv-val"><label for="mv-val">Validade do lote <span class="dica">(se tiver)</span></label><input id="mv-val" type="date"></div>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit">Registrar</button></div>
+  </form>
+</dialog>
+
+<!-- painel: receber pedido -->
+<dialog class="painel" id="painel-rec" aria-labelledby="rc-titulo">
+  <form id="f-rec" novalidate>
+    <div class="painel-topo"><h2 id="rc-titulo">Conferir pedido</h2><button class="btn btn-s btn-ico" type="button" data-fechar aria-label="Fechar"><svg class="ico" aria-hidden="true"><use href="#i-fechar"/></svg></button></div>
+    <div class="painel-corpo">
+      <p class="dica-bloco">Confira o que chegou. Se vier menos do que o pedido, corrija a quantidade: o estoque entra com o que chegou de verdade.</p>
+      <ul class="conferir" id="rc-itens"></ul>
+    </div>
+    <div class="painel-pe"><span></span><button class="btn btn-p" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Dar entrada no estoque</button></div>
+  </form>
+</dialog>
+
+<dialog class="janela" id="janela" aria-labelledby="j-titulo">
+  <div class="j-in">
+    <h2 id="j-titulo">Isto é uma demonstração</h2>
+    <p>No sistema real, o WhatsApp abriria com esta mensagem pronta. Aqui nada é enviado.</p>
+    <p class="msg" id="j-msg"></p>
+    <div class="botoes">
+      <button class="btn btn-s" type="button" data-fechar>Fechar</button>
+      <a class="btn btn-p" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20do%20sistema%20de%20estoque%20(Of%C3%ADcio%20Barbearia)%20e%20quero%20um%20sistema%20assim." target="_blank" rel="noopener">Quero um sistema assim</a>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="janela" id="confirma" aria-labelledby="c-titulo">
+  <form method="dialog" class="j-in">
+    <h2 id="c-titulo">Tem certeza?</h2>
+    <p id="c-texto"></p>
+    <div class="botoes"><button class="btn btn-s" value="nao">Voltar</button><button class="btn btn-p" value="sim">Sim, continuar</button></div>
+  </form>
+</dialog>
+
+<div class="avisos" id="avisos" role="status" aria-live="polite"></div>
+</body>
+</html>
