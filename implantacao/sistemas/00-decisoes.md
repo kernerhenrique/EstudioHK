@@ -82,7 +82,7 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
 - Arquivos: `assets/sistemas.js`, os estilos `/* página /sistemas/ */` em `assets/site.css`, o modelo `scratchpad/tools/paginas/sistemas.main.html` (gerado por `hk_paginas.py`), e as miniaturas `demos/sistemas/*/assets/thumb-{480,800}.webp`.
 - Próximo passo, depois do OK: levar orçamento, academia e estoque ao nível do piloto, um por vez.
 
-## Mudança na página /sistemas/ (6/11/2026, pedido do Henrique)
+## Mudança na página /sistemas/ (6/11/2026, pedido do Henrique) · publicada no main em 7/11/2026
 - **Sem demos no site.** A página só tem simulações curtas: 4 abas (cafeteria, marcenaria, academia e barbearia) × 3 funcionalidades cada.
   - Cafeteria: pedido pelo QR, conta dividida, fechar o caixa.
   - Marcenaria: orçamento por ambiente, aprovação e assinatura, lembrete de retorno.
