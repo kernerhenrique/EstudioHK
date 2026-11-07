@@ -1,0 +1,12 @@
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8792';
+const SAIDA = require('path').join(__dirname, '..', '.saida') + '/'; require('fs').mkdirSync(SAIDA, { recursive: true });
+(async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 2 });
+ await p.goto(BASE + '/demos/automacoes/agenda-sem-faltas/', { waitUntil: 'networkidle' });
+ await p.click('#c-rodar'); await p.waitForTimeout(4500);
+ await p.locator('#conv-pac .bt', { hasText: 'Confirmo' }).click(); await p.waitForTimeout(1500);
+ await p.waitForSelector('#c-pular:not([disabled])', { timeout: 20000 });
+ const r = await p.$eval('#sim', e => { const b = e.getBoundingClientRect(); return { x: b.x, y: b.y + scrollY }; });
+ await p.evaluate(y => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, y - 24); }, r.y); await p.waitForTimeout(300);
+ await p.screenshot({ path: SAIDA + 'agenda-og-raw.png', clip: { x: r.x - 24, y: 0, width: 1248, height: 650 } });
+ await b.close(); })();

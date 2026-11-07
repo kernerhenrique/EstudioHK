@@ -1,0 +1,238 @@
+  <!-- TOPO -->
+  <section class="hero hero-sub dark" id="topo" aria-labelledby="hero-title">
+    <canvas id="dots" aria-hidden="true"></canvas>
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <span class="eyebrow">Sistemas sob medida</span>
+        <h1 id="hero-title"><span class="word" style="--i:0">Seu</span> <span class="word" style="--i:1">negócio</span> <span class="word" style="--i:2"><span class="mark">organizado.</span></span> <span class="word" style="--i:3">Seu</span> <span class="word" style="--i:4">cliente</span> <span class="word" style="--i:5">encantado.</span></h1>
+        <p class="lead">Pedidos, orçamentos, alunos, estoque: um sistema feito para o jeito que o seu negócio já trabalha. Você acompanha tudo pelo celular e o seu cliente participa do outro lado, sem ligar para perguntar.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-volt btn-lg" href="#simule">Simular agora <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-ghost-dark btn-lg" href="#funcionalidades">Ver funcionalidades</a>
+        </div>
+        <div class="hero-meta">
+          <span><svg class="icon"><use href="#i-check"/></svg>Funciona no celular, sem instalar</span>
+          <span><svg class="icon"><use href="#i-check"/></svg>Seus dados no seu nome</span>
+        </div>
+      </div>
+      <div class="sis-mosaico" aria-hidden="true">
+        <div class="mo-painel">
+          <div class="mo-barra"><i></i><i></i><i></i></div>
+          <div class="mo-corpo">
+            <div class="mo-kpis"><span><small>Vendas hoje</small><b>R$ 2.536</b></span><span><small>Pedidos</small><b>98</b></span><span><small>Em dia</small><b>183</b></span></div>
+            <div class="mo-quadro">
+              <div><small>Novo</small><span class="mo-card brilha"><b>Mesa 5</b><em>pelo QR</em></span><span class="mo-card"><b>Igor</b><em>retirada</em></span></div>
+              <div><small>Preparando</small><span class="mo-card"><b>Mesa 4</b><em>2 bolos</em></span></div>
+              <div><small>Pronto</small><span class="mo-card"><b>Mesa 9</b><em>levar</em></span><span class="mo-card"><b>Ana</b><em>entrega</em></span></div>
+            </div>
+            <div class="mo-barras"><span style="--w:82%"></span><span style="--w:56%"></span><span style="--w:34%" class="lar"></span></div>
+          </div>
+        </div>
+        <div class="mo-cel">
+          <div class="mo-tela">
+            <b>Seu pedido · Mesa 5</b>
+            <span class="mo-passo ok">Recebido</span><span class="mo-passo ok">Preparando</span><span class="mo-passo agora">Pronto</span>
+            <span class="mo-msg">Pronto! O garçom já está levando ☕</span>
+          </div>
+        </div>
+        <span class="mo-selo"><svg class="icon"><use href="#i-check"/></svg>Orçamento aprovado</span>
+        <span class="mo-selo s2"><svg class="icon"><use href="#i-zap"/></svg>Abriu uma vaga na bike</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULE -->
+  <section class="section exp-sec" id="simule" aria-labelledby="exp-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Simule cada sistema</span>
+        <h2 id="exp-title">Escolha um negócio e uma função. <span class="soft">Veja os dois lados funcionando.</span></h2>
+        <p>De um lado, o painel do dono. Do outro, o celular de quem compra, de quem treina ou de quem fornece. Cada botão mostra uma função em 3 passos.</p>
+      </div>
+      <p class="aviso-previa rv"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg><span><b>Simulação das funcionalidades.</b> Não é o sistema final: o seu é feito sob medida, com a sua marca, as suas regras e os seus dados.</span></p>
+      <div class="exp rv" id="exp">
+        <div class="exp-abas" role="tablist" aria-label="Escolha um negócio">
+          <button type="button" role="tab" id="ab-cafe" aria-controls="exp-painel" aria-selected="true" data-cena="cafe"><span class="ea-ic" aria-hidden="true">C</span><span><b>Cafeteria</b><small>pedidos, mesas e caixa</small></span></button>
+          <button type="button" role="tab" id="ab-marc" aria-controls="exp-painel" aria-selected="false" tabindex="-1" data-cena="marc"><span class="ea-ic" aria-hidden="true">M</span><span><b>Marcenaria</b><small>orçamentos e obras</small></span></button>
+          <button type="button" role="tab" id="ab-acad" aria-controls="exp-painel" aria-selected="false" tabindex="-1" data-cena="acad"><span class="ea-ic" aria-hidden="true">A</span><span><b>Academia</b><small>aulas, treinos e mensalidades</small></span></button>
+          <button type="button" role="tab" id="ab-barb" aria-controls="exp-painel" aria-selected="false" tabindex="-1" data-cena="barb"><span class="ea-ic" aria-hidden="true">B</span><span><b>Barbearia</b><small>estoque, validade e compras</small></span></button>
+        </div>
+        <div class="exp-painel" id="exp-painel" role="tabpanel" aria-labelledby="ab-cafe" tabindex="0">
+          <div class="exp-funcs" id="exp-funcs" role="group" aria-label="Funcionalidades"></div>
+          <div class="exp-palco">
+            <div class="exp-lado">
+              <span class="exp-rot" id="exp-rot-dono">Painel da Coadouro</span>
+              <div class="exp-dono" id="exp-dono"></div>
+            </div>
+            <div class="exp-lado exp-lado-cel">
+              <span class="exp-rot" id="exp-rot-cel">Celular do cliente</span>
+              <div class="exp-aparelho"><div class="exp-tela" id="exp-cel"></div></div>
+            </div>
+          </div>
+          <div class="exp-acoes">
+            <button class="btn btn-volt btn-lg" type="button" id="exp-rodar"><svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span id="exp-rodar-txt">Pedir pelo QR da mesa</span></button>
+            <button class="btn btn-ghost-dark" type="button" id="exp-de-novo" hidden>Fazer de novo</button>
+          </div>
+          <ol class="exp-log" id="exp-log" aria-live="polite"></ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOB MEDIDA -->
+  <section class="section alt" id="sob-medida" aria-labelledby="sob-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">O que é sob medida</span>
+        <h2 id="sob-title">Um sistema que se adapta ao seu negócio. <span class="soft">E não o contrário.</span></h2>
+        <p>Planilha, caderno e grupo de WhatsApp funcionam até o dia em que algo se perde. Aplicativo pronto resolve parte, mas obriga você a mudar o seu jeito de trabalhar. Sob medida é o meio-termo: as telas são desenhadas em cima do que você já faz.</p>
+      </div>
+      <div class="sob-cols">
+        <div class="garantia rv"><span class="ic"><svg class="icon"><use href="#i-layout"/></svg></span><h3>Do seu jeito</h3><p>As suas etapas, os nomes que a sua equipe usa, os seus preços e as suas regras. Quem abre entende na hora.</p></div>
+        <div class="garantia rv" style="--d:60ms"><span class="ic"><svg class="icon"><use href="#i-check"/></svg></span><h3>Só o que você usa</h3><p>Sem dezenas de menus que ninguém mexe. Cada tela existe porque resolve uma parte do seu dia.</p></div>
+        <div class="garantia rv" style="--d:120ms"><span class="ic"><svg class="icon"><use href="#i-steps"/></svg></span><h3>Cresce com você</h3><p>Começa pelo que mais dói hoje. Depois ganha funções novas, quando fizer sentido para o negócio.</p></div>
+      </div>
+      <div class="sob-comp rv">
+        <table>
+          <caption class="sr">Comparação entre planilha ou caderno, aplicativo pronto e sistema sob medida</caption>
+          <thead><tr><th scope="col"><span class="sr">Critério</span></th><th scope="col">Planilha ou caderno</th><th scope="col">Aplicativo pronto</th><th scope="col" class="destaque">Sob medida</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Segue o seu processo</th><td data-r="Planilha ou caderno"><span class="c-meio">Até certo ponto</span></td><td data-r="Aplicativo pronto"><span class="c-nao">Você se adapta a ele</span></td><td data-r="Sob medida" class="destaque"><span class="c-sim">Feito em cima dele</span></td></tr>
+            <tr><th scope="row">Fácil para a equipe</th><td data-r="Planilha ou caderno"><span class="c-nao">Cada um faz de um jeito</span></td><td data-r="Aplicativo pronto"><span class="c-meio">Muitas telas sobrando</span></td><td data-r="Sob medida" class="destaque"><span class="c-sim">Só o que vocês usam</span></td></tr>
+            <tr><th scope="row">O cliente participa</th><td data-r="Planilha ou caderno"><span class="c-nao">Não</span></td><td data-r="Aplicativo pronto"><span class="c-meio">Com a marca do aplicativo</span></td><td data-r="Sob medida" class="destaque"><span class="c-sim">Com a sua marca</span></td></tr>
+            <tr><th scope="row">Avisa antes do problema</th><td data-r="Planilha ou caderno"><span class="c-nao">Não</span></td><td data-r="Aplicativo pronto"><span class="c-meio">Os avisos que ele tem</span></td><td data-r="Sob medida" class="destaque"><span class="c-sim">Os avisos que você precisa</span></td></tr>
+            <tr><th scope="row">Dados no seu nome</th><td data-r="Planilha ou caderno"><span class="c-sim">Sim</span></td><td data-r="Aplicativo pronto"><span class="c-meio">Na conta da empresa do aplicativo</span></td><td data-r="Sob medida" class="destaque"><span class="c-sim">Sim, em contas suas</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNCIONALIDADES -->
+  <section class="section dark" id="funcionalidades" aria-labelledby="func-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Funcionalidades possíveis</span>
+        <h2 id="func-title">Monte o seu sistema com as peças certas. <span class="soft">Só as que fazem sentido.</span></h2>
+        <p>Estas são algumas das funções que um sistema pode ter. Na conversa, escolhemos juntos quais entram agora e quais ficam para depois.</p>
+      </div>
+      <div class="func-grid">
+        <div class="func-grupo rv">
+          <span class="func-ic"><svg class="icon"><use href="#i-sheet"/></svg></span>
+          <h3>Vendas e atendimento</h3>
+          <ul><li>Quadro de pedidos para balcão, mesa e entrega</li><li>Orçamentos em PDF com a sua marca</li><li>Agenda, reservas e lista de espera</li><li>Cardápio, catálogo ou tabela de preços editável</li></ul>
+        </div>
+        <div class="func-grupo rv" style="--d:60ms">
+          <span class="func-ic"><svg class="icon"><use href="#i-phone"/></svg></span>
+          <h3>O cliente participando</h3>
+          <ul><li>Acompanhar o pedido ou o serviço pelo celular</li><li>Pedido pelo QR code da mesa ou do balcão</li><li>Aprovar orçamento e assinar pelo celular</li><li>Avisos automáticos no WhatsApp</li></ul>
+        </div>
+        <div class="func-grupo rv" style="--d:120ms">
+          <span class="func-ic"><svg class="icon"><use href="#i-shield"/></svg></span>
+          <h3>Controle do dia a dia</h3>
+          <ul><li>Estoque com mínimo, validade e lotes</li><li>Caixa, formas de pagamento e conta dividida</li><li>Mensalidades e cobranças com Pix</li><li>Lista de compras e pedido ao fornecedor</li></ul>
+        </div>
+        <div class="func-grupo rv" style="--d:180ms">
+          <span class="func-ic"><svg class="icon"><use href="#i-calc"/></svg></span>
+          <h3>Gestão e números</h3>
+          <ul><li>Painel com os números que importam</li><li>Relatórios por dia, semana e mês</li><li>Login e permissões para cada pessoa</li><li>Histórico de cada cliente, aluno ou obra</li></ul>
+        </div>
+      </div>
+      <div class="func-segs rv">
+        <b>Para quem é</b>
+        <div class="tags"><span class="tag">Cafeteria</span><span class="tag">Restaurante</span><span class="tag">Marcenaria</span><span class="tag">Serralheria</span><span class="tag">Academia</span><span class="tag">Estúdio</span><span class="tag">Barbearia</span><span class="tag">Salão</span><span class="tag">Clínica</span><span class="tag">Oficina</span><span class="tag">Loja</span><span class="tag">Escola</span><span class="tag">Distribuidora</span></div>
+      </div>
+      <div class="demo-outro sis-outro rv">
+        <b>Seu negócio não está aqui?</b>
+        <p>Se hoje você controla na planilha, no caderno ou no WhatsApp, dá para virar sistema. Conte como é o seu dia a dia e eu digo o que faz sentido.</p>
+        <a class="btn btn-volt" href="#contato" data-quero-sistema>Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUANTO DEVOLVE -->
+  <section class="section alt" id="calculadora" aria-labelledby="calc-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Calculadora</span>
+        <h2 id="calc-title">Quanto um sistema devolve para o seu negócio? <span class="soft">Faça a conta.</span></h2>
+        <p>Escolha o tipo de negócio e ajuste os números. A conta mostra o tempo que deixa de ir para anotar, conferir e cobrar, e o dinheiro que deixa de escapar.</p>
+      </div>
+      <div class="calc rv">
+        <form class="calc-in" id="s-calc" aria-label="Dados para o cálculo">
+          <fieldset class="s-tipo"><legend>Tipo de negócio</legend><div class="s-tipos" id="s-tipos"></div></fieldset>
+          <div class="rng"><div class="rng-top"><label for="s-qtd" id="s-qtd-rot">Pedidos por dia</label><output for="s-qtd" id="so-qtd"></output></div><input type="range" id="s-qtd" min="5" max="400" step="5"></div>
+          <div class="rng"><div class="rng-top"><label for="s-min" id="s-min-rot">Minutos para anotar e conferir cada um</label><output for="s-min" id="so-min"></output></div><input type="range" id="s-min" min="0.5" max="15" step="0.5"></div>
+          <div class="rng"><div class="rng-top"><label for="s-perda" id="s-perda-rot">Pedidos esquecidos ou errados por semana</label><output for="s-perda" id="so-perda"></output></div><input type="range" id="s-perda" min="0" max="40"></div>
+          <div class="rng"><div class="rng-top"><label for="s-valor" id="s-valor-rot">Valor médio de cada um</label><output for="s-valor" id="so-valor"></output></div><input type="range" id="s-valor" min="10" max="3000" step="5"></div>
+        </form>
+        <div class="calc-out" aria-live="polite" aria-atomic="true">
+          <div class="big"><span>Horas devolvidas por mês</span><strong><span id="sr-horas">0</span><small>h</small></strong></div>
+          <div class="mini">
+            <div><span>Dinheiro que deixa de escapar por mês</span><b id="sr-mes">R$ 0</b></div>
+            <div><span>Em 12 meses</span><b id="sr-ano">R$ 0</b></div>
+          </div>
+          <p class="calc-note">Estimativa simples: quantidade por dia × minutos × 26 dias, considerando que o sistema elimina 60% desse trabalho; mais as perdas por semana × 4,3 semanas × valor médio. O número real sai da conversa sobre o seu processo.</p>
+          <a class="btn btn-volt" href="#contato" data-quero-sistema>Quero um sistema assim <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VEM EM TODO SISTEMA -->
+  <section class="section" id="incluso" aria-labelledby="inc-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Em todo sistema</span>
+        <h2 id="inc-title">Fácil para a equipe. <span class="soft">Seguro para o dono.</span></h2>
+        <p>Não importa o tamanho do sistema: estas coisas vêm sempre.</p>
+      </div>
+      <div class="sis-inclui">
+        <div class="garantia rv"><span class="ic"><svg class="icon"><use href="#i-phone"/></svg></span><h3>No celular e no computador</h3><p>Abre pelo navegador, sem instalar nada. Dá para colocar um atalho na tela do celular, como um aplicativo.</p></div>
+        <div class="garantia rv" style="--d:60ms"><span class="ic"><svg class="icon"><use href="#i-users"/></svg></span><h3>Cada pessoa com o seu login</h3><p>Dono, gerente, caixa, cozinha: cada um entra com a própria senha e vê só o que precisa.</p></div>
+        <div class="garantia rv" style="--d:120ms"><span class="ic"><svg class="icon"><use href="#i-copy"/></svg></span><h3>Cópia de segurança todo dia</h3><p>Os dados são copiados automaticamente todos os dias. Se algo der errado, dá para voltar.</p></div>
+        <div class="garantia rv"><span class="ic"><svg class="icon"><use href="#i-shield"/></svg></span><h3>Dados no seu nome</h3><p>As contas de hospedagem e banco de dados ficam no nome do seu negócio, com os cuidados da LGPD com os dados dos seus clientes.</p></div>
+        <div class="garantia rv" style="--d:60ms"><span class="ic"><svg class="icon"><use href="#i-steps"/></svg></span><h3>Equipe treinada</h3><p>Na entrega, eu treino a sua equipe e deixo um guia curto de como usar cada tela.</p></div>
+        <div class="garantia rv" style="--d:120ms"><span class="ic"><svg class="icon"><use href="#i-msg"/></svg></span><h3>Ajustes pelo WhatsApp</h3><p>Mudou o cardápio, o preço ou o jeito de trabalhar? Você pede e o sistema acompanha.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSO -->
+  <section class="section alt" id="processo" aria-labelledby="proc-title">
+    <div class="wrap proc">
+      <div class="sh rv">
+        <span class="eyebrow">Como funciona</span>
+        <h2 id="proc-title">Você vê antes. <span class="soft">E aprova cada etapa.</span></h2>
+        <p>Nada de esperar meses para descobrir se ficou bom. Você clica no protótipo antes de começar e acompanha cada parte pronta.</p>
+        <a class="btn btn-primary" href="#contato" data-quero-sistema style="align-self:flex-start;margin-top:8px">Começar pela conversa <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="step"><span class="n">01</span><h3>Conversa e mapeamento</h3><p>Como o trabalho acontece hoje: o que é anotado, onde se perde e quem precisa ver o quê.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: a lista do que o sistema vai fazer e a proposta com valor fechado</span></li>
+        <li class="step"><span class="n">02</span><h3>Protótipo para clicar</h3><p>As telas principais funcionando no navegador, como as simulações desta página, já com a cara do seu negócio.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: o protótipo para aprovar antes do desenvolvimento</span></li>
+        <li class="step"><span class="n">03</span><h3>Desenvolvimento por partes</h3><p>Cada parte pronta vai para um endereço de teste. Você usa, comenta e eu ajusto.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: as partes funcionando com os seus dados de verdade</span></li>
+        <li class="step"><span class="n">04</span><h3>No ar, com a equipe treinada</h3><p>Os dados de hoje são passados para o sistema, a equipe aprende a usar e eu acompanho as primeiras semanas.</p><span class="get"><svg class="icon"><use href="#i-check"/></svg>Você recebe: o sistema no ar e um guia curto de cada tela</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DÚVIDAS -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap faq-grid">
+      <div class="sh rv">
+        <span class="eyebrow">Dúvidas</span>
+        <h2 id="faq-title">O que todo mundo pergunta <span class="soft">antes de ter um sistema.</span></h2>
+        <p>Não achou a sua? Pergunte no WhatsApp. Eu respondo pessoalmente.</p>
+      </div>
+      <div class="acc rv" id="acc">
+        <div class="acc-item open"><h3><button class="acc-q" type="button" aria-expanded="true" aria-controls="sa1" id="sq1">Preciso instalar alguma coisa?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa1" role="region" aria-labelledby="sq1"><div><p>Não. O sistema abre pelo navegador, no computador e no celular. Se quiser, você coloca um atalho na tela do celular e ele abre como um aplicativo.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa2" id="sq2">É difícil para a equipe aprender?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa2" role="region" aria-labelledby="sq2"><div><p>O sistema é desenhado em cima do jeito que vocês já trabalham, com as palavras que vocês usam. Na entrega tem treinamento e um guia curto de cada tela.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa3" id="sq3">Onde ficam os meus dados?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa3" role="region" aria-labelledby="sq3"><div><p>Num banco de dados na nuvem, em conta no nome do seu negócio, com cópia de segurança diária. Cada pessoa entra com a própria senha e só vê o que precisa.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa4" id="sq4">Posso mudar o sistema depois?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa4" role="region" aria-labelledby="sq4"><div><p>Sim. Ajustes pequenos (um campo, um preço, um relatório) entram na manutenção. Funções novas viram uma proposta à parte, com valor fechado.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa5" id="sq5">As simulações são o sistema que eu vou receber?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa5" role="region" aria-labelledby="sq5"><div><p>Não. Elas mostram as funcionalidades com negócios fictícios. O seu sistema é feito do zero para você, com a sua marca, as suas regras, os seus dados e só as telas que fazem sentido no seu dia a dia.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa6" id="sq6">Quanto custa?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa6" role="region" aria-labelledby="sq6"><div><p>Depende de quantas telas e integrações o sistema tem. Depois da conversa você recebe a proposta com valor fechado. Hospedagem e banco de dados ficam em contas no seu nome e são pagos direto ao fornecedor; os valores vêm explicados na proposta. <a href="#contato" data-quero-sistema>Pedir orçamento</a>.</p></div></div></div>
+        <div class="acc-item"><h3><button class="acc-q" type="button" aria-expanded="false" aria-controls="sa7" id="sq7">E se eu parar de trabalhar com a EstudioHK?<span class="pm" aria-hidden="true"><svg class="icon" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="acc-a" id="sa7" role="region" aria-labelledby="sq7"><div><p>O sistema continua seu. As contas já estão no seu nome, você recebe o código e eu ajudo quem for assumir a manutenção.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+  <script src="/assets/sistemas.js" defer></script>

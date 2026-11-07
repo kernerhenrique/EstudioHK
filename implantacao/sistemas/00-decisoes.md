@@ -80,7 +80,7 @@ O Henrique achou o quadro de pedidos básico demais e pediu algo mais completo, 
 - Seções: topo · "Experimente em 10 segundos" (4 cenas: cafeteria, marcenaria, academia e barbearia, com o painel do dono e o celular do cliente lado a lado) · calculadora "quanto devolve" por tipo de negócio · 4 prévias completas · o que vem em todo sistema · custos (Vercel Pro US$ 20, Supabase Pro US$ 25, Registro.br R$ 40/ano, Meta R$ 0,035; consultados em 6/11/2026) · como funciona · dúvidas · pedido de orçamento.
 - Aviso de prévia (regra 3) na página e nas 4 demos: "Prévia das funcionalidades: este não é o sistema final." Também aparece no último passo do passeio do piloto.
 - Home: "Sistemas" no menu, 3ª porta, "Ver demonstrações" no cartão de serviço, rodapé e Ctrl+K.
-- Arquivos: `assets/sistemas.js`, os estilos `/* página /sistemas/ */` em `assets/site.css`, o modelo `scratchpad/tools/paginas/sistemas.main.html` (gerado por `hk_paginas.py`), e as miniaturas `demos/sistemas/*/assets/thumb-{480,800}.webp`.
+- Arquivos: `assets/sistemas.js`, os estilos `/* página /sistemas/ */` em `assets/site.css`, o modelo `ferramentas/paginas/modelos/sistemas.main.html` (gerado por `ferramentas/paginas/hk_paginas.py`), e as miniaturas `demos/sistemas/*/assets/thumb-{480,800}.webp`.
 - Próximo passo, depois do OK: levar orçamento, academia e estoque ao nível do piloto, um por vez.
 
 ## Mudança na página /sistemas/ (6/11/2026, pedido do Henrique) · publicada no main em 7/11/2026

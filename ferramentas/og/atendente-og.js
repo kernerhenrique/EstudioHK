@@ -1,0 +1,14 @@
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8792';
+const SAIDA = require('path').join(__dirname, '..', '.saida') + '/'; require('fs').mkdirSync(SAIDA, { recursive: true });
+(async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 2 });
+ await p.goto(BASE + '/demos/automacoes/atendente-whatsapp/', { waitUntil: 'networkidle' });
+ const espera = () => p.waitForFunction(() => !document.querySelector('#z-texto').disabled, null, { timeout: 15000 });
+ await p.click('#chips button >> nth=0'); await espera();
+ await p.click('#chips button >> nth=2'); await espera();
+ await p.locator('#conv-cli .bt:not([disabled])', { hasText: '15h30' }).click(); await espera();
+ await p.locator('#conv-cli .bt:not([disabled])', { hasText: 'Corte + barba' }).click(); await espera();
+ const r = await p.$eval('#sim', e => { const b = e.getBoundingClientRect(); return { x: b.x, y: b.y + scrollY }; });
+ await p.evaluate(y => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, y - 24); }, r.y); await p.waitForTimeout(300);
+ await p.screenshot({ path: SAIDA + 'atendente-og-raw.png', clip: { x: r.x - 24, y: 0, width: 1248, height: 650 } });
+ await b.close(); })();

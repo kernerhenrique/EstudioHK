@@ -1,0 +1,116 @@
+// Testes da demo "Escritório sem papelada". Uso: node auto-papelada-func.js [url]
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8792';
+const SAIDA = require('path').join(__dirname, '..', '.saida') + '/'; require('fs').mkdirSync(SAIDA, { recursive: true });
+const U = process.argv[2] || BASE + '/demos/automacoes/escritorio-sem-papelada/';
+let f = 0; const ok = (c, m) => { console.log((c ? 'ok   ' : 'FALHA') + ' ' + m); if (!c) f++; };
+const tx = async (p, s) => (await p.textContent(s)).replace(/\u00a0/g, ' ');
+const etapa = (p, n, cls) => p.waitForSelector(`.etapas li[data-e="${n}"].${cls}`, { timeout: 20000, state: 'attached' });
+(async () => {
+  const b = await chromium.launch();
+  let ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); let p = await ctx.newPage();
+  const errs = [], reqs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+  p.on('request', r => { const u = new URL(r.url()); if (!['localhost', 'estudiohk.com.br'].includes(u.hostname)) reqs.push(r.url()); });
+  await p.goto(U, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => document.querySelector('meta[name=robots]').content.includes('noindex')), 'noindex');
+  ok((await tx(p, '#relogio')) === 'ter, 10:10' && await p.isVisible('#doc-vazio') && await p.isVisible('#drive-vazio') && await p.isDisabled('#c-pular'), 'início: 10:10, documento e pasta vazios, "pular" travado');
+  // validação
+  await p.click('#pa-enviar');
+  ok((await tx(p, '#pa-erro')).startsWith('Falta preencher: a área'), 'cadastro vazio mostra o que falta');
+  await p.click('#pa-exemplo'); await p.uncheck('#pa-aceite'); await p.click('#pa-enviar');
+  ok((await tx(p, '#pa-erro')).includes('autorização'), 'sem o aceite, não envia');
+  await p.check('#pa-aceite'); await p.click('#pa-enviar');
+  await etapa(p, 3, 'espera');
+  ok(await p.isVisible('#pa-aprovar') && (await tx(p, '#etapas li[data-e="3"] .det')).includes('Dr. Rafael Prates'), 'trabalhista vai para o Dr. Rafael e espera o OK');
+  const contr = await tx(p, '#doc-contrato');
+  ok(contr.includes('Ana Lúcia Ferreira') && contr.includes('123.456.789-09') && contr.includes('Direito do Trabalho') && contr.includes('Anexo I') && !/R\$/.test(contr), 'contrato preenchido, honorários sem valor');
+  ok((await p.$$('#doc-contrato mark')).length >= 8, 'campos preenchidos marcados no contrato');
+  await p.click('#doc-t-proc');
+  const proc = await tx(p, '#doc-proc');
+  ok(await p.isVisible('#doc-proc') && proc.includes('OUTORGADO: Rafael Prates') && proc.includes('OAB/ES') && proc.includes('Av. Exemplo, 1000'), 'procuração com nome, OAB e endereço do advogado (CPC art. 105 § 2º)');
+  ok((await p.$$('#drive-arv li')).length === 8 && (await p.$$('#drive-arv li:not([hidden])')).length === 7, 'pasta criada: contrato, procuração e 3 documentos pedidos');
+  ok((await tx(p, '#custo')).startsWith('Meta R$ 0,035 (1 paga)'), 'pedido de OK ao advogado: 1 mensagem paga');
+  // aprova pelo WhatsApp do advogado
+  await p.click('#conv-equipe .bt.destaque');
+  await etapa(p, 4, 'espera');
+  await p.waitForSelector('#pa-chat:not([hidden])', { timeout: 10000 });
+  ok((await tx(p, '#relogio')) === 'ter, 10:15' && (await tx(p, '#conv-cli')).includes('prontos para você assinar'), 'aprovado às 10:15: link de assinatura no WhatsApp do cliente');
+  ok((await tx(p, '#custo')).includes('2 documentos da franquia'), 'conta 2 documentos na ferramenta de assinatura');
+  await p.click('#conv-cli .bt.destaque');
+  ok(await p.isVisible('#pa-assina') && (await tx(p, '#pa-as-prev')).includes('Ana Lúcia Ferreira'), 'ferramenta de assinatura abre com a prévia');
+  await p.click('#pa-assinar');
+  ok((await tx(p, '#pa-as-erro')).includes('Marque'), 'sem marcar "li", não assina');
+  await p.check('#pa-li'); await p.click('#pa-assinar');
+  await etapa(p, 5, 'espera');
+  ok((await tx(p, '#relogio')) === 'ter, 10:31' && (await tx(p, '#drive-arv')).includes('Procuração (assinada).pdf') && await p.isVisible('#drive-arv li[data-k="registro"]'), 'assinado às 10:31: PDFs assinados e registro na pasta');
+  ok((await tx(p, '#conv-cli')).includes('precisamos de 3 documentos') && (await p.$$('#pa-chips button')).length === 2, 'pede os 3 documentos, um por vez');
+  await p.click('#pa-chips button.prin'); await p.waitForFunction(() => document.querySelector('#drive-arv li[data-k="d0"] .stt').textContent === 'recebido');
+  ok((await tx(p, '#drive-arv li[data-k="d0"]')).includes('04-1 RG ou CNH.jpg') && (await tx(p, '#drive-arv li[data-k="docs"] .stt')) === '1 de 3', 'foto vai para a pasta com o nome padrão');
+  await p.waitForFunction(() => !document.querySelector('#c-pular').disabled);
+  // lembretes
+  await p.click('#c-pular'); await p.waitForFunction(() => document.querySelector('#relogio').textContent === 'qui, 10:00');
+  await p.waitForFunction(() => document.querySelector('#conv-cli').innerText.includes('ainda faltam'));
+  ok(true, 'pular 2 dias úteis: terça → quinta, 10h, lembrete ao cliente');
+  await p.waitForFunction(() => !document.querySelector('#c-pular').disabled);
+  await p.click('#c-pular'); await p.waitForFunction(() => document.querySelector('#relogio').textContent === 'seg, 10:00');
+  await etapa(p, 5, 'aviso');
+  ok((await tx(p, '#conv-equipe')).includes('Já foram 2 lembretes') && await p.isDisabled('#c-pular'), 'quinta → segunda (pula o fim de semana); 2º lembrete avisa o advogado e para de cobrar');
+  await p.click('#pa-chips button.prin'); await p.waitForFunction(() => document.querySelector('#drive-arv li[data-k="d1"] .stt').textContent === 'recebido');
+  await p.waitForSelector('#pa-chips button.prin', { timeout: 10000 });
+  await p.click('#pa-chips button.prin'); await etapa(p, 5, 'feita');
+  ok((await tx(p, '#drive-arv li[data-k="pasta"] .stt')) === 'completa' && (await tx(p, '#conv-equipe')).includes('completa') && await p.isHidden('#pa-compor'), 'pasta completa e advogado avisado');
+  const custo = await tx(p, '#custo');
+  ok(custo.startsWith('Meta R$ 0,245 (7 pagas'), 'custo: só as mensagens fora da janela de 24h são pagas (' + custo + ')');
+  // falha na assinatura
+  await p.click('#c-recomecar');
+  ok(await p.isVisible('#pa-form') && await p.isVisible('#doc-vazio') && (await tx(p, '#relogio')) === 'ter, 10:10' && (await p.$$('#conv-cli .bolha')).length === 0, 'recomeçar volta ao início');
+  await p.check('#c-falha');
+  await p.click('input[name=area][value=familia]', { force: true }); await p.click('#pa-exemplo'); await p.click('#pa-enviar');
+  await etapa(p, 2, 'erro');
+  ok(await p.isVisible('#alerta-hk') && (await tx(p, '#conv-equipe')).includes('fora do ar') && await p.isVisible('#doc-vazio'), 'ferramenta fora do ar ao gerar os documentos: alerta para a EstudioHK e aviso ao advogado');
+  await etapa(p, 3, 'espera');
+  ok((await tx(p, '#relogio')) === 'ter, 10:27' && (await tx(p, '#etapas li[data-e="2"] .det')).includes('nova tentativa') && await p.isHidden('#alerta-hk'), 'tenta de novo 15 min depois e gera os documentos');
+  ok((await tx(p, '#eq-quem')).includes('Dra. Helena Duarte') && (await tx(p, '#drive-arv')).includes('Certidão de casamento'), 'família vai para a Dra. Helena, com a lista de documentos da área');
+  await p.click('#pa-aprovar');
+  await etapa(p, 4, 'espera');
+  ok((await tx(p, '#relogio')) === 'ter, 10:30' && (await tx(p, '#etapas li[data-e="4"] .det')).includes('Link de assinatura enviado'), 'depois do OK, o link de assinatura sai normalmente');
+  // empresarial
+  await p.click('#c-recomecar');
+  await p.click('input[name=area][value=empresarial]', { force: true });
+  ok(await p.isVisible('#pa-empresa'), 'empresarial pede empresa e CNPJ');
+  await p.click('#pa-exemplo'); await p.click('#pa-enviar'); await etapa(p, 3, 'espera');
+  ok((await tx(p, '#doc-contrato')).includes('CNPJ 12.345.678/0001-95, representada por Ana Lúcia Ferreira'), 'contrato em nome da empresa');
+  // conta
+  ok((await tx(p, '#k-total')) === 'R$ 71,30', 'conta padrão: 10 clientes = R$ 71,30');
+  await p.fill('#k-clientes', '30'); await p.dispatchEvent('#k-clientes', 'input');
+  ok((await tx(p, '#k-total')) === 'R$ 124,10', '30 clientes: plano de 80 documentos (R$ 124,10)');
+  await p.fill('#k-clientes', '120'); await p.dispatchEvent('#k-clientes', 'input');
+  ok((await tx(p, '#k-total')) === 'Sob consulta', '120 clientes: plano Enterprise, sob consulta');
+  ok(await p.evaluate(() => { const t = document.body.innerText; return t.includes('Está incluso na manutenção mensal da automação') && t.includes('E se eu parar de trabalhar com a EstudioHK?') && t.includes('art. 105') && t.includes('art. 10, § 2º'); }), 'n8n incluso, "E se eu parar…" e base legal');
+  ok(reqs.length === 0, 'nenhuma requisição para fora ' + JSON.stringify(reqs));
+  ok(errs.length === 0, 'console limpo ' + JSON.stringify(errs));
+  await ctx.close();
+  // celular
+  ctx = await b.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true }); p = await ctx.newPage();
+  await p.goto(U, { waitUntil: 'networkidle' });
+  await p.click('#pa-exemplo'); await p.click('#pa-enviar');
+  await p.waitForSelector('#pa-aprovar:not([disabled])', { state: 'visible', timeout: 15000 });
+  ok(await p.isVisible('#aba-bas .ponto'), 'celular: Bastidores ganha o ponto');
+  await p.click('#pa-aprovar'); await p.waitForSelector('#conv-cli .bt.destaque', { timeout: 15000 });
+  await p.click('#conv-cli .bt.destaque'); await p.check('#pa-li'); await p.click('#pa-assinar');
+  await p.waitForSelector('#pa-chips button.prin', { timeout: 15000 });
+  ok(true, 'celular: dá para fazer tudo pelo lado do cliente');
+  await p.click('#aba-bas');
+  let larg = 0; for (const s of ['#sim', '#doc', '#drive', '#ferramentas', '#custos']) { await p.locator(s).scrollIntoViewIfNeeded(); larg = Math.max(larg, await p.evaluate(() => document.documentElement.scrollWidth)); }
+  ok(larg === 375, 'celular: sem rolagem lateral (' + larg + ')');
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' }); p = await ctx.newPage();
+  await p.goto(U, { waitUntil: 'networkidle' }); const t0 = Date.now();
+  await p.click('#pa-exemplo'); await p.click('#pa-enviar'); await etapa(p, 3, 'espera');
+  ok(Date.now() - t0 < 3000, 'movimento reduzido: roda quase na hora');
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false }); p = await ctx.newPage();
+  await p.goto(U, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => document.querySelectorAll('.etapas li').length === 5 && document.body.innerText.includes('precisa de JavaScript')), 'sem JS: etapas legíveis e aviso');
+  await b.close(); console.log('falhas:', f);
+})();

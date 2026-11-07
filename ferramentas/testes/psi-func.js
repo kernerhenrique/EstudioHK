@@ -1,0 +1,61 @@
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8792';
+const SAIDA = require('path').join(__dirname, '..', '.saida') + '/'; require('fs').mkdirSync(SAIDA, { recursive: true });
+const B = process.argv[2] || BASE + '/demos/psicologa/';
+let f = 0; const ok = (c, m) => { console.log((c ? 'ok   ' : 'FALHA') + ' ' + m); if (!c) f++; };
+(async () => {
+  const b = await chromium.launch();
+  let ctx = await b.newContext({ viewport: { width: 1440, height: 900 } }); let p = await ctx.newPage();
+  const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error') errs.push(m.text()); });
+  await p.goto(B, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => document.querySelector('meta[name=robots]').content.startsWith('noindex')), 'demo fora do Google (noindex)');
+  ok(await p.evaluate(() => document.fonts.check('italic 40px "Instrument Serif"') && document.fonts.check('600 16px "Instrument Sans"')), 'fontes Instrument carregadas do próprio site');
+  const capa = await p.textContent('.capa');
+  ok(/Psicóloga · CRP 16\/00000/.test(capa) && capa.includes('Marina Coutinho'), 'CFP art. 20 a: nome, "Psicóloga" e CRP no topo');
+  const txt = await p.evaluate(() => document.body.innerText);
+  ok(!/R\$|depoimento|transform|vagas limitadas|garant|grátis|gratuit|cura|resultado/i.test(txt.replace(/24 horas e gratuito/,'')), 'CFP: sem preço, depoimento, promessa ou sensacionalismo');
+  ok(!/e-?psi/i.test(txt), 'não cita o e-Psi (extinto pela Res. CFP 9/2024)');
+  ok(/188/.test(txt) && /CVV/.test(txt), 'aviso de emergência com o CVV 188');
+  ok(/nutricionistas, dentistas/.test(txt), 'diz que serve de modelo para outros profissionais');
+  // temas
+  await p.click('.tema:nth-child(2) summary'); ok(await p.isVisible('.tema:nth-child(2) p'), 'tema abre ao clicar');
+  await p.click('.tema:nth-child(2) summary'); ok(!(await p.isVisible('.tema:nth-child(2) p')), 'tema fecha ao clicar de novo');
+  // presencial/online
+  ok(await p.isVisible('#painel-presencial') && !(await p.isVisible('#painel-online')), 'começa no presencial');
+  await p.click('#aba-online'); ok(await p.isVisible('#painel-online') && !(await p.isVisible('#painel-presencial')) && (await p.getAttribute('#aba-online', 'aria-selected')) === 'true', 'aba online troca o painel');
+  await p.keyboard.press('ArrowRight'); ok((await p.getAttribute('#aba-presencial', 'aria-selected')) === 'true', 'setas do teclado trocam a aba');
+  // dúvidas
+  ok(!(await p.isVisible('#r3 p')), 'dúvida fechada começa escondida');
+  await p.click('#p3'); ok(await p.isVisible('#r3 p') && (await p.textContent('#r3')).includes('primeira conversa'), 'valor: informado na primeira conversa');
+  // formulário
+  ok(await p.isDisabled('#ag-montar') && !(await p.isVisible('#ag-saida')), 'botão bloqueado e prévia escondida no início');
+  await p.fill('#ag-nome', 'Ana'); await p.click('.pilulas label:has-text("Online")'); await p.click('.pilulas label:has-text("Noite")');
+  await p.fill('#ag-msg-in', 'Ando muito ansiosa no trabalho.');
+  ok(!(await p.isDisabled('#ag-montar')), 'formulário completo libera o botão'); await p.click('#ag-montar');
+  const msg = await p.textContent('#ag-msg');
+  ok(msg.includes('Formato: online') && msg.includes('período: noite') && msg.includes('Nome: Ana') && msg.includes('ansiosa'), 'mensagem: ' + JSON.stringify(msg));
+  ok(await p.isVisible('.aviso-demo'), 'aviso de que nada foi enviado');
+  await p.click('a:has-text("Como chegar")'); ok(await p.isVisible('#janela'), '"Como chegar" abre a janela de demonstração'); await p.keyboard.press('Escape');
+  ok(!(await p.isVisible('#janela')), 'Esc fecha a janela');
+  ok(errs.length === 0, 'console limpo ' + JSON.stringify(errs));
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 375, height: 812 }, isMobile: true, hasTouch: true }); p = await ctx.newPage();
+  await p.goto(B, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => document.documentElement.scrollWidth === innerWidth), 'sem rolagem lateral no celular');
+  ok(!(await p.evaluate(() => document.getElementById('barra-m').classList.contains('visivel'))), 'barra "Agendar" escondida no topo');
+  await p.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; document.querySelector('#como-funciona').scrollIntoView(); }); await p.waitForTimeout(600);
+  ok(await p.evaluate(() => document.getElementById('barra-m').classList.contains('visivel')), 'barra aparece no meio da página');
+  await p.evaluate(() => document.querySelector('#contato').scrollIntoView()); await p.waitForTimeout(600);
+  ok(!(await p.evaluate(() => document.getElementById('barra-m').classList.contains('visivel'))), 'barra some no contato');
+  await p.evaluate(() => scrollTo(0, 0)); await p.click('.abre-menu'); ok(await p.isVisible('#gaveta a[href="#sobre"]'), 'menu do celular abre');
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, javaScriptEnabled: false }); p = await ctx.newPage();
+  await p.goto(B, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => [...document.querySelectorAll('.revela')].every(e => getComputedStyle(e).opacity === '1')), 'sem JS: conteúdo visível');
+  ok(await p.isVisible('#painel-online') && await p.isVisible('#r3 p'), 'sem JS: painel online e todas as dúvidas visíveis');
+  await ctx.close();
+  ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' }); p = await ctx.newPage();
+  await p.goto(B, { waitUntil: 'networkidle' });
+  ok(await p.evaluate(() => [...document.querySelectorAll('.revela')].every(e => e.classList.contains('ok'))), 'movimento reduzido: tudo visível sem animação');
+  await b.close(); console.log('falhas:', f);
+})();

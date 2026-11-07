@@ -1,0 +1,119 @@
+  <!-- CALCULADORA -->
+  <section class="section alt" id="calculadora" aria-labelledby="calc-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Calculadora</span>
+        <h2 id="calc-title">Quanto tempo a sua equipe perde com tarefa repetitiva? <span class="soft">Faça a conta.</span></h2>
+        <p>Mexa nos controles com os números do seu negócio e veja quanto uma automação pode devolver por mês.</p>
+      </div>
+      <div class="calc rv">
+        <form class="calc-in" id="calc" aria-label="Dados para o cálculo">
+          <div class="rng"><div class="rng-top"><label for="c-people">Pessoas fazendo tarefas manuais</label><output for="c-people" id="o-people">3 pessoas</output></div><input type="range" id="c-people" min="1" max="30" value="3"></div>
+          <div class="rng"><div class="rng-top"><label for="c-hours">Horas por semana, por pessoa</label><output for="c-hours" id="o-hours">6 h/semana</output></div><input type="range" id="c-hours" min="1" max="30" value="6"></div>
+          <div class="rng"><div class="rng-top"><label for="c-cost">Custo da hora de trabalho</label><output for="c-cost" id="o-cost">R$ 40/h</output></div><input type="range" id="c-cost" min="15" max="250" step="5" value="40"></div>
+          <div class="rng"><div class="rng-top"><label for="c-pct">Quanto disso dá para automatizar</label><output for="c-pct" id="o-pct">60%</output></div><input type="range" id="c-pct" min="10" max="90" step="5" value="60"></div>
+        </form>
+        <div class="calc-out" aria-live="polite" aria-atomic="true">
+          <div class="big"><span>Horas devolvidas à equipe por mês</span><strong><span id="r-hours">46</span><small>h</small></strong></div>
+          <div class="mini">
+            <div><span>Economia por mês</span><b id="r-month">R$ 1.858</b></div>
+            <div><span>Em 12 meses</span><b id="r-year">R$ 22.291</b></div>
+          </div>
+          <p class="calc-note">Estimativa simples: pessoas × horas por semana × 4,3 semanas × percentual automatizável. O número real sai do diagnóstico do seu processo.</p>
+          <a class="btn btn-volt" href="#contato" id="calc-cta">Quero automatizar isso <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMONSTRAÇÕES -->
+  <section class="section dark demos" id="demos" aria-labelledby="demos-title">
+    <div class="wrap">
+      <div class="sh rv">
+        <span class="eyebrow">Demonstrações</span>
+        <h2 id="demos-title">Veja como pode ficar. <span class="soft">O seu ramo não precisa estar aqui.</span></h2>
+        <p>São negócios fictícios, criados para você navegar e sentir como funciona. Cada projeto é desenhado do zero para o seu público, seja qual for o seu ramo.</p>
+        <p class="obs-demos"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg><span><b>Obs.:</b> as ilustrações das animações são só exemplos. No seu projeto, elas são feitas com as fotos e imagens reais do seu negócio.</span></p>
+      </div>
+      <div class="demo-grid">
+        <a class="demo-card rv" href="/demos/barbearia/" target="_blank" rel="noopener">
+          <span class="demo-thumb"><img src="/demos/barbearia/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia do site da Ofício Barbearia: título “Corte bem feito não tem pressa.” ao lado da foto de um barbeiro trabalhando."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Site</span><span class="tag">Agendamento</span></span>
+            <b>Ofício Barbearia</b>
+            <span class="demo-desc">Cardápio de serviços, barbeiros e agendamento em 3 passos pelo WhatsApp.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/academia/" target="_blank" rel="noopener" style="--d:60ms">
+          <span class="demo-thumb"><img src="/demos/academia/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia do site da FORJA Academia: título “Treino forte. Começo leve.” sobre a foto de uma mulher pronta para levantar a barra."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Site</span><span class="tag">Interativo</span></span>
+            <b>FORJA Academia</b>
+            <span class="demo-desc">Grade de horários, planos, teste de treino ideal e aula grátis pelo WhatsApp.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/clinica/" target="_blank" rel="noopener" style="--d:120ms">
+          <span class="demo-thumb"><img src="/demos/clinica/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia da landing page da Clínica Lumar: título “Consultas e exames, no mesmo andar.” com os próximos horários livres, ao lado da foto de um médico atendendo."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Landing page</span><span class="tag">Agendamento</span></span>
+            <b>Clínica Lumar</b>
+            <span class="demo-desc">Próximos horários livres, especialidades com médico e valor, exames na clínica e agendamento pelo WhatsApp.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/psicologa/" target="_blank" rel="noopener">
+          <span class="demo-thumb"><img src="/demos/psicologa/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia da landing page de Marina Coutinho, psicóloga: nome em letras itálicas ao lado de um retrato em arco."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Landing page</span><span class="tag">Profissional autônomo</span></span>
+            <b>Marina Coutinho, psicóloga</b>
+            <span class="demo-desc">Modelo para quem atende por conta própria: temas, presencial ou online e primeira conversa pelo WhatsApp.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/advocacia/" target="_blank" rel="noopener" style="--d:60ms">
+          <span class="demo-thumb"><img src="/demos/advocacia/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia do site do escritório Prates &amp; Arruda: capa escura com o título “Direito empresarial, trabalhista e de família, explicado com clareza.” e o selo P&amp;A."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Site</span><span class="tag">Português e inglês</span></span>
+            <b>Prates &amp; Arruda Advogados</b>
+            <span class="demo-desc">Por onde começar por situação, áreas com etapas e prazos da lei, equipe com currículo, artigos e versão em inglês, dentro das regras da OAB.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/arquitetura/" target="_blank" rel="noopener" style="--d:120ms">
+          <span class="demo-thumb"><img src="/demos/arquitetura/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia da landing page da Taipa Arquitetura: título “Projetos que começam no traço e terminam em casa.” ao lado do desenho técnico de uma casa."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Landing page</span><span class="tag">Animações</span></span>
+            <b>Taipa Arquitetura</b>
+            <span class="demo-desc">A casa se constrói no scroll, a planta se desenha e a sala se mobília. Galeria e antes e depois de reforma.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/cafeteria/" target="_blank" rel="noopener">
+          <span class="demo-thumb"><img src="/demos/cafeteria/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia do site da cafeteria Coadouro: título “Café coado no pano, sem pressa.” ao lado da foto de leite sendo despejado numa xícara."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Landing page</span><span class="tag">Animações</span></span>
+            <b>Coadouro Cafés</b>
+            <span class="demo-desc">O café escorre no copo enquanto você rola, a palavra fica atrás do moedor, as seções sobem uma sobre a outra e o pedido sai pelo WhatsApp.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <a class="demo-card rv" href="/demos/imobiliaria/" target="_blank" rel="noopener" style="--d:60ms">
+          <span class="demo-thumb"><img src="/demos/imobiliaria/assets/og.jpg" width="1200" height="630" loading="lazy" decoding="async" alt="Prévia do site do lançamento Barlavento Camburi: título “2 e 3 quartos a 300 metros da praia.” ao lado da ilustração de uma torre ao entardecer."></span>
+          <span class="demo-info">
+            <span class="demo-tags"><span class="tag">Lançamento</span><span class="tag">Animações</span></span>
+            <b>Barlavento Camburi</b>
+            <span class="demo-desc">A rolagem entra no prédio até a sala do apartamento, a planta se desenha com as medidas, você escolhe o andar e agenda a visita.</span>
+            <span class="demo-ver">Abrir demonstração <svg class="icon trail"><use href="#i-arrow"/></svg></span>
+          </span>
+        </a>
+        <div class="demo-outro rv">
+          <b>Seu ramo não está aqui?</b>
+          <p>Restaurante, loja, escola, pet shop, indústria… Cada site é feito para o público do seu negócio.</p>
+          <a class="btn btn-volt" href="#contato">Pedir orçamento <svg class="icon trail"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+

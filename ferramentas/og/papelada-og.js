@@ -1,0 +1,13 @@
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://localhost:8792';
+const SAIDA = require('path').join(__dirname, '..', '.saida') + '/'; require('fs').mkdirSync(SAIDA, { recursive: true });
+(async () => { const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 2 });
+ await p.goto(BASE + '/demos/automacoes/escritorio-sem-papelada/', { waitUntil: 'networkidle' });
+ await p.click('#pa-exemplo'); await p.click('#pa-enviar'); await p.waitForSelector('#pa-aprovar:not([disabled])', { state: 'visible' });
+ await p.click('#pa-aprovar'); await p.waitForSelector('#conv-cli .bt.destaque'); await p.click('#conv-cli .bt.destaque');
+ await p.check('#pa-li'); await p.click('#pa-assinar'); await p.waitForSelector('.etapas li[data-e="5"].espera', { timeout: 20000 });
+ await p.waitForTimeout(800);
+ const r = await p.$eval('#sim', e => { const b = e.getBoundingClientRect(); return { x: b.x, y: b.y + scrollY }; });
+ await p.evaluate(y => { document.documentElement.style.scrollBehavior = 'auto'; scrollTo(0, y - 24); }, r.y); await p.waitForTimeout(400);
+ await p.screenshot({ path: SAIDA + 'papelada-og-raw.png', clip: { x: r.x - 24, y: 0, width: 1248, height: 655 } });
+ await b.close(); })();
