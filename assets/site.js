@@ -404,6 +404,7 @@
     { t: 'Início', i: 'i-globe', u: '/' },
     { t: 'Sites e landing pages', i: 'i-layout', u: '/sites/' },
     { t: 'Demonstrações de sites', i: 'i-layout', u: '/sites/#demos' },
+    { t: 'Experiências imersivas', i: 'i-play', u: '/sites/#imersivas' },
     { t: 'Automações', i: 'i-zap', u: '/automacoes/' },
     { t: 'Demonstrações de automação', i: 'i-zap', u: '/automacoes/#demos' },
     { t: 'Calculadora de economia', i: 'i-calc', u: '/automacoes/#calculadora' },
@@ -448,6 +449,26 @@
     else if (e.key === 'Enter') { e.preventDefault(); exec(sel); }
     else if (e.key === 'Tab') { e.preventDefault(); q.focus(); }
   });
+
+  /* abas das demonstrações (/sites/): sites e landing pages | experiências imersivas */
+  var dAbas = $$('.demo-abas [role=tab]');
+  if (dAbas.length) (function () {
+    function mostra(b, foco, rola) {
+      dAbas.forEach(function (x) { var s = x === b; x.setAttribute('aria-selected', String(s)); x.tabIndex = s ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !s; });
+      if (foco) b.focus();
+      if (rola) document.getElementById('demos').scrollIntoView();
+    }
+    dAbas.forEach(function (b, i) {
+      b.addEventListener('click', function () { mostra(b); });
+      b.addEventListener('keydown', function (e) {
+        var k = e.key, n = k === 'ArrowRight' ? i + 1 : k === 'ArrowLeft' ? i - 1 : k === 'Home' ? 0 : k === 'End' ? dAbas.length - 1 : null;
+        if (n === null) return; e.preventDefault(); mostra(dAbas[(n + dAbas.length) % dAbas.length], true);
+      });
+    });
+    function peloEndereco(rola) { var aba = location.hash === '#imersivas' ? $('#ab-imersivas') : null; mostra(aba || dAbas[0], false, rola && !!aba); }
+    peloEndereco(true);
+    addEventListener('hashchange', function () { if (location.hash === '#imersivas') peloEndereco(true); });
+  })();
 
   onScroll();
 })();
