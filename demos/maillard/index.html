@@ -17,9 +17,40 @@
     <link rel="modulepreload" crossorigin href="./assets/Logo-ZjuAD5gl.js">
     <link rel="stylesheet" crossorigin href="./assets/Logo-D4-UjwrP.css">
     <link rel="stylesheet" crossorigin href="./assets/main-CyZHkno0.css">
+    <style>
+      /* faixa da EstudioHK (igual às outras demos) */
+      .demo-bar { position: relative; z-index: 101; background: #0B1222; color: #EEF1F8; font: 500 13px/18px Manrope, system-ui, sans-serif; }
+      .demo-bar .hk-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; padding: 8px max(16px, 4vw); }
+      .demo-bar .marca b { font-weight: 700; }
+      .demo-bar .marca i { display: inline-block; width: 6px; height: 6px; border-radius: 9px; background: #C6F24E; margin: 0 8px 1px 2px; }
+      .demo-bar nav { display: flex; align-items: center; gap: 14px; }
+      .demo-bar a { color: #A3ADC2; text-decoration: none; }
+      .demo-bar a:hover { color: #EEF1F8; }
+      .demo-bar a.quero { background: #C6F24E; color: #0B1222; border-radius: 99px; padding: 6px 12px; font-weight: 700; white-space: nowrap; }
+      .demo-bar a:focus-visible { outline: 2px solid #C6F24E; outline-offset: 2px; }
+      @media (max-width: 560px) { .demo-bar .texto-longo, .demo-bar .outras { display: none; } }
+      /* o menu fixo da Maillard desce enquanto a faixa está à vista */
+      .nav { top: var(--hk-top, 0px) !important; }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#cardapio">Pular para o cardápio</a>
+    <div class="demo-bar" role="region" aria-label="Aviso de demonstração">
+      <div class="hk-wrap">
+        <span><span class="marca">Estudio<b>HK</b><i aria-hidden="true"></i></span><span class="texto-longo">Demonstração: </span>negócio fictício criado pela EstudioHK.</span>
+        <nav aria-label="EstudioHK">
+          <a class="outras" href="https://estudiohk.com.br/sites/#imersivas">Ver outras demos</a>
+          <a class="quero" href="https://wa.me/5527996950409?text=Ol%C3%A1!%20Vi%20a%20demo%20da%20hamburgueria%20(Maillard)%20e%20quero%20um%20site%20assim." target="_blank" rel="noopener">Quero um site assim →</a>
+        </nav>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var bar = document.querySelector('.demo-bar'), raiz = document.documentElement, ult = -1;
+        function ajusta() { var t = Math.max(0, Math.round(bar.offsetHeight - window.scrollY)); if (t !== ult) { ult = t; raiz.style.setProperty('--hk-top', t + 'px'); } }
+        ajusta(); addEventListener('scroll', ajusta, { passive: true }); addEventListener('resize', ajusta);
+      })();
+    </script>
     <div id="root"></div>
     <noscript>
       <p style="padding:24px;color:#f1e7d6;background:#0b0907;font-family:sans-serif">Ative o JavaScript para a experiência completa da Maillard.</p>
