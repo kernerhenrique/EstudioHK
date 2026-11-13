@@ -16,13 +16,16 @@ const ok = (c, m) => { console.log((c ? 'ok    ' : 'FALHA ') + m); if (!c) falha
   ok(await p.locator('#pn-sites .demo-card').count() === 8, '8 demos na aba de sites');
   await p.click('#ab-imersivas');
   ok(await p.isVisible('#imersivas') && await p.isHidden('#pn-sites'), 'clique abre "Experiências imersivas"');
-  ok((await p.getAttribute('#imersivas .demo-card', 'href')) === '/demos/maillard/', 'cartão aponta para a Maillard');
+  const imersivas = await p.$$eval('#imersivas .demo-card', as => as.map(a => a.getAttribute('href')));
+  ok(imersivas.join() === '/demos/maillard/,/demos/eridan/', 'cartões imersivos: Maillard e Eridan (' + imersivas.join() + ')');
   await p.waitForTimeout(800);
   await p.locator('#imersivas').screenshot({ path: SAIDA + 'abas-imersivas.png' });
   await p.focus('#ab-imersivas'); await p.keyboard.press('ArrowLeft');
   ok(await p.evaluate(() => document.activeElement.id === 'ab-sites') && await p.isVisible('#pn-sites'), 'seta para a esquerda volta para sites');
   const r = await p.request.get(BASE + '/demos/maillard/'); const html = await r.text();
   ok(r.status() === 200 && html.includes('noindex') && html.includes('https://estudiohk.com.br/demos/maillard/media/images/hero-burger-1600.webp'), 'demo responde, com noindex e og:image completo');
+  const r2 = await p.request.get(BASE + '/demos/eridan/'); const h2 = await r2.text();
+  ok(r2.status() === 200 && h2.includes('noindex') && h2.includes('https://estudiohk.com.br/demos/eridan/assets-estudiohk/og.jpg') && h2.includes('demo-bar'), 'Eridan responde, com noindex, og:image completo e faixa');
   // endereço direto
   const p2 = await b.newPage({ viewport: { width: 1366, height: 900 } });
   await p2.goto(BASE + '/sites/#imersivas', { waitUntil: 'networkidle' });
