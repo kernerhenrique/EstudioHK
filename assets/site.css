@@ -869,3 +869,33 @@ kbd { font-family: var(--font-mono); font-size: 11px; padding: 2px 6px; border-r
 .func-segs b { font-size: 15px; color: var(--on-noite-muted); font-weight: 500; }
 .func-segs .tag { background: var(--noite-3); color: var(--steel-ink); }
 @media (prefers-reduced-motion: reduce) { .sis-mosaico, .mo-card.brilha { animation: none; } }
+
+/* ---------- abas das demonstrações (/sites/) ---------- */
+.demo-abas { display: none; }
+.js .demo-abas { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 36px; padding: 6px; border-radius: var(--r-lg); background: var(--noite-2); border: 1px solid var(--noite-line); max-width: 760px; }
+.demo-abas button { display: grid; gap: 2px; text-align: left; padding: 12px 16px; border: 0; border-radius: var(--r-md); background: transparent; color: var(--on-noite-muted); cursor: pointer; transition: background .2s, color .2s; }
+.demo-abas button b { font-size: 16px; line-height: 22px; font-weight: 600; color: var(--on-noite); }
+.demo-abas button small { font-size: 13px; line-height: 18px; }
+.demo-abas button:hover { background: var(--noite-3); }
+.demo-abas button[aria-selected=true] { background: var(--volt); color: var(--on-volt); }
+.demo-abas button[aria-selected=true] b { color: var(--on-volt); }
+@media (max-width: 520px) { .demo-abas button small { display: none; } }
+.demo-painel:focus { outline: none; }
+.demo-painel .demo-grid { margin-top: 28px; }
+html:not(.js) #imersivas { margin-top: 48px; }
+.imersivas-intro { display: grid; gap: 8px; max-width: 64ch; margin-top: 32px; }
+.imersivas-intro h3 { font-size: 26px; line-height: 32px; color: var(--on-noite); }
+.imersivas-intro p { color: var(--on-noite-muted); font-size: 17px; line-height: 27px; }
+@media (min-width: 1100px) { .imersivas-grid { grid-template-columns: 1.15fr .85fr; } }
+.demo-card.imersiva { background: #0b0907; color: #f1e7d6; border: 1px solid #2b241d; }
+.demo-card.imersiva .demo-desc { color: #c9bba4; }
+.demo-card.imersiva .tag { background: #2b241d; color: #f0b44c; }
+.demo-card.imersiva .demo-ver { color: #f0b44c; }
+.demo-card.imersiva:focus-visible { outline-color: #f0b44c; }
+.imersivas-sobre { display: flex; flex-direction: column; gap: 18px; padding: 28px; border-radius: var(--r-xl); background: var(--noite-2); border: 1px solid var(--noite-line); }
+.imersivas-sobre > b { font-size: 22px; line-height: 28px; letter-spacing: -.015em; color: var(--on-noite); }
+.imersivas-sobre ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.imersivas-sobre li { display: flex; gap: 12px; align-items: flex-start; color: var(--on-noite-muted); font-size: 15px; line-height: 23px; }
+.imersivas-sobre li strong { color: var(--on-noite); font-weight: 600; }
+.imersivas-sobre li .icon { width: 18px; height: 18px; flex: none; margin-top: 3px; color: var(--volt); }
+.imersivas-sobre .btn { align-self: flex-start; margin-top: auto; }
