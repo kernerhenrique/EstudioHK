@@ -886,12 +886,18 @@ html:not(.js) #imersivas { margin-top: 48px; }
 .imersivas-intro { display: grid; gap: 8px; max-width: 64ch; margin-top: 32px; }
 .imersivas-intro h3 { font-size: 26px; line-height: 32px; color: var(--on-noite); }
 .imersivas-intro p { color: var(--on-noite-muted); font-size: 17px; line-height: 27px; }
-@media (min-width: 1100px) { .imersivas-grid { grid-template-columns: 1.15fr .85fr; } }
+@media (min-width: 760px) { .imersivas-grid { grid-template-columns: 1fr 1fr; } .imersivas-sobre { grid-column: 1 / -1; } }
+@media (min-width: 1100px) { .imersivas-sobre ul { grid-template-columns: 1fr 1fr; column-gap: 28px; } }
 .demo-card.imersiva { background: #0b0907; color: #f1e7d6; border: 1px solid #2b241d; }
 .demo-card.imersiva .demo-desc { color: #c9bba4; }
 .demo-card.imersiva .tag { background: #2b241d; color: #f0b44c; }
 .demo-card.imersiva .demo-ver { color: #f0b44c; }
 .demo-card.imersiva:focus-visible { outline-color: #f0b44c; }
+.demo-card.imersiva.eridan { background: #0a0b0d; color: #eef0f3; border-color: #23262b; }
+.demo-card.imersiva.eridan .demo-desc { color: #aab0b9; }
+.demo-card.imersiva.eridan .tag { background: #1c1f24; color: #e39a6c; }
+.demo-card.imersiva.eridan .demo-ver { color: #e39a6c; }
+.demo-card.imersiva.eridan:focus-visible { outline-color: #e39a6c; }
 .imersivas-sobre { display: flex; flex-direction: column; gap: 18px; padding: 28px; border-radius: var(--r-xl); background: var(--noite-2); border: 1px solid var(--noite-line); }
 .imersivas-sobre > b { font-size: 22px; line-height: 28px; letter-spacing: -.015em; color: var(--on-noite); }
 .imersivas-sobre ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
