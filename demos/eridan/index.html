@@ -35,9 +35,11 @@
       /* ===== Ajustes da EstudioHK sobre o build (abertura, "Estudo de forma", seção da marca e mapa) ===== */
 
       /* 1. Abertura: foto nítida com zoom lento; o carro fica abaixo do menu */
-      .hero__video.hk-hero { object-position: 50% 30%; transform-origin: 50% 60%; animation: hk-zoom 22s ease-in-out infinite alternate; }
-      @keyframes hk-zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
-      @media (prefers-reduced-motion: reduce) { .hero__video.hk-hero { animation: none; } }
+      .hero__video.hk-hero { object-position: 50% 30%; transform-origin: 50% 30%; animation: hk-zoom 9s ease-in-out infinite alternate; translate: 0 var(--hk-par, 0px); }
+      @keyframes hk-zoom { from { scale: 1; } to { scale: 1.14; } }
+      /* parallax: no computador a foto tem uma sobra em cima para descer sem abrir buraco */
+      @media (min-aspect-ratio: 501/400) { .hero__video.hk-hero { top: -14%; height: 114%; } }
+      @media (prefers-reduced-motion: reduce) { .hero__video.hk-hero { animation: none; translate: none; } }
 
       /* 2. "Estudo de forma": em telas baixas o conteúdo preso cabe na tela */
       @media (min-width: 1000px) and (min-aspect-ratio: 501/400) and (max-height: 820px) {
@@ -70,7 +72,8 @@
         .br__principle { grid-template-columns: minmax(120px, .32fr) 1fr; column-gap: 24px; row-gap: 6px; padding-block: 20px; }
         .br__principle .tag { grid-row: 1 / span 2; align-self: start; padding-top: 6px; }
         .br > div.wrap:not(.br__top) { grid-column: 1 / -1; grid-row: 3; }
-        .br__chart { max-height: 58vh; }
+        .br__sky { grid-template-rows: auto minmax(0, 1fr) auto; min-height: min(78vh, 760px); }
+        .br__chart { width: 100%; height: 100%; max-height: none; min-height: 0; contain: size; }
       }
 
       /* 3b. Mapa da constelação: céu noturno, grade celeste, rio com brilho e fluxo de luz */
@@ -151,10 +154,70 @@
       <p style="padding:24px;color:#0d0f12;background:#eceef1;font-family:sans-serif">Ative o JavaScript para a experiência completa da Eridan.</p>
     </noscript>
     <script>
-      /* Mapa da constelação: acrescenta céu, grade celeste, brilho e o fluxo do rio (o React desenha o mapa uma vez só) */
+      /* Parallax suave da abertura: a foto desce mais devagar que a página */
       (function () {
-        var NS = 'http://www.w3.org/2000/svg';
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        var frame = null, foto = null, pendente = false, retrato = window.matchMedia('(max-aspect-ratio: 5/4)');
+        function atualiza() {
+          pendente = false;
+          if (!foto || !foto.isConnected) { frame = document.querySelector('.hero__frame'); foto = document.querySelector('.hk-hero'); }
+          if (!frame || !foto) return;
+          var h = frame.offsetHeight; if (window.scrollY > h * 1.5 && foto.__hkFim) return;
+          var p = Math.max(0, Math.min(1, window.scrollY / h));
+          foto.__hkFim = p >= 1;
+          foto.style.setProperty('--hk-par', (p * (retrato.matches ? 0.08 : 0.14) * h).toFixed(1) + 'px');
+        }
+        function pede() { if (!pendente) { pendente = true; requestAnimationFrame(atualiza); } }
+        addEventListener('scroll', pede, { passive: true }); addEventListener('resize', pede);
+      })();
+    </script>
+    <script>
+      /* Mapa da constelação: céu, grade celeste, brilho e fluxo do rio. No computador o desenho
+         ocupa o cartão inteiro: o viewBox acompanha a área e o céu se estende em volta da constelação. */
+      (function () {
+        var NS = 'http://www.w3.org/2000/svg', W0 = 520, H0 = 600;
+        var largo = window.matchMedia('(min-width: 901px)');
         function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+        function ceu(svg, vx, vy, vw, vh) {
+          var velho = svg.querySelector('.hk-bg'); if (velho) velho.remove();
+          velho = svg.querySelector('.hk-grat'); if (velho) velho.remove();
+          var bg = el('g', { 'class': 'hk-bg', 'aria-hidden': 'true' }), sem = 7;
+          function rnd() { sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
+          var n = Math.round(130 * (vw * vh) / (W0 * H0));
+          for (var i = 0; i < n; i++) {
+            var c = el('circle', { cx: (vx + rnd() * vw).toFixed(1), cy: (vy + rnd() * vh).toFixed(1), r: (0.5 + rnd() * rnd() * 1.4).toFixed(2), opacity: (0.15 + rnd() * 0.45).toFixed(2) });
+            if (i % 4 === 0) { c.setAttribute('class', 'tw'); c.style.setProperty('--d', (-rnd() * 4).toFixed(2) + 's'); }
+            bg.appendChild(c);
+          }
+          // grade celeste real (ascensão reta em horas, declinação em graus), na escala do mapa: x = 24 + (5,25 − AR)·126; y = 26 + (−dec − 3)·10
+          var gr = el('g', { 'class': 'hk-grat', 'aria-hidden': 'true' });
+          for (var ra = 0; ra <= 12; ra++) {
+            var x = 24 + (5.25 - ra) * 126; if (x < vx + 4 || x > vx + vw - 4) continue;
+            gr.appendChild(el('line', { x1: x, x2: x, y1: vy, y2: vy + vh }));
+            var t = el('text', { x: x + 6, y: vy + 16 }); t.textContent = ra + 'h'; gr.appendChild(t);
+          }
+          for (var d = 0; d >= -80; d -= 10) {
+            var y = 26 + (-d - 3) * 10; if (y < vy + 24 || y > vy + vh - 4) continue;
+            gr.appendChild(el('line', { x1: vx, x2: vx + vw, y1: y, y2: y }));
+            var u = el('text', { x: vx + 6, y: y - 6 }); u.textContent = d === 0 ? '0°' : '−' + (-d) + '°'; gr.appendChild(u);
+          }
+          var defs = svg.querySelector('defs');
+          svg.insertBefore(gr, defs.nextSibling); svg.insertBefore(bg, gr);
+        }
+        var ultimo = '';
+        function ajusta(svg) {
+          var vx = 0, vy = 0, vw = W0, vh = H0;
+          if (largo.matches) {
+            var r = svg.getBoundingClientRect();
+            if (r.width > 40 && r.height > 40) {
+              var A = r.width / r.height;
+              if (A > W0 / H0) { vw = H0 * A; vx = W0 / 2 - vw / 2; } else { vh = W0 / A; vy = H0 / 2 - vh / 2; }
+            }
+          }
+          var vb = [vx, vy, vw, vh].map(function (v) { return v.toFixed(1); }).join(' ');
+          if (vb === ultimo) return; ultimo = vb;
+          svg.setAttribute('viewBox', vb); ceu(svg, vx, vy, vw, vh);
+        }
         function enfeita(svg) {
           if (svg.getAttribute('data-hk')) return; svg.setAttribute('data-hk', '1');
           var defs = el('defs', {});
@@ -163,26 +226,18 @@
           var f = el('filter', { id: 'hk-glow', x: '-50%', y: '-50%', width: '200%', height: '200%' });
           f.appendChild(el('feGaussianBlur', { stdDeviation: '2.4', result: 'b' }));
           var m = el('feMerge', {}); m.appendChild(el('feMergeNode', { in: 'b' })); m.appendChild(el('feMergeNode', { in: 'SourceGraphic' })); f.appendChild(m);
-          defs.appendChild(g); defs.appendChild(f);
-          // céu de fundo (posições fixas, sempre iguais)
-          var bg = el('g', { 'class': 'hk-bg', 'aria-hidden': 'true' }), sem = 7;
-          function rnd() { sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
-          for (var i = 0; i < 130; i++) {
-            var c = el('circle', { cx: (rnd() * 520).toFixed(1), cy: (rnd() * 600).toFixed(1), r: (0.5 + rnd() * rnd() * 1.4).toFixed(2), opacity: (0.15 + rnd() * 0.45).toFixed(2) });
-            if (i % 4 === 0) { c.setAttribute('class', 'tw'); c.style.setProperty('--d', (-rnd() * 4).toFixed(2) + 's'); }
-            bg.appendChild(c);
-          }
-          // grade celeste real (ascensão reta em horas, declinação em graus), na mesma escala do mapa
-          var gr = el('g', { 'class': 'hk-grat', 'aria-hidden': 'true' });
-          [5, 4, 3, 2].forEach(function (ra) { var x = 24 + (5.25 - ra) * 126; gr.appendChild(el('line', { x1: x, x2: x, y1: 0, y2: 600 })); var t = el('text', { x: x + 6, y: 16 }); t.textContent = ra + 'h'; gr.appendChild(t); });
-          [-10, -20, -30, -40, -50].forEach(function (d) { var y = 26 + (-d - 3) * 10; gr.appendChild(el('line', { x1: 0, x2: 520, y1: y, y2: y })); var t = el('text', { x: 6, y: y - 6 }); t.textContent = '−' + (-d) + '°'; gr.appendChild(t); });
-          svg.insertBefore(gr, svg.firstChild); svg.insertBefore(bg, svg.firstChild); svg.insertBefore(defs, svg.firstChild);
+          defs.appendChild(g); defs.appendChild(f); svg.insertBefore(defs, svg.firstChild);
           // o fluxo: pontos de luz correndo pelo rio
           var rio = svg.querySelector('.cst__river');
           if (rio) { var fl = el('path', { 'class': 'hk-flow', d: rio.getAttribute('d'), pathLength: 1 }); rio.parentNode.insertBefore(fl, rio.nextSibling); }
           // Acamar: anel fixo além do anel que pulsa
           var halo = svg.querySelector('.cst__halo');
           if (halo) { var anel = el('circle', { 'class': 'hk-anel', cx: halo.getAttribute('cx'), cy: halo.getAttribute('cy'), r: 9 }); halo.parentNode.insertBefore(anel, halo); }
+          svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+          ajusta(svg);
+          if (window.ResizeObserver) new ResizeObserver(function () { ajusta(svg); }).observe(svg);
+          else addEventListener('resize', function () { ajusta(svg); });
+          if (largo.addEventListener) largo.addEventListener('change', function () { ajusta(svg); });
         }
         function procura() { var s = document.querySelector('.br__chart'); if (s) { enfeita(s); return true; } return false; }
         if (!procura()) {
